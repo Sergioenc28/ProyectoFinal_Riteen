@@ -1,0 +1,49 @@
+
+****************************************************
+Formato de los titulos de las ventanas
+
+TIMES NEW ROMAN
+36
+Plain
+
+****************************************************
+
+
+****************************************************
+Formato de los JLabel para variables
+
+TIMES NEW ROMAN
+18
+Plain
+
+****************************************************
+
+
+****************************************************
+Formato de los JTextField
+[5,20]
+
+TIMES NEW ROMAN
+13
+Plain
+****************************************************
+
+
+****************************************************
+Formato de los JButton
+
+TIMES NEW ROMAN
+14
+Plain
+****************************************************
+
+
+****************************************************
+Formato de los Combo Box
+
+TIMES NEW ROMAN
+14
+Plain
+****************************************************
+
+Si utilizan otro formato avisar antes o notificarlo lo mas pronto posible
