@@ -15,7 +15,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        //Llego Ripoll
+        //We are ready to work
         
     }
 }
