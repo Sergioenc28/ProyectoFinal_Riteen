@@ -4,16 +4,12 @@
  */
 package Riteen;
 
-/**
- *
- * @author Harim Tejada
- */
-public class WinEempleado extends javax.swing.JFrame {
+public class WinEmpleado extends javax.swing.JFrame {
 
     /**
      * Creates new form WinEempleado
      */
-    public WinEempleado() {
+    public WinEmpleado() {
         initComponents();
     }
 
@@ -36,8 +32,8 @@ public class WinEempleado extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        guardarEmpleado = new javax.swing.JButton();
+        cancelarEmpleado = new javax.swing.JButton();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
@@ -99,11 +95,11 @@ public class WinEempleado extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton1.setText("Guardar");
+        guardarEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        guardarEmpleado.setText("Guardar");
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton2.setText("Cancelar");
+        cancelarEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        cancelarEmpleado.setText("Cancelar");
 
         try {
             jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)-###-####")));
@@ -164,9 +160,9 @@ public class WinEempleado extends javax.swing.JFrame {
                                     .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(96, 96, 96)
-                                .addComponent(jButton1)
+                                .addComponent(guardarEmpleado)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2)))))
+                                .addComponent(cancelarEmpleado)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -196,8 +192,8 @@ public class WinEempleado extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(guardarEmpleado)
+                    .addComponent(cancelarEmpleado))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
@@ -237,26 +233,26 @@ public class WinEempleado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WinEempleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WinEempleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WinEempleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WinEempleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WinEempleado().setVisible(true);
+                new WinEmpleado().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cancelarEmpleado;
+    private javax.swing.JButton guardarEmpleado;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
