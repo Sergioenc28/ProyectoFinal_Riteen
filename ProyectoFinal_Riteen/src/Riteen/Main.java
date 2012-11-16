@@ -4,6 +4,8 @@
  */
 package Riteen;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Harim Tejada
@@ -17,6 +19,6 @@ public class Main {
         
         //We are ready to work
         
-        
+   Connection conn = null;
     }
 }

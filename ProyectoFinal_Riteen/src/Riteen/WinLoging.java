@@ -35,7 +35,7 @@ public class WinLoging extends javax.swing.JFrame {
         cancelarInicioDeSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("RITEEN - Iniciar Sesión");
+        setTitle("Riteen - Iniciar Sesión");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
