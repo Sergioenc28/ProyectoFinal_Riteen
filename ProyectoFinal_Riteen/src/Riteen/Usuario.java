@@ -59,9 +59,5 @@ public class Usuario {
 			}
 		}
 		return data;
-	}
-
-
-    
-    
+	}   
 }
