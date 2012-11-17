@@ -27,6 +27,7 @@ public class WinProducto extends javax.swing.JFrame {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        popupMenu1 = new java.awt.PopupMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -44,6 +45,8 @@ public class WinProducto extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         descripcionProductoTextArea = new javax.swing.JTextArea();
 
+        popupMenu1.setLabel("popupMenu1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen - Agregar Productos");
         setResizable(false);
@@ -51,6 +54,7 @@ public class WinProducto extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Productos");
+        jLabel1.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Nombre:");
@@ -258,6 +262,7 @@ public class WinProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private java.awt.PopupMenu popupMenu1;
     private javax.swing.JTextField precioVentaProductoText;
     private javax.swing.JTextField productoText;
     private javax.swing.JTextField proveedorText;

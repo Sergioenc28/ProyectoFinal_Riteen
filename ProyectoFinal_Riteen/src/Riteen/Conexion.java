@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  * @author Harim Tejada
  */
 public class Conexion {
+   
     public String bd = "riteen";
     public String login = "root";
     public String password = "cojinua";
@@ -34,8 +35,6 @@ public class Conexion {
         return instancia;
     }
     
-    
-    
     public void Conexion() {
     
         try
@@ -45,7 +44,9 @@ public class Conexion {
         enunciado = conn.createStatement();
          
         if (conn != null) {
-            JOptionPane.showMessageDialog(null, "Conectado a la Base de Dados Riteen");
+          
+            JOptionPane.showMessageDialog(null, "Conectado a la Base de Datos", "Riteen", 1);
+         
             }
         }
         catch(SQLException ex){
@@ -61,15 +62,6 @@ public class Conexion {
         return conn;
     }
     
-     public ResultSet hacerConsulta(String consulta){
-        ResultSet resultado = null;
-                try{
-                    resultado = enunciado.executeQuery(consulta);
-                }
-                catch(SQLException e){
-                    e.printStackTrace();
-                }
-        return resultado;
-    }
+    
 
 }
