@@ -20,10 +20,10 @@ public class Main {
         
         //We are ready to work
         
-  WinLoging wl = new WinLoging();
-Conexion conn = Conexion.getInstancia();
-conn.Conexion();
-       
+    //WinLoging wl = new WinLoging();
+    Conexion conn = Conexion.getInstancia();
+    conn.Conexion();
+       WinCliente wl = new WinCliente();
        wl.setVisible(true);
     }
 }

@@ -4,6 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Harim Tejada
@@ -37,8 +44,11 @@ public class WinCliente extends javax.swing.JFrame {
         telefonoClienteText = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Riteen - Registro de Clientes");
 
+        jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Crear Cliente");
         jLabel1.setToolTipText("");
@@ -57,6 +67,12 @@ public class WinCliente extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Dirección:");
+
+        direccionClienteText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                direccionClienteTextActionPerformed(evt);
+            }
+        });
 
         guardarCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarCliente.setText("Guardar");
@@ -141,8 +157,33 @@ public class WinCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private PreparedStatement add;
+
     private void guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarClienteActionPerformed
-        // TODO add your handling code here:
+      
+        try {
+           
+            int id = 15978;
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (idCliente, Nombre, Telefono, Direccion) VALUES (?, ?, ?, ?)");
+            add.setInt(1, id);
+            add.setString(2, clienteText.getText());
+            add.setString(3, telefonoClienteText.getText());
+            add.setString(4, direccionClienteText.getText());
+            int exitoso = add.executeUpdate();
+            
+            if (exitoso > 0){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            }
+        } 
+         
+        catch (SQLException ex) {
+            
+        }
+              
+       clienteText.setText("");
+       telefonoClienteText.setText("");
+       direccionClienteText.setText("");
+        
     }//GEN-LAST:event_guardarClienteActionPerformed
 
     private void cancelarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarClienteActionPerformed
@@ -156,6 +197,10 @@ public class WinCliente extends javax.swing.JFrame {
     private void telefonoClienteTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoClienteTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_telefonoClienteTextActionPerformed
+
+    private void direccionClienteTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionClienteTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_direccionClienteTextActionPerformed
 
     /**
      * @param args the command line arguments
