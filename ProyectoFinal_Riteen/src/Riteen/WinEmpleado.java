@@ -4,6 +4,10 @@
  */
 package Riteen;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 public class WinEmpleado extends javax.swing.JFrame {
 
     /**
@@ -31,15 +35,14 @@ public class WinEmpleado extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        jComboBoxHorarioEmpleado = new javax.swing.JComboBox();
         guardarEmpleado = new javax.swing.JButton();
         cancelarEmpleado = new javax.swing.JButton();
         telefonoEmpleadoText = new javax.swing.JFormattedTextField();
         cedulaEmpleadoText = new javax.swing.JFormattedTextField();
         sueldoEmpleadoText = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Reteen - Crear Empleado");
+        setTitle("Reteen - Registro de Empleados");
         setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -82,21 +85,26 @@ public class WinEmpleado extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Horario:");
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Matutina", "Vespertina", "Dia Completo" }));
-        jComboBox1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jComboBoxHorarioEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jComboBoxHorarioEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Matutina", "Vespertina", "Dia Completo" }));
+        jComboBoxHorarioEmpleado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseMoved(evt);
+                jComboBoxHorarioEmpleadoMouseMoved(evt);
             }
         });
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxHorarioEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBoxHorarioEmpleadoActionPerformed(evt);
             }
         });
 
         guardarEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarEmpleado.setText("Guardar");
+        guardarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarEmpleadoActionPerformed(evt);
+            }
+        });
 
         cancelarEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarEmpleado.setText("Cancelar");
@@ -156,7 +164,7 @@ public class WinEmpleado extends javax.swing.JFrame {
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(jLabel7)
                                                 .addGap(120, 120, 120))
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jComboBoxHorarioEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(direccionEmpleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(96, 96, 96)
@@ -184,7 +192,7 @@ public class WinEmpleado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxHorarioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sueldoEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -208,13 +216,45 @@ public class WinEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_empleadoTextActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jComboBoxHorarioEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHorarioEmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jComboBoxHorarioEmpleadoActionPerformed
 
-    private void jComboBox1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseMoved
+    private void jComboBoxHorarioEmpleadoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxHorarioEmpleadoMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1MouseMoved
+    }//GEN-LAST:event_jComboBoxHorarioEmpleadoMouseMoved
+
+    private PreparedStatement add;
+    private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
+     try {
+           
+            int id = 1597118;
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (idEmpleado, Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            add.setInt(1, id);
+            add.setString(2, empleadoText.getText());
+            add.setString(3, telefonoEmpleadoText.getText());
+            add.setString(4, direccionEmpleadoText.getText());
+            add.setString(5, cedulaEmpleadoText.getText());
+            add.setString(6, sueldoEmpleadoText.getText());
+            add.setString(7, jComboBoxHorarioEmpleado.getName());
+            
+            int exitoso = add.executeUpdate();
+            
+            if (exitoso > 0){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            }
+        } 
+         
+        catch (SQLException ex) {
+            
+        }
+              
+       empleadoText.setText("");
+       direccionEmpleadoText.setText("");
+       cedulaEmpleadoText.setText("");
+       telefonoEmpleadoText.setText("");
+       sueldoEmpleadoText.setText("");
+    }//GEN-LAST:event_guardarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,7 +296,7 @@ public class WinEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField direccionEmpleadoText;
     private javax.swing.JTextField empleadoText;
     private javax.swing.JButton guardarEmpleado;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBoxHorarioEmpleado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
