@@ -58,6 +58,7 @@ public class WinCliente extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Nombre:");
 
+        clienteText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         clienteText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteTextActionPerformed(evt);
@@ -70,6 +71,7 @@ public class WinCliente extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Dirección:");
 
+        direccionClienteText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         direccionClienteText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 direccionClienteTextActionPerformed(evt);
@@ -178,7 +180,7 @@ public class WinCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarCliente)
                     .addComponent(cancelarCliente))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();

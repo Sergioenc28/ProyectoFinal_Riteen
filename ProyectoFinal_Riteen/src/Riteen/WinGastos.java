@@ -47,6 +47,7 @@ public class WinGastos extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Gastos");
 
@@ -62,12 +63,14 @@ public class WinGastos extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Descripción:");
 
+        conceptoGastoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         conceptoGastoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conceptoGastoTextActionPerformed(evt);
             }
         });
 
+        totalGastotext.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         totalGastotext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalGastotextActionPerformed(evt);
@@ -75,6 +78,7 @@ public class WinGastos extends javax.swing.JFrame {
         });
 
         descripcionGastoText.setColumns(20);
+        descripcionGastoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         descripcionGastoText.setRows(5);
         jScrollPane1.setViewportView(descripcionGastoText);
 
@@ -91,6 +95,7 @@ public class WinGastos extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Responsable:");
 
+        responsableGastosText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         responsableGastosText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 responsableGastosTextActionPerformed(evt);
@@ -163,15 +168,14 @@ public class WinGastos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(5, 5, 5)
-                        .addComponent(jLabel6)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(registrarGasto)
-                            .addComponent(cancelarGasto))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cancelarGasto))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

@@ -35,6 +35,7 @@ public class WinPedido extends javax.swing.JFrame {
         proveedorPedidoText = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pedido");
         jLabel1.setToolTipText("");
@@ -45,16 +46,20 @@ public class WinPedido extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Proveedor:");
 
+        agregarPedido.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         agregarPedido.setText("Agregar");
 
+        cancelarPedido.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarPedido.setText("Cancelar");
 
+        productoPedidoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         productoPedidoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productoPedidoTextActionPerformed(evt);
             }
         });
 
+        proveedorPedidoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         proveedorPedidoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedorPedidoTextActionPerformed(evt);
@@ -100,7 +105,7 @@ public class WinPedido extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarPedido)
                     .addComponent(cancelarPedido))
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         pack();

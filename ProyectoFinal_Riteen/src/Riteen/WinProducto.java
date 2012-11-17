@@ -56,6 +56,7 @@ public class WinProducto extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Productos");
         jLabel1.setToolTipText("");
@@ -84,24 +85,28 @@ public class WinProducto extends javax.swing.JFrame {
         cancelarProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProducto.setText("Cancelar");
 
+        productoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         productoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productoTextActionPerformed(evt);
             }
         });
 
+        costoProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         costoProductoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 costoProductoTextActionPerformed(evt);
             }
         });
 
+        precioVentaProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         precioVentaProductoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 precioVentaProductoTextActionPerformed(evt);
             }
         });
 
+        exitenciaProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         exitenciaProductoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitenciaProductoTextActionPerformed(evt);
@@ -109,9 +114,11 @@ public class WinProducto extends javax.swing.JFrame {
         });
 
         descripcionProductoTextArea.setColumns(20);
+        descripcionProductoTextArea.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         descripcionProductoTextArea.setRows(5);
         jScrollPane1.setViewportView(descripcionProductoTextArea);
 
+        exitenciaProductoText1.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         exitenciaProductoText1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitenciaProductoText1ActionPerformed(evt);
@@ -121,7 +128,10 @@ public class WinProducto extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Existencia en Almacén:");
 
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+
         costoProductoText1.setEditable(false);
+        costoProductoText1.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         costoProductoText1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 costoProductoText1ActionPerformed(evt);
@@ -181,7 +191,7 @@ public class WinProducto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(guardarProducto)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cancelarProducto)
                 .addGap(190, 190, 190))
         );
@@ -214,12 +224,12 @@ public class WinProducto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarProducto)
-                    .addComponent(cancelarProducto))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(cancelarProducto)
+                    .addComponent(guardarProducto))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();

@@ -96,7 +96,7 @@
                   <Component id="guardarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cancelarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,6 +127,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="clienteText">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="13" style="0"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clienteTextActionPerformed"/>
       </Events>
@@ -148,6 +153,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="direccionClienteText">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="13" style="0"/>
+        </Property>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="direccionClienteTextActionPerformed"/>
       </Events>
