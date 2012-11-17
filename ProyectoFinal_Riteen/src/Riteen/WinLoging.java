@@ -68,6 +68,7 @@ public class WinLoging extends javax.swing.JFrame {
             }
         });
 
+        entrar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         entrar.setText("Entrar");
         entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +76,7 @@ public class WinLoging extends javax.swing.JFrame {
             }
         });
 
+        cancelarInicioDeSesion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarInicioDeSesion.setText("Cancelar");
         cancelarInicioDeSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +126,7 @@ public class WinLoging extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entrar)
                     .addComponent(cancelarInicioDeSesion))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
