@@ -4,6 +4,10 @@
  */
 package Riteen;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sergio and Clary
@@ -133,9 +137,33 @@ public class WinLoging extends javax.swing.JFrame {
     private void passwordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordTextActionPerformed
-
+//ResultSet usuario;
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        // TODO add your handling code here:
+                         Usuario user = new Usuario();
+					
+					
+					String usuario;
+					String clave;
+					
+					usuario = usuarioText.getText();
+					clave = passwordText.getText();
+					
+					try {
+						Object[][] itemUsuario = user.UsuarioAcceder(usuario, clave);
+						String x_iduser = itemUsuario[0][0].toString();
+						String x_user = itemUsuario[0][1].toString();
+						String x_pass = itemUsuario[0][2].toString(); 
+						if ((!"".equals(x_user)) && (!"".equals(x_pass)))
+						{
+					JOptionPane.showMessageDialog(passwordText, "Bienvenido");
+							
+							
+						}
+					}
+					catch(Exception e){
+						JOptionPane.showMessageDialog(passwordText, e.getMessage());
+                                                System.out.println(e.getMessage());
+					}
     }//GEN-LAST:event_entrarActionPerformed
 
     private void cancelarInicioDeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInicioDeSesionActionPerformed

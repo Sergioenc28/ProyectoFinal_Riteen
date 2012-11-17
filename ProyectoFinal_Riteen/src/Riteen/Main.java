@@ -4,6 +4,7 @@
  */
 package Riteen;
 
+import java.awt.Color;
 import java.sql.Connection;
 
 /**
@@ -19,6 +20,10 @@ public class Main {
         
         //We are ready to work
         
-   Connection conn = null;
+  WinLoging wl = new WinLoging();
+Conexion conn = Conexion.getInstancia();
+conn.Conexion();
+       
+       wl.setVisible(true);
     }
 }
