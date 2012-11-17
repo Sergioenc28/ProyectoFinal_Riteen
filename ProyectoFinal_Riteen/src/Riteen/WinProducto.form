@@ -125,7 +125,7 @@
                   <Component id="guardarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cancelarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
