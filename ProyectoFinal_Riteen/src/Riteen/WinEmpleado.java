@@ -230,7 +230,7 @@ public class WinEmpleado extends javax.swing.JFrame {
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
      try {
            
-            int id = 1597118;
+            int id = 1118;
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (idEmpleado, Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?, ?)");
             add.setInt(1, id);
             add.setString(2, empleadoText.getText());
@@ -244,6 +244,10 @@ public class WinEmpleado extends javax.swing.JFrame {
             
             if (exitoso > 0){
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            }
+            if (exitoso == 0){
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
             }
         } 
          
