@@ -4,19 +4,14 @@
  */
 package Riteen;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Dioni Ripoll
  */
 public class WinProveedor extends javax.swing.JFrame {
-    private PreparedStatement add;
 
     /**
-     * Creates new form WinProveedor
+     * Creates new form WinProveedor2
      */
     public WinProveedor() {
         initComponents();
@@ -31,32 +26,20 @@ public class WinProveedor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        guardarEmpleado = new javax.swing.JButton();
-        cancelarEmpleado = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        telefonoProveedorText = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         proveedorText = new javax.swing.JTextField();
-        direccionProveedorText = new javax.swing.JTextField();
+        telefonoProveedorText = new javax.swing.JFormattedTextField();
         emailProveedorText = new javax.swing.JTextField();
+        direccionProveedorText = new javax.swing.JTextField();
         guardarProveedor = new javax.swing.JButton();
         cancelarProveedor = new javax.swing.JButton();
 
-        guardarEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarEmpleado.setText("Guardar");
-        guardarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarEmpleadoActionPerformed(evt);
-            }
-        });
-
-        cancelarEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarEmpleado.setText("Cancelar");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Riteen - Registro de Proveedores");
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -68,14 +51,14 @@ public class WinProveedor extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Nombre:");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setText("Dirección:");
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setText("Telefono:");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("e-Mail:");
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Telefono:");
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setText("Dirección:");
 
         try {
             telefonoProveedorText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)-###-####")));
@@ -85,11 +68,6 @@ public class WinProveedor extends javax.swing.JFrame {
 
         guardarProveedor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarProveedor.setText("Guardar");
-        guardarProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarProveedorActionPerformed(evt);
-            }
-        });
 
         cancelarProveedor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProveedor.setText("Cancelar");
@@ -98,42 +76,39 @@ public class WinProveedor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(telefonoProveedorText, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailProveedorText, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(proveedorText, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(proveedorText, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(telefonoProveedorText, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(emailProveedorText, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(direccionProveedorText)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(direccionProveedorText)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(guardarProveedor)
-                .addGap(18, 18, 18)
-                .addComponent(cancelarProveedor)
+                        .addGap(163, 163, 163)
+                        .addComponent(guardarProveedor)
+                        .addGap(29, 29, 29)
+                        .addComponent(cancelarProveedor)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(proveedorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -149,49 +124,11 @@ public class WinProveedor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarProveedor)
                     .addComponent(cancelarProveedor))
-                .addGap(10, 10, 10))
+                .addGap(9, 9, 9))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
-        
-    }//GEN-LAST:event_guardarEmpleadoActionPerformed
-
-    private void guardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProveedorActionPerformed
-        try {
-            
-            int id = 1003128;
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO proveedores (idProveedor, Nombre, Direccion, Telefono, Email) VALUES (?, ?, ?, ?, ?)");
-            add.setInt(1, 1190987);
-            add.setString(2, proveedorText.getText());
-            add.setString(3, direccionProveedorText.getText());
-            add.setString(4, telefonoProveedorText.getText());
-            add.setString(5, emailProveedorText.getText());                       
-
-            int exitoso = add.executeUpdate();
-
-            if (exitoso > 0){
-                JOptionPane.showMessageDialog(null, "Registro Exitoso");
-                proveedorText.setText("");
-                telefonoProveedorText = new javax.swing.JFormattedTextField();
-                direccionProveedorText = new javax.swing.JTextField();
-                emailProveedorText = new javax.swing.JTextField();
-                guardarProveedor = new javax.swing.JButton();
-                cancelarProveedor = new javax.swing.JButton();
-            }
-            else {
-
-                JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
-            }
-        }
-
-        catch (SQLException ex) {
-
-        }
-
-    }//GEN-LAST:event_guardarProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,11 +165,9 @@ public class WinProveedor extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelarEmpleado;
     private javax.swing.JButton cancelarProveedor;
     private javax.swing.JTextField direccionProveedorText;
     private javax.swing.JTextField emailProveedorText;
-    private javax.swing.JButton guardarEmpleado;
     private javax.swing.JButton guardarProveedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
