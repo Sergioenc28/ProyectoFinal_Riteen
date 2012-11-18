@@ -122,7 +122,7 @@ public class WinEmpleado extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        sueldoEmpleadoText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        sueldoEmpleadoText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,20 +230,26 @@ public class WinEmpleado extends javax.swing.JFrame {
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
      try {
            
-            int id = 18;
+            float sueldo= Float.parseFloat(sueldoEmpleadoText.getText());
+            int id = 1003128;
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (idEmpleado, Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            add.setInt(1, id);
+            add.setInt(1, 1190987);
             add.setString(2, empleadoText.getText());
             add.setString(3, telefonoEmpleadoText.getText());
             add.setString(4, direccionEmpleadoText.getText());
             add.setString(5, cedulaEmpleadoText.getText());
-            add.setString(6, sueldoEmpleadoText.getText());
-            add.setString(7, jComboBoxHorarioEmpleado.getName());
+            add.setFloat(6, sueldo);
+            add.setString(7, "matutin");
             
             int exitoso = add.executeUpdate();
             
             if (exitoso > 0){
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            empleadoText.setText("");
+            direccionEmpleadoText.setText("");
+            cedulaEmpleadoText.setText("");
+            telefonoEmpleadoText.setText("");
+            sueldoEmpleadoText.setText("");
             }
             else {
             
@@ -255,11 +261,7 @@ public class WinEmpleado extends javax.swing.JFrame {
             
         }
               
-       empleadoText.setText("");
-       direccionEmpleadoText.setText("");
-       cedulaEmpleadoText.setText("");
-       telefonoEmpleadoText.setText("");
-       sueldoEmpleadoText.setText("");
+       
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
 
     /**

@@ -15,16 +15,10 @@ import javax.swing.JOptionPane;
  *
  * @author Harim Tejada
  */
-public class Conexion {
-   
-    public String bd = "riteen";
-    public String login = "root";
-    public String password = "cojinua";
-    public String url = "jdbc:mysql://localhost/"+bd;
-    public String servidor = "127.0.0.1";
+public class Conexion implements VConexion{
     public Statement enunciado;
     private static Conexion instancia;
-    Connection conn = null;
+    public Connection conn = null;
 
     
     

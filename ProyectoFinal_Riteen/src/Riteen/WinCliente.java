@@ -190,7 +190,7 @@ public class WinCliente extends javax.swing.JFrame {
       
         try {
            
-            int id = 15978;
+            int id = 1590078;
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (idCliente, Nombre, Telefono, Direccion) VALUES (?, ?, ?, ?)");
             add.setInt(1, id);
             add.setString(2, clienteText.getText());
@@ -200,6 +200,9 @@ public class WinCliente extends javax.swing.JFrame {
             
             if (exitoso > 0){
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            clienteText.setText("");
+            telefonoClienteText.setText("");
+            direccionClienteText.setText("");
             }
         } 
          
@@ -207,9 +210,7 @@ public class WinCliente extends javax.swing.JFrame {
             
         }
               
-       clienteText.setText("");
-       telefonoClienteText.setText("");
-       direccionClienteText.setText("");
+       
         
     }//GEN-LAST:event_guardarClienteActionPerformed
 
