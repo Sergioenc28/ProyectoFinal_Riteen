@@ -38,7 +38,6 @@ public class WinProveedor extends javax.swing.JFrame {
         guardarProveedor = new javax.swing.JButton();
         cancelarProveedor = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen - Registro de Proveedores");
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));

@@ -45,7 +45,6 @@ public class WinCliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         telefonoClienteText1 = new javax.swing.JFormattedTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen - Registro de Clientes");
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));

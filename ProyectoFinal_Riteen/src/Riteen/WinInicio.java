@@ -32,6 +32,7 @@ public class WinInicio extends javax.swing.JFrame {
         menuArchivo = new javax.swing.JMenu();
         submenuNuevo = new javax.swing.JMenu();
         SubmenuNuevoEmpleado = new javax.swing.JMenuItem();
+        SubmenuNuevoCliente = new javax.swing.JMenuItem();
         menuVer = new javax.swing.JMenu();
         menuAyuda = new javax.swing.JMenu();
 
@@ -54,6 +55,14 @@ public class WinInicio extends javax.swing.JFrame {
             }
         });
         submenuNuevo.add(SubmenuNuevoEmpleado);
+
+        SubmenuNuevoCliente.setText("Cliente");
+        SubmenuNuevoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SubmenuNuevoClienteMousePressed(evt);
+            }
+        });
+        submenuNuevo.add(SubmenuNuevoCliente);
 
         menuArchivo.add(submenuNuevo);
 
@@ -81,15 +90,11 @@ public class WinInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SubmenuNuevoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmenuNuevoEmpleadoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SubmenuNuevoEmpleadoMouseClicked
-
     private void SubmenuNuevoEmpleadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmenuNuevoEmpleadoMousePressed
         // TODO add your handling code here:
-        
+
         WinEmpleado wl = new WinEmpleado();
-        
+
         if(wl.isShowing())
         {
             JOptionPane.showMessageDialog(null, "Esta ventana ya esta en funcionamiento");
@@ -98,10 +103,19 @@ public class WinInicio extends javax.swing.JFrame {
         {
             wl.setVisible(true);
         }
-        
-           
-         
+
     }//GEN-LAST:event_SubmenuNuevoEmpleadoMousePressed
+
+    private void SubmenuNuevoEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmenuNuevoEmpleadoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SubmenuNuevoEmpleadoMouseClicked
+
+    private void SubmenuNuevoClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmenuNuevoClienteMousePressed
+        // TODO add your handling code here:
+        WinCliente wC = new WinCliente();
+        wC.setVisible(true);
+        
+    }//GEN-LAST:event_SubmenuNuevoClienteMousePressed
 
     /**
      * @param args the command line arguments
@@ -138,6 +152,7 @@ public class WinInicio extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem SubmenuNuevoCliente;
     private javax.swing.JMenuItem SubmenuNuevoEmpleado;
     private javax.swing.JMenu menuArchivo;
     private javax.swing.JMenu menuAyuda;
