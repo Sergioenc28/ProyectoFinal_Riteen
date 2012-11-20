@@ -6,6 +6,7 @@ package Riteen;
 
 import java.awt.Color;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,15 +17,20 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         
         //We are ready to work
         
-    //WinLoging wl = new WinLoging();
-    Conexion conn = Conexion.getInstancia();
-    conn.Conexion();
-    // WinCliente wl = new WinCliente();
-   WinEmpleado wl = new WinEmpleado();   
-    wl.setVisible(true);
+        //WinLoging wl = new WinLoging();
+        Conexion conn = Conexion.getInstancia();
+        conn.Conexion();
+        // WinCliente wl = new WinCliente();
+        //WinEmpleado wl = new WinEmpleado();   
+        //wl.setVisible(true);
+    
+        WinInicio start = new WinInicio();
+        start.setVisible(true);
+        JOptionPane.showMessageDialog(null, "      Bienvenido a Riteen");
     }
 }
