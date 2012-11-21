@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  * @author Harim Tejada
  */
 public class Conexion implements VConexion{
+    
     public Statement enunciado;
     private static Conexion instancia;
     public Connection conn = null;
@@ -39,15 +40,15 @@ public class Conexion implements VConexion{
          
         if (conn != null) {
           
-            JOptionPane.showMessageDialog(null, "Conectado a la Base de Datos", "Riteen", 1);
+            JOptionPane.showMessageDialog(null, "Bienvenido a Riteen");
          
             }
         }
         catch(SQLException ex){
-            System.out.println("Error: " + ex.getMessage());
-        }
+       JOptionPane.showMessageDialog(null, ex.getMessage());     
+       }
         catch(Exception ex) {
-          System.out.println("Error: " + ex.getMessage());
+          JOptionPane.showMessageDialog(null, ex.getMessage());
        
         }   
 }
