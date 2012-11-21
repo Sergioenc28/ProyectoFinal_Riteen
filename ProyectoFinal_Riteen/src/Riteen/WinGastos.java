@@ -41,8 +41,8 @@ public class WinGastos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         responsableGastosText = new javax.swing.JTextField();
+        fechaActualParaTodo = new javax.swing.JCheckBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Gastos");
         setResizable(false);
 
@@ -102,6 +102,13 @@ public class WinGastos extends javax.swing.JFrame {
             }
         });
 
+        fechaActualParaTodo.setText("Hoy");
+        fechaActualParaTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaActualParaTodoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,20 +138,22 @@ public class WinGastos extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(fechaGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(fechaActualParaTodo)
+                                    .addGap(11, 11, 11)
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(responsableGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(responsableGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(registrarGasto)
                 .addGap(18, 18, 18)
                 .addComponent(cancelarGasto)
-                .addContainerGap())
+                .addGap(164, 164, 164))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +165,8 @@ public class WinGastos extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(fechaGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(responsableGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(fechaActualParaTodo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -169,13 +179,12 @@ public class WinGastos extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(5, 5, 5)
                         .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(registrarGasto)
-                            .addComponent(cancelarGasto))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registrarGasto)
+                    .addComponent(cancelarGasto))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -192,6 +201,10 @@ public class WinGastos extends javax.swing.JFrame {
     private void responsableGastosTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responsableGastosTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_responsableGastosTextActionPerformed
+
+    private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,6 +244,7 @@ public class WinGastos extends javax.swing.JFrame {
     private javax.swing.JButton cancelarGasto;
     private javax.swing.JTextField conceptoGastoText;
     private javax.swing.JTextArea descripcionGastoText;
+    private javax.swing.JCheckBox fechaActualParaTodo;
     private javax.swing.JFormattedTextField fechaGastosText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

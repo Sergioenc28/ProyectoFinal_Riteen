@@ -28,7 +28,7 @@ public class WinEmpleado extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        empleadoText = new javax.swing.JTextField();
+        nombreEmpleadoText = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         direccionEmpleadoText = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -54,12 +54,12 @@ public class WinEmpleado extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Nombre:");
 
-        empleadoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        empleadoText.setMinimumSize(new java.awt.Dimension(4, 20));
-        empleadoText.setPreferredSize(new java.awt.Dimension(5, 20));
-        empleadoText.addActionListener(new java.awt.event.ActionListener() {
+        nombreEmpleadoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        nombreEmpleadoText.setMinimumSize(new java.awt.Dimension(4, 20));
+        nombreEmpleadoText.setPreferredSize(new java.awt.Dimension(5, 20));
+        nombreEmpleadoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                empleadoTextActionPerformed(evt);
+                nombreEmpleadoTextActionPerformed(evt);
             }
         });
 
@@ -148,7 +148,7 @@ public class WinEmpleado extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cedulaEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(empleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(nombreEmpleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -183,7 +183,7 @@ public class WinEmpleado extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(empleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nombreEmpleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -214,9 +214,9 @@ public class WinEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_direccionEmpleadoTextActionPerformed
 
-    private void empleadoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadoTextActionPerformed
+    private void nombreEmpleadoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreEmpleadoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_empleadoTextActionPerformed
+    }//GEN-LAST:event_nombreEmpleadoTextActionPerformed
 
     private void jComboBoxHorarioEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHorarioEmpleadoActionPerformed
         // TODO add your handling code here:
@@ -234,7 +234,7 @@ public class WinEmpleado extends javax.swing.JFrame {
             int id = 1003128;
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (idEmpleado, Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?, ?)");
             add.setInt(1, 1190987);
-            add.setString(2, empleadoText.getText());
+            add.setString(2, nombreEmpleadoText.getText());
             add.setString(3, telefonoEmpleadoText.getText());
             add.setString(4, direccionEmpleadoText.getText());
             add.setString(5, cedulaEmpleadoText.getText());
@@ -245,7 +245,7 @@ public class WinEmpleado extends javax.swing.JFrame {
             
             if (exitoso > 0){
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
-            empleadoText.setText("");
+            nombreEmpleadoText.setText("");
             direccionEmpleadoText.setText("");
             cedulaEmpleadoText.setText("");
             telefonoEmpleadoText.setText("");
@@ -302,7 +302,6 @@ public class WinEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton cancelarEmpleado;
     private javax.swing.JFormattedTextField cedulaEmpleadoText;
     private javax.swing.JTextField direccionEmpleadoText;
-    private javax.swing.JTextField empleadoText;
     private javax.swing.JButton guardarEmpleado;
     private javax.swing.JComboBox jComboBoxHorarioEmpleado;
     private javax.swing.JLabel jLabel1;
@@ -312,6 +311,7 @@ public class WinEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField nombreEmpleadoText;
     private javax.swing.JFormattedTextField sueldoEmpleadoText;
     private javax.swing.JFormattedTextField telefonoEmpleadoText;
     // End of variables declaration//GEN-END:variables
