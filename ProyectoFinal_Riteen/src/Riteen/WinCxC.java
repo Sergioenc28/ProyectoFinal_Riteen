@@ -46,6 +46,8 @@ public class WinCxC extends javax.swing.JFrame {
         cancelarCxC = new javax.swing.JButton();
         conceptoCxCText = new javax.swing.JTextField();
         plazoCxCText = new javax.swing.JTextField();
+        totalCxCText = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setText("Cedula:");
@@ -127,19 +129,40 @@ public class WinCxC extends javax.swing.JFrame {
 
         plazoCxCText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
 
+        totalCxCText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        totalCxCText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalCxCTextActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel10.setText("Total:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(guardarCxC)
+                .addGap(18, 18, 18)
+                .addComponent(cancelarCxC)
+                .addGap(136, 136, 136))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(totalCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
@@ -163,14 +186,8 @@ public class WinCxC extends javax.swing.JFrame {
                                 .addComponent(plazoCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel9)
-                                .addGap(0, 13, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(30, 30, 30))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(guardarCxC)
-                .addGap(18, 18, 18)
-                .addComponent(cancelarCxC)
-                .addGap(140, 140, 140))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,11 +214,15 @@ public class WinCxC extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarCxC)
                     .addComponent(cancelarCxC))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -218,6 +239,10 @@ public class WinCxC extends javax.swing.JFrame {
     private void conceptoCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conceptoCxCTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_conceptoCxCTextActionPerformed
+
+    private void totalCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCxCTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalCxCTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +289,7 @@ public class WinCxC extends javax.swing.JFrame {
     private javax.swing.JButton guardarCxC;
     private javax.swing.JButton guardarProducto;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -274,5 +300,6 @@ public class WinCxC extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField plazoCxCText;
     private javax.swing.JFormattedTextField telefonoClienteText1;
+    private javax.swing.JTextField totalCxCText;
     // End of variables declaration//GEN-END:variables
 }

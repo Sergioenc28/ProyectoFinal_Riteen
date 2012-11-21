@@ -84,6 +84,11 @@ public class WinProducto extends javax.swing.JFrame {
 
         cancelarProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProducto.setText("Cancelar");
+        cancelarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarProductoActionPerformed(evt);
+            }
+        });
 
         productoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         productoText.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +153,7 @@ public class WinProducto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -182,14 +187,14 @@ public class WinProducto extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(exitenciaMinimaDelProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(47, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(guardarProducto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cancelarProducto)
-                .addGap(190, 190, 190))
+                .addGap(192, 192, 192))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,6 +259,10 @@ public class WinProducto extends javax.swing.JFrame {
     private void costoProductoText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoProductoText1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_costoProductoText1ActionPerformed
+
+    private void cancelarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarProductoActionPerformed
 
     /**
      * @param args the command line arguments
