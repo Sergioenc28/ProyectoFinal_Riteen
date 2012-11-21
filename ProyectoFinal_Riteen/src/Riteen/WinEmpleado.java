@@ -89,6 +89,11 @@ public class WinEmpleado extends javax.swing.JFrame {
 
         jComboBoxHorarioEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jComboBoxHorarioEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Matutina", "Vespertina", "Dia Completo" }));
+        jComboBoxHorarioEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jComboBoxHorarioEmpleadoMousePressed(evt);
+            }
+        });
         jComboBoxHorarioEmpleado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jComboBoxHorarioEmpleadoMouseMoved(evt);
@@ -110,6 +115,11 @@ public class WinEmpleado extends javax.swing.JFrame {
 
         cancelarEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarEmpleado.setText("Cancelar");
+        cancelarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarEmpleadoActionPerformed(evt);
+            }
+        });
 
         try {
             telefonoEmpleadoText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)-###-####")));
@@ -239,7 +249,8 @@ public class WinEmpleado extends javax.swing.JFrame {
             add.setString(4, direccionEmpleadoText.getText());
             add.setString(5, cedulaEmpleadoText.getText());
             add.setFloat(6, sueldo);
-            add.setString(7, "matutin");
+            String comboBoxHorarioEmpleado = (String) jComboBoxHorarioEmpleado.getSelectedItem();
+            add.setString(7, comboBoxHorarioEmpleado);
             
             int exitoso = add.executeUpdate();
             
@@ -263,6 +274,18 @@ public class WinEmpleado extends javax.swing.JFrame {
               
        
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
+
+    private void jComboBoxHorarioEmpleadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxHorarioEmpleadoMousePressed
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_jComboBoxHorarioEmpleadoMousePressed
+
+    private void cancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmpleadoActionPerformed
+        // TODO add your handling code here:
+         String comboBox = (String) jComboBoxHorarioEmpleado.getSelectedItem();
+        System.out.println("Lo que seleccionaste en el ComboBox es: " +comboBox);
+    }//GEN-LAST:event_cancelarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,6 +318,8 @@ public class WinEmpleado extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new WinEmpleado().setVisible(true);
+                
+                
             }
         });
     }
