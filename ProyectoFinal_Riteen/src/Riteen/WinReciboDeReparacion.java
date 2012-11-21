@@ -47,8 +47,6 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         telefonoReparacionText = new javax.swing.JFormattedTextField();
         jTextField1 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));

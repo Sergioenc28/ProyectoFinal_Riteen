@@ -20,8 +20,14 @@ public class WinCliente extends javax.swing.JDialog {
     /**
      * Creates new form WinCliente
      */
-    public WinCliente() {
+    public WinCliente() 
+    {
+        WinInicio wInicio = new WinInicio();
         initComponents();
+        WinCliente wCliente = new WinCliente();
+        wCliente.setSize(90,25);
+        wCliente.setLocationRelativeTo(wInicio);
+        wCliente.setVisible(true);
     }
 
     /**
@@ -87,6 +93,7 @@ public class WinCliente extends javax.swing.JDialog {
 
         cancelarCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarCliente.setText("Cancelar");
+        cancelarCliente.setPreferredSize(new java.awt.Dimension(90, 25));
         cancelarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarClienteActionPerformed(evt);
@@ -152,9 +159,9 @@ public class WinCliente extends javax.swing.JDialog {
                                         .addGap(21, 21, 21)
                                         .addComponent(guardarCliente)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cancelarCliente)
+                                        .addComponent(cancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +185,7 @@ public class WinCliente extends javax.swing.JDialog {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarCliente)
-                    .addComponent(cancelarCliente))
+                    .addComponent(cancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 

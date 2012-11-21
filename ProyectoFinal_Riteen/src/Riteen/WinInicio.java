@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  *
  * @author Sergio and Clary
  */
-public class WinInicio extends javax.swing.JDialog {
+public class WinInicio extends javax.swing.JFrame {
 
     /**
      * Creates new form WinInicio
