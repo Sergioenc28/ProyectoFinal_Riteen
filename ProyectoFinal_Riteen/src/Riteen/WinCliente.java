@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Harim Tejada
  */
-public class WinCliente extends javax.swing.JFrame {
+public class WinCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form WinCliente
