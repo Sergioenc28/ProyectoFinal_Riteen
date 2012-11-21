@@ -36,7 +36,6 @@ public class WinInicio extends javax.swing.JDialog {
         menuVer = new javax.swing.JMenu();
         menuAyuda = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen");
         setPreferredSize(new java.awt.Dimension(1350, 720));
         setResizable(false);
