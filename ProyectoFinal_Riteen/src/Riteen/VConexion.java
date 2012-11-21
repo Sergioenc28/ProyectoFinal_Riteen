@@ -3,15 +3,12 @@
  * and open the template in the editor.
  */
 package Riteen;
-
-
-
 /**
  *
  * @author Harim Tejada
  */
 public interface VConexion {
-     public String bd = "riteen";
+    public String bd = "riteen";
     public String login = "root";
     public String password = "cojinua";
     public String url = "jdbc:mysql://localhost/"+bd;

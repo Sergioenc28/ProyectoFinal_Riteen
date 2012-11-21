@@ -38,7 +38,7 @@ public class WinCxC extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descripcionGastoText = new javax.swing.JTextArea();
-        cedulaCxCText2 = new javax.swing.JFormattedTextField();
+        cedulaCxCText = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -98,7 +98,7 @@ public class WinCxC extends javax.swing.JFrame {
         jScrollPane1.setViewportView(descripcionGastoText);
 
         try {
-            cedulaCxCText2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-#######-#")));
+            cedulaCxCText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-#######-#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -155,7 +155,7 @@ public class WinCxC extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cedulaCxCText2))
+                                .addComponent(cedulaCxCText))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(jLabel8)
@@ -183,7 +183,7 @@ public class WinCxC extends javax.swing.JFrame {
                     .addComponent(fechaCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechaActualParaTodo)
                     .addComponent(jLabel7)
-                    .addComponent(cedulaCxCText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cedulaCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -256,7 +256,7 @@ public class WinCxC extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarCxC;
     private javax.swing.JButton cancelarProducto;
-    private javax.swing.JFormattedTextField cedulaCxCText2;
+    private javax.swing.JFormattedTextField cedulaCxCText;
     private javax.swing.JTextField conceptoCxCText;
     private javax.swing.JTextArea descripcionGastoText;
     private javax.swing.JCheckBox fechaActualParaTodo;
