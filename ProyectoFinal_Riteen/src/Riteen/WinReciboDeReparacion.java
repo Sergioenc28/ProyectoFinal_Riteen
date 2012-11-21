@@ -8,7 +8,7 @@ package Riteen;
  *
  * @author Sergio and Clary
  */
-public class WinReciboDeReparacion extends javax.swing.JFrame {
+public class WinReciboDeReparacion extends javax.swing.JDialog {
 
     /**
      * Creates new form WinReciboDeReparacion

@@ -8,7 +8,7 @@ package Riteen;
  *
  * @author Dioni Ripoll
  */
-public class WinGastos extends javax.swing.JFrame {
+public class WinGastos extends javax.swing.JDialog {
 
     /**
      * Creates new form WinGastos

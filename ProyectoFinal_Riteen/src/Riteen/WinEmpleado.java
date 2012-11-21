@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class WinEmpleado extends javax.swing.JFrame {
+public class WinEmpleado extends javax.swing.JDialog {
 
     /**
      * Creates new form WinEempleado

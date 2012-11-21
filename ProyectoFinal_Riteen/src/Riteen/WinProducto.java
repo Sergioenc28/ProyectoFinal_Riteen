@@ -8,7 +8,7 @@ package Riteen;
  *
  * @author Dioni Ripoll
  */
-public class WinProducto extends javax.swing.JFrame {
+public class WinProducto extends javax.swing.JDialog {
 
     /**
      * Creates new form WinProductos

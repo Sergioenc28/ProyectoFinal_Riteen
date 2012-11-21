@@ -8,7 +8,7 @@ package Riteen;
  *
  * @author Dioni Ripoll
  */
-public class WinCxP extends javax.swing.JFrame {
+public class WinCxP extends javax.swing.JDialog {
 
     /**
      * Creates new form WinCxP

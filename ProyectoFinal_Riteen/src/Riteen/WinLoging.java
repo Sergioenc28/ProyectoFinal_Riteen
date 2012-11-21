@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Sergio and Clary
  */
-public class WinLoging extends javax.swing.JFrame {
+public class WinLoging extends javax.swing.JDialog {
 
     /**
      * Creates new form WinLoging
