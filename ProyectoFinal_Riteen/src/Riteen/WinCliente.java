@@ -205,7 +205,7 @@ public class WinCliente extends javax.swing.JDialog {
             add.setString(1, clienteText.getText());
             add.setString(2, telefonoClienteText.getText());
             add.setString(3, direccionClienteText.getText());
-            add.setString(4,ce);
+            add.setString(4,cedulaClienteText.getText());
             int exitoso = add.executeUpdate();
             
             if (exitoso == 1){
@@ -213,6 +213,7 @@ public class WinCliente extends javax.swing.JDialog {
             clienteText.setText("");
             telefonoClienteText.setText("");
             direccionClienteText.setText("");
+            cedulaClienteText.setText("");
             }
             else {
             
