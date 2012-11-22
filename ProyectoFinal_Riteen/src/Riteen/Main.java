@@ -31,7 +31,7 @@ public class Main {
     
      //WinProducto start = new WinProducto();
       WinInicio start = new WinInicio();
-        start.setVisible(true);
+      start.setVisible(true);
         
     }
 }
