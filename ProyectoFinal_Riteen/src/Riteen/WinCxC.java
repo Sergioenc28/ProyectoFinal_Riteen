@@ -77,6 +77,11 @@ public class WinCxC extends javax.swing.JDialog {
         jLabel1.setToolTipText("");
 
         fechaCxCText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        fechaCxCText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaCxCTextActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Fecha:");
@@ -243,6 +248,10 @@ public class WinCxC extends javax.swing.JDialog {
     private void totalCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCxCTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalCxCTextActionPerformed
+
+    private void fechaCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCxCTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaCxCTextActionPerformed
 
     /**
      * @param args the command line arguments

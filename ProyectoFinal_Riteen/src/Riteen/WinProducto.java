@@ -45,13 +45,12 @@ public class WinProducto extends javax.swing.JDialog {
         descripcionProductoTextArea = new javax.swing.JTextArea();
         exitenciaMinimaDelProductoText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        costoProductoText1 = new javax.swing.JTextField();
+        proveedorProductoComboBox = new javax.swing.JComboBox();
+        idProductoText = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
 
         popupMenu1.setLabel("popupMenu1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen - Agregar Productos");
         setResizable(false);
 
@@ -133,13 +132,13 @@ public class WinProducto extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Existencia en Minima Almacén:");
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        proveedorProductoComboBox.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
 
-        costoProductoText1.setEditable(false);
-        costoProductoText1.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        costoProductoText1.addActionListener(new java.awt.event.ActionListener() {
+        idProductoText.setEditable(false);
+        idProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        idProductoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                costoProductoText1ActionPerformed(evt);
+                idProductoTextActionPerformed(evt);
             }
         });
 
@@ -166,11 +165,11 @@ public class WinProducto extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(proveedorProductoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(costoProductoText1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(idProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -207,14 +206,14 @@ public class WinProducto extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addComponent(productoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(proveedorProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(costoProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(precioVentaProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(costoProductoText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -256,9 +255,9 @@ public class WinProducto extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_exitenciaMinimaDelProductoTextActionPerformed
 
-    private void costoProductoText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoProductoText1ActionPerformed
+    private void idProductoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProductoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_costoProductoText1ActionPerformed
+    }//GEN-LAST:event_idProductoTextActionPerformed
 
     private void cancelarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarProductoActionPerformed
         // TODO add your handling code here:
@@ -301,12 +300,11 @@ public class WinProducto extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarProducto;
     private javax.swing.JTextField costoProductoText;
-    private javax.swing.JTextField costoProductoText1;
     private javax.swing.JTextArea descripcionProductoTextArea;
     private javax.swing.JTextField exitenciaActualDelProductoText;
     private javax.swing.JTextField exitenciaMinimaDelProductoText;
     private javax.swing.JButton guardarProducto;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JTextField idProductoText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -321,5 +319,6 @@ public class WinProducto extends javax.swing.JDialog {
     private java.awt.PopupMenu popupMenu1;
     private javax.swing.JTextField precioVentaProductoText;
     private javax.swing.JTextField productoText;
+    private javax.swing.JComboBox proveedorProductoComboBox;
     // End of variables declaration//GEN-END:variables
 }
