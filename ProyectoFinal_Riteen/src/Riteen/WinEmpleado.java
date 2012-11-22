@@ -243,7 +243,7 @@ public class WinEmpleado extends javax.swing.JDialog {
            
             float sueldo= Float.parseFloat(sueldoEmpleadoText.getText());
             String comboBoxHorarioEmpleado = (String) jComboBoxHorarioEmpleado.getSelectedItem();
-          
+            
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
             
             add.setString(1, nombreEmpleadoText.getText());
@@ -323,6 +323,7 @@ public class WinEmpleado extends javax.swing.JDialog {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new WinEmpleado().setVisible(true);
                 

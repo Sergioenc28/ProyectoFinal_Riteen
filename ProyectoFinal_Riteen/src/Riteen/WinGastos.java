@@ -84,6 +84,11 @@ public class WinGastos extends javax.swing.JDialog {
 
         registrarGasto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         registrarGasto.setText("Registrar");
+        registrarGasto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarGastoActionPerformed(evt);
+            }
+        });
 
         cancelarGasto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarGasto.setText("Cancelar");
@@ -205,6 +210,10 @@ public class WinGastos extends javax.swing.JDialog {
     private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaActualParaTodoActionPerformed
+
+    private void registrarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarGastoActionPerformed
+       
+    }//GEN-LAST:event_registrarGastoActionPerformed
 
     /**
      * @param args the command line arguments

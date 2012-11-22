@@ -49,7 +49,7 @@ public class WinCliente extends javax.swing.JDialog {
         cancelarCliente = new javax.swing.JButton();
         telefonoClienteText = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
-        telefonoClienteText1 = new javax.swing.JFormattedTextField();
+        cedulaClienteText = new javax.swing.JFormattedTextField();
 
         setTitle("Riteen - Registro de Clientes");
 
@@ -115,13 +115,13 @@ public class WinCliente extends javax.swing.JDialog {
         jLabel5.setText("Cedula:");
 
         try {
-            telefonoClienteText1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-#######-#")));
+            cedulaClienteText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-#######-#")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        telefonoClienteText1.addActionListener(new java.awt.event.ActionListener() {
+        cedulaClienteText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefonoClienteText1ActionPerformed(evt);
+                cedulaClienteTextActionPerformed(evt);
             }
         });
 
@@ -142,7 +142,7 @@ public class WinCliente extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel5)
                                 .addGap(3, 3, 3)
-                                .addComponent(telefonoClienteText1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cedulaClienteText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(clienteText, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -177,7 +177,7 @@ public class WinCliente extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(telefonoClienteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(telefonoClienteText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cedulaClienteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(direccionClienteText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,19 +198,26 @@ public class WinCliente extends javax.swing.JDialog {
       
         try {
            
-            int id = 1590078;
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (idCliente, Nombre, Telefono, Direccion) VALUES (?, ?, ?, ?)");
-            add.setInt(1, id);
-            add.setString(2, clienteText.getText());
-            add.setString(3, telefonoClienteText.getText());
-            add.setString(4, direccionClienteText.getText());
+            
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (Nombre, Telefono, Direccion, Cedula) VALUES ( ?, ?, ?)");
+            
+           
+            add.setString(1, clienteText.getText());
+            add.setString(2, telefonoClienteText.getText());
+            add.setString(3, direccionClienteText.getText());
+            add.setString(4,ce);
             int exitoso = add.executeUpdate();
             
-            if (exitoso > 0){
+            if (exitoso == 1){
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
             clienteText.setText("");
             telefonoClienteText.setText("");
             direccionClienteText.setText("");
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar el cliente");
+           
             }
         } 
          
@@ -238,9 +245,9 @@ public class WinCliente extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_direccionClienteTextActionPerformed
 
-    private void telefonoClienteText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoClienteText1ActionPerformed
+    private void cedulaClienteTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaClienteTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_telefonoClienteText1ActionPerformed
+    }//GEN-LAST:event_cedulaClienteTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,6 +285,7 @@ public class WinCliente extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarCliente;
+    private javax.swing.JFormattedTextField cedulaClienteText;
     private javax.swing.JTextField clienteText;
     private javax.swing.JTextField direccionClienteText;
     private javax.swing.JButton guardarCliente;
@@ -287,6 +295,5 @@ public class WinCliente extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JFormattedTextField telefonoClienteText;
-    private javax.swing.JFormattedTextField telefonoClienteText1;
     // End of variables declaration//GEN-END:variables
 }

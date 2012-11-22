@@ -25,8 +25,8 @@ public class Main {
         //WinLoging wl = new WinLoging();
         Conexion conn = Conexion.getInstancia();
         conn.Conexion();
-        // WinCliente wl = new WinCliente();
-        WinEmpleado wl = new WinEmpleado();   
+         WinCliente wl = new WinCliente();
+       // WinEmpleado wl = new WinEmpleado();   
         wl.setVisible(true);
     
       //  WinProducto start = new WinProducto();

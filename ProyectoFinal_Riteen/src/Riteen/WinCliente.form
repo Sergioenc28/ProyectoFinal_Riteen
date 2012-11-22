@@ -35,7 +35,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="telefonoClienteText1" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="cedulaClienteText" min="-2" pref="101" max="-2" attributes="0"/>
                           </Group>
                           <Component id="clienteText" min="-2" pref="249" max="-2" attributes="0"/>
                       </Group>
@@ -83,7 +83,7 @@
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="telefonoClienteText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="telefonoClienteText1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cedulaClienteText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -204,14 +204,14 @@
         <Property name="text" type="java.lang.String" value="Cedula:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="telefonoClienteText1">
+    <Component class="javax.swing.JFormattedTextField" name="cedulaClienteText">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="###-#######-#" subtype="-1" type="5"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefonoClienteText1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cedulaClienteTextActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
