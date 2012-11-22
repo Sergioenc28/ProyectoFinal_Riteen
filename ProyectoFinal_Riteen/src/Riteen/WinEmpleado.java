@@ -35,7 +35,7 @@ public class WinEmpleado extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBoxHorarioEmpleado = new javax.swing.JComboBox();
+        horarioEmpleadoJComboBox = new javax.swing.JComboBox();
         guardarEmpleado = new javax.swing.JButton();
         cancelarEmpleado = new javax.swing.JButton();
         telefonoEmpleadoText = new javax.swing.JFormattedTextField();
@@ -87,21 +87,21 @@ public class WinEmpleado extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Horario:");
 
-        jComboBoxHorarioEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jComboBoxHorarioEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia Completo", "Matutina", "Vespertina", " " }));
-        jComboBoxHorarioEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+        horarioEmpleadoJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        horarioEmpleadoJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia Completo", "Matutina", "Vespertina", " " }));
+        horarioEmpleadoJComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jComboBoxHorarioEmpleadoMousePressed(evt);
+                horarioEmpleadoJComboBoxMousePressed(evt);
             }
         });
-        jComboBoxHorarioEmpleado.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        horarioEmpleadoJComboBox.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jComboBoxHorarioEmpleadoMouseMoved(evt);
+                horarioEmpleadoJComboBoxMouseMoved(evt);
             }
         });
-        jComboBoxHorarioEmpleado.addActionListener(new java.awt.event.ActionListener() {
+        horarioEmpleadoJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxHorarioEmpleadoActionPerformed(evt);
+                horarioEmpleadoJComboBoxActionPerformed(evt);
             }
         });
 
@@ -152,13 +152,16 @@ public class WinEmpleado extends javax.swing.JDialog {
                                 .addComponent(jLabel3)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
+                            .addComponent(nombreEmpleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(telefonoEmpleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                                 .addGap(23, 23, 23)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cedulaEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(nombreEmpleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cedulaEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -166,16 +169,12 @@ public class WinEmpleado extends javax.swing.JDialog {
                             .addComponent(jLabel4)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(sueldoEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(120, 120, 120))
-                                    .addComponent(jComboBoxHorarioEmpleado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(direccionEmpleadoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(87, 87, 87)
+                                .addComponent(horarioEmpleadoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(direccionEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -204,7 +203,7 @@ public class WinEmpleado extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBoxHorarioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(horarioEmpleadoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sueldoEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -228,13 +227,13 @@ public class WinEmpleado extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreEmpleadoTextActionPerformed
 
-    private void jComboBoxHorarioEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHorarioEmpleadoActionPerformed
+    private void horarioEmpleadoJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horarioEmpleadoJComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxHorarioEmpleadoActionPerformed
+    }//GEN-LAST:event_horarioEmpleadoJComboBoxActionPerformed
 
-    private void jComboBoxHorarioEmpleadoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxHorarioEmpleadoMouseMoved
+    private void horarioEmpleadoJComboBoxMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioEmpleadoJComboBoxMouseMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxHorarioEmpleadoMouseMoved
+    }//GEN-LAST:event_horarioEmpleadoJComboBoxMouseMoved
 
     private PreparedStatement add;
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
@@ -242,8 +241,8 @@ public class WinEmpleado extends javax.swing.JDialog {
         try {
            
             float sueldo= Float.parseFloat(sueldoEmpleadoText.getText());
-            String comboBoxHorarioEmpleado = (String) jComboBoxHorarioEmpleado.getSelectedItem();
-            
+            String comboBoxHorarioEmpleado = (String) horarioEmpleadoJComboBox.getSelectedItem();
+          
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
             
             add.setString(1, nombreEmpleadoText.getText());
@@ -282,11 +281,11 @@ public class WinEmpleado extends javax.swing.JDialog {
        
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
 
-    private void jComboBoxHorarioEmpleadoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxHorarioEmpleadoMousePressed
+    private void horarioEmpleadoJComboBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioEmpleadoJComboBoxMousePressed
         // TODO add your handling code here:
         
        
-    }//GEN-LAST:event_jComboBoxHorarioEmpleadoMousePressed
+    }//GEN-LAST:event_horarioEmpleadoJComboBoxMousePressed
 
     private void cancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmpleadoActionPerformed
         // TODO add your handling code here:
@@ -323,7 +322,6 @@ public class WinEmpleado extends javax.swing.JDialog {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
                 new WinEmpleado().setVisible(true);
                 
@@ -336,7 +334,7 @@ public class WinEmpleado extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField cedulaEmpleadoText;
     private javax.swing.JTextField direccionEmpleadoText;
     private javax.swing.JButton guardarEmpleado;
-    private javax.swing.JComboBox jComboBoxHorarioEmpleado;
+    private javax.swing.JComboBox horarioEmpleadoJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
