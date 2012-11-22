@@ -88,7 +88,7 @@ public class WinEmpleado extends javax.swing.JFrame {
         jLabel7.setText("Horario:");
 
         jComboBoxHorarioEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jComboBoxHorarioEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Matutina", "Vespertina", "Dia Completo" }));
+        jComboBoxHorarioEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia Completo", "Matutina", "Vespertina", " " }));
         jComboBoxHorarioEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jComboBoxHorarioEmpleadoMousePressed(evt);
@@ -238,39 +238,46 @@ public class WinEmpleado extends javax.swing.JFrame {
 
     private PreparedStatement add;
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
-     try {
+     
+        try {
            
             float sueldo= Float.parseFloat(sueldoEmpleadoText.getText());
-            int id = 1003128;
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (idEmpleado, Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            add.setInt(1, 1190987);
-            add.setString(2, nombreEmpleadoText.getText());
-            add.setString(3, telefonoEmpleadoText.getText());
-            add.setString(4, direccionEmpleadoText.getText());
-            add.setString(5, cedulaEmpleadoText.getText());
-            add.setFloat(6, sueldo);
             String comboBoxHorarioEmpleado = (String) jComboBoxHorarioEmpleado.getSelectedItem();
-            add.setString(7, comboBoxHorarioEmpleado);
+          
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
+            
+            add.setString(1, nombreEmpleadoText.getText());
+            add.setString(2, telefonoEmpleadoText.getText());
+            add.setString(3, direccionEmpleadoText.getText());
+            add.setString(4, cedulaEmpleadoText.getText());
+            add.setFloat(5, sueldo);
+            add.setString(6, comboBoxHorarioEmpleado);
             
             int exitoso = add.executeUpdate();
-            
-            if (exitoso > 0){
+           
+            if (exitoso == 1){
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
             nombreEmpleadoText.setText("");
             direccionEmpleadoText.setText("");
             cedulaEmpleadoText.setText("");
             telefonoEmpleadoText.setText("");
             sueldoEmpleadoText.setText("");
+            add.close();
             }
             else {
             
             JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
+           
             }
+            
+           
         } 
          
-        catch (SQLException ex) {
-            
-        }
+       catch(NumberFormatException | SQLException e){
+       
+            JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
+       }
+       
               
        
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
@@ -283,8 +290,8 @@ public class WinEmpleado extends javax.swing.JFrame {
 
     private void cancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmpleadoActionPerformed
         // TODO add your handling code here:
-         String comboBox = (String) jComboBoxHorarioEmpleado.getSelectedItem();
-        System.out.println("Lo que seleccionaste en el ComboBox es: " +comboBox);
+         
+      
     }//GEN-LAST:event_cancelarEmpleadoActionPerformed
 
     /**

@@ -26,11 +26,11 @@ public class Main {
         Conexion conn = Conexion.getInstancia();
         conn.Conexion();
         // WinCliente wl = new WinCliente();
-        //WinEmpleado wl = new WinEmpleado();   
-        //wl.setVisible(true);
+        WinEmpleado wl = new WinEmpleado();   
+        wl.setVisible(true);
     
-        WinInicio start = new WinInicio();
-        start.setVisible(true);
-        JOptionPane.showMessageDialog(null, "      Bienvenido a Riteen");
+      //  WinProducto start = new WinProducto();
+      //  start.setVisible(true);
+        
     }
 }
