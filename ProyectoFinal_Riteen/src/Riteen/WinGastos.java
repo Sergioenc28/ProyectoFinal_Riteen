@@ -212,7 +212,7 @@ public class WinGastos extends javax.swing.JDialog {
     }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
     private void registrarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarGastoActionPerformed
-       
+            
     }//GEN-LAST:event_registrarGastoActionPerformed
 
     /**

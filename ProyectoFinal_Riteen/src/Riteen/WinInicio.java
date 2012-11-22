@@ -37,7 +37,7 @@ public class WinInicio extends javax.swing.JFrame {
         menuAyuda = new javax.swing.JMenu();
 
         setTitle("Riteen");
-        setPreferredSize(new java.awt.Dimension(1350, 720));
+        setPreferredSize(new java.awt.Dimension(900, 550));
         setResizable(false);
 
         menuArchivo.setText("Archivo");

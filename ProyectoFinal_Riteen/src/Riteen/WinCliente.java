@@ -22,12 +22,9 @@ public class WinCliente extends javax.swing.JDialog {
      */
     public WinCliente() 
     {
-        WinInicio wInicio = new WinInicio();
+        
         initComponents();
-        WinCliente wCliente = new WinCliente();
-        wCliente.setSize(90,25);
-        wCliente.setLocationRelativeTo(wInicio);
-        wCliente.setVisible(true);
+        
     }
 
     /**
@@ -199,7 +196,7 @@ public class WinCliente extends javax.swing.JDialog {
         try {
            
             
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (Nombre, Telefono, Direccion, Cedula) VALUES ( ?, ?, ?)");
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (Nombre, Telefono, Direccion, Cedula) VALUES ( ?, ?, ?, ?)");
             
            
             add.setString(1, clienteText.getText());
