@@ -29,8 +29,9 @@ public class Main {
        //WinEmpleado wl = new WinEmpleado();   
        // wl.setVisible(true);
     
-      WinProducto start = new WinProducto();
-      start.setVisible(true);
+     //WinProducto start = new WinProducto();
+      WinInicio start = new WinInicio();
+        start.setVisible(true);
         
     }
 }
