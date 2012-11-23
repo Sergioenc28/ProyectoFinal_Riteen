@@ -7,6 +7,7 @@ package Riteen;
 import java.awt.BorderLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +19,12 @@ public class WinLoging extends javax.swing.JDialog {
     /**
      * Creates new form WinLoging
      */
+    public int intentos =0;
     public WinLoging() {
         initComponents();
         PanelLogging pl = new PanelLogging();
         this.add(pl, BorderLayout.CENTER);
+        
     }
 
     /**
@@ -160,31 +163,57 @@ public class WinLoging extends javax.swing.JDialog {
     }//GEN-LAST:event_passwordTextActionPerformed
 //ResultSet usuario;
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-                         Usuario user = new Usuario();
-					
-					
-					String usuario;
-					String clave;
-					
-					usuario = usuarioText.getText();
-					clave = passwordText.getText();
-					
-					try {
-						Object[][] itemUsuario = user.UsuarioAcceder(usuario, clave);
-						String x_iduser = itemUsuario[0][0].toString();
-						String x_user = itemUsuario[0][1].toString();
-						String x_pass = itemUsuario[0][2].toString(); 
-						if ((!"".equals(x_user)) && (!"".equals(x_pass)))
-						{
-					JOptionPane.showMessageDialog(passwordText, "Bienvenido");
-							
-							
-						}
-					}
-					catch(Exception e){
-						JOptionPane.showMessageDialog(passwordText, e.getMessage());
-                                                System.out.println(e.getMessage());
-					}
+                
+        
+                ArrayList<EjemplosParaUsuarios> usuarios = new ArrayList<>();
+                EjemplosParaUsuarios crear = new EjemplosParaUsuarios("admin", "123");
+                EjemplosParaUsuarios crear2 = new EjemplosParaUsuarios("sergio", "1234");
+                EjemplosParaUsuarios crear3 = new EjemplosParaUsuarios("harim", "4321");
+                EjemplosParaUsuarios crear4 = new EjemplosParaUsuarios("dioni", "0000");
+                
+                
+                usuarios.add(crear);
+                usuarios.add(crear2);
+                usuarios.add(crear3);
+                usuarios.add(crear4);
+                
+                int hay=0;
+                
+                for (EjemplosParaUsuarios e : usuarios) 
+                {
+                    if(usuarioText.getText().equalsIgnoreCase(e.usuario))
+                    {
+                        hay=1;
+                        if(passwordText.getText().equalsIgnoreCase(e.password))
+                        {
+                            JOptionPane.showMessageDialog(null, "Entró");
+                            this.dispose();
+                        }
+                        else
+                        {
+                            intentos = intentos + 1;
+                            JOptionPane.showMessageDialog(null, "Contraseña incorecta");
+                            passwordText.selectAll();
+                            passwordText.requestFocus();
+                        }
+                    }
+                }
+                
+                if(hay == 0)
+                {
+                    intentos = intentos + 1;
+                    JOptionPane.showMessageDialog(null, "Este usuario no existe");
+                    usuarioText.selectAll();
+                    usuarioText.requestFocus();
+                    //System.out.println(intentos);
+                    if(intentos >=3)
+                    {
+                        JOptionPane.showMessageDialog(null, "Hasta Luego"); 
+                        System.exit(EXIT_ON_CLOSE);
+                    }
+                }
+                
+                
     }//GEN-LAST:event_entrarActionPerformed
 
     private void cancelarInicioDeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInicioDeSesionActionPerformed
@@ -221,6 +250,7 @@ public class WinLoging extends javax.swing.JDialog {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                int intentos=0;
                 new WinLoging().setVisible(true);
             }
         });
