@@ -5,6 +5,7 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import org.omg.CORBA.WCharSeqHelper;
 
 /**
  *
@@ -42,6 +43,7 @@ public class WinInicio extends javax.swing.JFrame {
         RegPedido = new javax.swing.JMenuItem();
         RegProducto = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItemCuentaXCobrar = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuEditar = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -120,6 +122,14 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuItem6.setText("Deuda");
         jMenuRegistrar.add(jMenuItem6);
 
+        jMenuItemCuentaXCobrar.setText("Cuenta por Cobrar");
+        jMenuItemCuentaXCobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCuentaXCobrarActionPerformed(evt);
+            }
+        });
+        jMenuRegistrar.add(jMenuItemCuentaXCobrar);
+
         jMenuBar1.add(jMenuRegistrar);
         jMenuBar1.add(jMenu3);
 
@@ -194,6 +204,11 @@ public class WinInicio extends javax.swing.JFrame {
        wpedido.setVisible(true);
     }//GEN-LAST:event_RegPedidoActionPerformed
 
+    private void jMenuItemCuentaXCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCuentaXCobrarActionPerformed
+        WinCxC wc = new WinCxC();
+        wc.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCuentaXCobrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +264,7 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemCuentaXCobrar;
     private javax.swing.JMenu jMenuRegistrar;
     // End of variables declaration//GEN-END:variables
 }

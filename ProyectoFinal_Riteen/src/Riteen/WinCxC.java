@@ -4,6 +4,10 @@
  */
 package Riteen;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sergio and Clary
@@ -80,7 +84,12 @@ public class WinCxC extends javax.swing.JDialog {
         jLabel1.setText("Cuentas por Cobrar");
         jLabel1.setToolTipText("");
 
-        fechaCxCText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        fechaCxCText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/M/yy"))));
+        fechaCxCText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaCxCTextActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Fecha:");
@@ -120,6 +129,11 @@ public class WinCxC extends javax.swing.JDialog {
 
         registrarCxC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         registrarCxC.setText("Registrar");
+        registrarCxC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarCxCActionPerformed(evt);
+            }
+        });
 
         cancelarCxC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarCxC.setText("Cancelar");
@@ -281,6 +295,57 @@ public class WinCxC extends javax.swing.JDialog {
     private void nombreDeudorCxCText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreDeudorCxCText1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreDeudorCxCText1ActionPerformed
+
+    private PreparedStatement add;
+    private void registrarCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCxCActionPerformed
+        try {
+           
+           
+            int plazo = Integer.parseInt(plazoCxCText.getText());
+            int total = Integer.parseInt(totalCxCText.getText());
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentasxcobrar (Fecha, Descripcion, Concepto, Cedula, Telefono, Deudor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            
+            add.setString(1, fechaCxCText.getText());
+            add.setString(2, descripcionCxCText.getText());
+            add.setString(3, conceptoCxCText.getText());
+            add.setString(4, cedulaCxCText.getText());
+            add.setString(5, telefonoCxCText.getText());
+            add.setString(6, nombreDeudorCxCText1.getText());
+            add.setInt(7, plazo);
+            add.setInt(8, total);
+            
+            int exitoso = add.executeUpdate();
+           
+            if (exitoso > 0){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            fechaCxCText.setText("");
+            telefonoClienteText1.setText("");
+            descripcionCxCText.setText("");
+            cedulaCxCText.setText("");
+            conceptoCxCText.setText("");
+            telefonoCxCText.setText("");
+            nombreDeudorCxCText1.setText("");
+            plazoCxCText.setText("");
+            add.close();
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar esta cuenta");
+           
+            }
+            
+           
+        } 
+         
+       catch(NumberFormatException | SQLException e){
+       
+            JOptionPane.showMessageDialog(null, e.getMessage());
+       }
+    }//GEN-LAST:event_registrarCxCActionPerformed
+
+    private void fechaCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCxCTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaCxCTextActionPerformed
 
     /**
      * @param args the command line arguments

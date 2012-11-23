@@ -4,6 +4,10 @@
  */
 package Riteen;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dioni Ripoll
@@ -93,7 +97,7 @@ public class WinGastos extends javax.swing.JDialog {
         cancelarGasto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarGasto.setText("Cancelar");
 
-        fechaGastosText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MMM-dd"))));
+        fechaGastosText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/m/yy"))));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
@@ -210,9 +214,49 @@ public class WinGastos extends javax.swing.JDialog {
     private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaActualParaTodoActionPerformed
-
+private PreparedStatement add;
     private void registrarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarGastoActionPerformed
+
+        try {
+           
+           
             
+            int total = Integer.parseInt(totalGastotext.getText());
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO gastos (Concepto, Descripcion, Fecha, Total) VALUES (?, ?, ?, ?)");
+            
+            add.setString(1, conceptoGastoText.getText());
+            add.setString(2, descripcionGastoText.getText());
+            add.setString(3, fechaGastosText.getText());
+            add.setInt(4, total);
+            
+            
+            int exitoso = add.executeUpdate();
+           
+            if (exitoso > 0){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            conceptoGastoText.setText("");
+            descripcionGastoText.setText("");
+            fechaGastosText.setText("");
+            totalGastotext.setText("");
+            
+            add.close();
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar esta cuenta");
+           
+            }
+            
+           
+        } 
+         
+       catch(NumberFormatException | SQLException e){
+       
+            JOptionPane.showMessageDialog(null, e.getMessage());
+       }
+        
+        
+        
     }//GEN-LAST:event_registrarGastoActionPerformed
 
     /**
