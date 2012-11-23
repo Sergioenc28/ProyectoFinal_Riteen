@@ -263,7 +263,11 @@ public class WinInicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WinInicio().setVisible(true);
+                WinInicio wInicio = new WinInicio();
+                //wInicio.setSize(850, 600);
+                //wInicio.setLocationRelativeTo(null);
+                //Estaba probando centralizarla atraves de este metodo, pero no funcionó... Dejenmela asi mismo esto
+                wInicio.setVisible(true);
             }
         });
     }
