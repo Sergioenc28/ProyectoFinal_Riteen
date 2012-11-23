@@ -12,26 +12,27 @@ import javax.swing.ImageIcon;
  *
  * @author Harim Tejada
  */
-public class PanelLogging extends javax.swing.JPanel {
+public class PanelWinCxP extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelLogging
+     * Creates new form PanelWinCxP
      */
-    public PanelLogging() {
+    public PanelWinCxP() {
         initComponents();
-        this.setSize(400, 300);
+    this.setSize(700, 400);
     }
-
-     @Override
+    
+    @Override
      public void paintComponent(Graphics g){
     
         Dimension tam = getSize();
-        ImageIcon Imagen = new ImageIcon(new ImageIcon(getClass().getResource("/Imagenes/fondoIniciod.jpg")).getImage());
+        ImageIcon Imagen = new ImageIcon(new ImageIcon(getClass().getResource("/Imagenes/fondoInicio1.jpg")).getImage());
         g.drawImage(Imagen.getImage(), 0, 0, tam.width, tam.height, null );
         
         super.paintComponents(g);
        
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
