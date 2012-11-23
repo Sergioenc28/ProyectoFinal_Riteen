@@ -39,6 +39,7 @@ public class WinInicio extends javax.swing.JFrame {
         RegEmpleado = new javax.swing.JMenuItem();
         RegCliente = new javax.swing.JMenuItem();
         RegProveedor = new javax.swing.JMenuItem();
+        RegReparacion = new javax.swing.JMenuItem();
         RegGasto = new javax.swing.JMenuItem();
         RegPedido = new javax.swing.JMenuItem();
         RegProducto = new javax.swing.JMenuItem();
@@ -94,6 +95,14 @@ public class WinInicio extends javax.swing.JFrame {
             }
         });
         jMenuRegistrar.add(RegProveedor);
+
+        RegReparacion.setText("Reparación");
+        RegReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReparacionActionPerformed(evt);
+            }
+        });
+        jMenuRegistrar.add(RegReparacion);
 
         RegGasto.setText("Gasto");
         RegGasto.addActionListener(new java.awt.event.ActionListener() {
@@ -219,6 +228,11 @@ public class WinInicio extends javax.swing.JFrame {
       wxp.setVisible(true);
     }//GEN-LAST:event_RegDeudaActionPerformed
 
+    private void RegReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReparacionActionPerformed
+        WinReciboDeReparacion wrdp = new WinReciboDeReparacion();
+        wrdp.setVisible(true);   
+    }//GEN-LAST:event_RegReparacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -261,6 +275,7 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegPedido;
     private javax.swing.JMenuItem RegProducto;
     private javax.swing.JMenuItem RegProveedor;
+    private javax.swing.JMenuItem RegReparacion;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;
