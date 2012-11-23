@@ -19,7 +19,7 @@ public class PanelLogging extends javax.swing.JPanel {
      */
     public PanelLogging() {
         initComponents();
-        this.setSize(350, 210);
+        this.setSize(400, 300);
     }
 
      @Override
