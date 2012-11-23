@@ -40,6 +40,8 @@ public class WinPedido extends javax.swing.JDialog {
         CantidadPedidoText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
+        setResizable(false);
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

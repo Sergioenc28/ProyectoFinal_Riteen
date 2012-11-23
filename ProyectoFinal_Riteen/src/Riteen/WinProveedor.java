@@ -39,6 +39,7 @@ public class WinProveedor extends javax.swing.JDialog{
         cancelarProveedor = new javax.swing.JButton();
 
         setTitle("Riteen - Registro de Proveedores");
+        setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
