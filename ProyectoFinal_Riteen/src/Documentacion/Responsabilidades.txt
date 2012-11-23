@@ -1,0 +1,25 @@
+Sergio:
+	-Linkear todos los menus	
+	-Setear fecha actual(CheckBox)
+	-Trabajar con el logging
+	-Poner los iconos A LAS RESPECTIVAS VENTANAS
+	-Centralizar las ventanas al JFrame INICIO
+	-
+
+Haring:
+	-Setear los JDialog
+	-Trabajar con el logging
+	-Colocar un jlabel para el nombre del usuario actual
+	-Terminar de registrar todo en la base de datos
+	-Setear la base de datos
+
+
+Dioni:
+	-Cargar los comboBox desde las tablas
+	-Desabilitar los botones de maximizar y cerrar
+	-Habilitar todos los botones cancelar
+	-Crear LOS JDialog de editar y linkearlos
+
+
+Nota: El viernes Ythamar Trabajara con las primeras 5 WIN Dialog
+
