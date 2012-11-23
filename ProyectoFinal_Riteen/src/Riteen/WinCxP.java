@@ -133,6 +133,11 @@ public class WinCxP extends javax.swing.JDialog {
 
         cancelarCxP.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarCxP.setText("Cancelar");
+        cancelarCxP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarCxPActionPerformed(evt);
+            }
+        });
 
         acreedorCxPText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         acreedorCxPText.addActionListener(new java.awt.event.ActionListener() {
@@ -308,6 +313,12 @@ public class WinCxP extends javax.swing.JDialog {
         
         
     }//GEN-LAST:event_registrarCxPActionPerformed
+
+    private void cancelarCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxPActionPerformed
+            if(evt.getSource() == cancelarCxP){
+                this.dispose();
+            }
+    }//GEN-LAST:event_cancelarCxPActionPerformed
 
     /**
      * @param args the command line arguments

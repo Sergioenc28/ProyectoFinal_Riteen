@@ -226,7 +226,9 @@ public class WinCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_guardarClienteActionPerformed
 
     private void cancelarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarClienteActionPerformed
-        // TODO add your handling code here:
+        if(evt.getSource() == cancelarCliente){
+            this.dispose();
+        }
     }//GEN-LAST:event_cancelarClienteActionPerformed
 
     private void clienteTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteTextActionPerformed

@@ -137,6 +137,11 @@ public class WinCxC extends javax.swing.JDialog {
 
         cancelarCxC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarCxC.setText("Cancelar");
+        cancelarCxC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarCxCActionPerformed(evt);
+            }
+        });
 
         conceptoCxCText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         conceptoCxCText.addActionListener(new java.awt.event.ActionListener() {
@@ -346,6 +351,12 @@ public class WinCxC extends javax.swing.JDialog {
     private void fechaCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCxCTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaCxCTextActionPerformed
+
+    private void cancelarCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxCActionPerformed
+        if(evt.getSource() == cancelarCxC){
+            this.dispose();
+        }
+    }//GEN-LAST:event_cancelarCxCActionPerformed
 
     /**
      * @param args the command line arguments

@@ -96,6 +96,11 @@ public class WinGastos extends javax.swing.JDialog {
 
         cancelarGasto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarGasto.setText("Cancelar");
+        cancelarGasto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarGastoActionPerformed(evt);
+            }
+        });
 
         fechaGastosText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/m/yy"))));
 
@@ -258,6 +263,12 @@ private PreparedStatement add;
         
         
     }//GEN-LAST:event_registrarGastoActionPerformed
+
+    private void cancelarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarGastoActionPerformed
+            if(evt.getSource() == cancelarGasto){
+                this.dispose();
+            }
+    }//GEN-LAST:event_cancelarGastoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -288,7 +288,9 @@ public class WinEmpleado extends javax.swing.JDialog {
     }//GEN-LAST:event_horarioEmpleadoJComboBoxMousePressed
 
     private void cancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        if(evt.getSource() == cancelarEmpleado){
+            this.dispose();
+        }
          
       
     }//GEN-LAST:event_cancelarEmpleadoActionPerformed
