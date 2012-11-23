@@ -4,6 +4,7 @@
  */
 package Riteen;
 
+import java.awt.BorderLayout;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -19,6 +20,8 @@ public class WinCxC extends javax.swing.JDialog {
      */
     public WinCxC() {
         initComponents();
+        PanelWinCxC pc = new PanelWinCxC();
+        this.add(pc, BorderLayout.CENTER);
     }
 
     /**
@@ -77,9 +80,12 @@ public class WinCxC extends javax.swing.JDialog {
         cancelarProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProducto.setText("Cancelar");
 
+        setTitle("Riteen - Cuentas por Cobrar");
+        setResizable(false);
+
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cuentas por Cobrar");
         jLabel1.setToolTipText("");
@@ -92,8 +98,13 @@ public class WinCxC extends javax.swing.JDialog {
         });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha:");
 
+        fechaActualParaTodo.setOpaque(false);
+        fechaActualParaTodo.setContentAreaFilled(false);
+        fechaActualParaTodo.setBorderPainted(false);
+        fechaActualParaTodo.setForeground(new java.awt.Color(255, 255, 255));
         fechaActualParaTodo.setText("Hoy");
         fechaActualParaTodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,9 +113,11 @@ public class WinCxC extends javax.swing.JDialog {
         });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Concepto:");
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Descripción:");
 
         descripcionCxCText.setColumns(20);
@@ -119,12 +132,15 @@ public class WinCxC extends javax.swing.JDialog {
         }
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Cedula:");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Plazo:");
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("días");
 
         registrarCxC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -160,9 +176,11 @@ public class WinCxC extends javax.swing.JDialog {
         });
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Total:");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Deudor:");
 
         nombreDeudorCxCText1.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
@@ -173,6 +191,7 @@ public class WinCxC extends javax.swing.JDialog {
         });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Telefono:");
 
         try {

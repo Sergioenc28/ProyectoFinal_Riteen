@@ -5,6 +5,7 @@
 package Riteen;
 
 
+import java.awt.BorderLayout;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -22,6 +23,8 @@ public class WinCliente extends javax.swing.JDialog {
     {
         
         initComponents();
+        PanelCliente pc = new PanelCliente();
+        this.add(pc, BorderLayout.CENTER);
         
     }
 
