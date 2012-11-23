@@ -42,7 +42,7 @@ public class WinInicio extends javax.swing.JFrame {
         RegGasto = new javax.swing.JMenuItem();
         RegPedido = new javax.swing.JMenuItem();
         RegProducto = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        RegDeuda = new javax.swing.JMenuItem();
         jMenuItemCuentaXCobrar = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuEditar = new javax.swing.JMenu();
@@ -119,8 +119,13 @@ public class WinInicio extends javax.swing.JFrame {
         });
         jMenuRegistrar.add(RegProducto);
 
-        jMenuItem6.setText("Deuda");
-        jMenuRegistrar.add(jMenuItem6);
+        RegDeuda.setText("Deuda");
+        RegDeuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegDeudaActionPerformed(evt);
+            }
+        });
+        jMenuRegistrar.add(RegDeuda);
 
         jMenuItemCuentaXCobrar.setText("Cuenta por Cobrar");
         jMenuItemCuentaXCobrar.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +214,11 @@ public class WinInicio extends javax.swing.JFrame {
         wc.setVisible(true);
     }//GEN-LAST:event_jMenuItemCuentaXCobrarActionPerformed
 
+    private void RegDeudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegDeudaActionPerformed
+      WinCxP wxp = new WinCxP();
+      wxp.setVisible(true);
+    }//GEN-LAST:event_RegDeudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,6 +255,7 @@ public class WinInicio extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem RegCliente;
+    private javax.swing.JMenuItem RegDeuda;
     private javax.swing.JMenuItem RegEmpleado;
     private javax.swing.JMenuItem RegGasto;
     private javax.swing.JMenuItem RegPedido;
@@ -260,7 +271,6 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;

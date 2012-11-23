@@ -4,6 +4,10 @@
  */
 package Riteen;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dioni Ripoll
@@ -64,7 +68,6 @@ public class WinCxP extends javax.swing.JDialog {
         descripcionGastoText.setRows(5);
         jScrollPane1.setViewportView(descripcionGastoText);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen - Cuenta por Pagar");
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
@@ -95,7 +98,7 @@ public class WinCxP extends javax.swing.JDialog {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setText("Total:");
 
-        fechaCxPText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MMM-dd"))));
+        fechaCxPText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/M/yy"))));
         fechaCxPText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechaCxPTextActionPerformed(evt);
@@ -122,6 +125,11 @@ public class WinCxP extends javax.swing.JDialog {
 
         registrarCxP.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         registrarCxP.setText("Registrar");
+        registrarCxP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarCxPActionPerformed(evt);
+            }
+        });
 
         cancelarCxP.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarCxP.setText("Cancelar");
@@ -257,6 +265,50 @@ public class WinCxP extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_plazoCxPTextActionPerformed
 
+    private PreparedStatement add;
+    private void registrarCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCxPActionPerformed
+        try {
+           
+           
+            int plazo = Integer.parseInt(plazoCxPText.getText());
+            int total = Integer.parseInt(totalCxPText.getText());
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentas_por_pagar (Fecha, Descripcion, Concepto, Acreedor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?)");
+            
+            add.setString(1, fechaCxPText.getText());
+            add.setString(2, descripcionCxPText.getText());
+            add.setString(3, conceptoCxPText.getText());
+            add.setString(4, acreedorCxPText.getText());
+            add.setInt(5, plazo);
+            add.setInt(6, total);
+            
+            int exitoso = add.executeUpdate();
+           
+            if (exitoso > 0){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            fechaCxPText.setText("");
+            descripcionCxPText.setText("");
+            conceptoCxPText.setText("");
+            totalCxPText.setText("");
+            plazoCxPText.setText("");
+            add.close();
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar esta cuenta");
+           
+            }
+            
+           
+        } 
+         
+       catch(NumberFormatException | SQLException e){
+       
+            JOptionPane.showMessageDialog(null, e.getMessage());
+       }
+        
+        
+    }//GEN-LAST:event_registrarCxPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -286,6 +338,7 @@ public class WinCxP extends javax.swing.JDialog {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new WinCxP().setVisible(true);
             }

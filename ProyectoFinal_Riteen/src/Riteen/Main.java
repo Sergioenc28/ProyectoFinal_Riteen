@@ -22,7 +22,7 @@ public class Main {
         
         //We are ready to work
         
-        //WinLoging wl = new WinLoging();
+        
         Conexion conn = Conexion.getInstancia();
         conn.Conexion();
         //WinCliente wl = new WinCliente();

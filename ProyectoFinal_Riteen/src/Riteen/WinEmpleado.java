@@ -274,7 +274,7 @@ public class WinEmpleado extends javax.swing.JDialog {
          
        catch(NumberFormatException | SQLException e){
        
-            JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
+            JOptionPane.showMessageDialog(null, e.getMessage());
        }
        
               

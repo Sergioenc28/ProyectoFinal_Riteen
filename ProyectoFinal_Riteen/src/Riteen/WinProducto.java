@@ -4,6 +4,10 @@
  */
 package Riteen;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dioni Ripoll
@@ -40,10 +44,10 @@ public class WinProducto extends javax.swing.JDialog {
         productoText = new javax.swing.JTextField();
         costoProductoText = new javax.swing.JTextField();
         precioVentaProductoText = new javax.swing.JTextField();
-        exitenciaActualDelProductoText = new javax.swing.JTextField();
+        existenciaActualDelProductoText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         descripcionProductoTextArea = new javax.swing.JTextArea();
-        exitenciaMinimaDelProductoText = new javax.swing.JTextField();
+        existenciaMinimaDelProductoText = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         proveedorProductoComboBox = new javax.swing.JComboBox();
         idProductoText = new javax.swing.JTextField();
@@ -57,7 +61,7 @@ public class WinProducto extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Productos");
+        jLabel1.setText("Registro de Productos");
         jLabel1.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -80,6 +84,11 @@ public class WinProducto extends javax.swing.JDialog {
 
         guardarProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarProducto.setText("Guardar");
+        guardarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarProductoActionPerformed(evt);
+            }
+        });
 
         cancelarProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProducto.setText("Cancelar");
@@ -110,10 +119,10 @@ public class WinProducto extends javax.swing.JDialog {
             }
         });
 
-        exitenciaActualDelProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        exitenciaActualDelProductoText.addActionListener(new java.awt.event.ActionListener() {
+        existenciaActualDelProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        existenciaActualDelProductoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitenciaActualDelProductoTextActionPerformed(evt);
+                existenciaActualDelProductoTextActionPerformed(evt);
             }
         });
 
@@ -122,10 +131,10 @@ public class WinProducto extends javax.swing.JDialog {
         descripcionProductoTextArea.setRows(5);
         jScrollPane1.setViewportView(descripcionProductoTextArea);
 
-        exitenciaMinimaDelProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        exitenciaMinimaDelProductoText.addActionListener(new java.awt.event.ActionListener() {
+        existenciaMinimaDelProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        existenciaMinimaDelProductoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitenciaMinimaDelProductoTextActionPerformed(evt);
+                existenciaMinimaDelProductoTextActionPerformed(evt);
             }
         });
 
@@ -181,11 +190,11 @@ public class WinProducto extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(exitenciaActualDelProductoText)
+                                .addComponent(existenciaActualDelProductoText)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(exitenciaMinimaDelProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(existenciaMinimaDelProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -218,9 +227,9 @@ public class WinProducto extends javax.swing.JDialog {
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(exitenciaActualDelProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(existenciaActualDelProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(exitenciaMinimaDelProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(existenciaMinimaDelProductoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -243,17 +252,17 @@ public class WinProducto extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_precioVentaProductoTextActionPerformed
 
-    private void exitenciaActualDelProductoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitenciaActualDelProductoTextActionPerformed
+    private void existenciaActualDelProductoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existenciaActualDelProductoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_exitenciaActualDelProductoTextActionPerformed
+    }//GEN-LAST:event_existenciaActualDelProductoTextActionPerformed
 
     private void productoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productoTextActionPerformed
 
-    private void exitenciaMinimaDelProductoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitenciaMinimaDelProductoTextActionPerformed
+    private void existenciaMinimaDelProductoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existenciaMinimaDelProductoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_exitenciaMinimaDelProductoTextActionPerformed
+    }//GEN-LAST:event_existenciaMinimaDelProductoTextActionPerformed
 
     private void idProductoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProductoTextActionPerformed
         // TODO add your handling code here:
@@ -262,6 +271,54 @@ public class WinProducto extends javax.swing.JDialog {
     private void cancelarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarProductoActionPerformed
+    private PreparedStatement add;
+    private void guardarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoActionPerformed
+      try {
+           
+            int costo = Integer.parseInt(costoProductoText.getText());
+            int precio = Integer.parseInt(precioVentaProductoText.getText());
+            int existencia = Integer.parseInt(existenciaActualDelProductoText.getText());
+            int existenciaMinima = Integer.parseInt(existenciaMinimaDelProductoText.getText());
+          
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO almacen (Nombre, Descripcion, idProveedor, Costo, PrecioDeVenta, Existencia, ExistenciaMinima) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            
+            add.setString(1, productoText.getText());
+            add.setString(2, descripcionProductoTextArea.getText());
+            add.setInt(3, 1);
+            add.setInt(4, costo);
+            add.setInt(5, precio);
+            add.setInt(6, existencia);
+            add.setInt(7, existenciaMinima);
+            
+            int exitoso = add.executeUpdate();
+           
+            if (exitoso == 1){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            productoText.setText("");
+            descripcionProductoTextArea.setText("");
+            costoProductoText.setText("");
+            precioVentaProductoText.setText("");
+            existenciaActualDelProductoText.setText("");
+            existenciaMinimaDelProductoText.setText("");
+            add.close();
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
+           
+            }
+            
+           
+        } 
+         
+       catch(NumberFormatException | SQLException e){
+       
+            JOptionPane.showMessageDialog(null, e.getMessage());
+       }
+       
+        
+      
+    }//GEN-LAST:event_guardarProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,8 +358,8 @@ public class WinProducto extends javax.swing.JDialog {
     private javax.swing.JButton cancelarProducto;
     private javax.swing.JTextField costoProductoText;
     private javax.swing.JTextArea descripcionProductoTextArea;
-    private javax.swing.JTextField exitenciaActualDelProductoText;
-    private javax.swing.JTextField exitenciaMinimaDelProductoText;
+    private javax.swing.JTextField existenciaActualDelProductoText;
+    private javax.swing.JTextField existenciaMinimaDelProductoText;
     private javax.swing.JButton guardarProducto;
     private javax.swing.JTextField idProductoText;
     private javax.swing.JLabel jLabel1;
