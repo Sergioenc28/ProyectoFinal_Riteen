@@ -56,7 +56,7 @@
                       <Component id="cancelarInicioDeSesion" min="-2" pref="85" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="117" max="32767" attributes="0"/>
+              <EmptySpace pref="130" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

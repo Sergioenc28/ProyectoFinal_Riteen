@@ -5,6 +5,9 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -77,6 +80,11 @@ public class WinProveedor extends javax.swing.JDialog{
 
         guardarProveedor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarProveedor.setText("Guardar");
+        guardarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarProveedorActionPerformed(evt);
+            }
+        });
 
         cancelarProveedor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProveedor.setText("Cancelar");
@@ -160,6 +168,38 @@ public class WinProveedor extends javax.swing.JDialog{
             this.dispose();
         }
     }//GEN-LAST:event_cancelarProveedorActionPerformed
+    private PreparedStatement add;
+    private void guardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProveedorActionPerformed
+        try {
+           
+            
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO proveedores (Nombre, Direccion, Telefono, Email) VALUES ( ?, ?, ?, ?)");
+            
+           
+            add.setString(1, proveedorText.getText());
+            add.setString(2, direccionProveedorText.getText());
+            add.setString(3, telefonoProveedorText.getText());
+            add.setString(4, emailProveedorText.getText());
+            int exitoso = add.executeUpdate();
+            
+            if (exitoso == 1){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            proveedorText.setText("");
+            direccionProveedorText.setText("");
+            telefonoProveedorText.setText("");
+            emailProveedorText.setText("");
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar el Proveedor");
+           
+            }
+        } 
+         
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_guardarProveedorActionPerformed
 
     /**
      * @param args the command line arguments

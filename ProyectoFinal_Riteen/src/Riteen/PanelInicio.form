@@ -31,7 +31,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  <Component id="CrearReciboButoom" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -83,7 +83,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="CrearReciboButoom" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
@@ -319,7 +319,7 @@
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jButton1.setOpaque(false);&#xa;jButton1.setContentAreaFilled(false);&#xa;jButton1.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="CrearReciboButoom">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -333,10 +333,10 @@
         <Property name="text" type="java.lang.String" value="Crear Recibo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CrearReciboButoomActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jButton2.setOpaque(false);&#xa;jButton2.setContentAreaFilled(false);&#xa;jButton2.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="CrearReciboButoom.setOpaque(false);&#xa;CrearReciboButoom.setContentAreaFilled(false);&#xa;CrearReciboButoom.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">

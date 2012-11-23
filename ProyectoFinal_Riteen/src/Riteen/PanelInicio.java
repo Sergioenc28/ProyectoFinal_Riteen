@@ -54,7 +54,7 @@ public class PanelInicio extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        CrearReciboButoom = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -158,16 +158,16 @@ public class PanelInicio extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setOpaque(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setBorderPainted(false);
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/217.png"))); // NOI18N
-        jButton2.setText("Crear Recibo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CrearReciboButoom.setOpaque(false);
+        CrearReciboButoom.setContentAreaFilled(false);
+        CrearReciboButoom.setBorderPainted(false);
+        CrearReciboButoom.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        CrearReciboButoom.setForeground(new java.awt.Color(255, 255, 255));
+        CrearReciboButoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/217.png"))); // NOI18N
+        CrearReciboButoom.setText("Crear Recibo");
+        CrearReciboButoom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CrearReciboButoomActionPerformed(evt);
             }
         });
 
@@ -198,7 +198,7 @@ public class PanelInicio extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8))))
-                    .addComponent(jButton2)
+                    .addComponent(CrearReciboButoom)
                     .addComponent(jButton1))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +239,7 @@ public class PanelInicio extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(CrearReciboButoom)))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -273,13 +273,14 @@ public class PanelInicio extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void CrearReciboButoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearReciboButoomActionPerformed
+       WinReciboDeReparacion wrd = new WinReciboDeReparacion();
+       wrd.setVisible(true);
+    }//GEN-LAST:event_CrearReciboButoomActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CrearReciboButoom;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

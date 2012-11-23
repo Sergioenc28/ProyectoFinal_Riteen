@@ -5,6 +5,9 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,9 +52,10 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         clienteReparacionText = new javax.swing.JTextField();
         marcaReparacionText = new javax.swing.JTextField();
         telefonoReparacionText = new javax.swing.JFormattedTextField();
-        jTextField1 = new javax.swing.JTextField();
+        plazoTextfield = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
 
+        setTitle("Riteen - Recibo de Reparación");
         setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
@@ -72,11 +76,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
             }
         });
 
-        try {
-            fechaReparacionText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        fechaReparacionText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/M/yy"))));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,6 +112,11 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
 
         guardarReparacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarReparacion.setText("Guardar");
+        guardarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarReparacionActionPerformed(evt);
+            }
+        });
 
         cancelarReparacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarReparacion.setText("Cancelar");
@@ -135,10 +140,10 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        plazoTextfield.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        plazoTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                plazoTextfieldActionPerformed(evt);
             }
         });
 
@@ -190,7 +195,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel8)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(plazoTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel9)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -234,7 +239,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
                     .addComponent(telefonoReparacionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(plazoTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarReparacion)
@@ -249,15 +254,54 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void plazoTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plazoTextfieldActionPerformed
        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_plazoTextfieldActionPerformed
 
     private void cancelarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarReparacionActionPerformed
          if(evt.getSource() == cancelarReparacion){
             this.dispose();
         }
     }//GEN-LAST:event_cancelarReparacionActionPerformed
+
+    private PreparedStatement add;
+    private void guardarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarReparacionActionPerformed
+    try {
+           
+            
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO recibos_de_reparacion (FechaDeEntrega, Articulo, Marca, Modelo, NombreCliente, TelefonoCliente, plazo) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
+            
+           
+            add.setString(1, fechaReparacionText.getText());
+            add.setString(2, articuloReparacionText.getText());
+            add.setString(3, marcaReparacionText.getText());
+            add.setString(4, modeloReparacionText.getText());
+            add.setString(5, clienteReparacionText.getText());
+            add.setString(6, telefonoReparacionText.getText());
+            add.setString(7, plazoTextfield.getText());
+            int exitoso = add.executeUpdate();
+            
+            if (exitoso == 1){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            fechaReparacionText.setText("");
+            articuloReparacionText.setText("");
+            marcaReparacionText.setText("");
+            modeloReparacionText.setText("");
+            clienteReparacionText.setText("");
+            telefonoReparacionText.setText("");
+            plazoTextfield.setText("");
+            }
+            else {
+            
+            JOptionPane.showMessageDialog(null, "No se puede registrar el recibo");
+           
+            }
+        } 
+         
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_guardarReparacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,9 +355,9 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField marcaReparacionText;
     private javax.swing.JTextField modeloReparacionText;
+    private javax.swing.JTextField plazoTextfield;
     private javax.swing.JFormattedTextField telefonoReparacionText;
     // End of variables declaration//GEN-END:variables
 }
