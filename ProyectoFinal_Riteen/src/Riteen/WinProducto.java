@@ -269,7 +269,9 @@ public class WinProducto extends javax.swing.JDialog {
     }//GEN-LAST:event_idProductoTextActionPerformed
 
     private void cancelarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarProductoActionPerformed
-        // TODO add your handling code here:
+        if(evt.getSource() == cancelarProducto){
+            this.dispose();
+        }
     }//GEN-LAST:event_cancelarProductoActionPerformed
     private PreparedStatement add;
     private void guardarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoActionPerformed

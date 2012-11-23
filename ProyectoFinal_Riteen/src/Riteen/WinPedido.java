@@ -62,6 +62,11 @@ public class WinPedido extends javax.swing.JDialog {
 
         cancelarPedido.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarPedido.setText("Cancelar");
+        cancelarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarPedidoActionPerformed(evt);
+            }
+        });
 
         productoPedidoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         productoPedidoText.addActionListener(new java.awt.event.ActionListener() {
@@ -126,10 +131,11 @@ public class WinPedido extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CantidadPedidoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregarPedido)
-                    .addComponent(cancelarPedido)))
+                    .addComponent(cancelarPedido))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -186,6 +192,12 @@ public class WinPedido extends javax.swing.JDialog {
     private void CantidadPedidoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadPedidoTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CantidadPedidoTextActionPerformed
+
+    private void cancelarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarPedidoActionPerformed
+        if(evt.getSource() == cancelarPedido){
+            this.dispose();
+        }
+    }//GEN-LAST:event_cancelarPedidoActionPerformed
 
     /**
      * @param args the command line arguments

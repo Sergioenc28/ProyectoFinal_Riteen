@@ -96,6 +96,11 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
 
         cancelarReparacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarReparacion.setText("Cancelar");
+        cancelarReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarReparacionActionPerformed(evt);
+            }
+        });
 
         articuloReparacionText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
 
@@ -213,8 +218,14 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
     }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void cancelarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarReparacionActionPerformed
+         if(evt.getSource() == cancelarReparacion){
+            this.dispose();
+        }
+    }//GEN-LAST:event_cancelarReparacionActionPerformed
 
     /**
      * @param args the command line arguments

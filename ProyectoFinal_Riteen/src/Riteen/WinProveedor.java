@@ -8,7 +8,7 @@ package Riteen;
  *
  * @author Dioni Ripoll
  */
-public class WinProveedor extends javax.swing.JDialog {
+public class WinProveedor extends javax.swing.JDialog{
 
     /**
      * Creates new form WinProveedor2
@@ -70,6 +70,11 @@ public class WinProveedor extends javax.swing.JDialog {
 
         cancelarProveedor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProveedor.setText("Cancelar");
+        cancelarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarProveedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,6 +133,12 @@ public class WinProveedor extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cancelarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarProveedorActionPerformed
+        if(evt.getSource() == cancelarProveedor){
+            this.dispose();
+        }
+    }//GEN-LAST:event_cancelarProveedorActionPerformed
 
     /**
      * @param args the command line arguments
