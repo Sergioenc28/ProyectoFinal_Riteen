@@ -12,12 +12,12 @@ import javax.swing.ImageIcon;
  *
  * @author Harim Tejada
  */
-public class PanelGastos extends javax.swing.JPanel {
+public class PanelWinPedido extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelGastos
+     * Creates new form PanelWinPedido
      */
-    public PanelGastos() {
+    public PanelWinPedido() {
         initComponents();
         this.setSize(850, 600);
     }
@@ -32,7 +32,6 @@ public class PanelGastos extends javax.swing.JPanel {
         super.paintComponents(g);
        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
