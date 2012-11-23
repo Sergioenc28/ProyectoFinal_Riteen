@@ -4,6 +4,7 @@
  */
 package Riteen;
 
+import java.awt.BorderLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -19,6 +20,8 @@ public class WinLoging extends javax.swing.JDialog {
      */
     public WinLoging() {
         initComponents();
+        PanelLogging pl = new PanelLogging();
+        this.add(pl, BorderLayout.CENTER);
     }
 
     /**
@@ -40,6 +43,7 @@ public class WinLoging extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Iniciar Sesión");
+        setPreferredSize(new java.awt.Dimension(350, 210));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
