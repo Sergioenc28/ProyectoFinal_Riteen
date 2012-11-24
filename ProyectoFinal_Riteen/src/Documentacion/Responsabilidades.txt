@@ -17,7 +17,7 @@ Haring:
 Dioni:
 	-Cargar los comboBox desde las tablas
 	-Desabilitar los botones de maximizar y cerrar
-	-Habilitar todos los botones cancelar
+	-Habilitar todos los botones cancelar (Ready)
 	-Crear LOS JDialog de editar y linkearlos
 
 

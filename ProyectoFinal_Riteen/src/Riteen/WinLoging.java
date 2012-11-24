@@ -47,6 +47,7 @@ public class WinLoging extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Iniciar Sesión");
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(400, 250));
         setResizable(false);
 
@@ -85,6 +86,11 @@ public class WinLoging extends javax.swing.JDialog {
         entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarActionPerformed(evt);
+            }
+        });
+        entrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entrarKeyPressed(evt);
             }
         });
 
@@ -217,8 +223,16 @@ public class WinLoging extends javax.swing.JDialog {
     }//GEN-LAST:event_entrarActionPerformed
 
     private void cancelarInicioDeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInicioDeSesionActionPerformed
-        // TODO add your handling code here:
+        if (evt.getSource() == cancelarInicioDeSesion){
+            WinLoging wl =new WinLoging();            
+            JOptionPane.showConfirmDialog(wl, "Esta seguro que desea cancelar el inicio de sesión");
+            System.exit(0);
+        }
     }//GEN-LAST:event_cancelarInicioDeSesionActionPerformed
+
+    private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrarKeyPressed
 
     /**
      * @param args the command line arguments
