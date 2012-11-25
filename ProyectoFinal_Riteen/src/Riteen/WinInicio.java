@@ -286,7 +286,8 @@ public class WinInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_edtEmpleadoActionPerformed
 
     private void edtPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtPedidoActionPerformed
-        // TODO add your handling code here:
+        WinEditPedido wep = new WinEditPedido();
+        wep.setVisible(true);
     }//GEN-LAST:event_edtPedidoActionPerformed
 
     private void edtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProveedorActionPerformed
