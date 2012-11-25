@@ -5,6 +5,7 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,6 +57,8 @@ public class WinEditEmpleado extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("jButton1");
+
+        setTitle("Riteen - Editar Empleado");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -144,7 +147,9 @@ public class WinEditEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarEdtEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtEmpleadoActionPerformed
-        if(evt.getSource() == cancelarEdtEmpleado){
+      int opc = JOptionPane.showConfirmDialog(null, "Desea cancelar los cambios realizados");
+        
+        if(opc == JOptionPane.YES_OPTION){
             this.dispose();
         }
     }//GEN-LAST:event_cancelarEdtEmpleadoActionPerformed

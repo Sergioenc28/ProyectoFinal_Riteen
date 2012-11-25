@@ -49,12 +49,13 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuEditar = new javax.swing.JMenu();
+        edtCliente = new javax.swing.JMenuItem();
+        edtCxC = new javax.swing.JMenuItem();
+        edtCxP = new javax.swing.JMenuItem();
         edtEmpleado = new javax.swing.JMenuItem();
+        edtGasto = new javax.swing.JMenuItem();
         edtPedido = new javax.swing.JMenuItem();
         edtProveedor = new javax.swing.JMenuItem();
-        edtGasto = new javax.swing.JMenuItem();
-        edtCxP = new javax.swing.JMenuItem();
-        edtCxC = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Inicio");
@@ -158,6 +159,30 @@ public class WinInicio extends javax.swing.JFrame {
 
         jMenuEditar.setText("Editar");
 
+        edtCliente.setText("Cliente");
+        edtCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtClienteActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtCliente);
+
+        edtCxC.setText("Cuenta Por Cobrar");
+        edtCxC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtCxCActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtCxC);
+
+        edtCxP.setText("Cuenta Por Pagar");
+        edtCxP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtCxPActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtCxP);
+
         edtEmpleado.setText("Empleado");
         edtEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +190,14 @@ public class WinInicio extends javax.swing.JFrame {
             }
         });
         jMenuEditar.add(edtEmpleado);
+
+        edtGasto.setText("Gasto");
+        edtGasto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtGastoActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtGasto);
 
         edtPedido.setText("Pedido");
         edtPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -181,30 +214,6 @@ public class WinInicio extends javax.swing.JFrame {
             }
         });
         jMenuEditar.add(edtProveedor);
-
-        edtGasto.setText("Gasto");
-        edtGasto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtGastoActionPerformed(evt);
-            }
-        });
-        jMenuEditar.add(edtGasto);
-
-        edtCxP.setText("Cuenta Por Pagar");
-        edtCxP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCxPActionPerformed(evt);
-            }
-        });
-        jMenuEditar.add(edtCxP);
-
-        edtCxC.setText("Cuenta Por Cobrar");
-        edtCxC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCxCActionPerformed(evt);
-            }
-        });
-        jMenuEditar.add(edtCxC);
 
         jMenuBar1.add(jMenuEditar);
 
@@ -306,6 +315,11 @@ public class WinInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_edtCxCActionPerformed
 
+    private void edtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtClienteActionPerformed
+        WinEditCliente wec = new WinEditCliente();
+        wec.setVisible(true);
+    }//GEN-LAST:event_edtClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -353,6 +367,7 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegProducto;
     private javax.swing.JMenuItem RegProveedor;
     private javax.swing.JMenuItem RegReparacion;
+    private javax.swing.JMenuItem edtCliente;
     private javax.swing.JMenuItem edtCxC;
     private javax.swing.JMenuItem edtCxP;
     private javax.swing.JMenuItem edtEmpleado;
