@@ -45,15 +45,15 @@ public class WinInicio extends javax.swing.JFrame {
         RegProducto = new javax.swing.JMenuItem();
         RegDeuda = new javax.swing.JMenuItem();
         jMenuItemCuentaXCobrar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuEditar = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        edtEmpleado = new javax.swing.JMenuItem();
+        edtPedido = new javax.swing.JMenuItem();
+        edtProveedor = new javax.swing.JMenuItem();
+        edtGasto = new javax.swing.JMenuItem();
+        edtCxP = new javax.swing.JMenuItem();
+        edtCxC = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen - Inicio");
@@ -149,31 +149,61 @@ public class WinInicio extends javax.swing.JFrame {
         });
         jMenuRegistrar.add(jMenuItemCuentaXCobrar);
 
+        jMenuItem1.setText("Producto");
+        jMenuRegistrar.add(jMenuItem1);
+
         jMenuBar1.add(jMenuRegistrar);
         jMenuBar1.add(jMenu3);
 
         jMenuEditar.setText("Editar");
 
-        jMenuItem1.setText("Producto");
-        jMenuEditar.add(jMenuItem1);
+        edtEmpleado.setText("Empleado");
+        edtEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtEmpleadoActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtEmpleado);
 
-        jMenuItem2.setText("Empleado");
-        jMenuEditar.add(jMenuItem2);
+        edtPedido.setText("Pedido");
+        edtPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtPedidoActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtPedido);
 
-        jMenuItem3.setText("Pedido");
-        jMenuEditar.add(jMenuItem3);
+        edtProveedor.setText("Proveedor");
+        edtProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtProveedorActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtProveedor);
 
-        jMenuItem4.setText("Proveedor");
-        jMenuEditar.add(jMenuItem4);
+        edtGasto.setText("Gasto");
+        edtGasto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtGastoActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtGasto);
 
-        jMenuItem5.setText("Gasto");
-        jMenuEditar.add(jMenuItem5);
+        edtCxP.setText("Cuenta Por Pagar");
+        edtCxP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtCxPActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtCxP);
 
-        jMenuItem7.setText("Cuenta Por Pagar");
-        jMenuEditar.add(jMenuItem7);
-
-        jMenuItem8.setText("Cuenta Por Cobrar");
-        jMenuEditar.add(jMenuItem8);
+        edtCxC.setText("Cuenta Por Cobrar");
+        edtCxC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtCxCActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtCxC);
 
         jMenuBar1.add(jMenuEditar);
 
@@ -245,6 +275,32 @@ public class WinInicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem10MousePressed
 
+    private void edtEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtEmpleadoActionPerformed
+        WinEditEmpleado wee = new WinEditEmpleado();
+        wee.setVisible(true);
+        
+    }//GEN-LAST:event_edtEmpleadoActionPerformed
+
+    private void edtPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtPedidoActionPerformed
+
+    private void edtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtProveedorActionPerformed
+
+    private void edtGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtGastoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtGastoActionPerformed
+
+    private void edtCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCxPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtCxPActionPerformed
+
+    private void edtCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCxCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtCxCActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -292,18 +348,18 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegProducto;
     private javax.swing.JMenuItem RegProveedor;
     private javax.swing.JMenuItem RegReparacion;
+    private javax.swing.JMenuItem edtCxC;
+    private javax.swing.JMenuItem edtCxP;
+    private javax.swing.JMenuItem edtEmpleado;
+    private javax.swing.JMenuItem edtGasto;
+    private javax.swing.JMenuItem edtPedido;
+    private javax.swing.JMenuItem edtProveedor;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuEditar;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemCuentaXCobrar;
     private javax.swing.JMenu jMenuRegistrar;
