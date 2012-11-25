@@ -5,6 +5,7 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 import org.omg.CORBA.WCharSeqHelper;
 
 /**
@@ -34,7 +35,7 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        salirSistema = new javax.swing.JMenuItem();
         jMenuRegistrar = new javax.swing.JMenu();
         RegEmpleado = new javax.swing.JMenuItem();
         RegCliente = new javax.swing.JMenuItem();
@@ -55,7 +56,7 @@ public class WinInicio extends javax.swing.JFrame {
         edtCxP = new javax.swing.JMenuItem();
         edtCxC = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Inicio");
         setPreferredSize(new java.awt.Dimension(850, 600));
         setResizable(false);
@@ -65,13 +66,13 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuItem9.setText("Cerrar Sesión");
         jMenuArchivo.add(jMenuItem9);
 
-        jMenuItem10.setText("Salir del Sistema");
-        jMenuItem10.addMouseListener(new java.awt.event.MouseAdapter() {
+        salirSistema.setText("Salir del Sistema");
+        salirSistema.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jMenuItem10MousePressed(evt);
+                salirSistemaMousePressed(evt);
             }
         });
-        jMenuArchivo.add(jMenuItem10);
+        jMenuArchivo.add(salirSistema);
 
         jMenuBar1.add(jMenuArchivo);
 
@@ -268,12 +269,15 @@ public class WinInicio extends javax.swing.JFrame {
         wrdp.setVisible(true);   
     }//GEN-LAST:event_RegReparacionActionPerformed
 
-    private void jMenuItem10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem10MousePressed
+    private void salirSistemaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirSistemaMousePressed
         // TODO add your handling code here:
-        Salir out = new Salir();
-        out.setVisible(true);
+        int opc = JOptionPane.showConfirmDialog(null, "Seguro que desea salir del sistema");
         
-    }//GEN-LAST:event_jMenuItem10MousePressed
+        if(opc == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+        
+    }//GEN-LAST:event_salirSistemaMousePressed
 
     private void edtEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtEmpleadoActionPerformed
         WinEditEmpleado wee = new WinEditEmpleado();
@@ -359,9 +363,9 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuEditar;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemCuentaXCobrar;
     private javax.swing.JMenu jMenuRegistrar;
+    private javax.swing.JMenuItem salirSistema;
     // End of variables declaration//GEN-END:variables
 }
