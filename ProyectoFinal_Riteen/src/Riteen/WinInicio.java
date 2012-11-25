@@ -66,6 +66,11 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuArchivo.add(jMenuItem9);
 
         jMenuItem10.setText("Salir del Sistema");
+        jMenuItem10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem10MousePressed(evt);
+            }
+        });
         jMenuArchivo.add(jMenuItem10);
 
         jMenuBar1.add(jMenuArchivo);
@@ -232,6 +237,13 @@ public class WinInicio extends javax.swing.JFrame {
         WinReciboDeReparacion wrdp = new WinReciboDeReparacion();
         wrdp.setVisible(true);   
     }//GEN-LAST:event_RegReparacionActionPerformed
+
+    private void jMenuItem10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem10MousePressed
+        // TODO add your handling code here:
+        Salir out = new Salir();
+        out.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem10MousePressed
 
     /**
      * @param args the command line arguments
