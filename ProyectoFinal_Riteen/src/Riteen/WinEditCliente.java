@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author Dioni Ripoll
  */
-public class WinEditCliente extends javax.swing.JFrame {
+public class WinEditCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form WinEditCliente
@@ -87,7 +87,7 @@ public class WinEditCliente extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Cédula", "Dirección"
+                "Nombre", "Telefono", "Dirección", "Cédula"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -177,8 +177,8 @@ public class WinEditCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cedulaClienteEdtTextActionPerformed
 
     private void cancelarEdtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtClienteActionPerformed
-        int opc = JOptionPane.showConfirmDialog(null, "Desea cancelar los cambios realizados");
-        
+        int opc = JOptionPane.showConfirmDialog(null, "Desea cancelar los cambios realizados", "Salir", 0);
+       
         if(opc == JOptionPane.YES_OPTION){
             this.dispose();
         }
@@ -213,6 +213,7 @@ public class WinEditCliente extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new WinEditCliente().setVisible(true);
             }
