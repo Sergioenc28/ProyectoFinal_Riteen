@@ -43,6 +43,7 @@ public class WinEditCliente extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
 
         setTitle("Riteen - Editar Cliente");
+        setResizable(false);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/group2.png"))); // NOI18N
 
@@ -234,9 +235,9 @@ public class WinEditCliente extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(clienteEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jButton3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -253,7 +254,7 @@ public class WinEditCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_clienteEdtTextActionPerformed
 
     private void cancelarEdtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtClienteActionPerformed
-        int opc = JOptionPane.showConfirmDialog(null, "Desea cancelar los cambios realizados", "Salir", 0);
+        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
        
         if(opc == JOptionPane.YES_OPTION){
             this.dispose();

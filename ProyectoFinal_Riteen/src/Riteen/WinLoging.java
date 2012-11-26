@@ -223,13 +223,12 @@ public class WinLoging extends javax.swing.JDialog {
     }//GEN-LAST:event_entrarActionPerformed
 
     private void cancelarInicioDeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInicioDeSesionActionPerformed
-        if (evt.getSource() == cancelarInicioDeSesion){
-            WinLoging wl =new WinLoging();            
+        if (evt.getSource() == cancelarInicioDeSesion){          
             
-            int opc = JOptionPane.showConfirmDialog(wl, "Esta seguro que desea cancelar el inicio de sesión");
+            int opc = JOptionPane.showConfirmDialog(this, "Esta seguro que desea cancelar el inicio de sesión", "Salir", JOptionPane.YES_NO_OPTION);
             
             if(opc == JOptionPane.YES_OPTION){
-                JOptionPane.showMessageDialog(wl, "Adios");
+                JOptionPane.showMessageDialog(this, "Bye");
                 System.exit(0);
             }                                    
         }
