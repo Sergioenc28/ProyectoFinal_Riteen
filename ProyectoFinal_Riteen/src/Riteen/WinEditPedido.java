@@ -35,18 +35,17 @@ public class WinEditPedido extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        nombreEdtProductoPedidoText = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        idEdtProductoPedidoText = new javax.swing.JTextField();
-        proveedorEdtProductoPedidoText = new javax.swing.JTextField();
-        guardarEdtProductoPedido = new javax.swing.JButton();
-        cancelarEdtProductoPedido = new javax.swing.JButton();
+        clienteEdtText = new javax.swing.JTextField();
+        buscarPedidosBoton = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        guardarEdtPedidosBoton = new javax.swing.JButton();
+        cancelarEdtPedidoBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Riteen - Editar Pedido");
+        setResizable(false);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
 
@@ -57,62 +56,142 @@ public class WinEditPedido extends javax.swing.JFrame {
         jLabel1.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel2.setText("Nombre Producto:");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Busqueda:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        clienteEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        clienteEdtText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteEdtTextActionPerformed(evt);
+            }
+        });
+
+        buscarPedidosBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        buscarPedidosBoton.setText("Buscar");
+
+        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton3.setText("Ver todos los pedidos");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "ID Producto", "Nombre", "Costo", "Exist Almacen"
+                "Nombre", "Telefono", "Dirección", "Cédula"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
+        ));
+        jScrollPane3.setViewportView(jTable2);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setEnabled(false);
-        jTable1.setFocusable(false);
-        jTable1.setRequestFocusEnabled(false);
-        jTable1.setUpdateSelectionOnSort(false);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getColumn(0).setResizable(false);
-        jTable1.getColumnModel().getColumn(0).setHeaderValue("ID Producto");
-        jTable1.getColumnModel().getColumn(1).setResizable(false);
-        jTable1.getColumnModel().getColumn(1).setHeaderValue("Nombre");
-        jTable1.getColumnModel().getColumn(2).setResizable(false);
-        jTable1.getColumnModel().getColumn(2).setHeaderValue("Costo");
-        jTable1.getColumnModel().getColumn(3).setResizable(false);
-        jTable1.getColumnModel().getColumn(3).setHeaderValue("Exist Almacen");
-        jTable1.getAccessibleContext().setAccessibleParent(jTable1);
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel4.setText("ID:");
-
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setText("Proveedor:");
-
-        guardarEdtProductoPedido.setText("Guardar");
-        guardarEdtProductoPedido.addActionListener(new java.awt.event.ActionListener() {
+        guardarEdtPedidosBoton.setText("Guardar");
+        guardarEdtPedidosBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarEdtProductoPedidoActionPerformed(evt);
+                guardarEdtPedidosBotonActionPerformed(evt);
             }
         });
 
-        cancelarEdtProductoPedido.setText("Cancelar");
-        cancelarEdtProductoPedido.addActionListener(new java.awt.event.ActionListener() {
+        cancelarEdtPedidoBoton.setText("Cancelar");
+        cancelarEdtPedidoBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarEdtProductoPedidoActionPerformed(evt);
+                cancelarEdtPedidoBotonActionPerformed(evt);
             }
         });
 
@@ -121,84 +200,71 @@ public class WinEditPedido extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(90, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(idEdtProductoPedidoText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(proveedorEdtProductoPedidoText))
-                                    .addComponent(nombreEdtProductoPedidoText))))
-                        .addGap(32, 32, 32))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(guardarEdtProductoPedido)
-                .addGap(42, 42, 42)
-                .addComponent(cancelarEdtProductoPedido)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(clienteEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buscarPedidosBoton))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(guardarEdtPedidosBoton)
+                        .addGap(27, 27, 27)
+                        .addComponent(cancelarEdtPedidoBoton)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1)))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(clienteEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(nombreEdtProductoPedidoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(buscarPedidosBoton))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(idEdtProductoPedidoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proveedorEdtProductoPedidoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarEdtProductoPedido)
-                    .addComponent(cancelarEdtProductoPedido))
+                    .addComponent(guardarEdtPedidosBoton)
+                    .addComponent(cancelarEdtPedidoBoton))
                 .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void guardarEdtProductoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEdtProductoPedidoActionPerformed
-        
-    }//GEN-LAST:event_guardarEdtProductoPedidoActionPerformed
+    private void clienteEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteEdtTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteEdtTextActionPerformed
 
-    private void cancelarEdtProductoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtProductoPedidoActionPerformed
-        WinEditPedido wep = new WinEditPedido();
-        
-        int opc = JOptionPane.showConfirmDialog(wep, "Desea cancelar los cambios realizados");
-        
+    private void cancelarEdtPedidoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtPedidoBotonActionPerformed
+        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
+
         if(opc == JOptionPane.YES_OPTION){
             this.dispose();
         }
-    }//GEN-LAST:event_cancelarEdtProductoPedidoActionPerformed
+    }//GEN-LAST:event_cancelarEdtPedidoBotonActionPerformed
+
+    private void guardarEdtPedidosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEdtPedidosBotonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guardarEdtPedidosBotonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -235,17 +301,15 @@ public class WinEditPedido extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelarEdtProductoPedido;
-    private javax.swing.JButton guardarEdtProductoPedido;
-    private javax.swing.JTextField idEdtProductoPedidoText;
+    private javax.swing.JButton buscarPedidosBoton;
+    private javax.swing.JButton cancelarEdtPedidoBoton;
+    private javax.swing.JTextField clienteEdtText;
+    private javax.swing.JButton guardarEdtPedidosBoton;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField nombreEdtProductoPedidoText;
-    private javax.swing.JTextField proveedorEdtProductoPedidoText;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

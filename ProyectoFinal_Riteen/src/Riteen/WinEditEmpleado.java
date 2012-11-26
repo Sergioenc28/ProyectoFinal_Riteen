@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author Dioni Ripoll
  */
-public class WinEditEmpleado extends javax.swing.JFrame {
+public class WinEditEmpleado extends javax.swing.JDialog {
 
     /**
      * Creates new form WinEditEmpleado
@@ -36,12 +36,14 @@ public class WinEditEmpleado extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        editarEmpleadojTable = new javax.swing.JTable();
-        cancelarEdtEmpleado = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        empleadoEdtText = new javax.swing.JTextField();
+        buscarEmpleadoBoton = new javax.swing.JButton();
+        verEmpleadosBoton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        guardarEdtEmpleadoBoton = new javax.swing.JButton();
+        cancelarEdtEmpleadoBoton = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,6 +61,7 @@ public class WinEditEmpleado extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setTitle("Riteen - Editar Empleado");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -67,61 +70,172 @@ public class WinEditEmpleado extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Nombre:");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Busqueda:");
 
-        editarEmpleadojTable.setModel(new javax.swing.table.DefaultTableModel(
+        empleadoEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        empleadoEdtText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empleadoEdtTextActionPerformed(evt);
+            }
+        });
+
+        buscarEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        buscarEmpleadoBoton.setText("Buscar");
+
+        verEmpleadosBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        verEmpleadosBoton.setText("Ver todos los empleado");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Telefono", "Dirección", "Cédula"
             }
         ));
-        jScrollPane2.setViewportView(editarEmpleadojTable);
+        jScrollPane3.setViewportView(jTable2);
 
-        cancelarEdtEmpleado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarEdtEmpleado.setText("Cancelar");
-        cancelarEdtEmpleado.addActionListener(new java.awt.event.ActionListener() {
+        guardarEdtEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        guardarEdtEmpleadoBoton.setText("Guardar");
+
+        cancelarEdtEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        cancelarEdtEmpleadoBoton.setText("Cancelar");
+        cancelarEdtEmpleadoBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarEdtEmpleadoActionPerformed(evt);
+                cancelarEdtEmpleadoBotonActionPerformed(evt);
             }
         });
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton2.setText("Guardar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addGap(67, 67, 67)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 120, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(cancelarEdtEmpleado)
-                .addGap(170, 170, 170))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane2)))
-                .addGap(20, 20, 20))
+                        .addContainerGap()
+                        .addComponent(jLabel8)
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(verEmpleadosBoton)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(empleadoEdtText)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(buscarEmpleadoBoton))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(guardarEdtEmpleadoBoton)
+                        .addGap(29, 29, 29)
+                        .addComponent(cancelarEdtEmpleadoBoton)))
+                .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,29 +244,36 @@ public class WinEditEmpleado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(empleadoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarEmpleadoBoton))
                 .addGap(18, 18, 18)
+                .addComponent(verEmpleadosBoton)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelarEdtEmpleado)
-                    .addComponent(jButton2))
-                .addContainerGap())
+                    .addComponent(guardarEdtEmpleadoBoton)
+                    .addComponent(cancelarEdtEmpleadoBoton))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelarEdtEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtEmpleadoActionPerformed
-      int opc = JOptionPane.showConfirmDialog(null, "Desea cancelar los cambios realizados");
-        
+    private void empleadoEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadoEdtTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empleadoEdtTextActionPerformed
+
+    private void cancelarEdtEmpleadoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtEmpleadoBotonActionPerformed
+        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
+
         if(opc == JOptionPane.YES_OPTION){
             this.dispose();
         }
-    }//GEN-LAST:event_cancelarEdtEmpleadoActionPerformed
+    }//GEN-LAST:event_cancelarEdtEmpleadoBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,16 +310,18 @@ public class WinEditEmpleado extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelarEdtEmpleado;
-    private javax.swing.JTable editarEmpleadojTable;
+    private javax.swing.JButton buscarEmpleadoBoton;
+    private javax.swing.JButton cancelarEdtEmpleadoBoton;
+    private javax.swing.JTextField empleadoEdtText;
+    private javax.swing.JButton guardarEdtEmpleadoBoton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JButton verEmpleadosBoton;
     // End of variables declaration//GEN-END:variables
 }

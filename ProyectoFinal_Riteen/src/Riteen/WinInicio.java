@@ -65,6 +65,11 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuArchivo.setText("Archivo");
 
         jMenuItem9.setText("Cerrar Sesión");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenuArchivo.add(jMenuItem9);
 
         salirSistema.setText("Salir del Sistema");
@@ -280,7 +285,7 @@ public class WinInicio extends javax.swing.JFrame {
 
     private void salirSistemaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirSistemaMousePressed
         // TODO add your handling code here:
-        int opc = JOptionPane.showConfirmDialog(null, "Seguro que desea salir del sistema");
+        int opc = JOptionPane.showConfirmDialog(null, "Seguro que desea salir del sistema", "Salir", JOptionPane.YES_NO_OPTION);
         
         if(opc == JOptionPane.YES_OPTION){
             System.exit(0);
@@ -319,6 +324,10 @@ public class WinInicio extends javax.swing.JFrame {
         WinEditCliente wec = new WinEditCliente();
         wec.setVisible(true);
     }//GEN-LAST:event_edtClienteActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
