@@ -309,13 +309,11 @@ public class WinInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_edtPedidoActionPerformed
 
     private void edtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProveedorActionPerformed
-        WinEditProveedor wepr = new WinEditProveedor();
-        wepr.setVisible(true);
+       
     }//GEN-LAST:event_edtProveedorActionPerformed
 
     private void edtGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtGastoActionPerformed
-        WinEditGastos weg = new WinEditGastos();
-        weg.setVisible(true);
+        
     }//GEN-LAST:event_edtGastoActionPerformed
 
     private void edtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtClienteActionPerformed
@@ -332,8 +330,7 @@ public class WinInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuEditarActionPerformed
 
     private void edtProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProductoActionPerformed
-        WinEditProducto wepc = new WinEditProducto();
-        wepc.setVisible(true);
+        
     }//GEN-LAST:event_edtProductoActionPerformed
 
     /**
