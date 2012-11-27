@@ -19,7 +19,7 @@ public class PanelGastos extends javax.swing.JPanel {
      */
     public PanelGastos() {
         initComponents();
-        this.setSize(850, 600);
+        this.setSize(1000, 700);
     }
 
      @Override

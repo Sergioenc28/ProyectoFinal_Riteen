@@ -19,7 +19,7 @@ public class PanelWinCxP extends javax.swing.JPanel {
      */
     public PanelWinCxP() {
         initComponents();
-    this.setSize(700, 400);
+        this.setSize(1000, 700);
     }
     
     @Override

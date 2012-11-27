@@ -19,7 +19,7 @@ public class PanelWinEmpleado extends javax.swing.JPanel {
      */
     public PanelWinEmpleado() {
         initComponents();
-        this.setSize(700, 400);
+        this.setSize(1000, 700);
     }
     
     @Override

@@ -18,7 +18,7 @@ public class WinEditCxC extends javax.swing.JDialog {
      */
     public WinEditCxC() {
         initComponents();
-        PanelWinProveedor pwcc = new PanelWinProveedor();
+        PanelWinCxC pwcc = new PanelWinCxC();
         this.add(pwcc, BorderLayout.CENTER);
     }
 
@@ -43,7 +43,6 @@ public class WinEditCxC extends javax.swing.JDialog {
         cancelarCxCEdt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
