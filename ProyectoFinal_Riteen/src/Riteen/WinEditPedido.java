@@ -12,7 +12,7 @@ import javax.swing.JTable;
  *
  * @author Dioni Ripoll
  */
-public class WinEditPedido extends javax.swing.JFrame {
+public class WinEditPedido extends javax.swing.JDialog {
 
     /**
      * Creates new form WinEditPedido
