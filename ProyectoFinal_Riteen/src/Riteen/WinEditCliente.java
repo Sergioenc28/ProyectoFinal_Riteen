@@ -4,8 +4,12 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,7 +43,7 @@ public class WinEditCliente extends javax.swing.JDialog {
         jTable1 = new javax.swing.JTable();
         guardarEditCliente = new javax.swing.JButton();
         cancelarEdtCliente = new javax.swing.JButton();
-        buscarClientesBoton = new javax.swing.JButton();
+        buscarClientesButton = new javax.swing.JButton();
         verClientesBoton = new javax.swing.JButton();
 
         setTitle("Riteen - Editar Cliente");
@@ -67,106 +71,7 @@ public class WinEditCliente extends javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nombre", "Telefono", "Dirección", "Cédula"
@@ -185,11 +90,21 @@ public class WinEditCliente extends javax.swing.JDialog {
             }
         });
 
-        buscarClientesBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        buscarClientesBoton.setText("Buscar");
+        buscarClientesButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        buscarClientesButton.setText("Buscar");
+        buscarClientesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarClientesButtonActionPerformed(evt);
+            }
+        });
 
         verClientesBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verClientesBoton.setText("Ver todos los clientes");
+        verClientesBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verClientesBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -211,7 +126,7 @@ public class WinEditCliente extends javax.swing.JDialog {
                                 .addGap(12, 12, 12)
                                 .addComponent(clienteEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buscarClientesBoton))
+                                .addComponent(buscarClientesButton))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(183, 183, 183)
@@ -233,7 +148,7 @@ public class WinEditCliente extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(clienteEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarClientesBoton))
+                    .addComponent(buscarClientesButton))
                 .addGap(18, 18, 18)
                 .addComponent(verClientesBoton)
                 .addGap(18, 18, 18)
@@ -259,6 +174,63 @@ public class WinEditCliente extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_cancelarEdtClienteActionPerformed
+    private PreparedStatement read;
+    private ResultSet rs;
+    private DefaultTableModel dtm;
+    private void buscarClientesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientesButtonActionPerformed
+        try {      
+            
+            String valor = clienteEdtText.getText();
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula FROM clientes WHERE nombre LIKE '%"+ valor +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+            
+            dtm = (DefaultTableModel) this.jTable1.getModel();
+            while (rs.next()) {
+            // Se crea un array que será una de las filas de la tabla.
+            Object [] fila = new Object[4]; // Hay tres columnas en la tabla
+
+            // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } // El primer indice en rs es el 1, no el cero, por eso se suma 1.
+
+             // Se añade al modelo la fila completa.
+            dtm.addRow(fila);
+            
+            
+}
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_buscarClientesButtonActionPerformed
+
+    private void verClientesBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClientesBotonActionPerformed
+        try {      
+           
+             
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula FROM clientes");
+           
+            rs = (ResultSet) read.executeQuery();
+            
+            dtm = (DefaultTableModel) this.jTable1.getModel();
+            while (rs.next()) {
+            // Se crea un array que será una de las filas de la tabla.
+            Object [] fila = new Object[4]; // Hay tres columnas en la tabla
+
+            // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } // El primer indice en rs es el 1, no el cero, por eso se suma 1.
+
+             // Se añade al modelo la fila completa.
+            dtm.addRow(fila);
+        
+}
+        } catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_verClientesBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,7 +268,7 @@ public class WinEditCliente extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buscarClientesBoton;
+    private javax.swing.JButton buscarClientesButton;
     private javax.swing.JButton cancelarEdtCliente;
     private javax.swing.JTextField clienteEdtText;
     private javax.swing.JButton guardarEditCliente;
