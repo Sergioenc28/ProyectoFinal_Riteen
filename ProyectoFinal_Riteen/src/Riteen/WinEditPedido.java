@@ -35,9 +35,9 @@ public class WinEditPedido extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        clienteEdtText = new javax.swing.JTextField();
+        pedidoEdtText = new javax.swing.JTextField();
         buscarPedidosBoton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        verPedidosEdtBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         guardarEdtPedidosBoton = new javax.swing.JButton();
@@ -59,18 +59,18 @@ public class WinEditPedido extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Busqueda:");
 
-        clienteEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        clienteEdtText.addActionListener(new java.awt.event.ActionListener() {
+        pedidoEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        pedidoEdtText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clienteEdtTextActionPerformed(evt);
+                pedidoEdtTextActionPerformed(evt);
             }
         });
 
         buscarPedidosBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarPedidosBoton.setText("Buscar");
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton3.setText("Ver todos los pedidos");
+        verPedidosEdtBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        verPedidosEdtBoton.setText("Ver todos los pedidos");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,7 +176,7 @@ public class WinEditPedido extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nombre", "Telefono", "Dirección", "Cédula"
+                "Nombre Producto", "Proveedor", "Dirección", "Cantidad"
             }
         ));
         jScrollPane3.setViewportView(jTable2);
@@ -205,11 +205,11 @@ public class WinEditPedido extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3)
+                            .addComponent(verPedidosEdtBoton)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(clienteEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pedidoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(buscarPedidosBoton))))
                     .addGroup(layout.createSequentialGroup()
@@ -233,11 +233,11 @@ public class WinEditPedido extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clienteEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pedidoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(buscarPedidosBoton))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(verPedidosEdtBoton)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -250,9 +250,9 @@ public class WinEditPedido extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void clienteEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteEdtTextActionPerformed
+    private void pedidoEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidoEdtTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_clienteEdtTextActionPerformed
+    }//GEN-LAST:event_pedidoEdtTextActionPerformed
 
     private void cancelarEdtPedidoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtPedidoBotonActionPerformed
         int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
@@ -303,13 +303,13 @@ public class WinEditPedido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarPedidosBoton;
     private javax.swing.JButton cancelarEdtPedidoBoton;
-    private javax.swing.JTextField clienteEdtText;
     private javax.swing.JButton guardarEdtPedidosBoton;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField pedidoEdtText;
+    private javax.swing.JButton verPedidosEdtBoton;
     // End of variables declaration//GEN-END:variables
 }
