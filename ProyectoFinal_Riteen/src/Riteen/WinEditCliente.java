@@ -7,6 +7,7 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -66,6 +67,11 @@ public class WinEditCliente extends javax.swing.JDialog {
         clienteEdtText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clienteEdtTextActionPerformed(evt);
+            }
+        });
+        clienteEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                clienteEdtTextKeyTyped(evt);
             }
         });
 
@@ -178,18 +184,24 @@ public class WinEditCliente extends javax.swing.JDialog {
     private ResultSet rs;
     private DefaultTableModel dtm;
     private void buscarClientesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientesButtonActionPerformed
-        try {      
+       buscarClientes();
+    }//GEN-LAST:event_buscarClientesButtonActionPerformed
+
+    void buscarClientes(){
+     try {      
             
             String valor = clienteEdtText.getText();
             read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula FROM clientes WHERE nombre LIKE '%"+ valor +"%'");
            
             rs = (ResultSet) read.executeQuery();
-            
+           
+          
             dtm = (DefaultTableModel) this.jTable1.getModel();
+            
             while (rs.next()) {
             // Se crea un array que será una de las filas de la tabla.
             Object [] fila = new Object[4]; // Hay tres columnas en la tabla
-
+            
             // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
             for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);
@@ -197,16 +209,32 @@ public class WinEditCliente extends javax.swing.JDialog {
 
              // Se añade al modelo la fila completa.
             dtm.addRow(fila);
+            if(fila.length == 0){
             
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
             
-}
+            }           
+}       
+            
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-    }//GEN-LAST:event_buscarClientesButtonActionPerformed
-
+    }
     private void verClientesBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClientesBotonActionPerformed
-        try {      
+        verClientes();
+        
+    }//GEN-LAST:event_verClientesBotonActionPerformed
+
+    private void clienteEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_clienteEdtTextKeyTyped
+       char caracter = evt.getKeyChar();
+      if (caracter == KeyEvent.VK_ENTER) {
+            buscarClientes();
+        }
+    }//GEN-LAST:event_clienteEdtTextKeyTyped
+void verClientes(){
+
+try {      
            
              
             read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula FROM clientes");
@@ -214,7 +242,9 @@ public class WinEditCliente extends javax.swing.JDialog {
             rs = (ResultSet) read.executeQuery();
             
             dtm = (DefaultTableModel) this.jTable1.getModel();
+            boolean ver = false;
             while (rs.next()) {
+             ver = true;
             // Se crea un array que será una de las filas de la tabla.
             Object [] fila = new Object[4]; // Hay tres columnas en la tabla
 
@@ -230,8 +260,7 @@ public class WinEditCliente extends javax.swing.JDialog {
         } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-    }//GEN-LAST:event_verClientesBotonActionPerformed
-
+}
     /**
      * @param args the command line arguments
      */
