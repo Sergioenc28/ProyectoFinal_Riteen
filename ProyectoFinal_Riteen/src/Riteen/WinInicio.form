@@ -113,12 +113,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuEditar">
+        <Menu class="javax.swing.JMenu" name="pedidoEdt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuEditarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pedidoEdtActionPerformed"/>
           </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="edtCliente">
@@ -133,11 +133,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cuenta Por Cobrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtCxCActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="edtCxP">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cuenta Por Pagar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtCxPActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="edtEmpleado">
               <Properties>
