@@ -5,6 +5,7 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -78,6 +79,11 @@ public class WinLoging extends javax.swing.JDialog {
         passwordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordTextActionPerformed(evt);
+            }
+        });
+        passwordText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passwordTextKeyTyped(evt);
             }
         });
 
@@ -171,7 +177,12 @@ public class WinLoging extends javax.swing.JDialog {
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
                 
         
-                ArrayList<EjemplosParaUsuarios> usuarios = new ArrayList<>();
+                entrar();
+                
+                
+    }//GEN-LAST:event_entrarActionPerformed
+    void entrar(){
+    ArrayList<EjemplosParaUsuarios> usuarios = new ArrayList<>();
                 EjemplosParaUsuarios crear = new EjemplosParaUsuarios("admin", "123");
                 EjemplosParaUsuarios crear2 = new EjemplosParaUsuarios("sergio", "1234");
                 EjemplosParaUsuarios crear3 = new EjemplosParaUsuarios("harim", "4321");
@@ -218,10 +229,7 @@ public class WinLoging extends javax.swing.JDialog {
                         System.exit(EXIT_ON_CLOSE);
                     }
                 }
-                
-                
-    }//GEN-LAST:event_entrarActionPerformed
-
+    }
     private void cancelarInicioDeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInicioDeSesionActionPerformed
         if (evt.getSource() == cancelarInicioDeSesion){          
             
@@ -237,6 +245,13 @@ public class WinLoging extends javax.swing.JDialog {
     private void entrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entrarKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_entrarKeyPressed
+
+    private void passwordTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordTextKeyTyped
+       int enter = evt.getKeyChar();
+       if (enter == KeyEvent.VK_ENTER){
+       entrar();
+       }
+    }//GEN-LAST:event_passwordTextKeyTyped
 
     /**
      * @param args the command line arguments

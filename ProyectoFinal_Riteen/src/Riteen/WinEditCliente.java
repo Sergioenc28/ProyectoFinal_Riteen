@@ -227,8 +227,8 @@ public class WinEditCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_verClientesBotonActionPerformed
 
     private void clienteEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_clienteEdtTextKeyTyped
-       char caracter = evt.getKeyChar();
-      if (caracter == KeyEvent.VK_ENTER) {
+      int enter = evt.getKeyChar();
+      if (enter == KeyEvent.VK_ENTER) {
             buscarClientes();
         }
     }//GEN-LAST:event_clienteEdtTextKeyTyped
