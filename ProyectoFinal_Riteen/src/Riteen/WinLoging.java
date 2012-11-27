@@ -203,7 +203,7 @@ public class WinLoging extends javax.swing.JDialog {
                         hay=1;
                         if(passwordText.getText().equalsIgnoreCase(e.password))
                         {
-                            JOptionPane.showMessageDialog(null, "Entró");
+                            JOptionPane.showMessageDialog(null, "BIENVENIDO " + e.getUsuario().toUpperCase());
                             this.dispose();
                         }
                         else

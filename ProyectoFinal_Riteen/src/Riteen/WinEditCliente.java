@@ -195,12 +195,12 @@ public class WinEditCliente extends javax.swing.JDialog {
            
             rs = (ResultSet) read.executeQuery();
            
-          
+            
             dtm = (DefaultTableModel) this.jTable1.getModel();
             
             while (rs.next()) {
             // Se crea un array que será una de las filas de la tabla.
-            Object [] fila = new Object[4]; // Hay tres columnas en la tabla
+            Object [] fila = new Object[4]; // Hay cuatro columnas en la tabla
             
             // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
             for (int i=0;i<fila.length;i++) {

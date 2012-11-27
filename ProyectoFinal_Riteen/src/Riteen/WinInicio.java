@@ -353,7 +353,7 @@ public class WinInicio extends javax.swing.JFrame {
 
     private void edtPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtPedidoActionPerformed
         WinEditPedido wepd = new WinEditPedido();
-        wepd.setAlwaysOnTop(true);
+        wepd.setVisible(true);
     }//GEN-LAST:event_edtPedidoActionPerformed
 
     /**
