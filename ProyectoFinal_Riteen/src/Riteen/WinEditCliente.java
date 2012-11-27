@@ -41,7 +41,7 @@ public class WinEditCliente extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         clienteEdtText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableClientes = new javax.swing.JTable();
         guardarEditCliente = new javax.swing.JButton();
         cancelarEdtCliente = new javax.swing.JButton();
         buscarClientesButton = new javax.swing.JButton();
@@ -75,7 +75,7 @@ public class WinEditCliente extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -83,7 +83,7 @@ public class WinEditCliente extends javax.swing.JDialog {
                 "Nombre", "Telefono", "Dirección", "Cédula"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableClientes);
 
         guardarEditCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarEditCliente.setText("Guardar");
@@ -183,20 +183,29 @@ public class WinEditCliente extends javax.swing.JDialog {
     private PreparedStatement read;
     private ResultSet rs;
     private DefaultTableModel dtm;
+    
+    void limpiarTabla(){
+    
+        while(jTableClientes.getRowCount()>0){
+        ((DefaultTableModel)jTableClientes.getModel()).removeRow(0);
+        
+        }
+    }
     private void buscarClientesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientesButtonActionPerformed
-       buscarClientes();
+        limpiarTabla();
+        buscarClientes();
     }//GEN-LAST:event_buscarClientesButtonActionPerformed
 
     void buscarClientes(){
      try {      
-            
+           
             String valor = clienteEdtText.getText();
             read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula FROM clientes WHERE nombre LIKE '%"+ valor +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
             
-            dtm = (DefaultTableModel) this.jTable1.getModel();
+            dtm = (DefaultTableModel) this.jTableClientes.getModel();
             
             while (rs.next()) {
             // Se crea un array que será una de las filas de la tabla.
@@ -222,6 +231,7 @@ public class WinEditCliente extends javax.swing.JDialog {
         }
     }
     private void verClientesBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClientesBotonActionPerformed
+        limpiarTabla();
         verClientes();
         
     }//GEN-LAST:event_verClientesBotonActionPerformed
@@ -229,7 +239,8 @@ public class WinEditCliente extends javax.swing.JDialog {
     private void clienteEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_clienteEdtTextKeyTyped
       int enter = evt.getKeyChar();
       if (enter == KeyEvent.VK_ENTER) {
-            buscarClientes();
+          limpiarTabla();  
+          buscarClientes();
         }
     }//GEN-LAST:event_clienteEdtTextKeyTyped
 void verClientes(){
@@ -241,7 +252,7 @@ try {
            
             rs = (ResultSet) read.executeQuery();
             
-            dtm = (DefaultTableModel) this.jTable1.getModel();
+            dtm = (DefaultTableModel) this.jTableClientes.getModel();
             boolean ver = false;
             while (rs.next()) {
              ver = true;
@@ -305,7 +316,7 @@ try {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableClientes;
     private javax.swing.JButton verClientesBoton;
     // End of variables declaration//GEN-END:variables
 }

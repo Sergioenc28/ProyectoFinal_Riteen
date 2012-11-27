@@ -39,7 +39,7 @@ public class Conexion implements VConexion{
          
         if (conn != null) {
           
-            JOptionPane.showMessageDialog(null, "Bienvenido a Riteen");
+           System.out.println("Conectado a la base de datos: " + bd);
          
             }
         }
