@@ -55,6 +55,7 @@ public class WinInicio extends javax.swing.JFrame {
         edtEmpleado = new javax.swing.JMenuItem();
         edtGasto = new javax.swing.JMenuItem();
         edtPedido = new javax.swing.JMenuItem();
+        edtProducto = new javax.swing.JMenuItem();
         edtProveedor = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -163,6 +164,11 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenuEditar.setText("Editar");
+        jMenuEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuEditarActionPerformed(evt);
+            }
+        });
 
         edtCliente.setText("Cliente");
         edtCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -173,19 +179,9 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuEditar.add(edtCliente);
 
         edtCxC.setText("Cuenta Por Cobrar");
-        edtCxC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCxCActionPerformed(evt);
-            }
-        });
         jMenuEditar.add(edtCxC);
 
         edtCxP.setText("Cuenta Por Pagar");
-        edtCxP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCxPActionPerformed(evt);
-            }
-        });
         jMenuEditar.add(edtCxP);
 
         edtEmpleado.setText("Empleado");
@@ -211,6 +207,14 @@ public class WinInicio extends javax.swing.JFrame {
             }
         });
         jMenuEditar.add(edtPedido);
+
+        edtProducto.setText("Producto");
+        edtProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtProductoActionPerformed(evt);
+            }
+        });
+        jMenuEditar.add(edtProducto);
 
         edtProveedor.setText("Proveedor");
         edtProveedor.addActionListener(new java.awt.event.ActionListener() {
@@ -305,20 +309,14 @@ public class WinInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_edtPedidoActionPerformed
 
     private void edtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProveedorActionPerformed
-        // TODO add your handling code here:
+        WinEditProveedor wepr = new WinEditProveedor();
+        wepr.setVisible(true);
     }//GEN-LAST:event_edtProveedorActionPerformed
 
     private void edtGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtGastoActionPerformed
-        // TODO add your handling code here:
+        WinEditGastos weg = new WinEditGastos();
+        weg.setVisible(true);
     }//GEN-LAST:event_edtGastoActionPerformed
-
-    private void edtCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCxPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtCxPActionPerformed
-
-    private void edtCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCxCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtCxCActionPerformed
 
     private void edtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtClienteActionPerformed
         WinEditCliente wec = new WinEditCliente();
@@ -328,6 +326,15 @@ public class WinInicio extends javax.swing.JFrame {
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEditarActionPerformed
+        
+    }//GEN-LAST:event_jMenuEditarActionPerformed
+
+    private void edtProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProductoActionPerformed
+        WinEditProducto wepc = new WinEditProducto();
+        wepc.setVisible(true);
+    }//GEN-LAST:event_edtProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -382,6 +389,7 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem edtEmpleado;
     private javax.swing.JMenuItem edtGasto;
     private javax.swing.JMenuItem edtPedido;
+    private javax.swing.JMenuItem edtProducto;
     private javax.swing.JMenuItem edtProveedor;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenuArchivo;

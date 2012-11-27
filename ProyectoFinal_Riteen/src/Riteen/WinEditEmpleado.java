@@ -20,6 +20,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         initComponents();
         PanelWinEmpleado pwe = new PanelWinEmpleado();
         this.add(pwe, BorderLayout.CENTER);
+      
     }
 
     /**
