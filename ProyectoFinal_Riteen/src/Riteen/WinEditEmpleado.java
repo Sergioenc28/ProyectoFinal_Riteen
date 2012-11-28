@@ -216,6 +216,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      limpiarTabla();
      buscarEmpleados();
     }//GEN-LAST:event_verEmpleadosBotonActionPerformed
+     
      private PreparedStatement read;
      private ResultSet rs;
      private DefaultTableModel dtm;

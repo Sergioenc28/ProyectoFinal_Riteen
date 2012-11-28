@@ -4,8 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,7 +42,7 @@ public class WinEditGasto extends javax.swing.JDialog {
         buscarGastoBoton = new javax.swing.JButton();
         verGastoBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableGastos = new javax.swing.JTable();
         guardarGastoEdt = new javax.swing.JButton();
         cancelarGastoEdt = new javax.swing.JButton();
 
@@ -59,14 +64,29 @@ public class WinEditGasto extends javax.swing.JDialog {
                 gastoEdtTextActionPerformed(evt);
             }
         });
+        gastoEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                gastoEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarGastoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarGastoBoton.setText("Buscar");
+        buscarGastoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarGastoBotonActionPerformed(evt);
+            }
+        });
 
         verGastoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verGastoBoton.setText("Ver todos los Gasto");
+        verGastoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verGastoBotonActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableGastos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -74,7 +94,7 @@ public class WinEditGasto extends javax.swing.JDialog {
                 "Fecha", "Responsable", "Concepto", "Total"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTableGastos);
 
         guardarGastoEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarGastoEdt.setText("Guardar");
@@ -140,7 +160,14 @@ public class WinEditGasto extends javax.swing.JDialog {
     private void gastoEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastoEdtTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_gastoEdtTextActionPerformed
-
+    
+    void limpiarTabla(){
+    
+        while(jTableGastos.getRowCount()>0){
+        ((DefaultTableModel)jTableGastos.getModel()).removeRow(0);
+        
+        }
+    }
     private void cancelarGastoEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarGastoEdtActionPerformed
         int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
 
@@ -149,6 +176,63 @@ public class WinEditGasto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarGastoEdtActionPerformed
 
+    private void buscarGastoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGastoBotonActionPerformed
+       limpiarTabla();
+       buscarEmpleados();
+       
+    }//GEN-LAST:event_buscarGastoBotonActionPerformed
+
+    private void gastoEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gastoEdtTextKeyTyped
+    int enter = evt.getKeyChar();
+    if (enter == KeyEvent.VK_ENTER){
+        limpiarTabla();
+        buscarEmpleados();
+    }
+    }//GEN-LAST:event_gastoEdtTextKeyTyped
+
+    private void verGastoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verGastoBotonActionPerformed
+        gastoEdtText.setText("");   
+        buscarGastoBotonActionPerformed(null);
+           
+    }//GEN-LAST:event_verGastoBotonActionPerformed
+
+     private PreparedStatement read;
+     private ResultSet rs;
+     private DefaultTableModel dtm;
+    void buscarEmpleados(){
+     try {      
+           
+         
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, responsable, concepto, toal FROM gastos WHERE responsable LIKE '%"+ gastoEdtText.getText() +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.jTableGastos.getModel();
+            
+            while (rs.next()) {
+            // Se crea un array que será una de las filas de la tabla.
+            Object [] fila = new Object[4]; // Hay cuatro columnas en la tabla
+            
+            // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } // El primer indice en rs es el 1, no el cero, por eso se suma 1.
+
+             // Se añade al modelo la fila completa.
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -192,7 +276,7 @@ public class WinEditGasto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableGastos;
     private javax.swing.JButton verGastoBoton;
     // End of variables declaration//GEN-END:variables
 }
