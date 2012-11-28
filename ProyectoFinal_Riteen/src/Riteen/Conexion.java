@@ -6,6 +6,7 @@ package Riteen;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -51,6 +52,15 @@ public class Conexion implements VConexion{
        
         }   
 }
+    public ResultSet hacerConsulta(String consulta){
+        ResultSet resultado = null;
+                try{
+                    resultado = enunciado.executeQuery(consulta);
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+        return resultado;
+    }
 
     public Connection getConexion(){
         return conn;

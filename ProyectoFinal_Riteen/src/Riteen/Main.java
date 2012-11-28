@@ -23,14 +23,9 @@ public class Main {
         //We are ready to work
         
         
-        Conexion conn = Conexion.getInstancia();
-        conn.Conexion();
-       
     
       WinLoging wl = new WinLoging();
       wl.setVisible(true);
-      WinInicio start = new WinInicio();
-      start.setVisible(true);
-        
+         
     }
 }

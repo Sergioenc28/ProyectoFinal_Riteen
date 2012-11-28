@@ -18,7 +18,7 @@ public class WinEditCxP extends javax.swing.JDialog {
      */
     public WinEditCxP() {
         initComponents();
-        PanelWinCxP pwcp = new PanelWinCxP();
+        PanelWinProveedor pwcp = new PanelWinProveedor();
         this.add(pwcp, BorderLayout.CENTER);
     }
 

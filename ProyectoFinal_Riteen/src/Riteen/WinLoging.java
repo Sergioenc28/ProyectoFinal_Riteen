@@ -25,6 +25,7 @@ public class WinLoging extends javax.swing.JDialog {
         initComponents();
         PanelLogging pl = new PanelLogging();
         this.add(pl, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
         
     }
 
@@ -177,66 +178,63 @@ public class WinLoging extends javax.swing.JDialog {
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
                 
         
-                entrar();
-                
-                
+               
+        entrar();                                
     }//GEN-LAST:event_entrarActionPerformed
+    ResultSet usuario;
     void entrar(){
-    ArrayList<EjemplosParaUsuarios> usuarios = new ArrayList<>();
-                EjemplosParaUsuarios crear = new EjemplosParaUsuarios("admin", "123");
-                EjemplosParaUsuarios crear2 = new EjemplosParaUsuarios("sergio", "1234");
-                EjemplosParaUsuarios crear3 = new EjemplosParaUsuarios("harim", "4321");
-                EjemplosParaUsuarios crear4 = new EjemplosParaUsuarios("dioni", "0000");
-                
-                
-                usuarios.add(crear);
-                usuarios.add(crear2);
-                usuarios.add(crear3);
-                usuarios.add(crear4);
-                
-                int hay=0;
-                
-                for (EjemplosParaUsuarios e : usuarios) 
-                {
-                    if(usuarioText.getText().equalsIgnoreCase(e.usuario))
-                    {
-                        hay=1;
-                        if(passwordText.getText().equalsIgnoreCase(e.password))
-                        {
-                            JOptionPane.showMessageDialog(null, "BIENVENIDO " + e.getUsuario().toUpperCase());
-                            this.dispose();
-                        }
-                        else
-                        {
-                            intentos = intentos + 1;
-                            JOptionPane.showMessageDialog(null, "Contraseña incorecta");
-                            passwordText.selectAll();
-                            passwordText.requestFocus();
-                        }
+    Conexion conn = Conexion.getInstancia();
+        conn.Conexion();
+        
+            try{
+                 usuario = conn.getInstancia().hacerConsulta("select userName from usuarios where userName = '" + usuarioText.getText() + "'and pass = '" + obtenerPassword(passwordText.getPassword()) + "'");
+                    String nombreDelUsuario = "";
+                    
+                    while(usuario.next()){
+                        nombreDelUsuario = usuario.getString("userName");
                     }
-                }
-                
-                if(hay == 0)
-                {
-                    intentos = intentos + 1;
-                    JOptionPane.showMessageDialog(null, "Este usuario no existe");
-                    usuarioText.selectAll();
-                    usuarioText.requestFocus();
-                    //System.out.println(intentos);
-                    if(intentos >=3)
-                    {
-                        JOptionPane.showMessageDialog(null, "Hasta Luego"); 
-                        System.exit(EXIT_ON_CLOSE);
+                    
+                    if ( nombreDelUsuario.length() > 0){
+                        
+                   //      JOptionPane.showMessageDialog(null, "Bienvenido al sistema\n" +nombreDelUsuario);
+                        
+                      WinInicio  ventana =  new WinInicio();
+                         ventana.show();
+                       
+                        dispose();
+                   }
+                    
+                    else{
+                       JOptionPane.showMessageDialog(null,"El Usuario/Password estan mal escritos verifique los datos", "Error",JOptionPane.ERROR_MESSAGE);
                     }
-                }
+            }catch(SQLException ex){
+                System.out.print("Error"+ ex.getMessage());
+            }
     }
+     public String obtenerPassword(char[] password){
+         
+        String resultado = "";
+            for(int letra = 0; letra<password.length;letra++){
+                resultado += password[letra];
+            }
+        
+        
+         
+            
+            
+        return resultado;
+
+    }//GEN-LAST:event_jButton_AceptarActionPerformed
+
+    
+    
     private void cancelarInicioDeSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarInicioDeSesionActionPerformed
         if (evt.getSource() == cancelarInicioDeSesion){          
             
             int opc = JOptionPane.showConfirmDialog(this, "Esta seguro que desea cancelar el inicio de sesión", "Salir", JOptionPane.YES_NO_OPTION);
             
             if(opc == JOptionPane.YES_OPTION){
-                JOptionPane.showMessageDialog(this, "Bye");
+            //    JOptionPane.showMessageDialog(this, "Bye");
                 System.exit(0);
             }                                    
         }
