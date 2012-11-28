@@ -191,14 +191,14 @@ public class WinLoging extends javax.swing.JDialog {
                     String nombreDelUsuario = "";
                     
                     while(usuario.next()){
-                        nombreDelUsuario = usuario.getString("userName");
+                        nombreDelUsuario = usuario.getString(1);
                     }
                     
                     if ( nombreDelUsuario.length() > 0){
                         
                     JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
                         
-                      WinInicio  ventana =  new WinInicio();
+                    WinInicio  ventana =  new WinInicio();
                          ventana.show();
                        
                         dispose();

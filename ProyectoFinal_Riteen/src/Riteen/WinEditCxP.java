@@ -4,8 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -38,11 +43,12 @@ public class WinEditCxP extends javax.swing.JDialog {
         buscarCxPBoton = new javax.swing.JButton();
         verCxPBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableCuentasPorCobrar = new javax.swing.JTable();
         guardarCxPEdt = new javax.swing.JButton();
         cancelarCxPEdt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Riteen - Cuentas por Pagar");
         setResizable(false);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
@@ -54,7 +60,7 @@ public class WinEditCxP extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Busqueda:");
+        jLabel3.setText("Buscar Acreedor:");
 
         cxpEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         cxpEdtText.addActionListener(new java.awt.event.ActionListener() {
@@ -62,14 +68,29 @@ public class WinEditCxP extends javax.swing.JDialog {
                 cxpEdtTextActionPerformed(evt);
             }
         });
+        cxpEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cxpEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarCxPBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarCxPBoton.setText("Buscar");
+        buscarCxPBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarCxPBotonActionPerformed(evt);
+            }
+        });
 
         verCxPBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verCxPBoton.setText("Ver todas las CxP");
+        verCxPBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verCxPBotonActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCuentasPorCobrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -77,7 +98,7 @@ public class WinEditCxP extends javax.swing.JDialog {
                 "Fecha", "Acreedor", "Concepto", "Plazo", "Total"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTableCuentasPorCobrar);
 
         guardarCxPEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarCxPEdt.setText("Guardar");
@@ -159,6 +180,67 @@ public class WinEditCxP extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarCxPEdtActionPerformed
 
+    private void verCxPBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verCxPBotonActionPerformed
+        limpiarTabla();
+        buscarCuentas();
+    }//GEN-LAST:event_verCxPBotonActionPerformed
+
+    private void buscarCxPBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCxPBotonActionPerformed
+        verCxPBotonActionPerformed(null);
+    }//GEN-LAST:event_buscarCxPBotonActionPerformed
+
+    private void cxpEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cxpEdtTextKeyTyped
+        int enter = evt.getKeyChar();
+        if (enter == KeyEvent.VK_ENTER){
+        verCxPBotonActionPerformed(null);
+        }
+    }//GEN-LAST:event_cxpEdtTextKeyTyped
+
+    private PreparedStatement read;
+     private ResultSet rs;
+     private DefaultTableModel dtm;
+     
+     void limpiarTabla(){
+    
+        while(jTableCuentasPorCobrar.getRowCount()>0){
+        ((DefaultTableModel)jTableCuentasPorCobrar.getModel()).removeRow(0);
+        
+        }
+    }
+     void buscarCuentas(){
+     try {      
+           
+             
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, acreedor, concepto, plazo, total FROM cuentas_por_pagar WHERE acreedor LIKE '%"+ cxpEdtText.getText() +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.jTableCuentasPorCobrar.getModel();
+            
+            while (rs.next()) {
+            
+            Object [] fila = new Object[5]; 
+            
+           
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } 
+
+            
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -203,7 +285,7 @@ public class WinEditCxP extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableCuentasPorCobrar;
     private javax.swing.JButton verCxPBoton;
     // End of variables declaration//GEN-END:variables
 }
