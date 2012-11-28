@@ -20,7 +20,8 @@ public class WinInicio extends javax.swing.JFrame {
     public WinInicio() {
         initComponents();
         PanelInicio pn = new  PanelInicio();
-        this.add(pn, BorderLayout.CENTER);                
+        this.add(pn, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
     }
 
     /**

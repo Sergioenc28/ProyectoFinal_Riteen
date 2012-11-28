@@ -224,7 +224,7 @@ public class WinLoging extends javax.swing.JDialog {
             
         return resultado;
 
-    }//GEN-LAST:event_jButton_AceptarActionPerformed
+    }                                               
 
     
     
