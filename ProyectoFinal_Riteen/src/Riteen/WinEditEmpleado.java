@@ -4,8 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -42,7 +47,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         buscarEmpleadoBoton = new javax.swing.JButton();
         verEmpleadosBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableEmpleados = new javax.swing.JTable();
         guardarEdtEmpleadoBoton = new javax.swing.JButton();
         cancelarEdtEmpleadoBoton = new javax.swing.JButton();
 
@@ -73,7 +78,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Busqueda:");
+        jLabel3.setText("Buscar empleado:");
 
         empleadoEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         empleadoEdtText.addActionListener(new java.awt.event.ActionListener() {
@@ -81,22 +86,37 @@ public class WinEditEmpleado extends javax.swing.JDialog {
                 empleadoEdtTextActionPerformed(evt);
             }
         });
+        empleadoEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                empleadoEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarEmpleadoBoton.setText("Buscar");
+        buscarEmpleadoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarEmpleadoBotonActionPerformed(evt);
+            }
+        });
 
         verEmpleadosBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verEmpleadosBoton.setText("Ver todos los empleado");
+        verEmpleadosBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verEmpleadosBotonActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Telefono", "Dirección", "Cédula", "Sueldo"
+                "Nombre", "Telefono", "Dirección", "Cédula", "Sueldo", "Horario"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTableEmpleados);
 
         guardarEdtEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarEdtEmpleadoBoton.setText("Guardar");
@@ -124,20 +144,21 @@ public class WinEditEmpleado extends javax.swing.JDialog {
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(verEmpleadosBoton)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(empleadoEdtText)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(buscarEmpleadoBoton))
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(empleadoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(buscarEmpleadoBoton))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addComponent(guardarEdtEmpleadoBoton)
                         .addGap(29, 29, 29)
                         .addComponent(cancelarEdtEmpleadoBoton)))
                 .addGap(64, 64, 64))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,6 +198,69 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarEdtEmpleadoBotonActionPerformed
 
+    private void buscarEmpleadoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEmpleadoBotonActionPerformed
+       limpiarTabla();
+       buscarEmpleados();
+    }//GEN-LAST:event_buscarEmpleadoBotonActionPerformed
+
+    private void empleadoEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_empleadoEdtTextKeyTyped
+       int enter = evt.getKeyChar();
+      if (enter == KeyEvent.VK_ENTER) {
+          limpiarTabla();  
+          buscarEmpleados();
+        }
+    }//GEN-LAST:event_empleadoEdtTextKeyTyped
+
+    private void verEmpleadosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verEmpleadosBotonActionPerformed
+     empleadoEdtText.setText("");
+     limpiarTabla();
+     buscarEmpleados();
+    }//GEN-LAST:event_verEmpleadosBotonActionPerformed
+     private PreparedStatement read;
+     private ResultSet rs;
+     private DefaultTableModel dtm;
+     
+     void limpiarTabla(){
+    
+        while(jTableEmpleados.getRowCount()>0){
+        ((DefaultTableModel)jTableEmpleados.getModel()).removeRow(0);
+        
+        }
+    }
+     void buscarEmpleados(){
+     try {      
+           
+            String valor = empleadoEdtText.getText();
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula, sueldo, horario FROM empleados WHERE nombre LIKE '%"+ valor +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.jTableEmpleados.getModel();
+            
+            while (rs.next()) {
+            // Se crea un array que será una de las filas de la tabla.
+            Object [] fila = new Object[6]; // Hay cuatro columnas en la tabla
+            
+            // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } // El primer indice en rs es el 1, no el cero, por eso se suma 1.
+
+             // Se añade al modelo la fila completa.
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -224,7 +308,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableEmpleados;
     private javax.swing.JButton verEmpleadosBoton;
     // End of variables declaration//GEN-END:variables
 }
