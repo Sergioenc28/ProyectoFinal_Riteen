@@ -187,7 +187,7 @@ public class WinLoging extends javax.swing.JDialog {
         conn.Conexion();
         
             try{
-                 usuario = conn.getInstancia().hacerConsulta("select userName from usuarios where userName = '" + usuarioText.getText() + "'and pass = '" + obtenerPassword(passwordText.getPassword()) + "'");
+                 usuario = Conexion.getInstancia().hacerConsulta("select userName from usuarios where userName = '" + usuarioText.getText() + "'and pass = '" + obtenerPassword(passwordText.getPassword()) + "'");
                     String nombreDelUsuario = "";
                     
                     while(usuario.next()){
@@ -196,7 +196,7 @@ public class WinLoging extends javax.swing.JDialog {
                     
                     if ( nombreDelUsuario.length() > 0){
                         
-                   //      JOptionPane.showMessageDialog(null, "Bienvenido al sistema\n" +nombreDelUsuario);
+                    JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
                         
                       WinInicio  ventana =  new WinInicio();
                          ventana.show();
@@ -217,12 +217,7 @@ public class WinLoging extends javax.swing.JDialog {
             for(int letra = 0; letra<password.length;letra++){
                 resultado += password[letra];
             }
-        
-        
-         
-            
-            
-        return resultado;
+            return resultado;
 
     }                                               
 
