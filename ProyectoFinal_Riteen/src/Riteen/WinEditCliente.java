@@ -231,8 +231,9 @@ public class WinEditCliente extends javax.swing.JDialog {
         }
     }
     private void verClientesBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verClientesBotonActionPerformed
+        clienteEdtText.setText("");
         limpiarTabla();
-        verClientes();
+        buscarClientes();
         
     }//GEN-LAST:event_verClientesBotonActionPerformed
 
@@ -243,35 +244,7 @@ public class WinEditCliente extends javax.swing.JDialog {
           buscarClientes();
         }
     }//GEN-LAST:event_clienteEdtTextKeyTyped
-void verClientes(){
 
-try {      
-           
-             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula FROM clientes");
-           
-            rs = (ResultSet) read.executeQuery();
-            
-            dtm = (DefaultTableModel) this.jTableClientes.getModel();
-            boolean ver = false;
-            while (rs.next()) {
-             ver = true;
-            // Se crea un array que será una de las filas de la tabla.
-            Object [] fila = new Object[4]; // Hay tres columnas en la tabla
-
-            // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
-            for (int i=0;i<fila.length;i++) {
-                    fila[i] = rs.getObject(i+1);
-                } // El primer indice en rs es el 1, no el cero, por eso se suma 1.
-
-             // Se añade al modelo la fila completa.
-            dtm.addRow(fila);
-        
-}
-        } catch (SQLException ex) {
-          JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-}
     /**
      * @param args the command line arguments
      */

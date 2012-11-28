@@ -4,8 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +25,51 @@ public class WinEditCxC extends javax.swing.JDialog {
         initComponents();
         PanelWinCxC pwcc = new PanelWinCxC();
         this.add(pwcc, BorderLayout.CENTER);
+    }
+    private PreparedStatement read;
+    private ResultSet rs;
+    private DefaultTableModel dtm;
+    
+    void buscarCuentas(){
+    try {      
+           
+            String valor = cxcEdtText.getText();
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, deudor, concepto, plazo, total FROM cuentasxcobrar WHERE deudor LIKE '%"+ valor +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.jTableCXC.getModel();
+            
+            while (rs.next()) {
+            // Se crea un array que será una de las filas de la tabla.
+            Object [] fila = new Object[5]; // Hay cuatro columnas en la tabla
+            
+            // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } // El primer indice en rs es el 1, no el cero, por eso se suma 1.
+
+             // Se añade al modelo la fila completa.
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
+    void limpiarTabla(){
+    
+        while(jTableCXC.getRowCount()>0){
+        ((DefaultTableModel)jTableCXC.getModel()).removeRow(0);
+        
+        }
     }
 
     /**
@@ -37,12 +87,13 @@ public class WinEditCxC extends javax.swing.JDialog {
         buscarCxCBoton = new javax.swing.JButton();
         verCxCBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableCXC = new javax.swing.JTable();
         guardarCxCEdt = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         cancelarCxCEdt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Riteen - Editar Cuentas por Cobrar");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -52,7 +103,7 @@ public class WinEditCxC extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Busqueda:");
+        jLabel3.setText("Buscar Deudor:");
 
         cxcEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         cxcEdtText.addActionListener(new java.awt.event.ActionListener() {
@@ -60,14 +111,29 @@ public class WinEditCxC extends javax.swing.JDialog {
                 cxcEdtTextActionPerformed(evt);
             }
         });
+        cxcEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cxcEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarCxCBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarCxCBoton.setText("Buscar");
+        buscarCxCBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarCxCBotonActionPerformed(evt);
+            }
+        });
 
         verCxCBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verCxCBoton.setText("Ver todas las CxC");
+        verCxCBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verCxCBotonActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCXC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -75,7 +141,7 @@ public class WinEditCxC extends javax.swing.JDialog {
                 "Fecha", "Deudor", "Concepto", "Plazo", "Total"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTableCXC);
 
         guardarCxCEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarCxCEdt.setText("Guardar");
@@ -160,6 +226,23 @@ public class WinEditCxC extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarCxCEdtActionPerformed
 
+    private void buscarCxCBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCxCBotonActionPerformed
+        limpiarTabla();
+        buscarCuentas();
+    }//GEN-LAST:event_buscarCxCBotonActionPerformed
+
+    private void verCxCBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verCxCBotonActionPerformed
+       cxcEdtText.setText("");
+        buscarCxCBotonActionPerformed(evt);
+    }//GEN-LAST:event_verCxCBotonActionPerformed
+
+    private void cxcEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cxcEdtTextKeyTyped
+       int enter = evt.getKeyChar();
+      if (enter == KeyEvent.VK_ENTER) {
+          buscarCxCBotonActionPerformed(null);
+        }
+    }//GEN-LAST:event_cxcEdtTextKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -204,7 +287,7 @@ public class WinEditCxC extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableCXC;
     private javax.swing.JButton verCxCBoton;
     // End of variables declaration//GEN-END:variables
 }
