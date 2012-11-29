@@ -65,7 +65,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
         buscarProveedorBoton.setText("Buscar");
 
         verBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        verBoton.setText("Ver todos los Proveedor");
+        verBoton.setText("Ver todos los Proveedores");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,9 +108,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
                                 .addGap(83, 83, 83)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(proveedorEdtText)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)))
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buscarProveedorBoton))
                     .addGroup(layout.createSequentialGroup()
