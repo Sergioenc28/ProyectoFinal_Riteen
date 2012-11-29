@@ -196,7 +196,7 @@ public class WinEditCxP extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cxpEdtTextKeyTyped
 
-    private PreparedStatement read;
+     private PreparedStatement read;
      private ResultSet rs;
      private DefaultTableModel dtm;
      

@@ -4,9 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,7 +43,7 @@ public class WinEditPedido extends javax.swing.JDialog {
         buscarPedidosBoton = new javax.swing.JButton();
         verPedidosEdtBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTablePedidos = new javax.swing.JTable();
         guardarEdtPedidosBoton = new javax.swing.JButton();
         cancelarEdtPedidoBoton = new javax.swing.JButton();
 
@@ -72,7 +76,7 @@ public class WinEditPedido extends javax.swing.JDialog {
         verPedidosEdtBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verPedidosEdtBoton.setText("Ver todos los pedidos");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -80,7 +84,7 @@ public class WinEditPedido extends javax.swing.JDialog {
                 "Nombre Producto", "Proveedor", "Dirección", "Cantidad"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTablePedidos);
 
         guardarEdtPedidosBoton.setText("Guardar");
         guardarEdtPedidosBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +170,50 @@ public class WinEditPedido extends javax.swing.JDialog {
     private void guardarEdtPedidosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEdtPedidosBotonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarEdtPedidosBotonActionPerformed
+     private PreparedStatement read;
+     private ResultSet rs;
+     private DefaultTableModel dtm;
+    void limpiarTabla(){
     
+        while(jTablePedidos.getRowCount()>0){
+        ((DefaultTableModel)jTablePedidos.getModel()).removeRow(0);
+        
+        }
+    }
+     void buscarPedidos(){
+     try {      
+           
+             
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, acreedor, concepto, plazo, total FROM cuentas_por_pagar WHERE acreedor LIKE '%"+pedidoEdtText.getText() +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.jTablePedidos.getModel();
+            
+            while (rs.next()) {
+            
+            Object [] fila = new Object[5]; 
+            
+           
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } 
+
+            
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -209,7 +256,7 @@ public class WinEditPedido extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTablePedidos;
     private javax.swing.JTextField pedidoEdtText;
     private javax.swing.JButton verPedidosEdtBoton;
     // End of variables declaration//GEN-END:variables
