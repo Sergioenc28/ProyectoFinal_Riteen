@@ -52,6 +52,7 @@ public class Conexion implements VConexion{
        
         }   
 }
+    
     public ResultSet hacerConsulta(String consulta){
         ResultSet resultado = null;
                 try{
@@ -64,8 +65,5 @@ public class Conexion implements VConexion{
 
     public Connection getConexion(){
         return conn;
-    }
-    
-    
-
+    }       
 }
