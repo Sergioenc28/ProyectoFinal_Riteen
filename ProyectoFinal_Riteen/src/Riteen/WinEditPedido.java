@@ -7,6 +7,7 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -69,19 +70,34 @@ public class WinEditPedido extends javax.swing.JDialog {
                 pedidoEdtTextActionPerformed(evt);
             }
         });
+        pedidoEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pedidoEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarPedidosBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarPedidosBoton.setText("Buscar");
+        buscarPedidosBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarPedidosBotonActionPerformed(evt);
+            }
+        });
 
         verPedidosEdtBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verPedidosEdtBoton.setText("Ver todos los pedidos");
+        verPedidosEdtBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verPedidosEdtBotonActionPerformed(evt);
+            }
+        });
 
         jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre Producto", "Proveedor", "Dirección", "Cantidad"
+                "Nombre del Producto", "Proveedor", "Cantidad"
             }
         ));
         jScrollPane3.setViewportView(jTablePedidos);
@@ -170,6 +186,22 @@ public class WinEditPedido extends javax.swing.JDialog {
     private void guardarEdtPedidosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEdtPedidosBotonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guardarEdtPedidosBotonActionPerformed
+
+    private void verPedidosEdtBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPedidosEdtBotonActionPerformed
+        limpiarTabla();
+        buscarPedidos();
+    }//GEN-LAST:event_verPedidosEdtBotonActionPerformed
+
+    private void buscarPedidosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPedidosBotonActionPerformed
+        verPedidosEdtBotonActionPerformed(null);
+    }//GEN-LAST:event_buscarPedidosBotonActionPerformed
+
+    private void pedidoEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pedidoEdtTextKeyTyped
+        int enter = evt.getKeyChar();
+        if (enter == KeyEvent.VK_ENTER){
+        verPedidosEdtBotonActionPerformed(null);
+        }
+    }//GEN-LAST:event_pedidoEdtTextKeyTyped
      private PreparedStatement read;
      private ResultSet rs;
      private DefaultTableModel dtm;
@@ -184,7 +216,7 @@ public class WinEditPedido extends javax.swing.JDialog {
      try {      
            
              
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, acreedor, concepto, plazo, total FROM cuentas_por_pagar WHERE acreedor LIKE '%"+pedidoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT producto, proveedor, cantidad FROM pedidos WHERE proveedor LIKE '%"+pedidoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -193,7 +225,7 @@ public class WinEditPedido extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[5]; 
+            Object [] fila = new Object[3]; 
             
            
             for (int i=0;i<fila.length;i++) {
@@ -243,6 +275,7 @@ public class WinEditPedido extends javax.swing.JDialog {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new WinEditPedido().setVisible(true);
             }
