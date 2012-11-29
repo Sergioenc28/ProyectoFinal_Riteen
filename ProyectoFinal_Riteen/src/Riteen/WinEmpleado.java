@@ -194,7 +194,7 @@ public class WinEmpleado extends javax.swing.JDialog {
                         .addComponent(guardarEmpleado)
                         .addGap(18, 18, 18)
                         .addComponent(cancelarEmpleado)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +228,7 @@ public class WinEmpleado extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarEmpleado)
                     .addComponent(cancelarEmpleado))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();

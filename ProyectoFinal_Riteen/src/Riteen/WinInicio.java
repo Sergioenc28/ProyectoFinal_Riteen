@@ -5,6 +5,9 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.omg.CORBA.WCharSeqHelper;
 
@@ -37,6 +40,7 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuArchivo = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         salirSistema = new javax.swing.JMenuItem();
+        agregarUsuarioJMenu = new javax.swing.JMenu();
         jMenuRegistrar = new javax.swing.JMenu();
         RegEmpleado = new javax.swing.JMenuItem();
         RegCliente = new javax.swing.JMenuItem();
@@ -81,6 +85,14 @@ public class WinInicio extends javax.swing.JFrame {
             }
         });
         jMenuArchivo.add(salirSistema);
+
+        agregarUsuarioJMenu.setText("Agregar Usuario");
+        agregarUsuarioJMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                agregarUsuarioJMenuMousePressed(evt);
+            }
+        });
+        jMenuArchivo.add(agregarUsuarioJMenu);
 
         jMenuBar1.add(jMenuArchivo);
 
@@ -357,6 +369,25 @@ public class WinInicio extends javax.swing.JFrame {
         wepd.setVisible(true);
     }//GEN-LAST:event_edtPedidoActionPerformed
 
+    private void agregarUsuarioJMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarUsuarioJMenuMousePressed
+        // TODO add your handling code here:
+        
+        //Nota: Con este ejemplo pondremos el Administrador a crear usuario y solo se creara si tiene los permisos...
+        
+        String usuarioActual="sergio";
+        
+        System.out.println(usuarioActual);
+        
+        if(usuarioActual.equalsIgnoreCase("sergio"))
+        {
+            JOptionPane.showMessageDialog(null, "Podra crear usuario");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Usted notiene permisos del Administrador para crear usuarios");
+        }
+    }//GEN-LAST:event_agregarUsuarioJMenuMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -401,6 +432,7 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegProducto;
     private javax.swing.JMenuItem RegProveedor;
     private javax.swing.JMenuItem RegReparacion;
+    private javax.swing.JMenu agregarUsuarioJMenu;
     private javax.swing.JMenuItem edtCliente;
     private javax.swing.JMenuItem edtCxC;
     private javax.swing.JMenuItem edtCxP;

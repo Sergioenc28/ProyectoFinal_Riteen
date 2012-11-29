@@ -182,13 +182,14 @@ public class WinLoging extends javax.swing.JDialog {
         entrar();                                
     }//GEN-LAST:event_entrarActionPerformed
     ResultSet usuario;
+    String nombreDelUsuario = "";
     void entrar(){
     Conexion conn = Conexion.getInstancia();
         conn.Conexion();
         
             try{
                  usuario = Conexion.getInstancia().hacerConsulta("select userName from usuarios where userName = '" + usuarioText.getText() + "'and pass = '" + obtenerPassword(passwordText.getPassword()) + "'");
-                    String nombreDelUsuario = "";
+                    
                     
                     while(usuario.next()){
                         nombreDelUsuario = usuario.getString(1);
