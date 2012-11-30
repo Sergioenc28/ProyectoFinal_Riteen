@@ -4,8 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -38,7 +43,7 @@ public class WinEditProducto extends javax.swing.JDialog {
         buscarProductoBoton = new javax.swing.JButton();
         verBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableProductos = new javax.swing.JTable();
         guardarProductoEdt = new javax.swing.JButton();
         cancelarProductoEdt = new javax.swing.JButton();
 
@@ -61,14 +66,29 @@ public class WinEditProducto extends javax.swing.JDialog {
                 productoEdtTextActionPerformed(evt);
             }
         });
+        productoEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                productoEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarProductoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarProductoBoton.setText("Buscar");
+        buscarProductoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarProductoBotonActionPerformed(evt);
+            }
+        });
 
         verBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verBoton.setText("Ver todos los Productos");
+        verBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verBotonActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -76,10 +96,15 @@ public class WinEditProducto extends javax.swing.JDialog {
                 "Nombre", "Proveedor", "Exist Almac", "Costo", "Precio de Venta"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTableProductos);
 
         guardarProductoEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarProductoEdt.setText("Guardar");
+        guardarProductoEdt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarProductoEdtActionPerformed(evt);
+            }
+        });
 
         cancelarProductoEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarProductoEdt.setText("Cancelar");
@@ -153,6 +178,76 @@ public class WinEditProducto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarProductoEdtActionPerformed
 
+    private PreparedStatement read;
+    private ResultSet rs;
+    private DefaultTableModel dtm;
+    
+    void limpiarTabla(){
+    
+        while(jTableProductos.getRowCount()>0){
+        ((DefaultTableModel)jTableProductos.getModel()).removeRow(0);
+        
+        }
+    }
+    
+    private void guardarProductoEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoEdtActionPerformed
+        
+    }//GEN-LAST:event_guardarProductoEdtActionPerformed
+
+    private void buscarProductoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarProductoBotonActionPerformed
+        limpiarTabla();
+        buscarProductos();
+    }//GEN-LAST:event_buscarProductoBotonActionPerformed
+
+    private void verBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verBotonActionPerformed
+        productoEdtText.setText("");
+        limpiarTabla();
+        buscarProductos();
+    }//GEN-LAST:event_verBotonActionPerformed
+
+    private void productoEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_productoEdtTextKeyTyped
+         int enter = evt.getKeyChar();
+      if (enter == KeyEvent.VK_ENTER) {
+          limpiarTabla();  
+          buscarProductos();
+        }
+    }//GEN-LAST:event_productoEdtTextKeyTyped
+
+    void buscarProductos(){
+     try {      
+           
+            
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT Nombre, idProveedor, Existencia, Costo, PrecioDeVenta FROM almacen WHERE nombre LIKE '%"+ productoEdtText.getText() +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.jTableProductos.getModel();
+            
+            while (rs.next()) {
+            
+            Object [] fila = new Object[4];
+            
+            
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } 
+
+             
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -195,7 +290,7 @@ public class WinEditProducto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableProductos;
     private javax.swing.JTextField productoEdtText;
     private javax.swing.JButton verBoton;
     // End of variables declaration//GEN-END:variables
