@@ -20,6 +20,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         initComponents();
         PanelReciboDeReparacion prr = new PanelReciboDeReparacion();
         this.add(prr, BorderLayout.CENTER); 
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -80,7 +81,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Editar Recibo de Reparación");
+        jLabel1.setText("Recibo de Reparación");
         jLabel1.setToolTipText("");
 
         cancelarReciboReparacionEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -98,9 +99,9 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(64, 64, 64))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                .addGap(72, 72, 72))
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

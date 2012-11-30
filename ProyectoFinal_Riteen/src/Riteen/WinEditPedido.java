@@ -25,7 +25,8 @@ public class WinEditPedido extends javax.swing.JDialog {
     public WinEditPedido() {
         initComponents();
         PanelWinPedido pwp = new PanelWinPedido();
-        this.add(pwp, BorderLayout.CENTER);                
+        this.add(pwp, BorderLayout.CENTER);  
+        this.setLocationRelativeTo(null);
         }
 
     /**
@@ -57,7 +58,7 @@ public class WinEditPedido extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Editar Pedidos");
+        jLabel1.setText("Pedidos");
         jLabel1.setToolTipText("");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -136,7 +137,7 @@ public class WinEditPedido extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
+                        .addGap(43, 43, 43)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(177, 177, 177)

@@ -50,7 +50,7 @@ public class PanelInicio extends javax.swing.JPanel {
         facturasButton = new javax.swing.JToggleButton();
         reparacionesButton = new javax.swing.JToggleButton();
         ayudaButton = new javax.swing.JToggleButton();
-        gastosButton = new javax.swing.JToggleButton();
+        cuentasButton = new javax.swing.JToggleButton();
         pedidosButton = new javax.swing.JToggleButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -94,6 +94,11 @@ public class PanelInicio extends javax.swing.JPanel {
         proveedoresButton.setForeground(new java.awt.Color(255, 255, 255));
         proveedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
         proveedoresButton.setText("PROVEEDORES");
+        proveedoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedoresButtonActionPerformed(evt);
+            }
+        });
 
         almacenButton.setOpaque(false);
         almacenButton.setContentAreaFilled(false);
@@ -102,6 +107,11 @@ public class PanelInicio extends javax.swing.JPanel {
         almacenButton.setForeground(new java.awt.Color(255, 255, 255));
         almacenButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacen.png"))); // NOI18N
         almacenButton.setText("ALMACEN");
+        almacenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                almacenButtonActionPerformed(evt);
+            }
+        });
 
         facturasButton.setOpaque(false);
         facturasButton.setContentAreaFilled(false);
@@ -118,6 +128,11 @@ public class PanelInicio extends javax.swing.JPanel {
         reparacionesButton.setForeground(new java.awt.Color(255, 255, 255));
         reparacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reparacion.png"))); // NOI18N
         reparacionesButton.setText("REPARACIONES");
+        reparacionesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reparacionesButtonActionPerformed(evt);
+            }
+        });
 
         ayudaButton.setOpaque(false);
         ayudaButton.setContentAreaFilled(false);
@@ -126,14 +141,24 @@ public class PanelInicio extends javax.swing.JPanel {
         ayudaButton.setForeground(new java.awt.Color(255, 255, 255));
         ayudaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/help.png"))); // NOI18N
         ayudaButton.setText("AYUDA");
+        ayudaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ayudaButtonActionPerformed(evt);
+            }
+        });
 
-        gastosButton.setOpaque(false);
-        gastosButton.setContentAreaFilled(false);
-        gastosButton.setBorderPainted(false);
-        gastosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        gastosButton.setForeground(new java.awt.Color(255, 255, 255));
-        gastosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
-        gastosButton.setText("GASTOS");
+        cuentasButton.setOpaque(false);
+        cuentasButton.setContentAreaFilled(false);
+        cuentasButton.setBorderPainted(false);
+        cuentasButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        cuentasButton.setForeground(new java.awt.Color(255, 255, 255));
+        cuentasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
+        cuentasButton.setText("CUENTAS");
+        cuentasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentasButtonActionPerformed(evt);
+            }
+        });
 
         pedidosButton.setOpaque(false);
         pedidosButton.setContentAreaFilled(false);
@@ -142,6 +167,11 @@ public class PanelInicio extends javax.swing.JPanel {
         pedidosButton.setForeground(new java.awt.Color(255, 255, 255));
         pedidosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
         pedidosButton.setText("PEDIDOS");
+        pedidosButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pedidosButtonActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
@@ -237,7 +267,7 @@ public class PanelInicio extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(empleadosButton)
                                     .addComponent(facturasButton)
-                                    .addComponent(gastosButton))
+                                    .addComponent(cuentasButton))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(proveedoresButton)
@@ -278,7 +308,7 @@ public class PanelInicio extends javax.swing.JPanel {
                         .addComponent(facturasButton)
                         .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(gastosButton)
+                            .addComponent(cuentasButton)
                             .addComponent(ayudaButton)
                             .addComponent(pedidosButton))))
                 .addGap(32, 32, 32)
@@ -290,7 +320,8 @@ public class PanelInicio extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void empleadosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadosButtonActionPerformed
-        // TODO add your handling code here:
+        WinEditEmpleado wee = new WinEditEmpleado();
+        wee.setVisible(true);
     }//GEN-LAST:event_empleadosButtonActionPerformed
 
     private void crearFacturaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearFacturaButtonActionPerformed
@@ -299,7 +330,6 @@ public class PanelInicio extends javax.swing.JPanel {
 
     private void CrearReciboButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearReciboButtonActionPerformed
        WinReciboDeReparacion wrd = new WinReciboDeReparacion();
-       wrd.setLocationRelativeTo(null);
        wrd.setVisible(true);       
     }//GEN-LAST:event_CrearReciboButtonActionPerformed
 
@@ -312,8 +342,37 @@ public class PanelInicio extends javax.swing.JPanel {
     }//GEN-LAST:event_salirButtonActionPerformed
 
     private void clientesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesButtonActionPerformed
-        // TODO add your handling code here:
+        WinEditCliente wec = new WinEditCliente();
+        wec.setVisible(true);
     }//GEN-LAST:event_clientesButtonActionPerformed
+
+    private void proveedoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedoresButtonActionPerformed
+        WinEditProveedor wepd = new WinEditProveedor();
+       wepd.setVisible(true);
+    }//GEN-LAST:event_proveedoresButtonActionPerformed
+
+    private void almacenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_almacenButtonActionPerformed
+         WinEditProducto wepr = new WinEditProducto();
+        wepr.setVisible(true);
+    }//GEN-LAST:event_almacenButtonActionPerformed
+
+    private void reparacionesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reparacionesButtonActionPerformed
+        WinReciboDeReparacion wrd = new WinReciboDeReparacion();
+        wrd.setVisible(true);
+    }//GEN-LAST:event_reparacionesButtonActionPerformed
+
+    private void pedidosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidosButtonActionPerformed
+        WinEditPedido wepd = new WinEditPedido();
+        wepd.setVisible(true);
+    }//GEN-LAST:event_pedidosButtonActionPerformed
+
+    private void cuentasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentasButtonActionPerformed
+        
+    }//GEN-LAST:event_cuentasButtonActionPerformed
+
+    private void ayudaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ayudaButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CrearReciboButton;
@@ -321,9 +380,9 @@ public class PanelInicio extends javax.swing.JPanel {
     private javax.swing.JToggleButton ayudaButton;
     private javax.swing.JToggleButton clientesButton;
     private javax.swing.JButton crearFacturaButton;
+    private javax.swing.JToggleButton cuentasButton;
     private javax.swing.JToggleButton empleadosButton;
     private javax.swing.JToggleButton facturasButton;
-    private javax.swing.JToggleButton gastosButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

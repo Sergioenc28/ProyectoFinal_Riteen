@@ -25,6 +25,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         initComponents();
         PanelWinEmpleado pwe = new PanelWinEmpleado();
         this.add(pwe, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
       
     }
 
@@ -72,7 +73,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Editar Empleado");
+        jLabel1.setText("Empleados");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
 

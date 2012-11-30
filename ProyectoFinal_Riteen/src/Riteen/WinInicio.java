@@ -53,19 +53,10 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuItemCuentaXCobrar = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        pedidoEdt = new javax.swing.JMenu();
-        edtCliente = new javax.swing.JMenuItem();
-        edtCxC = new javax.swing.JMenuItem();
-        edtCxP = new javax.swing.JMenuItem();
-        edtEmpleado = new javax.swing.JMenuItem();
-        edtGasto = new javax.swing.JMenuItem();
-        edtPedido = new javax.swing.JMenuItem();
-        edtProducto = new javax.swing.JMenuItem();
-        edtProveedor = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Inicio");
-        setPreferredSize(new java.awt.Dimension(850, 600));
+        setPreferredSize(new java.awt.Dimension(846, 610));
         setResizable(false);
 
         jMenuArchivo.setText("Archivo");
@@ -176,79 +167,6 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuBar1.add(jMenuRegistrar);
         jMenuBar1.add(jMenu3);
 
-        pedidoEdt.setText("Editar");
-        pedidoEdt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pedidoEdtActionPerformed(evt);
-            }
-        });
-
-        edtCliente.setText("Cliente");
-        edtCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtClienteActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtCliente);
-
-        edtCxC.setText("Cuenta Por Cobrar");
-        edtCxC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCxCActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtCxC);
-
-        edtCxP.setText("Cuenta Por Pagar");
-        edtCxP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtCxPActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtCxP);
-
-        edtEmpleado.setText("Empleado");
-        edtEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtEmpleadoActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtEmpleado);
-
-        edtGasto.setText("Gasto");
-        edtGasto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtGastoActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtGasto);
-
-        edtPedido.setText("Pedido");
-        edtPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtPedidoActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtPedido);
-
-        edtProducto.setText("Producto");
-        edtProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtProductoActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtProducto);
-
-        edtProveedor.setText("Proveedor");
-        edtProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtProveedorActionPerformed(evt);
-            }
-        });
-        pedidoEdt.add(edtProveedor);
-
-        jMenuBar1.add(pedidoEdt);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -320,54 +238,9 @@ public class WinInicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_salirSistemaMousePressed
 
-    private void edtEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtEmpleadoActionPerformed
-        WinEditEmpleado wee = new WinEditEmpleado();
-        wee.setVisible(true);
-        
-    }//GEN-LAST:event_edtEmpleadoActionPerformed
-
-    private void edtProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProveedorActionPerformed
-       WinEditProveedor wepd = new WinEditProveedor();
-       wepd.setVisible(true);
-    }//GEN-LAST:event_edtProveedorActionPerformed
-
-    private void edtGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtGastoActionPerformed
-        WinEditGasto weg = new WinEditGasto();
-        weg.setVisible(true);
-    }//GEN-LAST:event_edtGastoActionPerformed
-
-    private void edtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtClienteActionPerformed
-        WinEditCliente wec = new WinEditCliente();
-        wec.setVisible(true);
-    }//GEN-LAST:event_edtClienteActionPerformed
-
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void pedidoEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidoEdtActionPerformed
-        
-    }//GEN-LAST:event_pedidoEdtActionPerformed
-
-    private void edtProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtProductoActionPerformed
-        WinEditProducto wepr = new WinEditProducto();
-        wepr.setVisible(true);
-    }//GEN-LAST:event_edtProductoActionPerformed
-
-    private void edtCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCxCActionPerformed
-        WinEditCxC wecc = new WinEditCxC();
-        wecc.setVisible(true);
-    }//GEN-LAST:event_edtCxCActionPerformed
-
-    private void edtCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtCxPActionPerformed
-        WinEditCxP wecp = new WinEditCxP();
-        wecp.setVisible(true);
-    }//GEN-LAST:event_edtCxPActionPerformed
-
-    private void edtPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtPedidoActionPerformed
-        WinEditPedido wepd = new WinEditPedido();
-        wepd.setVisible(true);
-    }//GEN-LAST:event_edtPedidoActionPerformed
 
     private void agregarUsuarioJMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarUsuarioJMenuMousePressed
         // TODO add your handling code here:
@@ -433,14 +306,6 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegProveedor;
     private javax.swing.JMenuItem RegReparacion;
     private javax.swing.JMenu agregarUsuarioJMenu;
-    private javax.swing.JMenuItem edtCliente;
-    private javax.swing.JMenuItem edtCxC;
-    private javax.swing.JMenuItem edtCxP;
-    private javax.swing.JMenuItem edtEmpleado;
-    private javax.swing.JMenuItem edtGasto;
-    private javax.swing.JMenuItem edtPedido;
-    private javax.swing.JMenuItem edtProducto;
-    private javax.swing.JMenuItem edtProveedor;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;
@@ -448,7 +313,6 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemCuentaXCobrar;
     private javax.swing.JMenu jMenuRegistrar;
-    private javax.swing.JMenu pedidoEdt;
     private javax.swing.JMenuItem salirSistema;
     // End of variables declaration//GEN-END:variables
 }
