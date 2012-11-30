@@ -10,7 +10,7 @@ package Riteen;
 public interface VConexion {
     public String bd = "riteen";
     public String login = "root";
-    public String password = "";
+    public String password = "cojinua";
     public String url = "jdbc:mysql://localhost/"+bd;
     public String servidor = "127.0.0.1";
     
