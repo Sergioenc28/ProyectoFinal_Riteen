@@ -22,17 +22,17 @@
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jToggleButton4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jToggleButton1" min="-2" pref="161" max="-2" attributes="0"/>
+                              <Component id="almacenButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="clientesButton" min="-2" pref="161" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jToggleButton9" min="-2" pref="176" max="-2" attributes="0"/>
+                              <Component id="pedidosButton" min="-2" pref="176" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="CrearReciboButoom" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="CrearReciboButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="crearFacturaButton" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -42,33 +42,36 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jToggleButton2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton8" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jToggleButton3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton6" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton7" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="salirButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="empleadosButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="facturasButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="gastosButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="proveedoresButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="reparacionesButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ayudaButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonSalir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
           <Group type="102" attributes="0">
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="notificacionesButton" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,56 +80,54 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="notificacionesButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="crearFacturaButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="CrearReciboButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="CrearReciboButoom" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="clientesButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="proveedoresButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jToggleButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jToggleButton3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jToggleButton6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jToggleButton4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jToggleButton2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="jToggleButton5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jToggleButton8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jToggleButton7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jToggleButton9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="reparacionesButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="almacenButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jButtonSalir" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="empleadosButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="facturasButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="gastosButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ayudaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pedidosButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="salirButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+    <Component class="javax.swing.JToggleButton" name="clientesButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -139,11 +140,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="CLIENTES"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientesButtonActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton1.setOpaque(false);&#xa;jToggleButton1.setContentAreaFilled(false);&#xa;jToggleButton1.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="clientesButton.setOpaque(false);&#xa;clientesButton.setContentAreaFilled(false);&#xa;clientesButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+    <Component class="javax.swing.JToggleButton" name="empleadosButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -158,13 +162,13 @@
         <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="empleadosButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton2.setOpaque(false);&#xa;jToggleButton2.setContentAreaFilled(false);&#xa;jToggleButton2.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="empleadosButton.setOpaque(false);&#xa;empleadosButton.setContentAreaFilled(false);&#xa;empleadosButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton3">
+    <Component class="javax.swing.JToggleButton" name="proveedoresButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -178,10 +182,10 @@
         <Property name="text" type="java.lang.String" value="PROVEEDORES"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton3.setOpaque(false);&#xa;jToggleButton3.setContentAreaFilled(false);&#xa;jToggleButton3.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="proveedoresButton.setOpaque(false);&#xa;proveedoresButton.setContentAreaFilled(false);&#xa;proveedoresButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton4">
+    <Component class="javax.swing.JToggleButton" name="almacenButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -195,10 +199,10 @@
         <Property name="text" type="java.lang.String" value="ALMACEN"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton4.setOpaque(false);&#xa;jToggleButton4.setContentAreaFilled(false);&#xa;jToggleButton4.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="almacenButton.setOpaque(false);&#xa;almacenButton.setContentAreaFilled(false);&#xa;almacenButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton5">
+    <Component class="javax.swing.JToggleButton" name="facturasButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -212,10 +216,10 @@
         <Property name="text" type="java.lang.String" value="FACTURAS"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton5.setOpaque(false);&#xa;jToggleButton5.setContentAreaFilled(false);&#xa;jToggleButton5.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="facturasButton.setOpaque(false);&#xa;facturasButton.setContentAreaFilled(false);&#xa;facturasButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton6">
+    <Component class="javax.swing.JToggleButton" name="reparacionesButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -229,10 +233,10 @@
         <Property name="text" type="java.lang.String" value="REPARACIONES"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton6.setOpaque(false);&#xa;jToggleButton6.setContentAreaFilled(false);&#xa;jToggleButton6.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="reparacionesButton.setOpaque(false);&#xa;reparacionesButton.setContentAreaFilled(false);&#xa;reparacionesButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton7">
+    <Component class="javax.swing.JToggleButton" name="ayudaButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -246,10 +250,10 @@
         <Property name="text" type="java.lang.String" value="AYUDA"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton7.setOpaque(false);&#xa;jToggleButton7.setContentAreaFilled(false);&#xa;jToggleButton7.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ayudaButton.setOpaque(false);&#xa;ayudaButton.setContentAreaFilled(false);&#xa;ayudaButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton8">
+    <Component class="javax.swing.JToggleButton" name="gastosButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -263,10 +267,10 @@
         <Property name="text" type="java.lang.String" value="GASTOS"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton8.setOpaque(false);&#xa;jToggleButton8.setContentAreaFilled(false);&#xa;jToggleButton8.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="gastosButton.setOpaque(false);&#xa;gastosButton.setContentAreaFilled(false);&#xa;gastosButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton9">
+    <Component class="javax.swing.JToggleButton" name="pedidosButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -280,7 +284,7 @@
         <Property name="text" type="java.lang.String" value="PEDIDOS"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jToggleButton9.setOpaque(false);&#xa;jToggleButton9.setContentAreaFilled(false);&#xa;jToggleButton9.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="pedidosButton.setOpaque(false);&#xa;pedidosButton.setContentAreaFilled(false);&#xa;pedidosButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -306,7 +310,7 @@
         <Property name="text" type="java.lang.String" value="Usuario:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="crearFacturaButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -320,13 +324,13 @@
         <Property name="text" type="java.lang.String" value="Crear Factura"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crearFacturaButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jButton1.setOpaque(false);&#xa;jButton1.setContentAreaFilled(false);&#xa;jButton1.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="crearFacturaButton.setOpaque(false);&#xa;crearFacturaButton.setContentAreaFilled(false);&#xa;crearFacturaButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="CrearReciboButoom">
+    <Component class="javax.swing.JButton" name="CrearReciboButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -340,13 +344,13 @@
         <Property name="text" type="java.lang.String" value="Crear Recibo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CrearReciboButoomActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CrearReciboButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="CrearReciboButoom.setOpaque(false);&#xa;CrearReciboButoom.setContentAreaFilled(false);&#xa;CrearReciboButoom.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="CrearReciboButton.setOpaque(false);&#xa;CrearReciboButton.setContentAreaFilled(false);&#xa;CrearReciboButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="notificacionesButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -360,7 +364,7 @@
         <Property name="text" type="java.lang.String" value="Notificaciones"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jButton3.setOpaque(false);&#xa;jButton3.setContentAreaFilled(false);&#xa;jButton3.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="notificacionesButton.setOpaque(false);&#xa;notificacionesButton.setContentAreaFilled(false);&#xa;notificacionesButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -374,7 +378,7 @@
         <Property name="text" type="java.lang.String" value="R i t e e n"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonSalir">
+    <Component class="javax.swing.JButton" name="salirButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
@@ -382,16 +386,13 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Harim Tejada\Desktop\GitHub\ProyectoFinal_Riteen\ProyectoFinal_Riteen\src\Imagenes\139.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salirButtonActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jButtonSalir.setOpaque(false);&#xa;jButtonSalir.setContentAreaFilled(false);&#xa;jButtonSalir.setBorderPainted(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="salirButton.setOpaque(false);&#xa;salirButton.setContentAreaFilled(false);&#xa;salirButton.setBorderPainted(false);"/>
       </AuxValues>
     </Component>
   </SubComponents>

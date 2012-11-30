@@ -43,100 +43,105 @@ public class PanelInicio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
+        clientesButton = new javax.swing.JToggleButton();
+        empleadosButton = new javax.swing.JToggleButton();
+        proveedoresButton = new javax.swing.JToggleButton();
+        almacenButton = new javax.swing.JToggleButton();
+        facturasButton = new javax.swing.JToggleButton();
+        reparacionesButton = new javax.swing.JToggleButton();
+        ayudaButton = new javax.swing.JToggleButton();
+        gastosButton = new javax.swing.JToggleButton();
+        pedidosButton = new javax.swing.JToggleButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        CrearReciboButoom = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        crearFacturaButton = new javax.swing.JButton();
+        CrearReciboButton = new javax.swing.JButton();
+        notificacionesButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButtonSalir = new javax.swing.JButton();
+        salirButton = new javax.swing.JButton();
 
-        jToggleButton1.setOpaque(false);
-        jToggleButton1.setContentAreaFilled(false);
-        jToggleButton1.setBorderPainted(false);
-        jToggleButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/group2.png"))); // NOI18N
-        jToggleButton1.setText("CLIENTES");
-
-        jToggleButton2.setOpaque(false);
-        jToggleButton2.setContentAreaFilled(false);
-        jToggleButton2.setBorderPainted(false);
-        jToggleButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
-        jToggleButton2.setText("EMPLEADOS");
-        jToggleButton2.setAutoscrolls(true);
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        clientesButton.setOpaque(false);
+        clientesButton.setContentAreaFilled(false);
+        clientesButton.setBorderPainted(false);
+        clientesButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        clientesButton.setForeground(new java.awt.Color(255, 255, 255));
+        clientesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/group2.png"))); // NOI18N
+        clientesButton.setText("CLIENTES");
+        clientesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                clientesButtonActionPerformed(evt);
             }
         });
 
-        jToggleButton3.setOpaque(false);
-        jToggleButton3.setContentAreaFilled(false);
-        jToggleButton3.setBorderPainted(false);
-        jToggleButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
-        jToggleButton3.setText("PROVEEDORES");
+        empleadosButton.setOpaque(false);
+        empleadosButton.setContentAreaFilled(false);
+        empleadosButton.setBorderPainted(false);
+        empleadosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        empleadosButton.setForeground(new java.awt.Color(255, 255, 255));
+        empleadosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
+        empleadosButton.setText("EMPLEADOS");
+        empleadosButton.setAutoscrolls(true);
+        empleadosButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empleadosButtonActionPerformed(evt);
+            }
+        });
 
-        jToggleButton4.setOpaque(false);
-        jToggleButton4.setContentAreaFilled(false);
-        jToggleButton4.setBorderPainted(false);
-        jToggleButton4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacen.png"))); // NOI18N
-        jToggleButton4.setText("ALMACEN");
+        proveedoresButton.setOpaque(false);
+        proveedoresButton.setContentAreaFilled(false);
+        proveedoresButton.setBorderPainted(false);
+        proveedoresButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        proveedoresButton.setForeground(new java.awt.Color(255, 255, 255));
+        proveedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
+        proveedoresButton.setText("PROVEEDORES");
 
-        jToggleButton5.setOpaque(false);
-        jToggleButton5.setContentAreaFilled(false);
-        jToggleButton5.setBorderPainted(false);
-        jToggleButton5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/task_completed_256.png"))); // NOI18N
-        jToggleButton5.setText("FACTURAS");
+        almacenButton.setOpaque(false);
+        almacenButton.setContentAreaFilled(false);
+        almacenButton.setBorderPainted(false);
+        almacenButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        almacenButton.setForeground(new java.awt.Color(255, 255, 255));
+        almacenButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacen.png"))); // NOI18N
+        almacenButton.setText("ALMACEN");
 
-        jToggleButton6.setOpaque(false);
-        jToggleButton6.setContentAreaFilled(false);
-        jToggleButton6.setBorderPainted(false);
-        jToggleButton6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reparacion.png"))); // NOI18N
-        jToggleButton6.setText("REPARACIONES");
+        facturasButton.setOpaque(false);
+        facturasButton.setContentAreaFilled(false);
+        facturasButton.setBorderPainted(false);
+        facturasButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        facturasButton.setForeground(new java.awt.Color(255, 255, 255));
+        facturasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/task_completed_256.png"))); // NOI18N
+        facturasButton.setText("FACTURAS");
 
-        jToggleButton7.setOpaque(false);
-        jToggleButton7.setContentAreaFilled(false);
-        jToggleButton7.setBorderPainted(false);
-        jToggleButton7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/help.png"))); // NOI18N
-        jToggleButton7.setText("AYUDA");
+        reparacionesButton.setOpaque(false);
+        reparacionesButton.setContentAreaFilled(false);
+        reparacionesButton.setBorderPainted(false);
+        reparacionesButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        reparacionesButton.setForeground(new java.awt.Color(255, 255, 255));
+        reparacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reparacion.png"))); // NOI18N
+        reparacionesButton.setText("REPARACIONES");
 
-        jToggleButton8.setOpaque(false);
-        jToggleButton8.setContentAreaFilled(false);
-        jToggleButton8.setBorderPainted(false);
-        jToggleButton8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
-        jToggleButton8.setText("GASTOS");
+        ayudaButton.setOpaque(false);
+        ayudaButton.setContentAreaFilled(false);
+        ayudaButton.setBorderPainted(false);
+        ayudaButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        ayudaButton.setForeground(new java.awt.Color(255, 255, 255));
+        ayudaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/help.png"))); // NOI18N
+        ayudaButton.setText("AYUDA");
 
-        jToggleButton9.setOpaque(false);
-        jToggleButton9.setContentAreaFilled(false);
-        jToggleButton9.setBorderPainted(false);
-        jToggleButton9.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jToggleButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
-        jToggleButton9.setText("PEDIDOS");
+        gastosButton.setOpaque(false);
+        gastosButton.setContentAreaFilled(false);
+        gastosButton.setBorderPainted(false);
+        gastosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        gastosButton.setForeground(new java.awt.Color(255, 255, 255));
+        gastosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
+        gastosButton.setText("GASTOS");
+
+        pedidosButton.setOpaque(false);
+        pedidosButton.setContentAreaFilled(false);
+        pedidosButton.setBorderPainted(false);
+        pedidosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pedidosButton.setForeground(new java.awt.Color(255, 255, 255));
+        pedidosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
+        pedidosButton.setText("PEDIDOS");
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
@@ -147,54 +152,53 @@ public class PanelInicio extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuario:");
 
-        jButton1.setOpaque(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setBorderPainted(false);
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/facturar.png"))); // NOI18N
-        jButton1.setText("Crear Factura");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        crearFacturaButton.setOpaque(false);
+        crearFacturaButton.setContentAreaFilled(false);
+        crearFacturaButton.setBorderPainted(false);
+        crearFacturaButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        crearFacturaButton.setForeground(new java.awt.Color(255, 255, 255));
+        crearFacturaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/facturar.png"))); // NOI18N
+        crearFacturaButton.setText("Crear Factura");
+        crearFacturaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                crearFacturaButtonActionPerformed(evt);
             }
         });
 
-        CrearReciboButoom.setOpaque(false);
-        CrearReciboButoom.setContentAreaFilled(false);
-        CrearReciboButoom.setBorderPainted(false);
-        CrearReciboButoom.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        CrearReciboButoom.setForeground(new java.awt.Color(255, 255, 255));
-        CrearReciboButoom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/217.png"))); // NOI18N
-        CrearReciboButoom.setText("Crear Recibo");
-        CrearReciboButoom.addActionListener(new java.awt.event.ActionListener() {
+        CrearReciboButton.setOpaque(false);
+        CrearReciboButton.setContentAreaFilled(false);
+        CrearReciboButton.setBorderPainted(false);
+        CrearReciboButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        CrearReciboButton.setForeground(new java.awt.Color(255, 255, 255));
+        CrearReciboButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/217.png"))); // NOI18N
+        CrearReciboButton.setText("Crear Recibo");
+        CrearReciboButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CrearReciboButoomActionPerformed(evt);
+                CrearReciboButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setOpaque(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setBorderPainted(false);
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Notification.png"))); // NOI18N
-        jButton3.setText("Notificaciones");
+        notificacionesButton.setOpaque(false);
+        notificacionesButton.setContentAreaFilled(false);
+        notificacionesButton.setBorderPainted(false);
+        notificacionesButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        notificacionesButton.setForeground(new java.awt.Color(255, 255, 255));
+        notificacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Notification.png"))); // NOI18N
+        notificacionesButton.setText("Notificaciones");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("R i t e e n");
 
-        jButtonSalir.setOpaque(false);
-        jButtonSalir.setContentAreaFilled(false);
-        jButtonSalir.setBorderPainted(false);
-        jButtonSalir.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Harim Tejada\\Desktop\\GitHub\\ProyectoFinal_Riteen\\ProyectoFinal_Riteen\\src\\Imagenes\\139.png")); // NOI18N
-        jButtonSalir.setText("Salir");
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+        salirButton.setOpaque(false);
+        salirButton.setContentAreaFilled(false);
+        salirButton.setBorderPainted(false);
+        salirButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        salirButton.setForeground(new java.awt.Color(255, 255, 255));
+        salirButton.setText("Salir");
+        salirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
+                salirButtonActionPerformed(evt);
             }
         });
 
@@ -208,13 +212,13 @@ public class PanelInicio extends javax.swing.JPanel {
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jToggleButton4)
-                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(almacenButton)
+                                .addComponent(clientesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pedidosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8))))
-                    .addComponent(CrearReciboButoom)
-                    .addComponent(jButton1))
+                    .addComponent(CrearReciboButton)
+                    .addComponent(crearFacturaButton))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -222,106 +226,111 @@ public class PanelInicio extends javax.swing.JPanel {
                         .addComponent(jLabel10)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton2)
-                            .addComponent(jToggleButton5)
-                            .addComponent(jToggleButton8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton3)
-                            .addComponent(jToggleButton6)
-                            .addComponent(jToggleButton7))
-                        .addGap(96, 96, 96))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSalir)
-                        .addGap(59, 59, 59))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(salirButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(empleadosButton)
+                                    .addComponent(facturasButton)
+                                    .addComponent(gastosButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(proveedoresButton)
+                                    .addComponent(reparacionesButton)
+                                    .addComponent(ayudaButton))))
+                        .addGap(96, 96, 96))))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3))
+                .addComponent(notificacionesButton))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton3))
+                    .addComponent(notificacionesButton))
                 .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(crearFacturaButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CrearReciboButton)))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CrearReciboButoom)))
-                        .addGap(40, 40, 40)
+                            .addComponent(clientesButton)
+                            .addComponent(proveedoresButton))
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jToggleButton1)
-                                    .addComponent(jToggleButton3))
-                                .addGap(69, 69, 69)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jToggleButton6)
-                                    .addComponent(jToggleButton4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jToggleButton2)
-                                .addGap(69, 69, 69)
-                                .addComponent(jToggleButton5)
-                                .addGap(67, 67, 67)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jToggleButton8)
-                                    .addComponent(jToggleButton7)
-                                    .addComponent(jToggleButton9))))
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel2))
-                    .addComponent(jButtonSalir))
-                .addContainerGap(69, Short.MAX_VALUE))
+                            .addComponent(reparacionesButton)
+                            .addComponent(almacenButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(empleadosButton)
+                        .addGap(69, 69, 69)
+                        .addComponent(facturasButton)
+                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gastosButton)
+                            .addComponent(ayudaButton)
+                            .addComponent(pedidosButton))))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(salirButton))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void empleadosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadosButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }//GEN-LAST:event_empleadosButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void crearFacturaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearFacturaButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_crearFacturaButtonActionPerformed
 
-    private void CrearReciboButoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearReciboButoomActionPerformed
+    private void CrearReciboButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearReciboButtonActionPerformed
        WinReciboDeReparacion wrd = new WinReciboDeReparacion();
-       wrd.setVisible(true);
-    }//GEN-LAST:event_CrearReciboButoomActionPerformed
+       wrd.setLocationRelativeTo(null);
+       wrd.setVisible(true);       
+    }//GEN-LAST:event_CrearReciboButtonActionPerformed
 
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+    private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
      int opc = JOptionPane.showConfirmDialog(null, "Seguro que desea salir del sistema", "Salir", JOptionPane.YES_NO_OPTION);
         
         if(opc == JOptionPane.YES_OPTION){
             System.exit(0);
         }
-    }//GEN-LAST:event_jButtonSalirActionPerformed
+    }//GEN-LAST:event_salirButtonActionPerformed
+
+    private void clientesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clientesButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CrearReciboButoom;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JButton CrearReciboButton;
+    private javax.swing.JToggleButton almacenButton;
+    private javax.swing.JToggleButton ayudaButton;
+    private javax.swing.JToggleButton clientesButton;
+    private javax.swing.JButton crearFacturaButton;
+    private javax.swing.JToggleButton empleadosButton;
+    private javax.swing.JToggleButton facturasButton;
+    private javax.swing.JToggleButton gastosButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
+    private javax.swing.JButton notificacionesButton;
+    private javax.swing.JToggleButton pedidosButton;
+    private javax.swing.JToggleButton proveedoresButton;
+    private javax.swing.JToggleButton reparacionesButton;
+    private javax.swing.JButton salirButton;
     // End of variables declaration//GEN-END:variables
 }
