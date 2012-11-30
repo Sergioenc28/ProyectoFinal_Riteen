@@ -98,7 +98,7 @@ public class WinEditPedido extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nombre del Producto", "Proveedor", "Cantidad"
+                "ID", "Nombre del Producto", "Proveedor", "Cantidad"
             }
         ));
         jScrollPane3.setViewportView(jTablePedidos);
@@ -217,7 +217,7 @@ public class WinEditPedido extends javax.swing.JDialog {
      try {      
            
              
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT producto, proveedor, cantidad FROM pedidos WHERE proveedor LIKE '%"+pedidoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, producto, proveedor, cantidad FROM pedidos WHERE proveedor LIKE '%"+pedidoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -226,7 +226,7 @@ public class WinEditPedido extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[3]; 
+            Object [] fila = new Object[4]; 
             
            
             for (int i=0;i<fila.length;i++) {

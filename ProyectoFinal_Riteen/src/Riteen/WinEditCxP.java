@@ -96,7 +96,7 @@ public class WinEditCxP extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Fecha", "Acreedor", "Concepto", "Plazo", "Total"
+                "ID", "Fecha", "Acreedor", "Concepto", "Plazo", "Total"
             }
         ));
         jScrollPane3.setViewportView(jTableCuentasPorCobrar);
@@ -214,7 +214,7 @@ public class WinEditCxP extends javax.swing.JDialog {
      try {      
            
              
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, acreedor, concepto, plazo, total FROM cuentas_por_pagar WHERE acreedor LIKE '%"+ cxpEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idCuentaXPagar, fecha, acreedor, concepto, plazo, total FROM cuentas_por_pagar WHERE acreedor LIKE '%"+ cxpEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -223,7 +223,7 @@ public class WinEditCxP extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[5]; 
+            Object [] fila = new Object[6]; 
             
            
             for (int i=0;i<fila.length;i++) {

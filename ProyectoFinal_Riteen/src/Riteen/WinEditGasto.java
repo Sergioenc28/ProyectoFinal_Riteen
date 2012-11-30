@@ -93,11 +93,11 @@ public class WinEditGasto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Fecha", "Responsable", "Concepto", "Total"
+                "ID", "Fecha", "Responsable", "Concepto", "Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -215,7 +215,7 @@ public class WinEditGasto extends javax.swing.JDialog {
      try {      
            
          
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, responsable, concepto, total FROM gastos WHERE responsable LIKE '%"+ gastoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idGastos, fecha, responsable, concepto, total FROM gastos WHERE responsable LIKE '%"+ gastoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -224,7 +224,7 @@ public class WinEditGasto extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[4]; 
+            Object [] fila = new Object[5]; 
            
             for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);

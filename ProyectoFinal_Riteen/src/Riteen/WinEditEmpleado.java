@@ -114,7 +114,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nombre", "Telefono", "Dirección", "Cédula", "Sueldo", "Horario"
+                "ID", "Nombre", "Telefono", "Dirección", "Cédula", "Sueldo", "Horario"
             }
         ));
         jScrollPane3.setViewportView(jTableEmpleados);
@@ -155,11 +155,11 @@ public class WinEditEmpleado extends javax.swing.JDialog {
                         .addGap(176, 176, 176)
                         .addComponent(guardarEdtEmpleadoBoton)
                         .addGap(29, 29, 29)
-                        .addComponent(cancelarEdtEmpleadoBoton)))
-                .addGap(64, 64, 64))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                        .addComponent(cancelarEdtEmpleadoBoton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,8 +232,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      void buscarEmpleados(){
      try {      
            
-            String valor = empleadoEdtText.getText();
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula, sueldo, horario FROM empleados WHERE nombre LIKE '%"+ valor +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, telefono, direccion, cedula, sueldo, horario FROM empleados WHERE nombre LIKE '%"+ empleadoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -242,7 +241,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[6]; 
+            Object [] fila = new Object[7]; 
             
            
             for (int i=0;i<fila.length;i++) {

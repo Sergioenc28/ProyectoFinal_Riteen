@@ -94,7 +94,7 @@ public class WinEditProducto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nombre", "Proveedor", "Exist Almac", "Costo", "Precio de Venta"
+                "ID", "Nombre", "Proveedor", "Exist Almac", "Costo", "Precio de Venta"
             }
         ));
         jScrollPane3.setViewportView(jTableProductos);
@@ -234,7 +234,7 @@ public class WinEditProducto extends javax.swing.JDialog {
 
     void buscarProductos(){
      try {                             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT Nombre, idProveedor, Existencia, Costo, PrecioDeVenta FROM almacen WHERE nombre LIKE '%"+ productoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, Nombre, idProveedor, Existencia, Costo, PrecioDeVenta FROM almacen WHERE nombre LIKE '%"+ productoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -243,7 +243,7 @@ public class WinEditProducto extends javax.swing.JDialog {
             
            while (rs.next()) {
             
-                Object [] fila = new Object[5];
+                Object [] fila = new Object[6];
                         
                 for (int i=0;i<fila.length;i++) {
                         fila[i] = rs.getObject(i+1);

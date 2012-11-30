@@ -34,8 +34,7 @@ public class WinEditCxC extends javax.swing.JDialog {
     void buscarCuentas(){
     try {      
            
-            String valor = cxcEdtText.getText();
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT fecha, deudor, concepto, plazo, total FROM cuentasxcobrar WHERE deudor LIKE '%"+ valor +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idCuentaXCobrar, fecha, deudor, concepto, plazo, total FROM cuentasxcobrar WHERE deudor LIKE '%"+ cxcEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -43,15 +42,15 @@ public class WinEditCxC extends javax.swing.JDialog {
             dtm = (DefaultTableModel) this.jTableCXC.getModel();
             
             while (rs.next()) {
-            // Se crea un array que será una de las filas de la tabla.
-            Object [] fila = new Object[5]; // Hay cuatro columnas en la tabla
             
-            // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
+            Object [] fila = new Object[6];
+            
+            
             for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);
-                } // El primer indice en rs es el 1, no el cero, por eso se suma 1.
+                }
 
-             // Se añade al modelo la fila completa.
+             
             dtm.addRow(fila);
             if(fila.length == 0){
             
@@ -139,9 +138,17 @@ public class WinEditCxC extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Fecha", "Deudor", "Concepto", "Plazo", "Total"
+                "ID", "Fecha", "Deudor", "Concepto", "Plazo", "Total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(jTableCXC);
 
         guardarCxCEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N

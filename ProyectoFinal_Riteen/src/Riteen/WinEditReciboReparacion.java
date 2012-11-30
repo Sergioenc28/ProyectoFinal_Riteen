@@ -54,9 +54,17 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Fecha", "Cliente", "Articulo", "Plazo", "Fecha de Entrega"
+                "ID", "Fecha", "Cliente", "Articulo", "Plazo", "Fecha de Entrega"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(reciboReparacionjTable);
 
         verBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N

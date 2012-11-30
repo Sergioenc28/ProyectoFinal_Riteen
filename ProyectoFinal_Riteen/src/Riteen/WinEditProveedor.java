@@ -7,7 +7,6 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
-import java.awt.KeyEventDispatcher;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -96,7 +95,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nombre", "Telefono", "Dirección", "E-mail"
+                "ID", "Nombre", "Telefono", "Dirección", "E-mail"
             }
         ));
         jScrollPane3.setViewportView(jTableProveedores);
@@ -242,7 +241,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
      try {      
            
             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, Email horario FROM proveedores WHERE nombre LIKE '%"+ proveedorEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProveedor, nombre, telefono, direccion, Email horario FROM proveedores WHERE nombre LIKE '%"+ proveedorEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            

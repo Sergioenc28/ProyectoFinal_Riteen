@@ -81,7 +81,7 @@ public class WinEditCliente extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nombre", "Telefono", "Dirección", "Cédula"
+                "ID", "Nombre", "Cédula", "Telefono", "Dirección"
             }
         ));
         jTableClientes.setColumnSelectionAllowed(true);
@@ -201,9 +201,8 @@ public class WinEditCliente extends javax.swing.JDialog {
 
     void buscarClientes(){
      try {      
-           
-            String valor = clienteEdtText.getText();
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, cedula FROM clientes WHERE nombre LIKE '%"+ valor +"%'");
+                       
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idCliente, nombre, cedula, telefono, direccion  FROM clientes WHERE nombre LIKE '%"+ clienteEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -212,7 +211,7 @@ public class WinEditCliente extends javax.swing.JDialog {
             
             while (rs.next()) {
             // Se crea un array que será una de las filas de la tabla.
-            Object [] fila = new Object[4]; // Hay cuatro columnas en la tabla
+            Object [] fila = new Object[5]; // Hay cuatro columnas en la tabla
             
             // Se rellena cada posición del array con una de las columnas de la tabla en base de datos.
             for (int i=0;i<fila.length;i++) {
