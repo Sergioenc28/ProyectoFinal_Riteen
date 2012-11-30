@@ -104,7 +104,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         });
 
         verEmpleadosBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        verEmpleadosBoton.setText("Ver todos los empleado");
+        verEmpleadosBoton.setText("Ver todos los empleados");
         verEmpleadosBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verEmpleadosBotonActionPerformed(evt);
@@ -133,6 +133,11 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         });
 
         jButton2.setText("Agregar Empleado");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -227,6 +232,11 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      limpiarTabla();
      buscarEmpleados();
     }//GEN-LAST:event_verEmpleadosBotonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        WinEmpleado we = new WinEmpleado();
+        we.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
      
      private PreparedStatement read;
      private ResultSet rs;

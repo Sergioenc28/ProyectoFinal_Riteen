@@ -118,6 +118,9 @@ public class WinCxP extends javax.swing.JDialog {
             }
         });
 
+        fechaActualParaTodo.setOpaque(false);
+        fechaActualParaTodo.setContentAreaFilled(false);
+        fechaActualParaTodo.setBorderPainted(false);
         fechaActualParaTodo.setForeground(new java.awt.Color(255, 255, 255));
         fechaActualParaTodo.setText("Hoy");
         fechaActualParaTodo.addActionListener(new java.awt.event.ActionListener() {
