@@ -6,6 +6,9 @@ package Riteen;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -28,6 +31,11 @@ public class PanelFacturaAlContado extends javax.swing.JPanel {
         DefaultTableCellRenderer cell = new DefaultTableCellRenderer();
         cell.setHorizontalAlignment(SwingConstants.CENTER);
         
+        Date fecha = new Date(00,00,00);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+        
+        System.out.println("La fecha de hoy es:" + sdf.format(fecha));
+        
         FechaActualDeFacJLabel.setText("FechaActual");
         
         initComponents();
@@ -41,7 +49,6 @@ public class PanelFacturaAlContado extends javax.swing.JPanel {
         g.drawImage(Imagen.getImage(), 0, 0, tam.width, tam.height, null );
         
         super.paintComponents(g);
-       
     }
 
     /**
