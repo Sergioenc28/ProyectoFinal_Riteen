@@ -193,7 +193,8 @@ public class WinEditCliente extends javax.swing.JDialog {
         ((DefaultTableModel)jTableClientes.getModel()).removeRow(0);
         
         }
-    }
+    }      
+
     private void buscarClientesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientesButtonActionPerformed
         limpiarTabla();
         buscarClientes();

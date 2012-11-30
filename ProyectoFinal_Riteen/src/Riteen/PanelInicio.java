@@ -325,7 +325,8 @@ public class PanelInicio extends javax.swing.JPanel {
     }//GEN-LAST:event_empleadosButtonActionPerformed
 
     private void crearFacturaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearFacturaButtonActionPerformed
-        // TODO add your handling code here:
+        WinEligeFactura wef = new WinEligeFactura();
+        wef.setVisible(true);                
     }//GEN-LAST:event_crearFacturaButtonActionPerformed
 
     private void CrearReciboButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearReciboButtonActionPerformed
@@ -357,7 +358,8 @@ public class PanelInicio extends javax.swing.JPanel {
     }//GEN-LAST:event_almacenButtonActionPerformed
 
     private void reparacionesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reparacionesButtonActionPerformed
-     
+        WinEditReciboReparacion werr = new WinEditReciboReparacion();
+        werr.setVisible(true);
     }//GEN-LAST:event_reparacionesButtonActionPerformed
 
     private void pedidosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidosButtonActionPerformed
