@@ -91,7 +91,7 @@ public class WinEditCxC extends javax.swing.JDialog {
         guardarCxCEdt = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         cancelarCxCEdt = new javax.swing.JButton();
-        jButtonCrearCuenta = new javax.swing.JButton();
+        crearCxC = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Editar Cuentas por Cobrar");
@@ -165,11 +165,11 @@ public class WinEditCxC extends javax.swing.JDialog {
             }
         });
 
-        jButtonCrearCuenta.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButtonCrearCuenta.setText("Crear cuenta por cobrar");
-        jButtonCrearCuenta.addActionListener(new java.awt.event.ActionListener() {
+        crearCxC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        crearCxC.setText("Nueva CxC");
+        crearCxC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCrearCuentaActionPerformed(evt);
+                crearCxCActionPerformed(evt);
             }
         });
 
@@ -178,34 +178,36 @@ public class WinEditCxC extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(verCxCBoton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonCrearCuenta))
-                            .addComponent(cxcEdtText))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buscarCxCBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(258, 258, 258)
+                .addGap(257, 257, 257)
                 .addComponent(guardarCxCEdt)
                 .addGap(18, 18, 18)
                 .addComponent(cancelarCxCEdt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(31, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(verCxCBoton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(crearCxC))
+                                    .addComponent(cxcEdtText))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buscarCxCBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,22 +217,22 @@ public class WinEditCxC extends javax.swing.JDialog {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel12))
-                .addGap(22, 22, 22)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cxcEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarCxCBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(verCxCBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
+                    .addComponent(verCxCBoton)
+                    .addComponent(crearCxC))
+                .addGap(20, 20, 20)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarCxCEdt)
                     .addComponent(cancelarCxCEdt))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -265,10 +267,10 @@ public class WinEditCxC extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cxcEdtTextKeyTyped
 
-    private void jButtonCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearCuentaActionPerformed
+    private void crearCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCxCActionPerformed
         WinCxC wxc = new WinCxC();
         wxc.setVisible(true);
-    }//GEN-LAST:event_jButtonCrearCuentaActionPerformed
+    }//GEN-LAST:event_crearCxCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,9 +310,9 @@ public class WinEditCxC extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarCxCBoton;
     private javax.swing.JButton cancelarCxCEdt;
+    private javax.swing.JButton crearCxC;
     private javax.swing.JTextField cxcEdtText;
     private javax.swing.JButton guardarCxCEdt;
-    private javax.swing.JButton jButtonCrearCuenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
