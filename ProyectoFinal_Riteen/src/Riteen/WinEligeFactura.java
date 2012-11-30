@@ -44,7 +44,7 @@ public class WinEligeFactura extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Eliga el tipo de Factura");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         facturaContado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         facturaContado.setText("Factura al Contado");

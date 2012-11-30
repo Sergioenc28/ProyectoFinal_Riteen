@@ -181,9 +181,9 @@ public class WinLoging extends javax.swing.JDialog {
                
         entrar();                                
     }//GEN-LAST:event_entrarActionPerformed
+    public String PaJLabelUsuarioA;
     ResultSet usuario;
     public String nombreDelUsuario = "";
-    String usuarioActualPaJLabel = nombreDelUsuario;;
     void entrar(){
     Conexion conn = Conexion.getInstancia();
         conn.Conexion();
@@ -197,15 +197,15 @@ public class WinLoging extends javax.swing.JDialog {
                     }
                     
                     if ( nombreDelUsuario.length() > 0){
-                        
+                    
                     JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
-                    usuarioActualPaJLabel = nombreDelUsuario;
+                    PaJLabelUsuarioA = nombreDelUsuario.toUpperCase();
                     
-                    System.out.println(usuarioActualPaJLabel);
-                    
-                        
                     WinInicio  ventana =  new WinInicio();
-                         ventana.show();
+                    ventana.show();
+                    
+                    PanelInicio paini = new PanelInicio();
+                    paini.usuarioActualJLabel.setText(PaJLabelUsuarioA);
                        
                         dispose();
                    }
