@@ -10,16 +10,16 @@ import java.awt.BorderLayout;
  *
  * @author Dioni Ripoll
  */
-public class WinEligeCuenta extends javax.swing.JDialog {
+public class WinEligeFactura extends javax.swing.JDialog {
 
     /**
-     * Creates new form WinEligeCuenta
+     * Creates new form WinEligeFactura
      */
-    public WinEligeCuenta() {
+    public WinEligeFactura() {
         initComponents();
         this.setLocationRelativeTo(null);
-        PanelLogging pl = new PanelLogging();
-        this.add(pl, BorderLayout.CENTER);
+        PanelLogging pl2 = new PanelLogging();
+        this.add(pl2, BorderLayout.CENTER);
     }
 
     /**
@@ -32,32 +32,28 @@ public class WinEligeCuenta extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        cuentaPorPagar = new javax.swing.JButton();
-        cuentaPorCobrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Riteen - Elige una Opcion");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Riteen - Elige el tipo de Factura");
+        setPreferredSize(new java.awt.Dimension(366, 162));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Eliga el tipo de Cuenta");
+        jLabel1.setText("Eliga el tipo de Factura");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        cuentaPorPagar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cuentaPorPagar.setText("Cuentas por Pagar");
-        cuentaPorPagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaPorPagarActionPerformed(evt);
-            }
-        });
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton1.setText("Factura al Contado");
 
-        cuentaPorCobrar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cuentaPorCobrar.setText("Cuentas por Cobrar");
-        cuentaPorCobrar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton2.setText("Factura a Crédito");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cuentaPorCobrarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -65,40 +61,32 @@ public class WinEligeCuenta extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(cuentaPorCobrar)
-                .addGap(18, 18, 18)
-                .addComponent(cuentaPorPagar)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jButton1)
+                .addGap(34, 34, 34)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cuentaPorPagar)
-                    .addComponent(cuentaPorCobrar))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cuentaPorPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaPorPagarActionPerformed
-        this.dispose();
-        WinEditCxP wecp = new WinEditCxP();
-        wecp.setVisible(true);
-    }//GEN-LAST:event_cuentaPorPagarActionPerformed
-
-    private void cuentaPorCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaPorCobrarActionPerformed
-        this.dispose();
-        WinEditCxC wecc = new WinEditCxC();
-        wecc.setVisible(true);
-    }//GEN-LAST:event_cuentaPorCobrarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,13 +105,13 @@ public class WinEligeCuenta extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WinEligeCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEligeFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WinEligeCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEligeFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WinEligeCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEligeFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WinEligeCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinEligeFactura.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -131,13 +119,13 @@ public class WinEligeCuenta extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new WinEligeCuenta().setVisible(true);
+                new WinEligeFactura().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cuentaPorCobrar;
-    private javax.swing.JButton cuentaPorPagar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
