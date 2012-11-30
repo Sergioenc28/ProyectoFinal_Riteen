@@ -35,7 +35,7 @@ public class PanelFacturaAlContado extends javax.swing.JPanel {
         
         System.out.println("La fecha de hoy es:" + sdf.format(fecha));
         
-        FechaActualDeFacJLabel.setText("FechaActual");
+        //FechaActualDeFacJLabel.setText("FechaActual");
         
         initComponents();
     }
