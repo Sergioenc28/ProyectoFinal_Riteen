@@ -67,7 +67,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
 
         jButton1.setText("jButton1");
 
-        setTitle("Riteen - Editar Empleado");
+        setTitle("Riteen - Empleados");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N

@@ -357,8 +357,7 @@ public class PanelInicio extends javax.swing.JPanel {
     }//GEN-LAST:event_almacenButtonActionPerformed
 
     private void reparacionesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reparacionesButtonActionPerformed
-        WinReciboDeReparacion wrd = new WinReciboDeReparacion();
-        wrd.setVisible(true);
+     
     }//GEN-LAST:event_reparacionesButtonActionPerformed
 
     private void pedidosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidosButtonActionPerformed
@@ -367,7 +366,8 @@ public class PanelInicio extends javax.swing.JPanel {
     }//GEN-LAST:event_pedidosButtonActionPerformed
 
     private void cuentasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentasButtonActionPerformed
-        
+        WinEligeCuenta welc = new WinEligeCuenta();
+        welc.setVisible(true);
     }//GEN-LAST:event_cuentasButtonActionPerformed
 
     private void ayudaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaButtonActionPerformed

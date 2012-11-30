@@ -44,6 +44,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         cancelarReciboReparacionEdt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Riteen - Recibo de Reparación");
 
         guardarReciboReparacionEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarReciboReparacionEdt.setText("Guardar");

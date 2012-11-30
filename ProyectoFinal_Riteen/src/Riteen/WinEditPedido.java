@@ -50,7 +50,7 @@ public class WinEditPedido extends javax.swing.JDialog {
         cancelarEdtPedidoBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Riteen - Editar Pedido");
+        setTitle("Riteen - Pedidos");
         setResizable(false);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
