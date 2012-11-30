@@ -17,11 +17,11 @@ public class WinFacturaAlContado extends JDialog {
      * Creates new form WinFactura
      */
     public WinFacturaAlContado() {
-        
+        initComponents();
         PanelFacturaAlContado pFC = new PanelFacturaAlContado();
         this.add(pFC, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
-        initComponents();
+       
     }
 
     /**
