@@ -84,7 +84,9 @@ public class WinEditCliente extends javax.swing.JDialog {
                 "Nombre", "Telefono", "Dirección", "Cédula"
             }
         ));
+        jTableClientes.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTableClientes);
+        jTableClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         guardarEditCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarEditCliente.setText("Guardar");

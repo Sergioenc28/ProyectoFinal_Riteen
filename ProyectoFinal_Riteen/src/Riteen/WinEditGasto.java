@@ -95,8 +95,18 @@ public class WinEditGasto extends javax.swing.JDialog {
             new String [] {
                 "Fecha", "Responsable", "Concepto", "Total"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableGastos.setColumnSelectionAllowed(true);
         jScrollPane3.setViewportView(jTableGastos);
+        jTableGastos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         guardarGastoEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarGastoEdt.setText("Guardar");
