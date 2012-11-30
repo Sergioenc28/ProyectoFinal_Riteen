@@ -4,8 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -42,9 +47,11 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         cancelarReciboReparacionEdt = new javax.swing.JButton();
+        nuevoRecibo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Recibo de Reparación");
+        setPreferredSize(new java.awt.Dimension(750, 510));
 
         guardarReciboReparacionEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarReciboReparacionEdt.setText("Guardar");
@@ -54,11 +61,11 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Fecha", "Cliente", "Articulo", "Plazo", "Fecha de Entrega"
+                "ID", "Cliente", "Articulo", "Plazo", "Fecha de Entrega"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true
+                false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -69,6 +76,11 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
 
         verBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verBoton.setText("Ver todos los Recibos Reparación");
+        verBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verBotonActionPerformed(evt);
+            }
+        });
 
         reciboReparacionEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         reciboReparacionEdtText.addActionListener(new java.awt.event.ActionListener() {
@@ -76,9 +88,19 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
                 reciboReparacionEdtTextActionPerformed(evt);
             }
         });
+        reciboReparacionEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                reciboReparacionEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarReciboReparacionBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarReciboReparacionBoton.setText("Buscar");
+        buscarReciboReparacionBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarReciboReparacionBotonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -101,6 +123,14 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
             }
         });
 
+        nuevoRecibo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        nuevoRecibo.setText("Crear Nuevo Recibo");
+        nuevoRecibo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoReciboActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,12 +139,11 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(72, 72, 72))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
@@ -122,15 +151,21 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buscarReciboReparacionBoton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(137, 137, 137)
-                                .addComponent(guardarReciboReparacionEdt)
-                                .addGap(18, 18, 18)
-                                .addComponent(cancelarReciboReparacionEdt))
-                            .addComponent(verBoton))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(verBoton)
+                        .addGap(18, 18, 18)
+                        .addComponent(nuevoRecibo)
+                        .addGap(0, 215, Short.MAX_VALUE)))
                 .addGap(62, 62, 62))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(guardarReciboReparacionEdt)
+                .addGap(18, 18, 18)
+                .addComponent(cancelarReciboReparacionEdt)
+                .addGap(261, 261, 261))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,10 +181,12 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
                     .addComponent(reciboReparacionEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarReciboReparacionBoton))
                 .addGap(18, 18, 18)
-                .addComponent(verBoton)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(verBoton)
+                    .addComponent(nuevoRecibo))
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarReciboReparacionEdt)
                     .addComponent(cancelarReciboReparacionEdt))
@@ -160,7 +197,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reciboReparacionEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboReparacionEdtTextActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_reciboReparacionEdtTextActionPerformed
 
     private void cancelarReciboReparacionEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarReciboReparacionEdtActionPerformed
@@ -171,6 +208,76 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarReciboReparacionEdtActionPerformed
 
+    private void nuevoReciboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoReciboActionPerformed
+        WinReciboDeReparacion wrdr = new WinReciboDeReparacion();
+        wrdr.setVisible(true);
+    }//GEN-LAST:event_nuevoReciboActionPerformed
+
+    private void buscarReciboReparacionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarReciboReparacionBotonActionPerformed
+        limpiarTabla();
+        buscarReciboReparacion();
+    }//GEN-LAST:event_buscarReciboReparacionBotonActionPerformed
+
+    private void verBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verBotonActionPerformed
+        reciboReparacionEdtText.setText("");
+        limpiarTabla();
+        buscarReciboReparacion();
+    }//GEN-LAST:event_verBotonActionPerformed
+
+    private void reciboReparacionEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_reciboReparacionEdtTextKeyTyped
+        int enter = evt.getKeyChar();
+        if (enter == KeyEvent.VK_ENTER){
+        limpiarTabla();
+        buscarReciboReparacion();
+        }
+    }//GEN-LAST:event_reciboReparacionEdtTextKeyTyped
+
+       private PreparedStatement read;
+     private ResultSet rs;
+     private DefaultTableModel dtm;
+     
+     
+     void limpiarTabla(){
+    
+        while(reciboReparacionjTable.getRowCount()>0){
+        ((DefaultTableModel)reciboReparacionjTable.getModel()).removeRow(0);
+        
+        }
+    }
+     void buscarReciboReparacion(){
+     try {      
+           
+            
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idRecibo, nombreCliente, Articulo, Plazo, FechaDeEntrega FROM recibos_de_reparacion WHERE nombreCliente LIKE '%"+ reciboReparacionEdtText.getText() +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.reciboReparacionjTable.getModel();
+            
+            while (rs.next()) {
+            
+            Object [] fila = new Object[5]; 
+            
+           
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } 
+
+             
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -214,6 +321,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton nuevoRecibo;
     private javax.swing.JTextField reciboReparacionEdtText;
     private javax.swing.JTable reciboReparacionjTable;
     private javax.swing.JButton verBoton;
