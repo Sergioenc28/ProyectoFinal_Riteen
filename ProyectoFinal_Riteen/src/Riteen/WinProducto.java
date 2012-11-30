@@ -22,6 +22,7 @@ public class WinProducto extends javax.swing.JDialog {
         initComponents();
         PanelWinProducto pwp = new PanelWinProducto();
         this.add(pwp, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -25,7 +25,8 @@ public class WinCliente extends javax.swing.JDialog {
         initComponents();
         PanelCliente pc = new PanelCliente();
         this.add(pc, BorderLayout.CENTER);
-        
+        this.setLocationRelativeTo(null);
+                
     }
 
     /**

@@ -46,6 +46,7 @@ public class WinEditProducto extends javax.swing.JDialog {
         jTableProductos = new javax.swing.JTable();
         guardarProductoEdt = new javax.swing.JButton();
         cancelarProductoEdt = new javax.swing.JButton();
+        agregarProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Almacen");
@@ -114,6 +115,14 @@ public class WinEditProducto extends javax.swing.JDialog {
             }
         });
 
+        agregarProducto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        agregarProducto.setText("Agregar nuevo Producto");
+        agregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,14 +132,17 @@ public class WinEditProducto extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(verBoton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(verBoton)
+                                .addGap(18, 18, 18)
+                                .addComponent(agregarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(productoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buscarProductoBoton))))
+                                .addComponent(productoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buscarProductoBoton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(193, 193, 193)
                         .addComponent(guardarProductoEdt)
@@ -140,7 +152,7 @@ public class WinEditProducto extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +165,9 @@ public class WinEditProducto extends javax.swing.JDialog {
                     .addComponent(productoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarProductoBoton))
                 .addGap(18, 18, 18)
-                .addComponent(verBoton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(verBoton)
+                    .addComponent(agregarProducto))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -213,10 +227,13 @@ public class WinEditProducto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_productoEdtTextKeyTyped
 
+    private void agregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoActionPerformed
+        WinProducto wp = new WinProducto();
+        wp.setVisible(true);
+    }//GEN-LAST:event_agregarProductoActionPerformed
+
     void buscarProductos(){
-     try {      
-           
-            
+     try {                             
             read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT Nombre, idProveedor, Existencia, Costo, PrecioDeVenta FROM almacen WHERE nombre LIKE '%"+ productoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
@@ -224,25 +241,20 @@ public class WinEditProducto extends javax.swing.JDialog {
             
             dtm = (DefaultTableModel) this.jTableProductos.getModel();
             
-            while (rs.next()) {
+           while (rs.next()) {
             
-            Object [] fila = new Object[4];
-            
-            
-            for (int i=0;i<fila.length;i++) {
-                    fila[i] = rs.getObject(i+1);
+                Object [] fila = new Object[5];
+                        
+                for (int i=0;i<fila.length;i++) {
+                        fila[i] = rs.getObject(i+1);
                 } 
-
              
-            dtm.addRow(fila);
-            if(fila.length == 0){
-            
-             
-                JOptionPane.showMessageDialog(null, "no se encontro nada");
-            
-            }           
-}       
-            
+                dtm.addRow(fila);
+                if(fila.length == 0){                         
+                    JOptionPane.showMessageDialog(null, "No se encontro nada");            
+                }           
+            }
+           
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
@@ -284,6 +296,7 @@ public class WinEditProducto extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregarProducto;
     private javax.swing.JButton buscarProductoBoton;
     private javax.swing.JButton cancelarProductoEdt;
     private javax.swing.JButton guardarProductoEdt;

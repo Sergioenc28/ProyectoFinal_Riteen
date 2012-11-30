@@ -22,6 +22,7 @@ public class WinPedido extends javax.swing.JDialog {
         initComponents();
         PanelWinPedido pwp = new PanelWinPedido();
         this.add(pwp, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
     }
 
     /**

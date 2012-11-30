@@ -22,6 +22,7 @@ public class WinGastos extends javax.swing.JDialog {
         initComponents();
         PanelGastos pg = new PanelGastos();
         this.add(pg, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -22,6 +22,7 @@ public class WinProveedor extends javax.swing.JDialog{
         initComponents();
         PanelWinProveedor pwp = new PanelWinProveedor();
         this.add(pwp, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
     }
 
     /**

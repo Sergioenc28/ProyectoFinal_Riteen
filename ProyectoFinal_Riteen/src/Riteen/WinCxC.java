@@ -22,6 +22,7 @@ public class WinCxC extends javax.swing.JDialog {
         initComponents();
         PanelWinCxC pc = new PanelWinCxC();
         this.add(pc, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
     }
 
     /**

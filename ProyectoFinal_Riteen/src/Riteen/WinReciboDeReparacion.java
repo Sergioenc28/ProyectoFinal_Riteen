@@ -22,6 +22,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         initComponents();
         PanelReciboDeReparacion pdr = new PanelReciboDeReparacion();
         this.add(pdr, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
     }
 
     /**
