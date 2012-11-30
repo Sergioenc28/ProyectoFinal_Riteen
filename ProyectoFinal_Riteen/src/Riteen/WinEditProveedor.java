@@ -4,8 +4,14 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.KeyEventDispatcher;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -38,10 +44,11 @@ public class WinEditProveedor extends javax.swing.JDialog {
         buscarProveedorBoton = new javax.swing.JButton();
         verBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableProveedores = new javax.swing.JTable();
         guardarProveedorEdt = new javax.swing.JButton();
         cancelarProveedorEdt = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jToggleButtonCrearProveedor = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Proveedores");
@@ -62,14 +69,29 @@ public class WinEditProveedor extends javax.swing.JDialog {
                 proveedorEdtTextActionPerformed(evt);
             }
         });
+        proveedorEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                proveedorEdtTextKeyTyped(evt);
+            }
+        });
 
         buscarProveedorBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarProveedorBoton.setText("Buscar");
+        buscarProveedorBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarProveedorBotonActionPerformed(evt);
+            }
+        });
 
         verBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verBoton.setText("Ver todos los Proveedores");
+        verBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verBotonActionPerformed(evt);
+            }
+        });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -77,7 +99,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
                 "Nombre", "Telefono", "Dirección", "E-mail"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(jTableProveedores);
 
         guardarProveedorEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarProveedorEdt.setText("Guardar");
@@ -91,6 +113,13 @@ public class WinEditProveedor extends javax.swing.JDialog {
         });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
+
+        jToggleButtonCrearProveedor.setText("Crear Proveedor");
+        jToggleButtonCrearProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButtonCrearProveedorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,13 +146,13 @@ public class WinEditProveedor extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buscarProveedorBoton))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(verBoton)))
+                                .addComponent(verBoton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jToggleButtonCrearProveedor)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -146,7 +175,9 @@ public class WinEditProveedor extends javax.swing.JDialog {
                     .addComponent(proveedorEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarProveedorBoton))
                 .addGap(18, 18, 18)
-                .addComponent(verBoton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(verBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButtonCrearProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
@@ -171,6 +202,76 @@ public class WinEditProveedor extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarProveedorEdtActionPerformed
 
+    private void jToggleButtonCrearProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonCrearProveedorActionPerformed
+      WinProveedor wp = new WinProveedor();
+      wp.setVisible(true);
+    }//GEN-LAST:event_jToggleButtonCrearProveedorActionPerformed
+
+    private void verBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verBotonActionPerformed
+        proveedorEdtText.setText("");
+        limpiarTabla();
+        buscarProveedores();
+   
+    }//GEN-LAST:event_verBotonActionPerformed
+
+    private void proveedorEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_proveedorEdtTextKeyTyped
+        int enter = evt.getKeyChar();
+        if (enter == KeyEvent.VK_ENTER){
+        limpiarTabla();
+        buscarProveedores();
+        }
+    }//GEN-LAST:event_proveedorEdtTextKeyTyped
+
+    private void buscarProveedorBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarProveedorBotonActionPerformed
+        limpiarTabla();
+        buscarProveedores();
+    }//GEN-LAST:event_buscarProveedorBotonActionPerformed
+     private PreparedStatement read;
+     private ResultSet rs;
+     private DefaultTableModel dtm;
+     
+     
+     void limpiarTabla(){
+    
+        while(jTableProveedores.getRowCount()>0){
+        ((DefaultTableModel)jTableProveedores.getModel()).removeRow(0);
+        
+        }
+    }
+     void buscarProveedores(){
+     try {      
+           
+            
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT nombre, telefono, direccion, Email horario FROM proveedores WHERE nombre LIKE '%"+ proveedorEdtText.getText() +"%'");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.jTableProveedores.getModel();
+            
+            while (rs.next()) {
+            
+            Object [] fila = new Object[4]; 
+            
+           
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } 
+
+             
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -214,7 +315,8 @@ public class WinEditProveedor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTableProveedores;
+    private javax.swing.JToggleButton jToggleButtonCrearProveedor;
     private javax.swing.JTextField proveedorEdtText;
     private javax.swing.JButton verBoton;
     // End of variables declaration//GEN-END:variables
