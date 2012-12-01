@@ -336,7 +336,7 @@ public class WinProducto extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
        
-        
+       this.dispose(); 
       
     }//GEN-LAST:event_guardarProductoActionPerformed
 

@@ -209,6 +209,8 @@ public class WinProveedor extends javax.swing.JDialog{
         catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
+        
+        this.dispose();
     }//GEN-LAST:event_guardarProveedorActionPerformed
 
     /**

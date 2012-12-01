@@ -340,7 +340,7 @@ public class WinCxP extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
         
-        
+       this.dispose();
     }//GEN-LAST:event_registrarCxPActionPerformed
 
     private void cancelarCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxPActionPerformed

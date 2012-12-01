@@ -211,53 +211,44 @@ public class WinCliente extends javax.swing.JDialog {
      private PreparedStatement add;
 
     private void guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarClienteActionPerformed
-      
-        
+              
         try {
            
             if(casoCliente == 1)
-            {
-               
+            {               
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (Nombre, Telefono, Direccion, Cedula) VALUES ( ?, ?, ?, ?)");
                 add.setString(1, clienteText.getText());
                 add.setString(2, telefonoClienteText.getText());
                 add.setString(3, direccionClienteText.getText());
                 add.setString(4,cedulaClienteText.getText());
             }
+            
             if(casoCliente == 2)
-            {
-                
-                WinEditCliente wec = new WinEditCliente();
+            {                
                 add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE clientes SET Nombre = '"+clienteText.getText()+"', Telefono = '"
-                        + telefonoClienteText.getText()+"', Direccion = '"+direccionClienteText.getText()+"', Cedula = '"+cedulaClienteText.getText()+"' WHERE idCliente =  "+ idCliente); 
+                      + telefonoClienteText.getText()+"', Direccion = '"+direccionClienteText.getText()+"', Cedula = '"+cedulaClienteText.getText()+"' WHERE idCliente =  "+ idCliente); 
             }
-           
-            
-           
-            
+                                              
             int exitoso = add.executeUpdate();
             
             if (exitoso == 1){
-            JOptionPane.showMessageDialog(null, "Registro Exitoso");
-            clienteText.setText("");
-            telefonoClienteText.setText("");
-            direccionClienteText.setText("");
-            cedulaClienteText.setText("");
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                clienteText.setText("");
+                telefonoClienteText.setText("");
+                direccionClienteText.setText("");
+                cedulaClienteText.setText("");
             }
-            else {
             
-            JOptionPane.showMessageDialog(null, "No se puede registrar el cliente");
-            
+            else {            
+             JOptionPane.showMessageDialog(null, "No se puede registrar el cliente");            
             }
+            
+            this.dispose();
         } 
          
         catch (SQLException ex ) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-        
-              
-       
-        
+        }                                     
     }//GEN-LAST:event_guardarClienteActionPerformed
 
     private void cancelarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarClienteActionPerformed
@@ -311,6 +302,7 @@ public class WinCliente extends javax.swing.JDialog {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new WinCliente().setVisible(true);
             }

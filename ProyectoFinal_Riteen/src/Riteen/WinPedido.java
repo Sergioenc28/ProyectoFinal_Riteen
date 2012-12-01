@@ -216,7 +216,7 @@ public class WinPedido extends javax.swing.JDialog {
            
             }
             
-           
+           this.dispose();
         } 
          
        catch(SQLException e){

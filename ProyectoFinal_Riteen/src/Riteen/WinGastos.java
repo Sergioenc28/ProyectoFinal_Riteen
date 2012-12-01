@@ -274,8 +274,7 @@ private PreparedStatement add;
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
         
-        
-        
+        this.dispose();
     }//GEN-LAST:event_registrarGastoActionPerformed
 
     private void cancelarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarGastoActionPerformed

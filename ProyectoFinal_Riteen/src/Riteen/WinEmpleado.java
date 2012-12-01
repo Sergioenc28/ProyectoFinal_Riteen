@@ -304,7 +304,7 @@ public class WinEmpleado extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
        
-              
+       this.dispose();       
        
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
 

@@ -378,6 +378,8 @@ public class WinCxC extends javax.swing.JDialog {
        
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
+        
+       this.dispose();
     }//GEN-LAST:event_registrarCxCActionPerformed
 
     private void fechaCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCxCTextActionPerformed
