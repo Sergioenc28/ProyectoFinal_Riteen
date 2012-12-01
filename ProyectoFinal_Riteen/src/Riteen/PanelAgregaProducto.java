@@ -19,6 +19,7 @@ public class PanelAgregaProducto extends javax.swing.JPanel {
      */
     public PanelAgregaProducto() {
         initComponents();
+        this.setSize(1000, 700);
     }
 
      @Override
