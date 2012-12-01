@@ -77,7 +77,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
             }
         });
 
-        fechaReparacionText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/M/yy"))));
+        fechaReparacionText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -252,7 +252,12 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
-        // TODO add your handling code here:
+     if (fechaActualParaTodo.isSelected()){
+     
+     Fecha fecha = new Fecha();
+     fecha.setFechaActualDelSistema(null);
+     fechaReparacionText.setText(fecha.getFechaActualDelSistema());
+     }
     }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
     private void plazoTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plazoTextfieldActionPerformed
@@ -286,9 +291,9 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
             
             if(casoReciboReparacion == 2)
             {                
-                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE INTO recibos_de_reparacion SET FechaEntrega = '"+fechaReparacionText.getText()+"', Articulo = '"
+                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE recibos_de_reparacion SET FechaDeEntrega = '"+fechaReparacionText.getText()+"', Articulo = '"
                 + articuloReparacionText.getText()+"', Marca = '"+marcaReparacionText.getText()+"', Modelo = '"+modeloReparacionText.getText()+"', NombreCliente = '"+clienteReparacionText.getText()+"'"
-                + ", TelefonoCliente = '"+telefonoReparacionText.getText()+"' , Plazo = '"+plazoTextfield.getText()+"'" + " WHERE idCliente =  "+ idReciboReparacion); 
+                + ", TelefonoCliente = '"+telefonoReparacionText.getText()+"' , Plazo = '"+plazoTextfield.getText()+"'" + " WHERE idRecibo =  "+ idReciboReparacion); 
             }                                                           
             
             int exitoso = add.executeUpdate();
