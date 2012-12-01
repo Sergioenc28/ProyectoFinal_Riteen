@@ -76,26 +76,26 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         tablaDeFacturaAlContado.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         tablaDeFacturaAlContado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Id Producto", "Producto", "Precio", "Cant", "Sub-Total"
+                "", "Id Producto", "Producto", "Precio", "Cant", "Sub-Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.Boolean.class, java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                true, false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -111,6 +111,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         tablaDeFacturaAlContado.setEditingColumn(4);
         tablaDeFacturaAlContado.setName(""); // NOI18N
         jScrollPane1.setViewportView(tablaDeFacturaAlContado);
+        tablaDeFacturaAlContado.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tablaDeFacturaAlContado.getColumnModel().getColumn(0).setResizable(false);
+        tablaDeFacturaAlContado.getColumnModel().getColumn(0).setPreferredWidth(1);
+        tablaDeFacturaAlContado.getColumnModel().getColumn(4).setResizable(false);
+        tablaDeFacturaAlContado.getColumnModel().getColumn(4).setPreferredWidth(5);
 
         clienteFacturaAlContadoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +130,6 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             }
         });
 
-        nuevoClienteFacturaAlContadoJButton.setBackground(new java.awt.Color(160, 158, 158));
         nuevoClienteFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         nuevoClienteFacturaAlContadoJButton.setText("Nuevo Cliente");
 
@@ -157,6 +161,9 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             }
         });
 
+        FechaActualDeFacJLabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        FechaActualDeFacJLabel.setForeground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -181,7 +188,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 .addComponent(cancelarFacturaAlContadoJButton)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nuevoClienteFacturaAlContadoJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +218,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                                         .addGap(5, 5, 5)
                                         .addComponent(totalFacturaAlContadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(25, Short.MAX_VALUE))))
+                        .addContainerGap(17, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,8 +287,15 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         // TODO add your handling code here:
         if(clienteExisteFacturaAlContadoJCheckBox.isSelected())
         {
-            
+            clienteExisteFacturaAlContadoJCheckBox.enable();
+            clienteFacturaAlContadoText.disable();
         }
+        else
+        {
+            clienteExisteFacturaAlContadoJCheckBox.disable();
+            clienteFacturaAlContadoText.enable();
+        }
+        
     }//GEN-LAST:event_clienteExisteFacturaAlContadoJCheckBoxActionPerformed
 
     /**
@@ -322,6 +336,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                     }
                 });
                 dialog.setVisible(true);
+                
             }
         });
     }
