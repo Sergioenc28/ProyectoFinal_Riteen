@@ -47,7 +47,7 @@
                       <Component id="buscarProductoBoton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="90" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -153,11 +153,12 @@
         <Component class="javax.swing.JTable" name="jTableProductos">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="0">
+              <Table columnCount="7" rowCount="0">
                 <Column editable="true" title="ID" type="java.lang.Object"/>
                 <Column editable="true" title="Nombre" type="java.lang.Object"/>
                 <Column editable="true" title="Proveedor" type="java.lang.Object"/>
                 <Column editable="true" title="Exist Almac" type="java.lang.Object"/>
+                <Column editable="true" title="Exist Min" type="java.lang.Object"/>
                 <Column editable="true" title="Costo" type="java.lang.Object"/>
                 <Column editable="true" title="Precio de Venta" type="java.lang.Object"/>
               </Table>
@@ -194,12 +195,20 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
               </TableColumnModel>
             </Property>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableProductosMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

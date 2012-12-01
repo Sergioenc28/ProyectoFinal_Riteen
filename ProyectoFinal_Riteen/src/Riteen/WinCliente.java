@@ -207,7 +207,7 @@ public class WinCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
      int casoCliente=0;
-     String id;
+     String idCliente;
      private PreparedStatement add;
 
     private void guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarClienteActionPerformed
@@ -229,7 +229,7 @@ public class WinCliente extends javax.swing.JDialog {
                 
                 WinEditCliente wec = new WinEditCliente();
                 add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE clientes SET Nombre = '"+clienteText.getText()+"', Telefono = '"
-                        + telefonoClienteText.getText()+"', Direccion = '"+direccionClienteText.getText()+"', Cedula = '"+cedulaClienteText.getText()+"' WHERE idCliente =  "+ id); 
+                        + telefonoClienteText.getText()+"', Direccion = '"+direccionClienteText.getText()+"', Cedula = '"+cedulaClienteText.getText()+"' WHERE idCliente =  "+ idCliente); 
             }
            
             

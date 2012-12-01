@@ -95,9 +95,14 @@ public class WinEditProducto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nombre", "Proveedor", "Exist Almac", "Costo", "Precio de Venta"
+                "ID", "Nombre", "Proveedor", "Exist Almac", "Exist Min", "Costo", "Precio de Venta"
             }
         ));
+        jTableProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableProductosMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTableProductos);
 
         guardarProductoEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -144,7 +149,7 @@ public class WinEditProducto extends javax.swing.JDialog {
                             .addComponent(productoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buscarProductoBoton)))
-                .addGap(0, 90, Short.MAX_VALUE))
+                .addGap(0, 67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(guardarProductoEdt)
@@ -201,7 +206,7 @@ public class WinEditProducto extends javax.swing.JDialog {
         
         }
     }
-    
+         
     private void guardarProductoEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoEdtActionPerformed
         
     }//GEN-LAST:event_guardarProductoEdtActionPerformed
@@ -230,6 +235,23 @@ public class WinEditProducto extends javax.swing.JDialog {
         wp.setVisible(true);
     }//GEN-LAST:event_agregarProductoActionPerformed
 
+    private void jTableProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProductosMouseClicked
+        if( jTableProductos.getSelectedRows().length > 0 ) { 
+          
+           WinProducto wp = new WinProducto();
+           wp.casoProducto = 2;
+           wp.setVisible(true);
+          
+           wp.idProducto = (dtm.getValueAt(jTableProductos.getSelectedRow(), 0).toString() );
+           wp.productoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 1).toString());
+           wp.existenciaActualDelProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 3).toString());
+           wp.costoProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 4).toString());
+           wp.precioVentaProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 5).toString());
+           wp.existenciaMinimaDelProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 6).toString());
+        
+         }
+    }//GEN-LAST:event_jTableProductosMouseClicked
+
     void buscarProductos(){
      try {                             
             read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, Nombre, idProveedor, Existencia, Costo, PrecioDeVenta FROM almacen WHERE nombre LIKE '%"+ productoEdtText.getText() +"%'");
@@ -241,7 +263,7 @@ public class WinEditProducto extends javax.swing.JDialog {
             
            while (rs.next()) {
             
-                Object [] fila = new Object[6];
+                Object [] fila = new Object[7];
                         
                 for (int i=0;i<fila.length;i++) {
                         fila[i] = rs.getObject(i+1);

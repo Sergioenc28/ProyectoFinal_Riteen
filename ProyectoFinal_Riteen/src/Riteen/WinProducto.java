@@ -283,24 +283,33 @@ public class WinProducto extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_cancelarProductoActionPerformed
-    private PreparedStatement add;
+     int casoProducto=0;
+     String idProducto;
+     private java.sql.PreparedStatement add;
     private void guardarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoActionPerformed
       try {
-           
             int costo = Integer.parseInt(costoProductoText.getText());
             int precio = Integer.parseInt(precioVentaProductoText.getText());
             int existencia = Integer.parseInt(existenciaActualDelProductoText.getText());
             int existenciaMinima = Integer.parseInt(existenciaMinimaDelProductoText.getText());
-          
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO almacen (Nombre, Descripcion, idProveedor, Costo, PrecioDeVenta, Existencia, ExistenciaMinima) VALUES (?, ?, ?, ?, ?, ?, ?)");
             
-            add.setString(1, productoText.getText());
-            add.setString(2, descripcionProductoTextArea.getText());
-            add.setInt(3, 1);
-            add.setInt(4, costo);
-            add.setInt(5, precio);
-            add.setInt(6, existencia);
-            add.setInt(7, existenciaMinima);
+            if(casoProducto == 1)
+            {               
+                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO almacen (Nombre, Descripcion, idProveedor, Costo, PrecioDeVenta, Existencia, ExistenciaMinima) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                add.setString(1, productoText.getText());
+                add.setString(2, descripcionProductoTextArea.getText());
+                add.setInt(3, 1);
+                add.setInt(4, costo);
+                add.setInt(5, precio);
+                add.setInt(6, existencia);
+                add.setInt(7, existenciaMinima);
+            }
+            if(casoProducto == 2)
+            
+            {                
+                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE almacen SET Nombre = '"+productoText.getText()+"', Costo = '"
+                +costo+"', PrecioDeVenta = '"+precio+"', Existencia = '"+existencia+"', ExistenciaMinima = '"+existenciaMinima+"' WHERE idProducto =  "+ idProducto); 
+            }                                                                      
             
             int exitoso = add.executeUpdate();
            
@@ -318,9 +327,7 @@ public class WinProducto extends javax.swing.JDialog {
             
             JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
            
-            }
-            
-           
+            }                       
         } 
          
        catch(NumberFormatException | SQLException e){
@@ -368,12 +375,12 @@ public class WinProducto extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarProducto;
-    private javax.swing.JTextField costoProductoText;
-    private javax.swing.JTextArea descripcionProductoTextArea;
-    private javax.swing.JTextField existenciaActualDelProductoText;
-    private javax.swing.JTextField existenciaMinimaDelProductoText;
+    public javax.swing.JTextField costoProductoText;
+    public javax.swing.JTextArea descripcionProductoTextArea;
+    public javax.swing.JTextField existenciaActualDelProductoText;
+    public javax.swing.JTextField existenciaMinimaDelProductoText;
     private javax.swing.JButton guardarProducto;
-    private javax.swing.JTextField idProductoText;
+    public javax.swing.JTextField idProductoText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -386,8 +393,8 @@ public class WinProducto extends javax.swing.JDialog {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private java.awt.PopupMenu popupMenu1;
-    private javax.swing.JTextField precioVentaProductoText;
-    private javax.swing.JTextField productoText;
-    private javax.swing.JComboBox proveedorProductoComboBox;
+    public javax.swing.JTextField precioVentaProductoText;
+    public javax.swing.JTextField productoText;
+    public javax.swing.JComboBox proveedorProductoComboBox;
     // End of variables declaration//GEN-END:variables
 }

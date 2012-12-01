@@ -283,7 +283,7 @@ public class WinEditCliente extends javax.swing.JDialog {
            wc.casoCliente = 2;
            wc.setVisible(true);
           
-           wc.id = (dtm.getValueAt(jTableClientes.getSelectedRow(), 0).toString() );
+           wc.idCliente = (dtm.getValueAt(jTableClientes.getSelectedRow(), 0).toString() );
            wc.clienteText.setText(dtm.getValueAt(jTableClientes.getSelectedRow(), 1).toString());
            wc.cedulaClienteText.setText(dtm.getValueAt(jTableClientes.getSelectedRow(), 2).toString());
            wc.telefonoClienteText.setText(dtm.getValueAt(jTableClientes.getSelectedRow(), 3).toString());
