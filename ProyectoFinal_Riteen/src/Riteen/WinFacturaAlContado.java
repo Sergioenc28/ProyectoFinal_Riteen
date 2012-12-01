@@ -267,7 +267,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
     }//GEN-LAST:event_totalFacturaAlContadoTextActionPerformed
 
     private void clienteFacturaAlContadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteFacturaAlContadoComboBoxActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_clienteFacturaAlContadoComboBoxActionPerformed
 
     private void agregaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaProductoFacturaAlContadoButtonActionPerformed
