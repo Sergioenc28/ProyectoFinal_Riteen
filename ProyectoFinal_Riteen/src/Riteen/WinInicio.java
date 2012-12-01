@@ -213,6 +213,7 @@ public class WinInicio extends javax.swing.JFrame {
 
     private void RegPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegPedidoActionPerformed
        WinPedido wpedido = new WinPedido();
+       wpedido.casoPedido = 1;
        wpedido.setVisible(true);
     }//GEN-LAST:event_RegPedidoActionPerformed
 

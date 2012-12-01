@@ -63,7 +63,7 @@ public class WinPedido extends javax.swing.JDialog {
         jLabel4.setText("Proveedor:");
 
         agregarPedido.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        agregarPedido.setText("Agregar");
+        agregarPedido.setText("Guardar");
         agregarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarPedidoActionPerformed(evt);
@@ -176,20 +176,29 @@ public class WinPedido extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_proveedorPedidoTextActionPerformed
     
+    int casoPedido = 0;
+    String idPedido;
     private PreparedStatement add;
     private void agregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPedidoActionPerformed
-       try {
+      
+        int cantidad = Integer.parseInt(CantidadPedidoText.getText());
+        try {
            
-            int cantidad = Integer.parseInt(CantidadPedidoText.getText());
+            if (casoPedido == 1){
             
-          
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO pedidos (idProducto, Proveedor, Cantidad) VALUES (?, ?, ?)");
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO pedidos (Producto, Proveedor, Cantidad) VALUES (?, ?, ?)");
             
             add.setString(1, productoPedidoText.getText());
             add.setString(2, proveedorPedidoText.getText());
             add.setInt(3, cantidad);
-           
+            }
             
+            if (casoPedido == 2){
+            
+            add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE pedidos SET Proveedor = '"+proveedorPedidoText.getText()
+                    +"', Producto = '"+productoPedidoText.getText()+"', Cantidad = "+ 
+                    cantidad +" WHERE idPedido = " +idPedido);
+            }
             int exitoso = add.executeUpdate();
             
            
@@ -261,7 +270,7 @@ public class WinPedido extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CantidadPedidoText;
+    public javax.swing.JTextField CantidadPedidoText;
     private javax.swing.JButton agregarPedido;
     private javax.swing.JButton cancelarPedido;
     private javax.swing.JLabel jLabel1;
@@ -269,7 +278,7 @@ public class WinPedido extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField productoPedidoText;
-    private javax.swing.JTextField proveedorPedidoText;
+    public javax.swing.JTextField productoPedidoText;
+    public javax.swing.JTextField proveedorPedidoText;
     // End of variables declaration//GEN-END:variables
 }

@@ -103,6 +103,11 @@ public class WinEditPedido extends javax.swing.JDialog {
                 "ID", "Nombre del Producto", "Proveedor", "Cantidad"
             }
         ));
+        jTablePedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePedidosMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTablePedidos);
 
         guardarEdtPedidosBoton.setText("Guardar");
@@ -223,8 +228,25 @@ public class WinEditPedido extends javax.swing.JDialog {
 
     private void jToggleButtonAgregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAgregarPedidoActionPerformed
        WinPedido wp = new WinPedido();
+       wp.casoPedido = 1;
        wp.setVisible(true);
     }//GEN-LAST:event_jToggleButtonAgregarPedidoActionPerformed
+
+    private void jTablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePedidosMouseClicked
+         if( jTablePedidos.getSelectedRows().length > 0 ) { 
+          
+           WinPedido wp = new WinPedido();
+           wp.casoPedido = 2;
+           wp.setVisible(true);
+          
+           wp.idPedido = (dtm.getValueAt(jTablePedidos.getSelectedRow(), 0).toString() );
+           wp.productoPedidoText.setText(dtm.getValueAt(jTablePedidos.getSelectedRow(), 1).toString());
+           wp.proveedorPedidoText.setText(dtm.getValueAt(jTablePedidos.getSelectedRow(), 2).toString());
+           wp.CantidadPedidoText.setText(dtm.getValueAt(jTablePedidos.getSelectedRow(), 3).toString());
+             
+         }
+        
+    }//GEN-LAST:event_jTablePedidosMouseClicked
      private PreparedStatement read;
      private ResultSet rs;
      private DefaultTableModel dtm;
@@ -239,7 +261,7 @@ public class WinEditPedido extends javax.swing.JDialog {
      try {      
            
              
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, producto, proveedor, cantidad FROM pedidos WHERE proveedor LIKE '%"+pedidoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idPedido, producto, proveedor, cantidad FROM pedidos WHERE proveedor LIKE '%"+pedidoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
