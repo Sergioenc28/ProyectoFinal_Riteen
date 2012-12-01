@@ -8,7 +8,8 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +27,7 @@ public class WinLoging extends javax.swing.JDialog {
         PanelLogging pl = new PanelLogging();
         this.add(pl, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+         
         
     }
 
@@ -176,12 +178,9 @@ public class WinLoging extends javax.swing.JDialog {
     }//GEN-LAST:event_passwordTextActionPerformed
 //ResultSet usuario;
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-                
-        
-               
         entrar();                                
     }//GEN-LAST:event_entrarActionPerformed
-    public String PaJLabelUsuarioA;
+    
     ResultSet usuario;
     public String nombreDelUsuario = "";
     void entrar(){
@@ -199,15 +198,11 @@ public class WinLoging extends javax.swing.JDialog {
                     if ( nombreDelUsuario.length() > 0){
                     
                     JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
-                    PaJLabelUsuarioA = nombreDelUsuario.toUpperCase();
                     
                     WinInicio  ventana =  new WinInicio();
                     ventana.show();
                     
-                    PanelInicio paini = new PanelInicio();
-                    paini.usuarioActualJLabel.setText(PaJLabelUsuarioA);
-                       
-                        dispose();
+                    dispose();
                    }
                     
                     else{

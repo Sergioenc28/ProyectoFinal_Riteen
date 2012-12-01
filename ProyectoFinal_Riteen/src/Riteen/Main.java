@@ -19,13 +19,7 @@ public class Main {
      */
     public static void main(String[] args) 
     {
-        
-        //We are ready to work
-        
-        
-    
-      WinLoging wl = new WinLoging();
-      wl.setVisible(true);
-         
+       WinLoging wl = new WinLoging();
+       wl.setVisible(true);
     }
 }

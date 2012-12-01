@@ -20,15 +20,9 @@ public class PanelInicio extends javax.swing.JPanel {
      */
     public PanelInicio() {
         initComponents();
-        user();
         this.setSize(850, 600);
     }
     
-    public void user()
-    {
-        WinLoging us = new WinLoging();
-        usuarioActualJLabel.setText(us.PaJLabelUsuarioA);
-    }
     
     @Override
      public void paintComponent(Graphics g){
