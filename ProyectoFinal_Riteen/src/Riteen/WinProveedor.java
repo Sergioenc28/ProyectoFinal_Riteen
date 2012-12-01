@@ -186,7 +186,7 @@ public class WinProveedor extends javax.swing.JDialog{
             add.setString(4, emailProveedorText.getText());
             }
             if (casoProveedor == 2){
-            add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE proveedores SET Nombre = '"+
+                    add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE proveedores SET Nombre = '"+
                     proveedorText.getText()+"', Direccion = '"+ direccionProveedorText.getText()+"', Telefono = '"+
                     telefonoProveedorText.getText()+"', Email = '"+ emailProveedorText.getText()+"' WHERE idProveedor ="+idProveedor);
             }
