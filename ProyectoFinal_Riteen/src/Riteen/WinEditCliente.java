@@ -87,8 +87,13 @@ public class WinEditCliente extends javax.swing.JDialog {
             }
         ));
         jTableClientes.setColumnSelectionAllowed(true);
+        jTableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableClientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableClientes);
-        jTableClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jTableClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         guardarEditCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarEditCliente.setText("Guardar");
@@ -270,6 +275,16 @@ public class WinEditCliente extends javax.swing.JDialog {
         WinCliente wc = new WinCliente();
         wc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClientesMouseClicked
+        if( jTableClientes.getSelectedRows().length > 0 ) { 
+          
+           WinCliente wc = new WinCliente();
+           wc.setVisible(true);
+          
+        
+         }
+    }//GEN-LAST:event_jTableClientesMouseClicked
 
     /**
      * @param args the command line arguments
