@@ -93,7 +93,7 @@ public class WinEditCliente extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(jTableClientes);
-        jTableClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jTableClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         guardarEditCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarEditCliente.setText("Guardar");
@@ -280,8 +280,14 @@ public class WinEditCliente extends javax.swing.JDialog {
         if( jTableClientes.getSelectedRows().length > 0 ) { 
           
            WinCliente wc = new WinCliente();
+           wc.casoCliente = 2;
            wc.setVisible(true);
           
+           wc.id = (dtm.getValueAt(jTableClientes.getSelectedRow(), 0).toString() );
+           wc.clienteText.setText(dtm.getValueAt(jTableClientes.getSelectedRow(), 1).toString());
+           wc.cedulaClienteText.setText(dtm.getValueAt(jTableClientes.getSelectedRow(), 2).toString());
+           wc.telefonoClienteText.setText(dtm.getValueAt(jTableClientes.getSelectedRow(), 3).toString());
+           wc.direccionClienteText.setText(dtm.getValueAt(jTableClientes.getSelectedRow(), 4).toString());
         
          }
     }//GEN-LAST:event_jTableClientesMouseClicked

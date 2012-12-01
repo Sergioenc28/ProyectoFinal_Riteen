@@ -8,8 +8,9 @@ package Riteen;
 import java.awt.BorderLayout;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Harim Tejada
@@ -26,7 +27,7 @@ public class WinCliente extends javax.swing.JDialog {
         PanelCliente pc = new PanelCliente();
         this.add(pc, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
-                
+               
     }
 
     /**
@@ -205,20 +206,34 @@ public class WinCliente extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     int casoCliente=0;
+     String id;
     private PreparedStatement add;
 
     private void guardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarClienteActionPerformed
       
+        
         try {
            
-            
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (Nombre, Telefono, Direccion, Cedula) VALUES ( ?, ?, ?, ?)");
+            if(casoCliente == 1)
+            {
+               
+                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (Nombre, Telefono, Direccion, Cedula) VALUES ( ?, ?, ?, ?)");
+                add.setString(1, clienteText.getText());
+                add.setString(2, telefonoClienteText.getText());
+                add.setString(3, direccionClienteText.getText());
+                add.setString(4,cedulaClienteText.getText());
+            }
+            if(casoCliente == 2)
+            {
+                
+                WinEditCliente wec = new WinEditCliente();
+                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE clientes SET Nombre = '"+clienteText.getText()+"', Telefono = '"+ telefonoClienteText.getText()+"', Direccion = '"+direccionClienteText.getText()+"', Cedula = '"+cedulaClienteText.getText()+"' WHERE idCliente =  "+ id); 
+            }
+           
             
            
-            add.setString(1, clienteText.getText());
-            add.setString(2, telefonoClienteText.getText());
-            add.setString(3, direccionClienteText.getText());
-            add.setString(4,cedulaClienteText.getText());
+            
             int exitoso = add.executeUpdate();
             
             if (exitoso == 1){
@@ -231,13 +246,14 @@ public class WinCliente extends javax.swing.JDialog {
             else {
             
             JOptionPane.showMessageDialog(null, "No se puede registrar el cliente");
-           
+            
             }
         } 
          
-        catch (SQLException ex) {
-            
+        catch (SQLException ex ) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        
               
        
         
@@ -301,9 +317,9 @@ public class WinCliente extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarCliente;
-    private javax.swing.JFormattedTextField cedulaClienteText;
-    private javax.swing.JTextField clienteText;
-    private javax.swing.JTextField direccionClienteText;
+    public javax.swing.JFormattedTextField cedulaClienteText;
+    public javax.swing.JTextField clienteText;
+    public javax.swing.JTextField direccionClienteText;
     private javax.swing.JButton guardarCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -311,6 +327,6 @@ public class WinCliente extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JFormattedTextField telefonoClienteText;
+    public javax.swing.JFormattedTextField telefonoClienteText;
     // End of variables declaration//GEN-END:variables
 }
