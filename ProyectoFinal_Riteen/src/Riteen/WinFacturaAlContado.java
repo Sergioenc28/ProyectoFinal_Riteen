@@ -271,7 +271,8 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
     }//GEN-LAST:event_clienteFacturaAlContadoComboBoxActionPerformed
 
     private void agregaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaProductoFacturaAlContadoButtonActionPerformed
-        // TODO add your handling code here:
+        WinAgregaProducto wap = new WinAgregaProducto(null, rootPaneCheckingEnabled);
+        wap.setVisible(true);
     }//GEN-LAST:event_agregaProductoFacturaAlContadoButtonActionPerformed
 
     private void eliminaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaProductoFacturaAlContadoButtonActionPerformed
