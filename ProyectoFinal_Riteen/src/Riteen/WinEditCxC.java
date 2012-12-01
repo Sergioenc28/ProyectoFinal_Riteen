@@ -243,11 +243,7 @@ public class WinEditCxC extends javax.swing.JDialog {
     }//GEN-LAST:event_cxcEdtTextActionPerformed
 
     private void cancelarCxCEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxCEdtActionPerformed
-        int opc = JOptionPane.showConfirmDialog(this, "¿Desea cancelar los cambios realizados?", "Salir", JOptionPane.YES_NO_OPTION);
-        
-        if(opc == JOptionPane.YES_OPTION){
-            this.dispose();
-        }
+       this.dispose();                  
     }//GEN-LAST:event_cancelarCxCEdtActionPerformed
 
     private void buscarCxCBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCxCBotonActionPerformed

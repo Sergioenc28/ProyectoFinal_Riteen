@@ -199,11 +199,7 @@ public class WinEditPedido extends javax.swing.JDialog {
     }//GEN-LAST:event_pedidoEdtTextActionPerformed
 
     private void cancelarEdtPedidoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtPedidoBotonActionPerformed
-        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
-
-        if(opc == JOptionPane.YES_OPTION){
-            this.dispose();
-        }
+         this.dispose();      
     }//GEN-LAST:event_cancelarEdtPedidoBotonActionPerformed
 
     private void guardarEdtPedidosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEdtPedidosBotonActionPerformed

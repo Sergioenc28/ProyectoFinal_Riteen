@@ -188,11 +188,7 @@ public class WinEditProducto extends javax.swing.JDialog {
     }//GEN-LAST:event_productoEdtTextActionPerformed
 
     private void cancelarProductoEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarProductoEdtActionPerformed
-        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
-
-        if(opc == JOptionPane.YES_OPTION){
-            this.dispose();
-        }
+        this.dispose();
     }//GEN-LAST:event_cancelarProductoEdtActionPerformed
 
     private PreparedStatement read;

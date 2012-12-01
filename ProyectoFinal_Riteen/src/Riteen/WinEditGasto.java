@@ -181,11 +181,7 @@ public class WinEditGasto extends javax.swing.JDialog {
         }
     }
     private void cancelarGastoEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarGastoEdtActionPerformed
-        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
-
-        if(opc == JOptionPane.YES_OPTION){
-            this.dispose();
-        }
+      this.dispose();
     }//GEN-LAST:event_cancelarGastoEdtActionPerformed
 
     private void buscarGastoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGastoBotonActionPerformed

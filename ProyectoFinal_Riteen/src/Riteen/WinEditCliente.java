@@ -200,11 +200,7 @@ public class WinEditCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_clienteEdtTextActionPerformed
 
     private void cancelarEdtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtClienteActionPerformed
-        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
-       
-        if(opc == JOptionPane.YES_OPTION){
-            this.dispose();
-        }
+       this.dispose();        
     }//GEN-LAST:event_cancelarEdtClienteActionPerformed
     private PreparedStatement read;
     private ResultSet rs;
