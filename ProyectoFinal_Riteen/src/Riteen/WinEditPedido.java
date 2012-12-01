@@ -246,6 +246,7 @@ public class WinEditPedido extends javax.swing.JDialog {
      private PreparedStatement read;
      private ResultSet rs;
      private DefaultTableModel dtm;
+     
     void limpiarTabla(){
     
         while(jTablePedidos.getRowCount()>0){
@@ -253,33 +254,25 @@ public class WinEditPedido extends javax.swing.JDialog {
         
         }
     }
+    
      void buscarPedidos(){
-     try {      
-           
-             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idPedido, producto, proveedor, cantidad FROM pedidos WHERE proveedor LIKE '%"+pedidoEdtText.getText() +"%'");
-           
-            rs = (ResultSet) read.executeQuery();
-           
-            
+     try {                              
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idPedido, producto, proveedor, cantidad FROM pedidos WHERE proveedor LIKE '%"+pedidoEdtText.getText() +"%'");           
+            rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.jTablePedidos.getModel();
             
-            while (rs.next()) {
-            
-            Object [] fila = new Object[4]; 
+            while (rs.next()) {            
+                Object [] fila = new Object[4]; 
             
            
             for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);
                 } 
-
             
             dtm.addRow(fila);
-            if(fila.length == 0){
             
-             
-                JOptionPane.showMessageDialog(null, "no se encontro nada");
-            
+            if(fila.length == 0){                         
+                JOptionPane.showMessageDialog(null, "no se encontro nada");            
             }           
 }       
             

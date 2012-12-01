@@ -18,8 +18,8 @@ public class WinEligeCuenta extends javax.swing.JDialog {
     public WinEligeCuenta() {
         initComponents();
         this.setLocationRelativeTo(null);
-        PanelLogging pl = new PanelLogging();
-        this.add(pl, BorderLayout.CENTER);
+        PanelWinProducto pwp = new PanelWinProducto();
+        this.add(pwp, BorderLayout.CENTER);
     }
 
     /**
@@ -35,8 +35,9 @@ public class WinEligeCuenta extends javax.swing.JDialog {
         cuentaPorPagar = new javax.swing.JButton();
         cuentaPorCobrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Elige una Opcion");
+        setModal(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N

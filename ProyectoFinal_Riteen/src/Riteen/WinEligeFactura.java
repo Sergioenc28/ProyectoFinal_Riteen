@@ -18,8 +18,8 @@ public class WinEligeFactura extends javax.swing.JDialog {
     public WinEligeFactura() {
         initComponents();
         this.setLocationRelativeTo(null);
-        PanelLogging pl2 = new PanelLogging();
-        this.add(pl2, BorderLayout.CENTER);
+        PanelReciboDeReparacion prdr = new PanelReciboDeReparacion();
+        this.add(prdr, BorderLayout.CENTER);
     }
 
     /**
@@ -37,6 +37,7 @@ public class WinEligeFactura extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Elige el tipo de Factura");
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(366, 162));
         setResizable(false);
 
