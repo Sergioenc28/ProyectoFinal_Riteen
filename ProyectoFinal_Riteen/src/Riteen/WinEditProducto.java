@@ -245,16 +245,18 @@ public class WinEditProducto extends javax.swing.JDialog {
            wp.idProducto = (dtm.getValueAt(jTableProductos.getSelectedRow(), 0).toString() );
            wp.productoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 1).toString());
            wp.existenciaActualDelProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 3).toString());
-           wp.costoProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 4).toString());
-           wp.precioVentaProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 5).toString());
-           wp.existenciaMinimaDelProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 6).toString());
+           wp.existenciaMinimaDelProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 4).toString());
+           wp.costoProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 5).toString());
+           wp.precioVentaProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 6).toString());
+          
         
          }
     }//GEN-LAST:event_jTableProductosMouseClicked
 
     void buscarProductos(){
      try {                             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, Nombre, idProveedor, Existencia, Costo, PrecioDeVenta FROM almacen WHERE nombre LIKE '%"+ productoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, Nombre, idProveedor, Existencia,ExistenciaMinima, Costo, PrecioDeVenta FROM almacen WHERE nombre LIKE '%"
+                    + productoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            

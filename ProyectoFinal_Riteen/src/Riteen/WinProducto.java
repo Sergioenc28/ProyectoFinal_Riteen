@@ -285,16 +285,17 @@ public class WinProducto extends javax.swing.JDialog {
     }//GEN-LAST:event_cancelarProductoActionPerformed
      int casoProducto=0;
      String idProducto;
+     
      private java.sql.PreparedStatement add;
     private void guardarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoActionPerformed
       try {
+            
             int costo = Integer.parseInt(costoProductoText.getText());
             int precio = Integer.parseInt(precioVentaProductoText.getText());
             int existencia = Integer.parseInt(existenciaActualDelProductoText.getText());
             int existenciaMinima = Integer.parseInt(existenciaMinimaDelProductoText.getText());
-            
             if(casoProducto == 1)
-            {               
+            {             
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO almacen (Nombre, Descripcion, idProveedor, Costo, PrecioDeVenta, Existencia, ExistenciaMinima) VALUES (?, ?, ?, ?, ?, ?, ?)");
                 add.setString(1, productoText.getText());
                 add.setString(2, descripcionProductoTextArea.getText());
