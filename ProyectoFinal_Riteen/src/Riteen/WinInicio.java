@@ -185,6 +185,7 @@ public class WinInicio extends javax.swing.JFrame {
 
     private void RegEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegEmpleadoActionPerformed
        WinEmpleado we = new WinEmpleado();
+       we.casoEmpleado = 1;
        we.setVisible(true);
     }//GEN-LAST:event_RegEmpleadoActionPerformed
 

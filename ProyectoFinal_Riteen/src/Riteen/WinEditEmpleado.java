@@ -119,6 +119,11 @@ public class WinEditEmpleado extends javax.swing.JDialog {
                 "ID", "Nombre", "Telefono", "Dirección", "Cédula", "Sueldo", "Horario"
             }
         ));
+        jTableEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEmpleadosMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTableEmpleados);
 
         guardarEdtEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -237,6 +242,23 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         WinEmpleado we = new WinEmpleado();
         we.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTableEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmpleadosMouseClicked
+      if( jTableEmpleados.getSelectedRows().length > 0 ) { 
+          
+           WinEmpleado wp = new WinEmpleado();
+           wp.casoEmpleado = 2;
+           wp.setVisible(true);
+          
+           wp.id = (dtm.getValueAt(jTableEmpleados.getSelectedRow(), 0).toString() );
+           wp.nombreEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 1).toString());
+           wp.telefonoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 2).toString());
+           wp.direccionEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 3).toString());
+           wp.cedulaEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 4).toString());
+           wp.sueldoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 5).toString());
+           
+         }
+    }//GEN-LAST:event_jTableEmpleadosMouseClicked
      
      private PreparedStatement read;
      private ResultSet rs;

@@ -250,7 +250,8 @@ public class WinEmpleado extends javax.swing.JDialog {
     private void horarioEmpleadoJComboBoxMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioEmpleadoJComboBoxMouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioEmpleadoJComboBoxMouseMoved
-
+    int casoEmpleado = 0;
+    String id;
     private PreparedStatement add;
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
      
@@ -258,7 +259,8 @@ public class WinEmpleado extends javax.swing.JDialog {
            
             float sueldo= Float.parseFloat(sueldoEmpleadoText.getText());
             String comboBoxHorarioEmpleado = (String) horarioEmpleadoJComboBox.getSelectedItem();
-          
+            
+            if (casoEmpleado == 1 ){
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
             
             add.setString(1, nombreEmpleadoText.getText());
@@ -268,6 +270,15 @@ public class WinEmpleado extends javax.swing.JDialog {
             add.setFloat(5, sueldo);
             add.setString(6, comboBoxHorarioEmpleado);
             
+            }
+            if (casoEmpleado == 2){
+                JOptionPane.showMessageDialog(null, id);
+                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE empleados SET Nombre = '"+
+                    nombreEmpleadoText.getText()+"',Telefono = '"+telefonoEmpleadoText.getText()+
+                    "',Direccion = '"+ direccionEmpleadoText.getText()+"', Cedula = '"+ cedulaEmpleadoText.getText()+
+                    "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +"' WHERE idEmpleado="+id);
+
+            }
             int exitoso = add.executeUpdate();
            
             if (exitoso == 1){
@@ -347,10 +358,10 @@ public class WinEmpleado extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarEmpleado;
-    private javax.swing.JFormattedTextField cedulaEmpleadoText;
-    private javax.swing.JTextField direccionEmpleadoText;
+    public javax.swing.JFormattedTextField cedulaEmpleadoText;
+    public javax.swing.JTextField direccionEmpleadoText;
     private javax.swing.JButton guardarEmpleado;
-    private javax.swing.JComboBox horarioEmpleadoJComboBox;
+    public javax.swing.JComboBox horarioEmpleadoJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -359,8 +370,8 @@ public class WinEmpleado extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField nombreEmpleadoText;
-    private javax.swing.JFormattedTextField sueldoEmpleadoText;
-    private javax.swing.JFormattedTextField telefonoEmpleadoText;
+    public javax.swing.JTextField nombreEmpleadoText;
+    public javax.swing.JFormattedTextField sueldoEmpleadoText;
+    public javax.swing.JFormattedTextField telefonoEmpleadoText;
     // End of variables declaration//GEN-END:variables
 }
