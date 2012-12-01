@@ -5,23 +5,22 @@
 package Riteen;
 
 import java.awt.BorderLayout;
-import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Sergio and Clary
  */
-public class WinFacturaAlContado extends JDialog {
+public class WinFacturaAlContado extends javax.swing.JDialog {
 
     /**
-     * Creates new form WinFactura
+     * Creates new form FacturaAlContado
      */
-    public WinFacturaAlContado() {
+    public WinFacturaAlContado(){
         initComponents();
-        PanelFacturaAlContado pFC = new PanelFacturaAlContado();
-        this.add(pFC, BorderLayout.CENTER);
+        PanelFacturaAlContado fac = new PanelFacturaAlContado();
+        this.add(fac, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
-       
     }
 
     /**
@@ -33,24 +32,257 @@ public class WinFacturaAlContado extends JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        finalizarFacturaAlContadoJButton = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        totalFacturaAlContadoText = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaDeFacturaAlContado = new javax.swing.JTable();
+        clienteFacturaAlContadoComboBox = new javax.swing.JComboBox();
+        agregaProductoFacturaAlContadoButton = new javax.swing.JButton();
+        nuevoClienteFacturaAlContadoJButton = new javax.swing.JButton();
+        clienteExisteFacturaAlContadoJCheckBox = new javax.swing.JCheckBox();
+        eliminaProductoFacturaAlContadoButton = new javax.swing.JButton();
+        cancelarFacturaAlContadoJButton = new javax.swing.JButton();
+        FechaActualDeFacJLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        clienteFacturaAlContadoText = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Riteen - Factura");
-        setPreferredSize(new java.awt.Dimension(635, 465));
+        setTitle("Riteen - Factura al Contado");
+        setPreferredSize(new java.awt.Dimension(680, 500));
         setResizable(false);
+
+        finalizarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        finalizarFacturaAlContadoJButton.setText("Finalizar");
+        finalizarFacturaAlContadoJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarFacturaAlContadoJButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Total:");
+
+        totalFacturaAlContadoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        totalFacturaAlContadoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalFacturaAlContadoTextActionPerformed(evt);
+            }
+        });
+
+        tablaDeFacturaAlContado.setAutoCreateRowSorter(true);
+        tablaDeFacturaAlContado.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        tablaDeFacturaAlContado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id Producto", "Producto", "Precio", "Cant", "Sub-Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaDeFacturaAlContado.setColumnSelectionAllowed(true);
+        tablaDeFacturaAlContado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablaDeFacturaAlContado.setEditingColumn(4);
+        tablaDeFacturaAlContado.setName(""); // NOI18N
+        jScrollPane1.setViewportView(tablaDeFacturaAlContado);
+
+        clienteFacturaAlContadoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteFacturaAlContadoComboBoxActionPerformed(evt);
+            }
+        });
+
+        agregaProductoFacturaAlContadoButton.setText("Agregar Producto");
+        agregaProductoFacturaAlContadoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregaProductoFacturaAlContadoButtonActionPerformed(evt);
+            }
+        });
+
+        nuevoClienteFacturaAlContadoJButton.setBackground(new java.awt.Color(160, 158, 158));
+        nuevoClienteFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        nuevoClienteFacturaAlContadoJButton.setText("Nuevo Cliente");
+
+        clienteExisteFacturaAlContadoJCheckBox.setOpaque(false);
+        clienteExisteFacturaAlContadoJCheckBox.setContentAreaFilled(false);
+        clienteExisteFacturaAlContadoJCheckBox.setBorderPainted(false);
+        clienteExisteFacturaAlContadoJCheckBox.setBackground(new java.awt.Color(252, 252, 252));
+        clienteExisteFacturaAlContadoJCheckBox.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        clienteExisteFacturaAlContadoJCheckBox.setForeground(new java.awt.Color(255, 255, 255));
+        clienteExisteFacturaAlContadoJCheckBox.setText("Cliente Existe");
+        clienteExisteFacturaAlContadoJCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteExisteFacturaAlContadoJCheckBoxActionPerformed(evt);
+            }
+        });
+
+        eliminaProductoFacturaAlContadoButton.setText("Eliminar Producto");
+        eliminaProductoFacturaAlContadoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminaProductoFacturaAlContadoButtonActionPerformed(evt);
+            }
+        });
+
+        cancelarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        cancelarFacturaAlContadoJButton.setText("Cancelar");
+        cancelarFacturaAlContadoJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarFacturaAlContadoJButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(153, 0, 153));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Factura al Contado");
+        jLabel1.setToolTipText("");
+
+        clienteFacturaAlContadoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Cliente:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(finalizarFacturaAlContadoJButton)
+                .addGap(28, 28, 28)
+                .addComponent(cancelarFacturaAlContadoJButton)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nuevoClienteFacturaAlContadoJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(FechaActualDeFacJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(agregaProductoFacturaAlContadoButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(eliminaProductoFacturaAlContadoButton))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(clienteExisteFacturaAlContadoJCheckBox)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(clienteFacturaAlContadoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(clienteFacturaAlContadoText))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(totalFacturaAlContadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(25, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(FechaActualDeFacJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(nuevoClienteFacturaAlContadoJButton))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(clienteExisteFacturaAlContadoJCheckBox)
+                    .addComponent(clienteFacturaAlContadoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(clienteFacturaAlContadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agregaProductoFacturaAlContadoButton)
+                    .addComponent(eliminaProductoFacturaAlContadoButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalFacturaAlContadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(finalizarFacturaAlContadoJButton)
+                    .addComponent(cancelarFacturaAlContadoJButton))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void finalizarFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarFacturaAlContadoJButtonActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Coming Soon");
+        this.dispose();
+    }//GEN-LAST:event_finalizarFacturaAlContadoJButtonActionPerformed
+
+    private void totalFacturaAlContadoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalFacturaAlContadoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totalFacturaAlContadoTextActionPerformed
+
+    private void clienteFacturaAlContadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteFacturaAlContadoComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteFacturaAlContadoComboBoxActionPerformed
+
+    private void agregaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaProductoFacturaAlContadoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregaProductoFacturaAlContadoButtonActionPerformed
+
+    private void eliminaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaProductoFacturaAlContadoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminaProductoFacturaAlContadoButtonActionPerformed
+
+    private void cancelarFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarFacturaAlContadoJButtonActionPerformed
+        // TODO add your handling code here:
+        if(evt.getSource() == cancelarFacturaAlContadoJButton){
+                this.dispose();
+            }
+    }//GEN-LAST:event_cancelarFacturaAlContadoJButtonActionPerformed
+
+    private void clienteExisteFacturaAlContadoJCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteExisteFacturaAlContadoJCheckBoxActionPerformed
+        // TODO add your handling code here:
+        if(clienteExisteFacturaAlContadoJCheckBox.isSelected())
+        {
+            
+        }
+    }//GEN-LAST:event_clienteExisteFacturaAlContadoJCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,14 +311,35 @@ public class WinFacturaAlContado extends JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                new WinFacturaAlContado().setVisible(true);
+                WinFacturaAlContado dialog = new WinFacturaAlContado();
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel FechaActualDeFacJLabel;
+    private javax.swing.JButton agregaProductoFacturaAlContadoButton;
+    private javax.swing.JButton cancelarFacturaAlContadoJButton;
+    private javax.swing.JCheckBox clienteExisteFacturaAlContadoJCheckBox;
+    private javax.swing.JComboBox clienteFacturaAlContadoComboBox;
+    private javax.swing.JTextField clienteFacturaAlContadoText;
+    private javax.swing.JButton eliminaProductoFacturaAlContadoButton;
+    private javax.swing.JButton finalizarFacturaAlContadoJButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton nuevoClienteFacturaAlContadoJButton;
+    private javax.swing.JTable tablaDeFacturaAlContado;
+    private javax.swing.JTextField totalFacturaAlContadoText;
     // End of variables declaration//GEN-END:variables
 }
