@@ -39,7 +39,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
 
         guardarReciboReparacionEdt = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        reciboReparacionjTable = new javax.swing.JTable();
+        jTableReciboReparacion = new javax.swing.JTable();
         verBoton = new javax.swing.JButton();
         reciboReparacionEdtText = new javax.swing.JTextField();
         buscarReciboReparacionBoton = new javax.swing.JButton();
@@ -56,23 +56,28 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         guardarReciboReparacionEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         guardarReciboReparacionEdt.setText("Guardar");
 
-        reciboReparacionjTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTableReciboReparacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Cliente", "Articulo", "Plazo", "Fecha de Entrega"
+                "ID", "Fecha de Entrega", "Articulo", "Marca", "Modelo", "Cliente", "Telefono", "Plazo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
+                false, true, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(reciboReparacionjTable);
+        jTableReciboReparacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableReciboReparacionMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTableReciboReparacion);
 
         verBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         verBoton.setText("Ver todos los Recibos Reparación");
@@ -231,47 +236,56 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_reciboReparacionEdtTextKeyTyped
 
-       private PreparedStatement read;
+    private void jTableReciboReparacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableReciboReparacionMouseClicked
+      if( jTableReciboReparacion.getSelectedRows().length > 0 ) { 
+          
+           WinReciboDeReparacion wrr = new WinReciboDeReparacion();
+           wrr.casoReciboReparacion = 2;
+           wrr.setVisible(true);
+          
+           wrr.idReciboReparacion = (dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 0).toString() );
+           wrr.fechaReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 1).toString());
+           wrr.articuloReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 2).toString());
+           wrr.marcaReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 3).toString());
+           wrr.modeloReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 4).toString());
+           wrr.clienteReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 5).toString());
+           wrr.telefonoReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 6).toString());
+           wrr.plazoTextfield.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 7).toString());
+        
+         }   
+    }//GEN-LAST:event_jTableReciboReparacionMouseClicked
+
+     private PreparedStatement read;
      private ResultSet rs;
      private DefaultTableModel dtm;
      
      
      void limpiarTabla(){
     
-        while(reciboReparacionjTable.getRowCount()>0){
-        ((DefaultTableModel)reciboReparacionjTable.getModel()).removeRow(0);
+        while(jTableReciboReparacion.getRowCount()>0){
+        ((DefaultTableModel)jTableReciboReparacion.getModel()).removeRow(0);
         
         }
     }
      void buscarReciboReparacion(){
-     try {      
-           
-            
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idRecibo, nombreCliente, Articulo, Plazo, FechaDeEntrega FROM recibos_de_reparacion WHERE nombreCliente LIKE '%"+ reciboReparacionEdtText.getText() +"%'");
-           
-            rs = (ResultSet) read.executeQuery();
-           
-            
-            dtm = (DefaultTableModel) this.reciboReparacionjTable.getModel();
+     try {                             
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idRecibo, FechaDeEntrega, Articulo, Marca, Modelo, NombreCliente,  TelefonoCliente, Plazo  FROM recibos_de_reparacion WHERE NombreCliente LIKE '%"+ reciboReparacionEdtText.getText() +"%'");
+            rs = (ResultSet) read.executeQuery();                       
+            dtm = (DefaultTableModel) this.jTableReciboReparacion.getModel();
             
             while (rs.next()) {
-            
-            Object [] fila = new Object[5]; 
-            
-           
-            for (int i=0;i<fila.length;i++) {
+                Object [] fila = new Object[8]; 
+                           
+                for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);
                 } 
-
              
-            dtm.addRow(fila);
-            if(fila.length == 0){
-            
-             
-                JOptionPane.showMessageDialog(null, "no se encontro nada");
-            
-            }           
-}       
+                dtm.addRow(fila);
+                
+                if(fila.length == 0){                                
+                    JOptionPane.showMessageDialog(null, "no se encontro nada");            
+                }           
+            }       
             
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -320,9 +334,9 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTableReciboReparacion;
     private javax.swing.JButton nuevoRecibo;
     private javax.swing.JTextField reciboReparacionEdtText;
-    private javax.swing.JTable reciboReparacionjTable;
     private javax.swing.JButton verBoton;
     // End of variables declaration//GEN-END:variables
 }

@@ -265,21 +265,32 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cancelarReparacionActionPerformed
 
-    private PreparedStatement add;
+     int casoReciboReparacion=0;
+     String idReciboReparacion;
+     private PreparedStatement add;
     private void guardarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarReparacionActionPerformed
-    try {
            
-            
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO recibos_de_reparacion (FechaDeEntrega, Articulo, Marca, Modelo, NombreCliente, TelefonoCliente, plazo) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
-            
+            try {
            
-            add.setString(1, fechaReparacionText.getText());
-            add.setString(2, articuloReparacionText.getText());
-            add.setString(3, marcaReparacionText.getText());
-            add.setString(4, modeloReparacionText.getText());
-            add.setString(5, clienteReparacionText.getText());
-            add.setString(6, telefonoReparacionText.getText());
-            add.setString(7, plazoTextfield.getText());
+            if(casoReciboReparacion == 1)
+            {               
+                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO recibos_de_reparacion (FechaDeEntrega, Articulo, Marca, Modelo, NombreCliente, TelefonoCliente, plazo) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
+                add.setString(1, fechaReparacionText.getText());
+                add.setString(2, articuloReparacionText.getText());
+                add.setString(3, marcaReparacionText.getText());
+                add.setString(4, modeloReparacionText.getText());
+                add.setString(5, clienteReparacionText.getText());
+                add.setString(6, telefonoReparacionText.getText());
+                add.setString(7, plazoTextfield.getText());
+            }
+            
+            if(casoReciboReparacion == 2)
+            {                
+                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE INTO recibos_de_reparacion SET FechaEntrega = '"+fechaReparacionText.getText()+"', Articulo = '"
+                + articuloReparacionText.getText()+"', Marca = '"+marcaReparacionText.getText()+"', Modelo = '"+modeloReparacionText.getText()+"', NombreCliente = '"+clienteReparacionText.getText()+"'"
+                + ", TelefonoCliente = '"+telefonoReparacionText.getText()+"' , Plazo = '"+plazoTextfield.getText()+"'" + " WHERE idCliente =  "+ idReciboReparacion); 
+            }                                                           
+            
             int exitoso = add.executeUpdate();
             
             if (exitoso == 1){
@@ -339,12 +350,12 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField articuloReparacionText;
+    public javax.swing.JTextField articuloReparacionText;
     private javax.swing.JTextField articuloReparacionText4;
     private javax.swing.JButton cancelarReparacion;
-    private javax.swing.JTextField clienteReparacionText;
+    public javax.swing.JTextField clienteReparacionText;
     private javax.swing.JCheckBox fechaActualParaTodo;
-    private javax.swing.JFormattedTextField fechaReparacionText;
+    public javax.swing.JFormattedTextField fechaReparacionText;
     private javax.swing.JButton guardarReparacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -356,9 +367,9 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField marcaReparacionText;
-    private javax.swing.JTextField modeloReparacionText;
-    private javax.swing.JTextField plazoTextfield;
-    private javax.swing.JFormattedTextField telefonoReparacionText;
+    public javax.swing.JTextField marcaReparacionText;
+    public javax.swing.JTextField modeloReparacionText;
+    public javax.swing.JTextField plazoTextfield;
+    public javax.swing.JFormattedTextField telefonoReparacionText;
     // End of variables declaration//GEN-END:variables
 }
