@@ -128,6 +128,11 @@ public class PanelInicio extends javax.swing.JPanel {
         facturasButton.setForeground(new java.awt.Color(255, 255, 255));
         facturasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/task_completed_256.png"))); // NOI18N
         facturasButton.setText("FACTURAS");
+        facturasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facturasButtonActionPerformed(evt);
+            }
+        });
 
         reparacionesButton.setOpaque(false);
         reparacionesButton.setContentAreaFilled(false);
@@ -391,6 +396,12 @@ public class PanelInicio extends javax.swing.JPanel {
     private void ayudaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ayudaButtonActionPerformed
+
+    private void facturasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturasButtonActionPerformed
+        WinInicio wi = new WinInicio();
+        WinDetalleFacturaContado wdfc = new WinDetalleFacturaContado(wi, false);
+        wdfc.setVisible(true);
+    }//GEN-LAST:event_facturasButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CrearReciboButton;

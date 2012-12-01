@@ -224,6 +224,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="FACTURAS"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facturasButtonActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="facturasButton.setOpaque(false);&#xa;facturasButton.setContentAreaFilled(false);&#xa;facturasButton.setBorderPainted(false);"/>
       </AuxValues>
