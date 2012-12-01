@@ -244,6 +244,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Nuevo Cliente"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nuevoClienteFacturaAlContadoJButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="clienteExisteFacturaAlContadoJCheckBox">
       <Properties>

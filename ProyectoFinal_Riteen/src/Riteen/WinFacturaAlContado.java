@@ -132,6 +132,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
 
         nuevoClienteFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         nuevoClienteFacturaAlContadoJButton.setText("Nuevo Cliente");
+        nuevoClienteFacturaAlContadoJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoClienteFacturaAlContadoJButtonActionPerformed(evt);
+            }
+        });
 
         clienteExisteFacturaAlContadoJCheckBox.setOpaque(false);
         clienteExisteFacturaAlContadoJCheckBox.setContentAreaFilled(false);
@@ -297,6 +302,13 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         }
         
     }//GEN-LAST:event_clienteExisteFacturaAlContadoJCheckBoxActionPerformed
+
+    private void nuevoClienteFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoClienteFacturaAlContadoJButtonActionPerformed
+        // TODO add your handling code here:
+        WinCliente wc = new WinCliente();
+        wc.casoCliente = 1;
+        wc.setVisible(true);
+    }//GEN-LAST:event_nuevoClienteFacturaAlContadoJButtonActionPerformed
 
     /**
      * @param args the command line arguments
