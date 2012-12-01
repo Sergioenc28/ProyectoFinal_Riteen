@@ -5,11 +5,7 @@
 package Riteen;
 
 import java.awt.BorderLayout;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.omg.CORBA.WCharSeqHelper;
 
 /**
  *
@@ -202,6 +198,7 @@ public class WinInicio extends javax.swing.JFrame {
 
     private void RegProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegProductoActionPerformed
        WinProducto wp = new WinProducto();
+       wp.casoProducto = 1;
        wp.setVisible(true);
     }//GEN-LAST:event_RegProductoActionPerformed
 

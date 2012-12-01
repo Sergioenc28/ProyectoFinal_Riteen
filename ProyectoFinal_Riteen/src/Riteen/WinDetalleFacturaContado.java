@@ -117,6 +117,7 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
         });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("Generar Informe");
 
         buscarDetalleFactura.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
