@@ -178,7 +178,6 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         fechaActualJLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         fechaActualJLabel.setForeground(new java.awt.Color(255, 255, 255));
         fechaActualJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fechaActualJLabel.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,10 +225,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(tituloJLabel)
-                        .addComponent(fechaActualJLabel))
-                    .addComponent(nuevoClienteFacturaAlContadoJButton))
+                    .addComponent(tituloJLabel)
+                    .addComponent(nuevoClienteFacturaAlContadoJButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(fechaActualJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clienteExisteFacturaAlContadoJCheckBox)
