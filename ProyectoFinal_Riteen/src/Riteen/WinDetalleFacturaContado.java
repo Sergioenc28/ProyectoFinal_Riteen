@@ -116,7 +116,7 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Generar Informe");
 
         buscarDetalleFactura.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -128,7 +128,7 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
         });
 
         verFacturas.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        verFacturas.setText("Ver todas las Facturas");
+        verFacturas.setText("Ver Facturas");
         verFacturas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 verFacturasActionPerformed(evt);
@@ -248,8 +248,8 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
     }//GEN-LAST:event_detalleFacturaTextKeyTyped
 
     private void nuevaFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaFacturaActionPerformed
-        WinEligeFactura wef = new WinEligeFactura();
-        wef.setVisible(true);
+        WinFacturaAlContado wfac = new WinFacturaAlContado();
+        wfac.setVisible(true);
     }//GEN-LAST:event_nuevaFacturaActionPerformed
 
     private void buscarDetalleFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDetalleFacturaActionPerformed
