@@ -99,6 +99,11 @@ public class WinEditProveedor extends javax.swing.JDialog {
                 "ID", "Nombre", "Telefono", "Dirección", "E-mail"
             }
         ));
+        jTableProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableProveedoresMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTableProveedores);
 
         guardarProveedorEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -222,6 +227,22 @@ public class WinEditProveedor extends javax.swing.JDialog {
      private ResultSet rs;
      private DefaultTableModel dtm;
      
+    private void jTableProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProveedoresMouseClicked
+        if( jTableProveedores.getSelectedRows().length > 0 ) { 
+          
+           WinProveedor wp = new WinProveedor();
+           wp.casoProveedor = 2;
+           wp.setVisible(true);
+          
+           wp.idProveedor = (dtm.getValueAt(jTableProveedores.getSelectedRow(), 0).toString() );
+           wp.proveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 1).toString());
+           wp.telefonoProveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 2).toString());
+           wp.direccionProveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 3).toString());
+           wp.emailProveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 4).toString());
+             
+         }
+    }//GEN-LAST:event_jTableProveedoresMouseClicked
+    
      
      void limpiarTabla(){
     
@@ -243,7 +264,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[4]; 
+            Object [] fila = new Object[5]; 
             
            
             for (int i=0;i<fila.length;i++) {

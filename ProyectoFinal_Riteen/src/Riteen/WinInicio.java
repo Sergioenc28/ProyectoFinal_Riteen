@@ -207,6 +207,7 @@ public class WinInicio extends javax.swing.JFrame {
 
     private void RegProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegProveedorActionPerformed
        WinProveedor wp = new WinProveedor();
+       wp.casoProveedor =1;
        wp.setVisible(true);
     }//GEN-LAST:event_RegProveedorActionPerformed
 

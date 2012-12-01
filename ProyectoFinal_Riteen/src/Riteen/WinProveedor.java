@@ -170,10 +170,13 @@ public class WinProveedor extends javax.swing.JDialog{
         }
     }//GEN-LAST:event_cancelarProveedorActionPerformed
     private PreparedStatement add;
+    int casoProveedor = 0;
+    String idProveedor;
+    
     private void guardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProveedorActionPerformed
         try {
            
-            
+            if (casoProveedor == 1){
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO proveedores (Nombre, Direccion, Telefono, Email) VALUES ( ?, ?, ?, ?)");
             
            
@@ -181,6 +184,12 @@ public class WinProveedor extends javax.swing.JDialog{
             add.setString(2, direccionProveedorText.getText());
             add.setString(3, telefonoProveedorText.getText());
             add.setString(4, emailProveedorText.getText());
+            }
+            if (casoProveedor == 2){
+            add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE proveedores SET Nombre = '"+
+                    proveedorText.getText()+"', Direccion = '"+ direccionProveedorText.getText()+"', Telefono = '"+
+                    telefonoProveedorText.getText()+"', Email = '"+ emailProveedorText.getText()+"' WHERE idProveedor ="+idProveedor);
+            }
             int exitoso = add.executeUpdate();
             
             if (exitoso == 1){
@@ -238,8 +247,8 @@ public class WinProveedor extends javax.swing.JDialog{
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarProveedor;
-    private javax.swing.JTextField direccionProveedorText;
-    private javax.swing.JTextField emailProveedorText;
+    public javax.swing.JTextField direccionProveedorText;
+    public javax.swing.JTextField emailProveedorText;
     private javax.swing.JButton guardarProveedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -247,7 +256,7 @@ public class WinProveedor extends javax.swing.JDialog{
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField proveedorText;
-    private javax.swing.JFormattedTextField telefonoProveedorText;
+    public javax.swing.JTextField proveedorText;
+    public javax.swing.JFormattedTextField telefonoProveedorText;
     // End of variables declaration//GEN-END:variables
 }
