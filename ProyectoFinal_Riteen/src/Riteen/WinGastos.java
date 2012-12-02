@@ -23,6 +23,9 @@ public class WinGastos extends javax.swing.JDialog {
         PanelGastos pg = new PanelGastos();
         this.add(pg, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+        Fecha fecha = new Fecha();
+        fecha.setFechaActualDelSistema(null);
+        fechaGastosText.setText(fecha.getFechaActualDelSistema());
     }
 
     /**
@@ -49,7 +52,6 @@ public class WinGastos extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         responsableGastosText = new javax.swing.JTextField();
-        fechaActualParaTodo = new javax.swing.JCheckBox();
 
         setTitle("Riteen - Gastos");
         setResizable(false);
@@ -110,6 +112,7 @@ public class WinGastos extends javax.swing.JDialog {
             }
         });
 
+        fechaGastosText.setEditable(false);
         fechaGastosText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/m/yy"))));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -122,17 +125,6 @@ public class WinGastos extends javax.swing.JDialog {
         responsableGastosText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 responsableGastosTextActionPerformed(evt);
-            }
-        });
-
-        fechaActualParaTodo.setOpaque(false);
-        fechaActualParaTodo.setContentAreaFilled(false);
-        fechaActualParaTodo.setBorderPainted(false);
-        fechaActualParaTodo.setForeground(new java.awt.Color(255, 255, 255));
-        fechaActualParaTodo.setText("Hoy");
-        fechaActualParaTodo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaActualParaTodoActionPerformed(evt);
             }
         });
 
@@ -165,9 +157,7 @@ public class WinGastos extends javax.swing.JDialog {
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(fechaGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(fechaActualParaTodo)
-                                    .addGap(11, 11, 11)
+                                    .addGap(62, 62, 62)
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(responsableGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -192,8 +182,7 @@ public class WinGastos extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(fechaGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(responsableGastosText, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(fechaActualParaTodo))
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -211,7 +200,7 @@ public class WinGastos extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registrarGasto)
                     .addComponent(cancelarGasto))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,10 +217,6 @@ public class WinGastos extends javax.swing.JDialog {
     private void responsableGastosTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responsableGastosTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_responsableGastosTextActionPerformed
-
-    private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 private PreparedStatement add;
     private void registrarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarGastoActionPerformed
 
@@ -321,7 +306,6 @@ private PreparedStatement add;
     private javax.swing.JButton cancelarGasto;
     private javax.swing.JTextField conceptoGastoText;
     private javax.swing.JTextArea descripcionGastoText;
-    private javax.swing.JCheckBox fechaActualParaTodo;
     private javax.swing.JFormattedTextField fechaGastosText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

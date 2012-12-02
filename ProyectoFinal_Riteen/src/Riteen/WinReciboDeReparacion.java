@@ -23,6 +23,9 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         PanelReciboDeReparacion pdr = new PanelReciboDeReparacion();
         this.add(pdr, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+        Fecha fecha = new Fecha();
+        fecha.setFechaActualDelSistema(null);
+        fechaReparacionText.setText(fecha.getFechaActualDelSistema());
     }
 
     /**
@@ -36,7 +39,6 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
 
         articuloReparacionText4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        fechaActualParaTodo = new javax.swing.JCheckBox();
         fechaReparacionText = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -66,17 +68,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         jLabel1.setText("Recibo de Reparación");
         jLabel1.setToolTipText("");
 
-        fechaActualParaTodo.setOpaque(false);
-        fechaActualParaTodo.setContentAreaFilled(false);
-        fechaActualParaTodo.setBorderPainted(false);
-        fechaActualParaTodo.setForeground(new java.awt.Color(255, 255, 255));
-        fechaActualParaTodo.setText("Hoy");
-        fechaActualParaTodo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaActualParaTodoActionPerformed(evt);
-            }
-        });
-
+        fechaReparacionText.setEditable(false);
         fechaReparacionText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -162,9 +154,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
                         .addComponent(jLabel2)
                         .addGap(6, 6, 6)
                         .addComponent(fechaReparacionText, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fechaActualParaTodo)
-                        .addGap(18, 18, 18)
+                        .addGap(69, 69, 69)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(articuloReparacionText, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,7 +211,6 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fechaReparacionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaActualParaTodo)
                     .addComponent(jLabel3)
                     .addComponent(articuloReparacionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -245,20 +234,11 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarReparacion)
                     .addComponent(cancelarReparacion))
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addGap(0, 23, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
-     if (fechaActualParaTodo.isSelected()){
-     
-     Fecha fecha = new Fecha();
-     fecha.setFechaActualDelSistema(null);
-     fechaReparacionText.setText(fecha.getFechaActualDelSistema());
-     }
-    }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
     private void plazoTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plazoTextfieldActionPerformed
        // TODO add your handling code here:
@@ -361,7 +341,6 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
     private javax.swing.JTextField articuloReparacionText4;
     private javax.swing.JButton cancelarReparacion;
     public javax.swing.JTextField clienteReparacionText;
-    private javax.swing.JCheckBox fechaActualParaTodo;
     public javax.swing.JFormattedTextField fechaReparacionText;
     private javax.swing.JButton guardarReparacion;
     private javax.swing.JLabel jLabel1;
