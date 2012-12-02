@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
  * @author Harim Tejada
  */
 public class WinInicio extends javax.swing.JFrame {
-
     /**
      * Creates new form WinInicio
      */
@@ -158,6 +157,11 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuRegistrar.add(jMenuItemCuentaXCobrar);
 
         jMenuItem1.setText("Producto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenuRegistrar.add(jMenuItem1);
 
         jMenuBar1.add(jMenuRegistrar);
@@ -226,6 +230,7 @@ public class WinInicio extends javax.swing.JFrame {
 
     private void RegReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReparacionActionPerformed
         WinReciboDeReparacion wrdp = new WinReciboDeReparacion();
+        wrdp.casoReciboReparacion = 1;
         wrdp.setVisible(true);   
     }//GEN-LAST:event_RegReparacionActionPerformed
 
@@ -262,6 +267,10 @@ public class WinInicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agregarUsuarioJMenuMousePressed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,6 +300,7 @@ public class WinInicio extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 WinInicio wInicio = new WinInicio();
                 wInicio.setVisible(true);
