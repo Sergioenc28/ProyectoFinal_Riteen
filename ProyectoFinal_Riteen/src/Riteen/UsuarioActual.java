@@ -28,7 +28,7 @@ public class UsuarioActual {
         
         try
         {
-            rs = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT userName FROM usuarios WHERE activo = 'true'");
+            rs = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT userName FROM usuarios WHERE activo = 1");
             
             if(rs.next())
             {

@@ -6,8 +6,11 @@ package Riteen;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +23,9 @@ public class WinLoging extends javax.swing.JDialog {
      * Creates new form WinLoging
      */
     public int intentos =0;
-    public WinLoging() {
+    public WinLoging(){
         initComponents();
+       
         PanelLogging pl = new PanelLogging();
         this.add(pl, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
@@ -187,7 +191,9 @@ public class WinLoging extends javax.swing.JDialog {
     }//GEN-LAST:event_passwordTextActionPerformed
 //ResultSet usuario;
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        entrar();                                
+        entrar();
+        everybodyIsTrue();
+        onlyOneIsTrue();
     }//GEN-LAST:event_entrarActionPerformed
     
     ResultSet usuario;
@@ -213,6 +219,9 @@ public class WinLoging extends javax.swing.JDialog {
                         
                     JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
                     
+                    everybodyIsTrue();
+                    
+                    onlyOneIsTrue();
                     
                     WinInicio  ventana =  new WinInicio();
                     ventana.show();
@@ -227,6 +236,30 @@ public class WinLoging extends javax.swing.JDialog {
             }catch(SQLException ex){
                 System.out.print("Error"+ ex.getMessage());
             }
+    }
+    
+    private void everybodyIsTrue()
+    {
+        PreparedStatement add;
+        try {
+            add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE usuarios SET activo = 1");
+            add.executeUpdate();
+        } catch (SQLException ex) {
+            
+                System.out.print("El error es: " + ex.getMessage());
+        }
+    }
+    
+    private void onlyOneIsTrue()
+    {
+        PreparedStatement add;
+        try {
+            add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE usuarios SET activo = 0 WHERE userName != '" + usuarioText.getText()+"'");
+            add.executeUpdate();
+        } catch (SQLException ex) {
+            
+                System.out.print("El error es: " + ex.getMessage());
+        }
     }
     
     

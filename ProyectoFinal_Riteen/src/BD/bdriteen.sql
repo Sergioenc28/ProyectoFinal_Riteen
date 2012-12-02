@@ -1,1 +1,1 @@
-SELECT userName FROM usuarios WHERE activo = "true"
+UPDATE usuarios SET activo = 1
