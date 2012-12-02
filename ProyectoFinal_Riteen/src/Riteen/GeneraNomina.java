@@ -141,6 +141,24 @@ public class GeneraNomina extends javax.swing.JDialog {
      
      void buscarEmpleados(){
         try {                 
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, sueldo FROM empleados");
+            rs = (ResultSet) read.executeQuery();                       
+            dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
+            
+            while (rs.next()) {            
+                Object [] fila = new Object[3];             
+           
+                for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } 
+             
+                dtm.addRow(fila);
+            
+                if(fila.length == 0){                         
+                    JOptionPane.showMessageDialog(null, "no se encontro nada");            
+                }           
+            }
+            
         double sueldoBruto = 0;
         
         WinEmpleado we = new WinEmpleado();
@@ -193,24 +211,7 @@ public class GeneraNomina extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
            
             }
-            
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, sueldo FROM empleados");
-            rs = (ResultSet) read.executeQuery();                       
-            dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
-            
-            while (rs.next()) {            
-                Object [] fila = new Object[3];             
-           
-                for (int i=0;i<fila.length;i++) {
-                    fila[i] = rs.getObject(i+1);
-                } 
-             
-                dtm.addRow(fila);
-            
-                if(fila.length == 0){                         
-                    JOptionPane.showMessageDialog(null, "no se encontro nada");            
-                }           
-            }                   
+                                           
         } 
         
         catch (SQLException ex) {
@@ -220,7 +221,7 @@ public class GeneraNomina extends javax.swing.JDialog {
      
     void generarNomina(){
         try {                 
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT AFP, SFS, ISR, Total_Deduc, Sueldo_Neto FROM nomina");           
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT AFP, SFS, ISR, Total_Deduc, Sueldo_Neto FROM nomina");
             rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
             
@@ -235,9 +236,9 @@ public class GeneraNomina extends javax.swing.JDialog {
             
                 if(fila.length == 0){                         
                     JOptionPane.showMessageDialog(null, "no se encontro nada");            
-                }           
-            }                   
-        } 
+                }
+            }
+        }
         
         catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
