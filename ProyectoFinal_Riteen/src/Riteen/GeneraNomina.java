@@ -9,6 +9,7 @@ import com.mysql.jdbc.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  *
@@ -157,12 +158,24 @@ public class GeneraNomina extends javax.swing.JDialog {
                 if(fila.length == 0){                         
                     JOptionPane.showMessageDialog(null, "no se encontro nada");            
                 }           
-            }
-            
+            }                                                                                       
+        } 
+        
+        catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
+     
+    void generarNomina(){
+        
         double sueldoBruto = 0;
         
         WinEmpleado we = new WinEmpleado();
         we.sueldo = sueldoBruto;
+        we.sueldoEmpleadoText.getText();
+        
+        
+        System.out.println();
         
         double sfs = sueldoBruto * 0.0304;
         double afp = sueldoBruto * 0.0287;
@@ -189,10 +202,11 @@ public class GeneraNomina extends javax.swing.JDialog {
             isr = sueldoBruto * 0.25;
             isr = isr + 6387.67;							
         }
-     
+        
         double totalDescuentos = isr + afp + sfs;    
         double sueldoNeto = sueldoBruto - isr;           
         
+        try {                                              
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO nomina (AFP, SFS, ISR, Total_Deduc, Sueldo_Neto )VALUES (?, ?, ?, ?, ?)");
             add.setDouble(1, afp);
             add.setDouble(2, sfs);
@@ -211,16 +225,7 @@ public class GeneraNomina extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
            
             }
-                                           
-        } 
-        
-        catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-    }
-     
-    void generarNomina(){
-        try {                 
+            /*
             read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT AFP, SFS, ISR, Total_Deduc, Sueldo_Neto FROM nomina");
             rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
@@ -237,7 +242,7 @@ public class GeneraNomina extends javax.swing.JDialog {
                 if(fila.length == 0){                         
                     JOptionPane.showMessageDialog(null, "no se encontro nada");            
                 }
-            }
+            }*/
         }
         
         catch (SQLException ex) {
