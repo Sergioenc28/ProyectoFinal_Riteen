@@ -185,7 +185,16 @@ public class WinAgregaProducto extends javax.swing.JDialog {
            
        }
     }//GEN-LAST:event_buscarKeyTyped
-
+   void agregar(){
+   if (dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), jTableAgregarProductos.getSelectedColumn()) == true){
+   JOptionPane.showMessageDialog(null,"lo cogio");
+           
+   }
+   else{
+   JOptionPane.showMessageDialog(null,"no cogio");
+   }
+   }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         limpiarTabla();
         buscarProductos();
