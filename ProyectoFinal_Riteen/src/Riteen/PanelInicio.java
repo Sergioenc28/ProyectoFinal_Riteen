@@ -21,8 +21,12 @@ public class PanelInicio extends javax.swing.JPanel {
     public PanelInicio() {
         initComponents();
         this.setSize(850, 600);
+        UsuarioActual us = new UsuarioActual();
+        us.setUsuarioActivo();
+        usuarioActualJLabel.setText(us.getUsuarioActivo());
         
     }
+    
     
     
     @Override
@@ -241,8 +245,9 @@ public class PanelInicio extends javax.swing.JPanel {
             }
         });
 
-        usuarioActualJLabel.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        usuarioActualJLabel.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         usuarioActualJLabel.setForeground(new java.awt.Color(255, 255, 255));
+        usuarioActualJLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

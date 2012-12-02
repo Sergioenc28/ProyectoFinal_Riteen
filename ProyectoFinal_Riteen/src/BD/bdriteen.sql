@@ -1,1 +1,1 @@
-SELECT nombre FROM proveedores
+SELECT userName FROM usuarios WHERE activo = "true"

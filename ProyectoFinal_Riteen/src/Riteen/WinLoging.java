@@ -27,7 +27,19 @@ public class WinLoging extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         
     }
+    
+    public String paraElSet;
+    public String usuarioActivo;
 
+    public String getUsuarioActivo() {
+        return usuarioActivo;
+    }
+
+    public void setUsuarioActivo(String usuarioAct) {
+        usuarioAct = paraElSet;
+        this.usuarioActivo = usuarioAct;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,12 +207,16 @@ public class WinLoging extends javax.swing.JDialog {
                     
                     if ( nombreDelUsuario.length() > 0){
                     
+                        paraElSet = nombreDelUsuario;
+                        
+                        setUsuarioActivo(null);
+                        
                     JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
+                    
                     
                     WinInicio  ventana =  new WinInicio();
                     ventana.show();
-                    PanelInicio pi = new PanelInicio();
-                    pi.usuarioActualJLabel.setText(nombreDelUsuario);
+                    
                     
                     dispose();
                    }
@@ -213,9 +229,6 @@ public class WinLoging extends javax.swing.JDialog {
             }
     }
     
-    public String dimeElUsuario(){
-        return nombreDelUsuario;
-    }
     
     public String obtenerPassword(char[] password){
          
