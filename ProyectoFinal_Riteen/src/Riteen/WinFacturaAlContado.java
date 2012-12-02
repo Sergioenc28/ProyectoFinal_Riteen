@@ -8,6 +8,9 @@ import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +25,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
      */
     public WinFacturaAlContado(java.awt.Frame parent, boolean modal){
         super(parent, modal);
-        initComponents();        
+        initComponents(); 
         limpiarTabla();
         carrito();
         PanelFacturaAlContado fac = new PanelFacturaAlContado();
@@ -35,8 +38,9 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
        
         fechaActualJLabel.setText(f.getFechaActualDelSistema());
         
+        
     }
-
+    ArrayList<String> losClientes = new ArrayList<>();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,12 +59,12 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         agregaProductoFacturaAlContadoButton = new javax.swing.JButton();
         nuevoClienteFacturaAlContadoJButton = new javax.swing.JButton();
         clienteExisteFacturaAlContadoJCheckBox = new javax.swing.JCheckBox();
-        eliminaProductoFacturaAlContadoButton = new javax.swing.JButton();
         cancelarFacturaAlContadoJButton = new javax.swing.JButton();
         tituloJLabel = new javax.swing.JLabel();
         clienteFacturaAlContadoText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         fechaActualJLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Factura al Contado");
@@ -123,6 +127,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         tablaDeFacturaAlContado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tablaDeFacturaAlContado.setEditingColumn(4);
         tablaDeFacturaAlContado.setName(""); // NOI18N
+        tablaDeFacturaAlContado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaDeFacturaAlContadoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaDeFacturaAlContado);
         tablaDeFacturaAlContado.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         tablaDeFacturaAlContado.getColumnModel().getColumn(3).setPreferredWidth(5);
@@ -161,13 +170,6 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             }
         });
 
-        eliminaProductoFacturaAlContadoButton.setText("Eliminar Producto");
-        eliminaProductoFacturaAlContadoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminaProductoFacturaAlContadoButtonActionPerformed(evt);
-            }
-        });
-
         cancelarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         cancelarFacturaAlContadoJButton.setText("Cancelar");
         cancelarFacturaAlContadoJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +195,10 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         fechaActualJLabel.setForeground(new java.awt.Color(255, 255, 255));
         fechaActualJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel1.setFont(new java.awt.Font("Century", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Para eliminar un producto de la factura presione Click Derecho");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,8 +214,8 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(agregaProductoFacturaAlContadoButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(eliminaProductoFacturaAlContadoButton))
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(clienteExisteFacturaAlContadoJCheckBox)
@@ -253,7 +259,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(agregaProductoFacturaAlContadoButton)
-                    .addComponent(eliminaProductoFacturaAlContadoButton))
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -292,10 +298,6 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         
     }//GEN-LAST:event_agregaProductoFacturaAlContadoButtonActionPerformed
 
-    private void eliminaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaProductoFacturaAlContadoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminaProductoFacturaAlContadoButtonActionPerformed
-
     private void cancelarFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarFacturaAlContadoJButtonActionPerformed
         // TODO add your handling code here:
         if(evt.getSource() == cancelarFacturaAlContadoJButton){
@@ -308,11 +310,14 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         // TODO add your handling code here:
         if(clienteExisteFacturaAlContadoJCheckBox.isSelected())
         {
+            cargarComboBoxClientes();
             clienteExisteFacturaAlContadoJCheckBox.enable();
             clienteFacturaAlContadoText.disable();
         }
         else
         {
+            clienteFacturaAlContadoComboBox.removeAllItems();
+            clienteExisteFacturaAlContadoJCheckBox.setSelected(false);
             clienteExisteFacturaAlContadoJCheckBox.disable();
             clienteFacturaAlContadoText.enable();
         }
@@ -335,6 +340,55 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         buscarTotal();
         carrito();
     }//GEN-LAST:event_formWindowOpened
+
+    private void tablaDeFacturaAlContadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDeFacturaAlContadoMouseClicked
+       PreparedStatement add;
+        if( tablaDeFacturaAlContado.getSelectedRows().length > 0 ) { 
+            try {
+                int id = Integer.parseInt(dtm.getValueAt(tablaDeFacturaAlContado.getSelectedRow(), 0).toString());
+                add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DELETE FROM carrito "
+                        + "WHERE idProducto = "+id);
+                int ask = JOptionPane.showConfirmDialog(null,"Desea eliminar este producto de la factura","Confirmar", JOptionPane.YES_NO_OPTION);
+                if (ask == JOptionPane.YES_OPTION){}
+               int con = add.executeUpdate();
+                if (con == 1){
+                    
+                    JOptionPane.showMessageDialog(null, "Se elimino el producto correctamente");
+                    limpiarTabla();
+                     buscarTotal();
+                    carrito();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(WinFacturaAlContado.class.getName()).log(Level.SEVERE, null, ex);
+            }
+      
+      }
+    }//GEN-LAST:event_tablaDeFacturaAlContadoMouseClicked
+    
+    private void cargarComboBoxClientes()
+    {
+        ResultSet clientes;
+        String nombreDelcliente;
+        Conexion conn = Conexion.getInstancia();
+        conn.Conexion();
+        
+            try{
+                 clientes = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT nombre FROM clientes");
+                    
+                 while(clientes.next()){
+                 nombreDelcliente = clientes.getString(1).toString();
+                 losClientes.add(nombreDelcliente);
+                 
+                 }
+            }catch(SQLException ex){
+                System.out.print("Error"+ ex.getMessage());
+            }
+            
+            clienteFacturaAlContadoComboBox.addItem("Seleccione un Cliente");
+            for (String s : losClientes) {
+                clienteFacturaAlContadoComboBox.addItem(s);
+            }
+    }
     private void limpiarTabla(){
     
         while(tablaDeFacturaAlContado.getRowCount()>0){
@@ -441,9 +495,9 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
     private javax.swing.JCheckBox clienteExisteFacturaAlContadoJCheckBox;
     private javax.swing.JComboBox clienteFacturaAlContadoComboBox;
     private javax.swing.JTextField clienteFacturaAlContadoText;
-    private javax.swing.JButton eliminaProductoFacturaAlContadoButton;
     public javax.swing.JLabel fechaActualJLabel;
     private javax.swing.JButton finalizarFacturaAlContadoJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;

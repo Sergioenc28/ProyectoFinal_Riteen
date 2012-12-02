@@ -53,7 +53,7 @@ public class WinProducto extends javax.swing.JDialog {
                 System.out.print("Error"+ ex.getMessage());
             }
             
-            proveedorProductoComboBox.addItem(null);
+            proveedorProductoComboBox.addItem("Seleccione un Proveedor");
             for (String s : losProveedores) {
                 proveedorProductoComboBox.addItem(s);
             }

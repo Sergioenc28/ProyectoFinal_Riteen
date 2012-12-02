@@ -260,9 +260,9 @@ public class WinEditProducto extends javax.swing.JDialog {
             dtm = (DefaultTableModel) this.jTableProductos.getModel();
             
            while (rs.next()) {
-            
+                
                 Object [] fila = new Object[7];
-                        
+                  
                 for (int i=0;i<fila.length;i++) {
                         fila[i] = rs.getObject(i+1);
                 } 
