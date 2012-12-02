@@ -250,14 +250,17 @@ public class WinEmpleado extends javax.swing.JDialog {
     private void horarioEmpleadoJComboBoxMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioEmpleadoJComboBoxMouseMoved
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioEmpleadoJComboBoxMouseMoved
+    
+    double sueldo=0;
     int casoEmpleado = 0;
     String id;
-    private PreparedStatement add;    
+    private PreparedStatement add;
+    
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
      
         try {
            
-            float sueldo= Float.parseFloat(sueldoEmpleadoText.getText());
+            sueldo= Double.parseDouble(sueldoEmpleadoText.getText());
             String comboBoxHorarioEmpleado = (String) horarioEmpleadoJComboBox.getSelectedItem();
             
             if (casoEmpleado == 1 ){
@@ -267,12 +270,11 @@ public class WinEmpleado extends javax.swing.JDialog {
             add.setString(2, telefonoEmpleadoText.getText());
             add.setString(3, direccionEmpleadoText.getText());
             add.setString(4, cedulaEmpleadoText.getText());
-            add.setFloat(5, sueldo);
+            add.setDouble(5, sueldo);
             add.setString(6, comboBoxHorarioEmpleado);
             
             }
             if (casoEmpleado == 2){
-                JOptionPane.showMessageDialog(null, id);
                 add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE empleados SET Nombre = '"+
                     nombreEmpleadoText.getText()+"',Telefono = '"+telefonoEmpleadoText.getText()+
                     "',Direccion = '"+ direccionEmpleadoText.getText()+"', Cedula = '"+ cedulaEmpleadoText.getText()+
@@ -299,8 +301,7 @@ public class WinEmpleado extends javax.swing.JDialog {
            
         } 
          
-       catch(NumberFormatException | SQLException e){
-       
+       catch(NumberFormatException | SQLException e){       
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
        
