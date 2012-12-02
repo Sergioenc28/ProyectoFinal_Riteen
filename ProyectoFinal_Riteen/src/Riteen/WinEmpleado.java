@@ -252,7 +252,7 @@ public class WinEmpleado extends javax.swing.JDialog {
     }//GEN-LAST:event_horarioEmpleadoJComboBoxMouseMoved
     int casoEmpleado = 0;
     String id;
-    private PreparedStatement add;
+    private PreparedStatement add;    
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
      
         try {
@@ -360,7 +360,7 @@ public class WinEmpleado extends javax.swing.JDialog {
     private javax.swing.JButton cancelarEmpleado;
     public javax.swing.JFormattedTextField cedulaEmpleadoText;
     public javax.swing.JTextField direccionEmpleadoText;
-    private javax.swing.JButton guardarEmpleado;
+    public javax.swing.JButton guardarEmpleado;
     public javax.swing.JComboBox horarioEmpleadoJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
