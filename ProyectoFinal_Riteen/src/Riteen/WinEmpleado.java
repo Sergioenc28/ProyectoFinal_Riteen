@@ -251,7 +251,7 @@ public class WinEmpleado extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_horarioEmpleadoJComboBoxMouseMoved
     
-    double sueldo=0;
+    double sueldo;
     int casoEmpleado = 0;
     String id;
     private PreparedStatement add;
@@ -281,6 +281,7 @@ public class WinEmpleado extends javax.swing.JDialog {
                     "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +"' WHERE idEmpleado="+id);
 
             }
+            
             int exitoso = add.executeUpdate();
            
             if (exitoso == 1){
