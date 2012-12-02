@@ -6,10 +6,10 @@ package Riteen;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import java.awt.BorderLayout;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Dioni Ripoll
@@ -21,12 +21,11 @@ public class GeneraNomina extends javax.swing.JDialog {
      */
     public GeneraNomina(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();        
-    }
-                            
-    void CalculosSueldo(){
-        
-    }        
+        initComponents();
+        PanelWinProveedor pwp = new PanelWinProveedor();
+        this.add(pwp, BorderLayout.CENTER);
+        this.setLocationRelativeTo(null);
+    }                                   
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,12 +41,13 @@ public class GeneraNomina extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableGeneraNomina = new javax.swing.JTable();
         generarNomina = new javax.swing.JButton();
-        sueldo = new javax.swing.JTextField();
+        cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Generar Nomina");
 
@@ -85,41 +85,47 @@ public class GeneraNomina extends javax.swing.JDialog {
             }
         });
 
+        cancelar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(verEmpleados)
-                        .addGap(139, 139, 139)
-                        .addComponent(generarNomina))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cancelar)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(verEmpleados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(generarNomina)
+                .addGap(119, 119, 119))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verEmpleados)
                     .addComponent(generarNomina))
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addComponent(cancelar)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -131,8 +137,14 @@ public class GeneraNomina extends javax.swing.JDialog {
     }//GEN-LAST:event_verEmpleadosActionPerformed
 
     private void generarNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarNominaActionPerformed
+        limpiarTabla();
+        buscarSueldo();
         generarNomina();
     }//GEN-LAST:event_generarNominaActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelarActionPerformed
     
      private ResultSet rs;
      private DefaultTableModel dtm;
@@ -172,19 +184,18 @@ public class GeneraNomina extends javax.swing.JDialog {
         }
     }
      
-     double sueldoBruto[] = new double[6];
+     double sueldoBruto;
      private void buscarSueldo(){
      
      try{
-          ResultSet total;
-                 total = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT Sueldo FROM empleados");                   
-                    
-                    while(total.next()){                       
-           
-                    for (int i=0;i<sueldoBruto.length;i++) {
-                        sueldoBruto[i] = total.getDouble(i+1);
-                    }
-                    
+          PreparedStatement total;
+          ResultSet resul;
+                 total = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT Sueldo FROM empleados");                   
+                 resul = (ResultSet) total.executeQuery();
+                    while (resul.next() == true){
+                        
+                        sueldoBruto = resul.getDouble(1);      
+                        generarNomina();
                     }
                     
             }catch(SQLException ex){
@@ -194,39 +205,37 @@ public class GeneraNomina extends javax.swing.JDialog {
      
     void generarNomina(){             
         
-        
-        for (int i=0;i<sueldoBruto.length;i++) {
-            JOptionPane.showMessageDialog(null, sueldoBruto[i]);
-        double sfs = sueldoBruto[i] * 0.0304;
-        double afp = sueldoBruto [i]* 0.0287;
+       // JOptionPane.showMessageDialog(null, sueldoBruto);
+        double sfs = sueldoBruto * 0.0304;
+        double afp = sueldoBruto * 0.0287;
         double isr = 0;
         
-        sueldoBruto[i] = sueldoBruto[i] - (sfs + afp);
+        sueldoBruto = sueldoBruto - (sfs + afp);
                 
-        if (sueldoBruto[i] < 33326.93){
+        if (sueldoBruto < 33326.93){
             isr = 0;
         }
 							
-        if(sueldoBruto[i] > 33326.92 && sueldoBruto[i] < 49990.34){
-            isr = 49990.33 - sueldoBruto[i];
+        if(sueldoBruto > 33326.92 && sueldoBruto < 49990.34){
+            isr = 49990.33 - sueldoBruto;
             isr = isr * 0.15;
         }							
     
-        if(sueldoBruto[i] > 49990.33 && sueldoBruto[i] < 69430.93){
-            isr = 69430.93 - sueldoBruto[i];
+        if(sueldoBruto > 49990.33 && sueldoBruto < 69430.93){
+            isr = 69430.93 - sueldoBruto;
             isr = isr * 0.2;
             isr = isr + 2499.5;
         }
-			 				
-        if(sueldoBruto[i] > 69430.92){
-            isr = sueldoBruto[i] * 0.25;
+							
+        if(sueldoBruto > 69430.92){
+            isr = sueldoBruto * 0.25;
             isr = isr + 6387.67;							
         }
         
         double totalDescuentos = isr + afp + sfs;    
-        double sueldoNeto = sueldoBruto[i] - isr;           
-        }
-        /*try {                  
+        double sueldoNeto = sueldoBruto - isr;           
+        
+        try {                                              
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO nomina (AFP, SFS, ISR, Total_Deduc, Sueldo_Neto )VALUES (?, ?, ?, ?, ?)");
             add.setDouble(1, afp);
             add.setDouble(2, sfs);
@@ -237,7 +246,7 @@ public class GeneraNomina extends javax.swing.JDialog {
             int exitoso = add.executeUpdate();
            
             if (exitoso == 1){
-            JOptionPane.showMessageDialog(null, "Registro Exitoso");            
+                        
             add.close();
             }
             else {
@@ -267,7 +276,7 @@ public class GeneraNomina extends javax.swing.JDialog {
         
         catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }*/
+        }
     }
      
     /**
@@ -313,11 +322,11 @@ public class GeneraNomina extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelar;
     private javax.swing.JButton generarNomina;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableGeneraNomina;
-    private javax.swing.JTextField sueldo;
     private javax.swing.JButton verEmpleados;
     // End of variables declaration//GEN-END:variables
 }
