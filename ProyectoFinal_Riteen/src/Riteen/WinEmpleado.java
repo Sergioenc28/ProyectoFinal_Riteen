@@ -257,27 +257,27 @@ public class WinEmpleado extends javax.swing.JDialog {
     private PreparedStatement add;    
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
      
-        try {           
+        try {
+           
             sueldo= Double.parseDouble(sueldoEmpleadoText.getText());
             String comboBoxHorarioEmpleado = (String) horarioEmpleadoJComboBox.getSelectedItem();
             
             if (casoEmpleado == 1 ){
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
+                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
             
-            add.setString(1, nombreEmpleadoText.getText());
-            add.setString(2, telefonoEmpleadoText.getText());
-            add.setString(3, direccionEmpleadoText.getText());
-            add.setString(4, cedulaEmpleadoText.getText());
-            add.setDouble(5, sueldo);
-            add.setString(6, comboBoxHorarioEmpleado);
-            
+                add.setString(1, nombreEmpleadoText.getText());
+                add.setString(2, telefonoEmpleadoText.getText());
+                add.setString(3, direccionEmpleadoText.getText());
+                add.setString(4, cedulaEmpleadoText.getText());
+                add.setDouble(5, sueldo);
+                add.setString(6, comboBoxHorarioEmpleado);
             }
             
             if (casoEmpleado == 2){
                 add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE empleados SET Nombre = '"+
-                      nombreEmpleadoText.getText()+"',Telefono = '"+telefonoEmpleadoText.getText()+
-                      "',Direccion = '"+ direccionEmpleadoText.getText()+"', Cedula = '"+ cedulaEmpleadoText.getText()+
-                      "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +"' WHERE idEmpleado="+id);
+                    nombreEmpleadoText.getText()+"',Telefono = '"+telefonoEmpleadoText.getText()+
+                    "',Direccion = '"+ direccionEmpleadoText.getText()+"', Cedula = '"+ cedulaEmpleadoText.getText()+
+                    "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +"' WHERE idEmpleado="+id);
             }
             
             int exitoso = add.executeUpdate();
@@ -294,9 +294,7 @@ public class WinEmpleado extends javax.swing.JDialog {
             
             else {            
                 JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");           
-            }
-            
-           
+            }                       
         } 
          
        catch(NumberFormatException | SQLException e){       
@@ -308,9 +306,7 @@ public class WinEmpleado extends javax.swing.JDialog {
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
 
     private void horarioEmpleadoJComboBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioEmpleadoJComboBoxMousePressed
-        // TODO add your handling code here:
-        
-       
+               
     }//GEN-LAST:event_horarioEmpleadoJComboBoxMousePressed
 
     private void cancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmpleadoActionPerformed

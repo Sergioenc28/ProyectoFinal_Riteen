@@ -95,9 +95,10 @@ public class WinEligeFactura extends javax.swing.JDialog {
     }//GEN-LAST:event_facturaCreditoActionPerformed
 
     private void facturaContadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturaContadoActionPerformed
-        WinFacturaAlContado wf = new WinFacturaAlContado();
-        wf.setVisible(true);
         this.setVisible(false);
+        WinInicio wi = new WinInicio();        
+        WinFacturaAlContado wf = new WinFacturaAlContado(wi, true);
+        wf.setVisible(true);        
     }//GEN-LAST:event_facturaContadoActionPerformed
 
     /**

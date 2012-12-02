@@ -20,8 +20,9 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
     /**
      * Creates new form FacturaAlContado
      */
-    public WinFacturaAlContado(){
-        initComponents();
+    public WinFacturaAlContado(java.awt.Frame parent, boolean modal){
+        super(parent, modal);
+        initComponents();        
         limpiarTabla();
         carrito();
         PanelFacturaAlContado fac = new PanelFacturaAlContado();
@@ -380,15 +381,12 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             while (rs.next()) {
             
             Object [] fila = new Object[5]; 
-            
-           
+                       
             for (int i=0;i<fila.length;i++) {
-                    fila[i] = rs.getObject(i+1);
-               
-             
-                     
+                    fila[i] = rs.getObject(i+1);                                                 
                 } 
-            dtm.addRow(fila);       
+            
+            dtm.addRow(fila);
            }
           
         } catch (SQLException ex) {
@@ -424,15 +422,15 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                WinFacturaAlContado dialog = new WinFacturaAlContado();
+             WinFacturaAlContado dialog = new WinFacturaAlContado(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
                 });
-                
                 dialog.setVisible(true);
             }
         });

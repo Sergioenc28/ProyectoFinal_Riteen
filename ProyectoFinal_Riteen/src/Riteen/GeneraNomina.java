@@ -9,7 +9,6 @@ import com.mysql.jdbc.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  *
@@ -43,6 +42,7 @@ public class GeneraNomina extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableGeneraNomina = new javax.swing.JTable();
         generarNomina = new javax.swing.JButton();
+        sueldo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -101,6 +101,10 @@ public class GeneraNomina extends javax.swing.JDialog {
                         .addGap(24, 24, 24)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +117,9 @@ public class GeneraNomina extends javax.swing.JDialog {
                     .addComponent(generarNomina))
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                .addGap(60, 60, 60))
+                .addGap(18, 18, 18)
+                .addComponent(sueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -146,12 +152,12 @@ public class GeneraNomina extends javax.swing.JDialog {
             rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
             
-            while (rs.next()) {            
+            while (rs.next()) {
                 Object [] fila = new Object[3];             
            
                 for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);
-                } 
+                }
              
                 dtm.addRow(fila);
             
@@ -160,53 +166,67 @@ public class GeneraNomina extends javax.swing.JDialog {
                 }           
             }                                                                                       
         } 
-        
+                        
         catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }
      
-    void generarNomina(){
+     double sueldoBruto[] = new double[6];
+     private void buscarSueldo(){
+     
+     try{
+          ResultSet total;
+                 total = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT Sueldo FROM empleados");                   
+                    
+                    while(total.next()){                       
+           
+                    for (int i=0;i<sueldoBruto.length;i++) {
+                        sueldoBruto[i] = total.getDouble(i+1);
+                    }
+                    
+                    }
+                    
+            }catch(SQLException ex){
+                System.out.print("Error"+ ex.getMessage());
+            }     
+     } 
+     
+    void generarNomina(){             
         
-        double sueldoBruto = 0;
         
-        WinEmpleado we = new WinEmpleado();
-        we.sueldo = sueldoBruto;
-        we.sueldoEmpleadoText.getText();
-        
-        
-        System.out.println();
-        
-        double sfs = sueldoBruto * 0.0304;
-        double afp = sueldoBruto * 0.0287;
+        for (int i=0;i<sueldoBruto.length;i++) {
+            JOptionPane.showMessageDialog(null, sueldoBruto[i]);
+        double sfs = sueldoBruto[i] * 0.0304;
+        double afp = sueldoBruto [i]* 0.0287;
         double isr = 0;
         
-        sueldoBruto = sueldoBruto - (sfs + afp);
+        sueldoBruto[i] = sueldoBruto[i] - (sfs + afp);
                 
-        if (sueldoBruto < 33326.93){
+        if (sueldoBruto[i] < 33326.93){
             isr = 0;
         }
 							
-        if(sueldoBruto > 33326.92 && sueldoBruto < 49990.34){
-            isr = 49990.33 - sueldoBruto;
+        if(sueldoBruto[i] > 33326.92 && sueldoBruto[i] < 49990.34){
+            isr = 49990.33 - sueldoBruto[i];
             isr = isr * 0.15;
         }							
     
-        if(sueldoBruto > 49990.33 && sueldoBruto < 69430.93){
-            isr = 69430.93 - sueldoBruto;
+        if(sueldoBruto[i] > 49990.33 && sueldoBruto[i] < 69430.93){
+            isr = 69430.93 - sueldoBruto[i];
             isr = isr * 0.2;
             isr = isr + 2499.5;
         }
-							
-        if(sueldoBruto > 69430.92){
-            isr = sueldoBruto * 0.25;
+			 				
+        if(sueldoBruto[i] > 69430.92){
+            isr = sueldoBruto[i] * 0.25;
             isr = isr + 6387.67;							
         }
         
         double totalDescuentos = isr + afp + sfs;    
-        double sueldoNeto = sueldoBruto - isr;           
-        
-        try {                                              
+        double sueldoNeto = sueldoBruto[i] - isr;           
+        }
+        /*try {                  
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO nomina (AFP, SFS, ISR, Total_Deduc, Sueldo_Neto )VALUES (?, ?, ?, ?, ?)");
             add.setDouble(1, afp);
             add.setDouble(2, sfs);
@@ -225,7 +245,7 @@ public class GeneraNomina extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
            
             }
-            /*
+            
             read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT AFP, SFS, ISR, Total_Deduc, Sueldo_Neto FROM nomina");
             rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
@@ -242,12 +262,12 @@ public class GeneraNomina extends javax.swing.JDialog {
                 if(fila.length == 0){                         
                     JOptionPane.showMessageDialog(null, "no se encontro nada");            
                 }
-            }*/
+            }
         }
         
         catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+        }*/
     }
      
     /**
@@ -297,6 +317,7 @@ public class GeneraNomina extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableGeneraNomina;
+    private javax.swing.JTextField sueldo;
     private javax.swing.JButton verEmpleados;
     // End of variables declaration//GEN-END:variables
 }

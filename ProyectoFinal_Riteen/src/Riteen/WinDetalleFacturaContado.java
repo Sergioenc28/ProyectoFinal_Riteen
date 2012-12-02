@@ -249,8 +249,9 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
     }//GEN-LAST:event_detalleFacturaTextKeyTyped
 
     private void nuevaFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaFacturaActionPerformed
-        WinFacturaAlContado wfac = new WinFacturaAlContado();
-        wfac.setVisible(true);
+        WinInicio wi = new WinInicio();        
+        WinFacturaAlContado wf = new WinFacturaAlContado(wi, true);
+        wf.setVisible(true);
     }//GEN-LAST:event_nuevaFacturaActionPerformed
 
     private void buscarDetalleFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDetalleFacturaActionPerformed

@@ -248,7 +248,8 @@ public class WinAgregaProducto extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        WinFacturaAlContado wf = new WinFacturaAlContado();
+        WinInicio wi = new WinInicio();        
+        WinFacturaAlContado wf = new WinFacturaAlContado(wi, true);
         wf.setVisible(true);
       
     }//GEN-LAST:event_jButton1ActionPerformed
