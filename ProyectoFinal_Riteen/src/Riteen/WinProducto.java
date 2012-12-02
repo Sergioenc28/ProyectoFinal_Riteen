@@ -4,10 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +26,30 @@ public class WinProducto extends javax.swing.JDialog {
         PanelWinProducto pwp = new PanelWinProducto();
         this.add(pwp, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+    }
+    
+    
+    private com.mysql.jdbc.PreparedStatement read;
+    private ResultSet rs;
+    
+    public void cargarComboBoxProveerdor()
+    {
+        ResultSet proveedores;
+        String nombreDelProveedor="";
+        Conexion conn = Conexion.getInstancia();
+        conn.Conexion();
+        
+            try{
+                 proveedores = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT nombre FROM proveedores");
+                    
+                    
+                 while(proveedores.next()){
+                 nombreDelProveedor = proveedores.getString(1);
+                        
+                   }
+            }catch(SQLException ex){
+                System.out.print("Error"+ ex.getMessage());
+            }
     }
 
     /**
@@ -153,6 +180,11 @@ public class WinProducto extends javax.swing.JDialog {
         jLabel8.setText("Existencia en Minima Almacén:");
 
         proveedorProductoComboBox.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        proveedorProductoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedorProductoComboBoxActionPerformed(evt);
+            }
+        });
 
         idProductoText.setEditable(false);
         idProductoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
@@ -339,6 +371,11 @@ public class WinProducto extends javax.swing.JDialog {
        this.dispose(); 
       
     }//GEN-LAST:event_guardarProductoActionPerformed
+
+    private void proveedorProductoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorProductoComboBoxActionPerformed
+        // TODO add your handling code here:
+        cargarComboBoxProveerdor();
+    }//GEN-LAST:event_proveedorProductoComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
