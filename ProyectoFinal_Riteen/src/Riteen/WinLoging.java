@@ -25,7 +25,6 @@ public class WinLoging extends javax.swing.JDialog {
         PanelLogging pl = new PanelLogging();
         this.add(pl, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
-         
         
     }
 
@@ -181,6 +180,7 @@ public class WinLoging extends javax.swing.JDialog {
     
     ResultSet usuario;
     public String nombreDelUsuario = "";
+    
     void entrar(){
     Conexion conn = Conexion.getInstancia();
         conn.Conexion();
@@ -199,6 +199,8 @@ public class WinLoging extends javax.swing.JDialog {
                     
                     WinInicio  ventana =  new WinInicio();
                     ventana.show();
+                    PanelInicio pi = new PanelInicio();
+                    pi.usuarioActualJLabel.setText(nombreDelUsuario);
                     
                     dispose();
                    }
@@ -210,7 +212,12 @@ public class WinLoging extends javax.swing.JDialog {
                 System.out.print("Error"+ ex.getMessage());
             }
     }
-     public String obtenerPassword(char[] password){
+    
+    public String dimeElUsuario(){
+        return nombreDelUsuario;
+    }
+    
+    public String obtenerPassword(char[] password){
          
         String resultado = "";
             for(int letra = 0; letra<password.length;letra++){

@@ -21,6 +21,7 @@ public class PanelInicio extends javax.swing.JPanel {
     public PanelInicio() {
         initComponents();
         this.setSize(850, 600);
+        
     }
     
     
@@ -389,6 +390,9 @@ public class PanelInicio extends javax.swing.JPanel {
 
     private void ayudaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ayudaButtonActionPerformed
         // TODO add your handling code here:
+        WinInicio wi = new WinInicio();
+        GeneraNomina gn = new GeneraNomina(wi, true);
+        gn.setVisible(true);
     }//GEN-LAST:event_ayudaButtonActionPerformed
 
     private void facturasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturasButtonActionPerformed
