@@ -325,7 +325,7 @@ public class WinProducto extends javax.swing.JDialog {
      int casoProducto=0;
      String idProducto;
      
-     private java.sql.PreparedStatement add;
+     private PreparedStatement add;
     private void guardarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoActionPerformed
       try {
             

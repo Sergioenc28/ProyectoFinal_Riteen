@@ -277,9 +277,60 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void finalizarFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarFacturaAlContadoJButtonActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Coming Soon");
-        this.dispose();
+        PreparedStatement add;
+        for(int i=0; i< dtm.getRowCount(); i++)
+        {
+        
+            int idproducto = ((Integer) dtm.getValueAt(i,0)).intValue();
+        String producto =  ((String) dtm.getValueAt(i,1)).toString();
+        int precio = ((Integer) dtm.getValueAt(i,2)).intValue();
+        int cantidad = ((Integer) dtm.getValueAt(i,3)).intValue();
+        int subTotal = ((Integer) dtm.getValueAt(i,4)).intValue();
+        
+        try {
+        
+     
+                
+                
+                int total = Integer.parseInt(totalFacturaAlContadoText.getText());
+                Fecha f = new Fecha();
+                f.setFechaActualDelSistema(null);
+                String date = f.getFechaActualDelSistema();
+                
+                add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO factura_cotando (Fecha, cliente, total) VALUES (?, ?, ?)");
+                add.setString(1, date);
+                
+                if (clienteFacturaAlContadoText.getText().length() > 0){
+                add.setString(2,clienteFacturaAlContadoText.getText());}
+                
+                else{
+                add.setString(2,clienteFacturaAlContadoComboBox.getSelectedItem().toString());
+                }
+                add.setInt(3, total);
+                int done = add.executeUpdate();
+                if (done == 1){
+                PreparedStatement del;
+                del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
+                del.executeUpdate();
+                del.close();
+                add.close();
+                JOptionPane.showMessageDialog(null, "La factura se ha generado correctamente");
+                limpiarTabla();
+                this.dispose();
+                }
+            
+         }
+            catch (SQLException ex) {
+             JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+            catch (NumberFormatException nf){
+            JOptionPane.showMessageDialog(this, "Parece que faltan datos para poder generar la factura");
+            }
+            catch (NullPointerException np){
+            JOptionPane.showMessageDialog(this, "Parece que no ha introducido ningun cliente");
+            }
+       } 
+     
     }//GEN-LAST:event_finalizarFacturaAlContadoJButtonActionPerformed
 
     private void totalFacturaAlContadoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalFacturaAlContadoTextActionPerformed
@@ -343,15 +394,19 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
 
     private void tablaDeFacturaAlContadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDeFacturaAlContadoMouseClicked
        PreparedStatement add;
-        if( tablaDeFacturaAlContado.getSelectedRows().length > 0 ) { 
+       int done = 0;
+       if( tablaDeFacturaAlContado.getSelectedRows().length > 0 ) { 
             try {
                 int id = Integer.parseInt(dtm.getValueAt(tablaDeFacturaAlContado.getSelectedRow(), 0).toString());
                 add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DELETE FROM carrito "
                         + "WHERE idProducto = "+id);
                 int ask = JOptionPane.showConfirmDialog(null,"Desea eliminar este producto de la factura","Confirmar", JOptionPane.YES_NO_OPTION);
-                if (ask == JOptionPane.YES_OPTION){}
-               int con = add.executeUpdate();
-                if (con == 1){
+                if (ask == JOptionPane.YES_OPTION){
+                  done = add.executeUpdate();
+                  add.close();
+                }
+              
+               if (done == 1){
                     
                     JOptionPane.showMessageDialog(null, "Se elimino el producto correctamente");
                     limpiarTabla();

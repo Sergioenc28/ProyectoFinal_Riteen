@@ -23,7 +23,7 @@ public class Fecha {
     public void setFechaActualDelSistema(String paFechaActualDelSistema) 
     {
         Date fecha =new Date(); 
-        SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
         paFechaActualDelSistema = sdf.format(fecha);
         
         this.fechaActualDelSistema = paFechaActualDelSistema;
