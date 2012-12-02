@@ -93,7 +93,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Agregar Productos");
 
-        jButton1.setText("Agregar a la Factura");
+        jButton1.setText("Finalizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -150,7 +150,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                         .addGap(201, 201, 201)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
+                        .addGap(200, 200, 200)
                         .addComponent(jButton1)
                         .addGap(59, 59, 59)
                         .addComponent(jButton2)))
@@ -207,25 +207,42 @@ public class WinAgregaProducto extends javax.swing.JDialog {
     
     private PreparedStatement add;
     private void jTableAgregarProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAgregarProductosMouseClicked
-       if (jTableAgregarProductos.getSelectedRows().length > 0 ){
+      
+      if (jTableAgregarProductos.getSelectedRows().length > 0 ){
       
       int idProducto = Integer.parseInt(dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), 0).toString()); 
       String producto = dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), 1).toString();
       int precio = Integer.parseInt(dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), 3).toString());
-      int confirmar =  JOptionPane.showConfirmDialog(null, "Desea Agregar el Producto "+ producto, "Confirmar Producto", JOptionPane.YES_NO_OPTION);      
-      if (confirmar == JOptionPane.YES_OPTION){
-      try {
-                add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO carrito (idProducto, producto, precio) VALUES (?, ?, ?)");
+     
+          WinCarrito wc = new WinCarrito(null, rootPaneCheckingEnabled);
+          wc.setVisible(true);
+       
+          try {
+               
+                int cantidad = wc.cantidad();
+                int subtotal = cantidad * precio;
+                
+                add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO carrito "
+                        + "(idProducto, producto, precio, cantidad, subtotal) VALUES (?, ?, ?, ?, ?)");
                 add.setInt(1, idProducto);
                 add.setString(2, producto);
                 add.setInt(3, precio);
+                add.setInt(4, cantidad);
+                add.setInt(5, subtotal); 
                 add.executeUpdate();
+                
+              
+               
+                
             } 
       catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
-      
+      catch (NumberFormatException e){
+          JOptionPane.showMessageDialog(this,"Has ingresado algo extraño");
       }
+      
+      
        }
     }//GEN-LAST:event_jTableAgregarProductosMouseClicked
 
@@ -233,6 +250,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
         this.setVisible(false);
         WinFacturaAlContado wf = new WinFacturaAlContado();
         wf.setVisible(true);
+      
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private PreparedStatement read;
