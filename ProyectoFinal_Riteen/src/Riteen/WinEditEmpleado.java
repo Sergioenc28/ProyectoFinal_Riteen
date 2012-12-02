@@ -26,7 +26,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         PanelWinEmpleado pwe = new PanelWinEmpleado();
         this.add(pwe, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
-      
+        
     }
 
     /**
@@ -259,6 +259,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      private PreparedStatement read;
      private ResultSet rs;
      private DefaultTableModel dtm;
+     
      
      void limpiarTabla(){
     

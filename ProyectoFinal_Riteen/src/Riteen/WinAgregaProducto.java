@@ -7,16 +7,24 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.Checkbox;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.CellEditor;
+import javax.swing.DefaultCellEditor;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
  * @author Harim Tejada
  */
 public class WinAgregaProducto extends javax.swing.JDialog {
+    private DefaultTableModel mm;
 
     /**
      * Creates new form WinAgregaProducto
@@ -57,25 +65,25 @@ public class WinAgregaProducto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID Producto", "Nombre Producto", "Descripción", "Precio de Venta", "Existencia", "Agregar"
+                "ID Producto", "Nombre Producto", "Descripción", "Precio de Venta", "Existencia"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTableAgregarProductos.setColumnSelectionAllowed(true);
+        jTableAgregarProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAgregarProductosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAgregarProductos);
+        jTableAgregarProductos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -86,6 +94,11 @@ public class WinAgregaProducto extends javax.swing.JDialog {
         jLabel2.setText("Agregar Productos");
 
         jButton1.setText("Agregar a la Factura");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
 
@@ -185,20 +198,42 @@ public class WinAgregaProducto extends javax.swing.JDialog {
            
        }
     }//GEN-LAST:event_buscarKeyTyped
-   void agregar(){
-   if (dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), jTableAgregarProductos.getSelectedColumn()) == true){
-   JOptionPane.showMessageDialog(null,"lo cogio");
-           
-   }
-   else{
-   JOptionPane.showMessageDialog(null,"no cogio");
-   }
-   }
+   
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         limpiarTabla();
         buscarProductos();
     }//GEN-LAST:event_jButton3ActionPerformed
+    
+    private PreparedStatement add;
+    private void jTableAgregarProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAgregarProductosMouseClicked
+       if (jTableAgregarProductos.getSelectedRows().length > 0 ){
+      
+      int idProducto = Integer.parseInt(dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), 0).toString()); 
+      String producto = dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), 1).toString();
+      int precio = Integer.parseInt(dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), 3).toString());
+      int confirmar =  JOptionPane.showConfirmDialog(null, "Desea Agregar el Producto "+ producto, "Confirmar Producto", JOptionPane.YES_NO_OPTION);      
+      if (confirmar == JOptionPane.YES_OPTION){
+      try {
+                add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO carrito (idProducto, producto, precio) VALUES (?, ?, ?)");
+                add.setInt(1, idProducto);
+                add.setString(2, producto);
+                add.setInt(3, precio);
+                add.executeUpdate();
+            } 
+      catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+      
+      }
+       }
+    }//GEN-LAST:event_jTableAgregarProductosMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        WinFacturaAlContado wf = new WinFacturaAlContado();
+        wf.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private PreparedStatement read;
     private ResultSet rs;

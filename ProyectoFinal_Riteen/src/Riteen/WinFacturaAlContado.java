@@ -4,8 +4,12 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,12 +22,14 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
      */
     public WinFacturaAlContado(){
         initComponents();
+       
         PanelFacturaAlContado fac = new PanelFacturaAlContado();
         this.add(fac, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+        
         Fecha f = new Fecha();
         f.setFechaActualDelSistema(null);
-        
+        buscarEmpleados();
         fechaActualJLabel.setText(f.getFechaActualDelSistema());
         
     }
@@ -84,14 +90,14 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "", "Id Producto", "Producto", "Precio", "Cant", "Sub-Total"
+                "Id Producto", "Producto", "Precio", "Cant", "Sub-Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, true, false
+                false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -108,10 +114,8 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         tablaDeFacturaAlContado.setName(""); // NOI18N
         jScrollPane1.setViewportView(tablaDeFacturaAlContado);
         tablaDeFacturaAlContado.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        tablaDeFacturaAlContado.getColumnModel().getColumn(0).setResizable(false);
-        tablaDeFacturaAlContado.getColumnModel().getColumn(0).setPreferredWidth(1);
-        tablaDeFacturaAlContado.getColumnModel().getColumn(4).setResizable(false);
-        tablaDeFacturaAlContado.getColumnModel().getColumn(4).setPreferredWidth(5);
+        tablaDeFacturaAlContado.getColumnModel().getColumn(3).setResizable(false);
+        tablaDeFacturaAlContado.getColumnModel().getColumn(3).setPreferredWidth(5);
 
         clienteFacturaAlContadoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,8 +275,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
     }//GEN-LAST:event_clienteFacturaAlContadoComboBoxActionPerformed
 
     private void agregaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaProductoFacturaAlContadoButtonActionPerformed
+        this.dispose();
         WinAgregaProducto wap = new WinAgregaProducto(null, rootPaneCheckingEnabled);
         wap.setVisible(true);
+       
+        
     }//GEN-LAST:event_agregaProductoFacturaAlContadoButtonActionPerformed
 
     private void eliminaProductoFacturaAlContadoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminaProductoFacturaAlContadoButtonActionPerformed
@@ -285,7 +292,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 this.dispose();
             }
     }//GEN-LAST:event_cancelarFacturaAlContadoJButtonActionPerformed
-
+    DefaultTableModel modeloTabla;
+    void modelo(){
+    
+    modeloTabla =  (DefaultTableModel) this.tablaDeFacturaAlContado.getModel();
+    }
     private void clienteExisteFacturaAlContadoJCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteExisteFacturaAlContadoJCheckBoxActionPerformed
         // TODO add your handling code here:
         if(clienteExisteFacturaAlContadoJCheckBox.isSelected())
@@ -307,7 +318,42 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         wc.casoCliente = 1;
         wc.setVisible(true);
     }//GEN-LAST:event_nuevoClienteFacturaAlContadoJButtonActionPerformed
+     private PreparedStatement read;
+     private ResultSet rs;
+     private DefaultTableModel dtm;
+    void buscarEmpleados(){
+     try {      
+            
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, Producto, precio FROM carrito");
+           
+            rs = (ResultSet) read.executeQuery();
+           
+            
+            dtm = (DefaultTableModel) this.tablaDeFacturaAlContado.getModel();
+            
+            while (rs.next()) {
+            
+            Object [] fila = new Object[3]; 
+            
+           
+            for (int i=0;i<fila.length;i++) {
+                    fila[i] = rs.getObject(i+1);
+                } 
 
+             
+            dtm.addRow(fila);
+            if(fila.length == 0){
+            
+             
+                JOptionPane.showMessageDialog(null, "no se encontro nada");
+            
+            }           
+}       
+            
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -363,7 +409,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton nuevoClienteFacturaAlContadoJButton;
-    private javax.swing.JTable tablaDeFacturaAlContado;
+    public javax.swing.JTable tablaDeFacturaAlContado;
     private javax.swing.JLabel tituloJLabel;
     private javax.swing.JTextField totalFacturaAlContadoText;
     // End of variables declaration//GEN-END:variables
