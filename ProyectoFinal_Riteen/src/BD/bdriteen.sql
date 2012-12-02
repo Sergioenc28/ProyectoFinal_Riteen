@@ -1,1 +1,1 @@
-UPDATE clientes SET Nombre = 'dioni tu ta aquii' WHERE Nombre = 'Harim Tejada'
+SELECT nombre FROM proveedores

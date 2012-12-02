@@ -23,6 +23,7 @@ public class WinProducto extends javax.swing.JDialog {
      */
     public WinProducto() {
         initComponents();
+        cargarComboBoxProveerdor();
         PanelWinProducto pwp = new PanelWinProducto();
         this.add(pwp, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
@@ -35,20 +36,26 @@ public class WinProducto extends javax.swing.JDialog {
     public void cargarComboBoxProveerdor()
     {
         ResultSet proveedores;
-        String nombreDelProveedor="";
+        String nombreDelProveedor;
+        ArrayList<String> losProveedores = new ArrayList<>();
         Conexion conn = Conexion.getInstancia();
         conn.Conexion();
         
             try{
                  proveedores = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT nombre FROM proveedores");
                     
-                    
                  while(proveedores.next()){
-                 nombreDelProveedor = proveedores.getString(1);
-                        
-                   }
+                 nombreDelProveedor = proveedores.getString(1).toString();
+                 losProveedores.add(nombreDelProveedor);
+                 
+                 }
             }catch(SQLException ex){
                 System.out.print("Error"+ ex.getMessage());
+            }
+            
+            proveedorProductoComboBox.addItem(null);
+            for (String s : losProveedores) {
+                proveedorProductoComboBox.addItem(s);
             }
     }
 
@@ -374,7 +381,7 @@ public class WinProducto extends javax.swing.JDialog {
 
     private void proveedorProductoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorProductoComboBoxActionPerformed
         // TODO add your handling code here:
-        cargarComboBoxProveerdor();
+        
     }//GEN-LAST:event_proveedorProductoComboBoxActionPerformed
 
     /**
