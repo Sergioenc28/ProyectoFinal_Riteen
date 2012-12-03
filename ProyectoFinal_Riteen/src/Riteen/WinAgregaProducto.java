@@ -7,17 +7,10 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
-import java.awt.Checkbox;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.CellEditor;
-import javax.swing.DefaultCellEditor;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
 /**
  *
@@ -51,7 +44,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         buscar = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
@@ -100,7 +93,12 @@ public class WinAgregaProducto extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setText("Cancelar");
+        cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
 
         buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +151,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                         .addGap(200, 200, 200)
                         .addComponent(jButton1)
                         .addGap(59, 59, 59)
-                        .addComponent(jButton2)))
+                        .addComponent(cancelar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,7 +171,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(cancelar))
                 .addGap(18, 18, 18))
         );
 
@@ -226,7 +224,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                 add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO carrito "
                         + "(idProducto, producto, precio, cantidad, subtotal) VALUES (?, ?, ?, ?, ?)");
                 add.setInt(1, idProducto);
-                add.setString(2, producto);
+                add.setString(2, producto.toUpperCase());
                 add.setInt(3, precio);
                 add.setInt(4, wc.cantidad());
                 add.setInt(5, subtotal); 
@@ -258,6 +256,12 @@ public class WinAgregaProducto extends javax.swing.JDialog {
         wf.setVisible(true);
       
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+            this.dispose();                            
+            WinFacturaAlContado wfc = new WinFacturaAlContado(null, rootPaneCheckingEnabled);
+            wfc.setVisible(true);
+    }//GEN-LAST:event_cancelarActionPerformed
     
     private PreparedStatement read;
     private ResultSet rs;
@@ -337,8 +341,8 @@ public class WinAgregaProducto extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField buscar;
+    private javax.swing.JButton cancelar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

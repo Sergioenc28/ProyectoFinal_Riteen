@@ -337,8 +337,8 @@ public class WinProducto extends javax.swing.JDialog {
             if(casoProducto == 1)
             {             
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO almacen (Nombre, Descripcion, idProveedor, Costo, PrecioDeVenta, Existencia, ExistenciaMinima) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                add.setString(1, productoText.getText());
-                add.setString(2, descripcionProductoTextArea.getText());
+                add.setString(1, productoText.getText().toUpperCase());
+                add.setString(2, descripcionProductoTextArea.getText().toUpperCase());
                 add.setInt(3, 1);
                 add.setInt(4, costo);
                 add.setInt(5, precio);

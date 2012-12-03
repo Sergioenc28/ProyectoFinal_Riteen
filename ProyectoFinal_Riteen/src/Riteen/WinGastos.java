@@ -228,11 +228,11 @@ private PreparedStatement add;
             int total = Integer.parseInt(totalGastotext.getText());
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO gastos (Fecha, Responsable, Concepto, Total , Descripcion) VALUES (?, ?, ?, ?, ?)");
             
-            add.setString(1, fechaGastosText.getText());
-            add.setString(2, responsableGastosText.getText());
-            add.setString(3, conceptoGastoText.getText());
-            add.setString(4, totalGastotext.getText());
-            add.setString(5, descripcionGastoText.getText());
+            add.setString(1, fechaGastosText.getText().toUpperCase());
+            add.setString(2, responsableGastosText.getText().toUpperCase());
+            add.setString(3, conceptoGastoText.getText().toUpperCase());
+            add.setString(4, totalGastotext.getText().toUpperCase());
+            add.setString(5, descripcionGastoText.getText().toUpperCase());
             
             
             int exitoso = add.executeUpdate();

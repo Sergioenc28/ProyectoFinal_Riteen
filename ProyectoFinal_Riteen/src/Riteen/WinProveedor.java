@@ -181,10 +181,10 @@ public class WinProveedor extends javax.swing.JDialog{
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO proveedores (Nombre, Direccion, Telefono, Email) VALUES ( ?, ?, ?, ?)");
             
            
-            add.setString(1, proveedorText.getText());
-            add.setString(2, direccionProveedorText.getText());
-            add.setString(3, telefonoProveedorText.getText());
-            add.setString(4, emailProveedorText.getText());
+            add.setString(1, proveedorText.getText().toUpperCase());
+            add.setString(2, direccionProveedorText.getText().toUpperCase());
+            add.setString(3, telefonoProveedorText.getText().toUpperCase());
+            add.setString(4, emailProveedorText.getText().toUpperCase());
             }
             if (casoProveedor == 2){
                     add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE proveedores SET Nombre = '"+

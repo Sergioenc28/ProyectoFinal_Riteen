@@ -309,10 +309,10 @@ public class WinCxP extends javax.swing.JDialog {
             int total = Integer.parseInt(totalCxPText.getText());
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentas_por_pagar (Fecha, Descripcion, Concepto, Acreedor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?)");
             
-            add.setString(1, fechaCxPText.getText());
-            add.setString(2, descripcionCxPText.getText());
-            add.setString(3, conceptoCxPText.getText());
-            add.setString(4, acreedorCxPText.getText());
+            add.setString(1, fechaCxPText.getText().toUpperCase());
+            add.setString(2, descripcionCxPText.getText().toUpperCase());
+            add.setString(3, conceptoCxPText.getText().toUpperCase());
+            add.setString(4, acreedorCxPText.getText().toUpperCase());
             add.setInt(5, plazo);
             add.setInt(6, total);
             

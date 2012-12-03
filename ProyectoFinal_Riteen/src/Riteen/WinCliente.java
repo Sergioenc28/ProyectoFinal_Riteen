@@ -218,10 +218,10 @@ public class WinCliente extends javax.swing.JDialog {
             if(casoCliente == 1)
             {               
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO clientes (Nombre, Telefono, Direccion, Cedula) VALUES ( ?, ?, ?, ?)");
-                add.setString(1, clienteText.getText());
-                add.setString(2, telefonoClienteText.getText());
-                add.setString(3, direccionClienteText.getText());
-                add.setString(4,cedulaClienteText.getText());
+                add.setString(1, clienteText.getText().toUpperCase());
+                add.setString(2, telefonoClienteText.getText().toUpperCase());
+                add.setString(3, direccionClienteText.getText().toUpperCase());
+                add.setString(4,cedulaClienteText.getText().toUpperCase());
             }
             
             if(casoCliente == 2)

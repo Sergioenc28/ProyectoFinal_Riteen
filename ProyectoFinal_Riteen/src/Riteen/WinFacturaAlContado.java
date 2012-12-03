@@ -303,7 +303,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 if (reg == false){
                 add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO factura_cotando (Fecha, cliente, total) VALUES (?, ?, ?)");
                 
-                add.setString(1, date);
+                add.setString(1, date.toUpperCase());
                 
                 if (clienteFacturaAlContadoText.getText().length() > 0){
                 add.setString(2,clienteFacturaAlContadoText.getText());}
@@ -353,7 +353,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                         + "(idFact, idProducto, Nombre, Cantidad, Precio, Subtotal) VALUES (?, ?, ?, ?, ?,?)");
                 addFactFinal.setInt(1, idFactura);
                 addFactFinal.setInt(2, idproducto);
-                addFactFinal.setString(3, producto);
+                addFactFinal.setString(3, producto.toUpperCase());
                 addFactFinal.setInt(4, cantidad);
                 addFactFinal.setInt(5, precio);
                 addFactFinal.setInt(6, cantidad * precio);

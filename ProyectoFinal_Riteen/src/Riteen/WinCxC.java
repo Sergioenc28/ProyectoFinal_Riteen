@@ -343,12 +343,12 @@ public class WinCxC extends javax.swing.JDialog {
             int total = Integer.parseInt(totalCxCText.getText());
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentasxcobrar (Fecha, Descripcion, Concepto, Cedula, Telefono, Deudor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             
-            add.setString(1, fechaCxCText.getText());
-            add.setString(2, descripcionCxCText.getText());
-            add.setString(3, conceptoCxCText.getText());
-            add.setString(4, cedulaCxCText.getText());
-            add.setString(5, telefonoCxCText.getText());
-            add.setString(6, nombreDeudorCxCText1.getText());
+            add.setString(1, fechaCxCText.getText().toUpperCase());
+            add.setString(2, descripcionCxCText.getText().toUpperCase());
+            add.setString(3, conceptoCxCText.getText().toUpperCase());
+            add.setString(4, cedulaCxCText.getText().toUpperCase());
+            add.setString(5, telefonoCxCText.getText().toUpperCase());
+            add.setString(6, nombreDeudorCxCText1.getText().toUpperCase());
             add.setInt(7, plazo);
             add.setInt(8, total);
             

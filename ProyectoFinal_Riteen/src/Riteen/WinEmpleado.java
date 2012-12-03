@@ -266,10 +266,10 @@ public class WinEmpleado extends javax.swing.JDialog {
             if (casoEmpleado == 1 ){
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
             
-                add.setString(1, nombreEmpleadoText.getText());
-                add.setString(2, telefonoEmpleadoText.getText());
-                add.setString(3, direccionEmpleadoText.getText());
-                add.setString(4, cedulaEmpleadoText.getText());
+                add.setString(1, nombreEmpleadoText.getText().toUpperCase());
+                add.setString(2, telefonoEmpleadoText.getText().toUpperCase());
+                add.setString(3, direccionEmpleadoText.getText().toUpperCase());
+                add.setString(4, cedulaEmpleadoText.getText().toUpperCase());
                 add.setDouble(5, sueldo);
                 add.setString(6, comboBoxHorarioEmpleado);
             }

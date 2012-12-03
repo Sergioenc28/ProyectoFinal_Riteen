@@ -189,8 +189,8 @@ public class WinCrearUsuario extends javax.swing.JDialog {
         else{
             try{
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO usuarios (userName, pass, activo) VALUES ( ?, ?, ?)");
-                add.setString(1, usuarioText.getText());
-                add.setString(2, contraseñaText.getText());
+                add.setString(1, usuarioText.getText().toUpperCase());
+                add.setString(2, contraseñaText.getText().toUpperCase());
                 add.setInt(3, 0);                
                 
                 int exitoso = add.executeUpdate();

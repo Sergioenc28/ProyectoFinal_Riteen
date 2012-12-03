@@ -189,8 +189,8 @@ public class WinPedido extends javax.swing.JDialog {
             
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO pedidos (Producto, Proveedor, Cantidad) VALUES (?, ?, ?)");
             
-            add.setString(1, productoPedidoText.getText());
-            add.setString(2, proveedorPedidoText.getText());
+            add.setString(1, productoPedidoText.getText().toUpperCase());
+            add.setString(2, proveedorPedidoText.getText().toUpperCase());
             add.setInt(3, cantidad);
             }
             

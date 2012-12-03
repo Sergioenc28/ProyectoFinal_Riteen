@@ -261,13 +261,13 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
             if(casoReciboReparacion == 1)
             {               
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO recibos_de_reparacion (FechaDeEntrega, Articulo, Marca, Modelo, NombreCliente, TelefonoCliente, plazo) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
-                add.setString(1, fechaReparacionText.getText());
-                add.setString(2, articuloReparacionText.getText());
-                add.setString(3, marcaReparacionText.getText());
-                add.setString(4, modeloReparacionText.getText());
-                add.setString(5, clienteReparacionText.getText());
-                add.setString(6, telefonoReparacionText.getText());
-                add.setString(7, plazoTextfield.getText());
+                add.setString(1, fechaReparacionText.getText().toUpperCase());
+                add.setString(2, articuloReparacionText.getText().toUpperCase());
+                add.setString(3, marcaReparacionText.getText().toUpperCase());
+                add.setString(4, modeloReparacionText.getText().toUpperCase());
+                add.setString(5, clienteReparacionText.getText().toUpperCase());
+                add.setString(6, telefonoReparacionText.getText().toUpperCase());
+                add.setString(7, plazoTextfield.getText().toUpperCase());
             }
             
             if(casoReciboReparacion == 2)

@@ -259,7 +259,7 @@ public class GeneraNomina extends javax.swing.JDialog {
             
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO nomina (idEmpleado, empleado, sueldoBruto, AFP, SFS, ISR, TotalDeduc, sueldoNeto )VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             add.setInt(1, idEmpleado);
-            add.setString(2, empleado);
+            add.setString(2, empleado.toUpperCase());
             add.setDouble(3, sueldoBruto);
             add.setDouble(4, afp);
             add.setDouble(5, sfs);
