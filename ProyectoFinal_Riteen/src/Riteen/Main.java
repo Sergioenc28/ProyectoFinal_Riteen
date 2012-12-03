@@ -21,5 +21,6 @@ public class Main {
     {
        WinLoging wl = new WinLoging();
        wl.setVisible(true);
+       
     }
 }
