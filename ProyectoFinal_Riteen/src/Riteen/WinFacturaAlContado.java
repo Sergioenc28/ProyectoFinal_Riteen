@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -291,34 +292,29 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
         PreparedStatement add;
         PreparedStatement addFactFinal;
         
-        tablaDeFacturaAlContado.getSelectionModel().setSelectionInterval(0, tablaDeFacturaAlContado.getRowCount() - 1);  
-        
-        int numeroDeFilas = tablaDeFacturaAlContado.getSelectedRows().length;
         try {
                 int total = Integer.parseInt(totalFacturaAlContadoText.getText());
                 Fecha f = new Fecha();
                 f.setFechaActualDelSistema(null);
                 String date = f.getFechaActualDelSistema();
-                boolean reg = false ;
-                if (reg == false){
+                
                 add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO factura_cotando (Fecha, cliente, total) VALUES (?, ?, ?)");
                 
                 add.setString(1, date.toUpperCase());
                 
                 if (clienteFacturaAlContadoText.getText().length() > 0){
-                add.setString(2,clienteFacturaAlContadoText.getText());}
+                add.setString(2,clienteFacturaAlContadoText.getText());
+                }
                 
                 else{
                 add.setString(2,clienteFacturaAlContadoComboBox.getSelectedItem().toString());
                 }
                 add.setInt(3, total);
                 
-                int done = add.executeUpdate();
+                add.executeUpdate();
                 add.close();
-                if (done ==1){
-                    reg = true;
-                }
-                }
+               
+                int numeroDeFilas = tablaDeFacturaAlContado.getSelectedRows().length;
         for (int i = 0; i < numeroDeFilas; i++) {
             
             
@@ -326,19 +322,8 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             String producto =  ((String) tablaDeFacturaAlContado.getValueAt(i,1)).toString();
             int precio = ((Integer) tablaDeFacturaAlContado.getValueAt(i ,2)).intValue();
             int cantidad = ((Integer) tablaDeFacturaAlContado.getValueAt(i,3)).intValue();
-            int subTotal = ((Integer) tablaDeFacturaAlContado.getValueAt(i,4)).intValue();
+          
         
-            
-                
-                
-               
-               /* 
-                *  PreparedStatement del;
-                * del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
-                del.executeUpdate();
-                del.close();
-                */
-                
                 ResultSet buscarID;
                 buscarID = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT idFactura FROM factura_cotando");
 
@@ -362,26 +347,33 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                    }
         this.dispose();
         try{
-            Connection CONEXION;
+            Connection conexion;
            
-            CONEXION = DriverManager.getConnection(url,login,password);
+            conexion = DriverManager.getConnection(url,login,password);
             
-            System.out.println("Conexion establecida");       
+            System.out.println("Generando Factura");       
        
           
            
             JasperReport report = JasperCompileManager.compileReport("ReporteFinal.jrxml");
-            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,CONEXION);
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
             JasperViewer visor = new JasperViewer(jasperprint,false);
             visor.setTitle("Riteen - Factura");
             visor.setVisible(true);
           
 
-        }catch(SQLException | JRException e){
+        }
+        catch(SQLException | JRException e){
           
            JOptionPane.showMessageDialog(this, e.getMessage());
         }
         JOptionPane.showMessageDialog(null, "La factura se ha generado correctamente");
+                 
+                 PreparedStatement del;
+                 del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
+                 del.executeUpdate();
+                 del.close();
+                
         
         
         }
