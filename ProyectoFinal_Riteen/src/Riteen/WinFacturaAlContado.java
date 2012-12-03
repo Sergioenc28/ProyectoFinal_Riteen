@@ -89,7 +89,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             }
         });
 
-        finalizarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        finalizarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         finalizarFacturaAlContadoJButton.setText("Facturar");
         finalizarFacturaAlContadoJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +180,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             }
         });
 
-        cancelarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        cancelarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         cancelarFacturaAlContadoJButton.setText("Cancelar");
         cancelarFacturaAlContadoJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,10 +414,10 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
 
     private void cancelarFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarFacturaAlContadoJButtonActionPerformed
         // TODO add your handling code here:
-        
-            this.dispose();
-                        
-            
+        int opc = JOptionPane.showConfirmDialog(this, "¿Seguro que desea cancelar los cambios?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        if(opc == JOptionPane.YES_OPTION){    
+            this.dispose();                                    
+        }
     }//GEN-LAST:event_cancelarFacturaAlContadoJButtonActionPerformed
     DefaultTableModel modeloTabla;
     
