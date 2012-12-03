@@ -32,6 +32,16 @@
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="agregarUsuarioJMenuMousePressed"/>
               </Events>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="agregaUsuario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Agregar Usuario"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregaUsuarioActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
             </Menu>
           </SubComponents>
         </Menu>
