@@ -414,9 +414,10 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
 
     private void cancelarFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarFacturaAlContadoJButtonActionPerformed
         // TODO add your handling code here:
-        if(evt.getSource() == cancelarFacturaAlContadoJButton){
-                this.dispose();
-            }
+        
+            this.dispose();
+                        
+            
     }//GEN-LAST:event_cancelarFacturaAlContadoJButtonActionPerformed
     DefaultTableModel modeloTabla;
     
