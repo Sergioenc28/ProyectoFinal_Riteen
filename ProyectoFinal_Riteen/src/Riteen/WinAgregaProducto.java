@@ -229,8 +229,12 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                 add.setInt(3, precio);
                 add.setInt(4, cantidad);
                 add.setInt(5, subtotal); 
-                add.executeUpdate();
+                int agregado =add.executeUpdate();
+                if (agregado == 1){
                 
+                JOptionPane.showMessageDialog(this, "El producto " + producto +" se ha agregado a la factura");
+                
+                }
               
                
                 

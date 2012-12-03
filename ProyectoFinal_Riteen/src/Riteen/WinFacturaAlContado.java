@@ -295,23 +295,14 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
         
         tablaDeFacturaAlContado.getSelectionModel().setSelectionInterval(0, tablaDeFacturaAlContado.getRowCount() - 1);  
         
-        int numeroDeFilas = tablaDeFacturaAlContado.getRowCount();//obtiene el numero de filas
-        
-        for (int i = 0; i < numeroDeFilas;i++) {
-            
-            
-            int idproducto = ((Integer) tablaDeFacturaAlContado.getValueAt(i,0)).intValue();
-            String producto =  ((String) tablaDeFacturaAlContado.getValueAt(i,1)).toString();
-            int precio = ((Integer) tablaDeFacturaAlContado.getValueAt(i ,2)).intValue();
-            int cantidad = ((Integer) tablaDeFacturaAlContado.getValueAt(i,3)).intValue();
-            int subTotal = ((Integer) tablaDeFacturaAlContado.getValueAt(i,4)).intValue();
-        
-            try {
+        int numeroDeFilas = tablaDeFacturaAlContado.getSelectedRows().length;
+        try {
                 int total = Integer.parseInt(totalFacturaAlContadoText.getText());
                 Fecha f = new Fecha();
                 f.setFechaActualDelSistema(null);
                 String date = f.getFechaActualDelSistema();
-                
+                boolean reg = false ;
+                if (reg == false){
                 add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO factura_cotando (Fecha, cliente, total) VALUES (?, ?, ?)");
                 
                 add.setString(1, date);
@@ -325,13 +316,28 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 add.setInt(3, total);
                 
                 int done = add.executeUpdate();
-                if (done == 1){
+                add.close();
+                if (done ==1){
+                    reg = true;
+                }
+                }
+        for (int i = 0; i < numeroDeFilas; i++) {
+            
+            
+            int idproducto = ((Integer) tablaDeFacturaAlContado.getValueAt(i,0)).intValue();
+            String producto =  ((String) tablaDeFacturaAlContado.getValueAt(i,1)).toString();
+            int precio = ((Integer) tablaDeFacturaAlContado.getValueAt(i ,2)).intValue();
+            int cantidad = ((Integer) tablaDeFacturaAlContado.getValueAt(i,3)).intValue();
+            int subTotal = ((Integer) tablaDeFacturaAlContado.getValueAt(i,4)).intValue();
+        
+            
+                
                 
                 PreparedStatement del;
                 del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
                 del.executeUpdate();
                 del.close();
-                add.close();
+                
                 
                 ResultSet buscarID;
                 buscarID = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT idFactura FROM factura_cotando");
@@ -344,7 +350,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 buscarID.close();
                 
                 addFactFinal = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO detalles_facturas "
-                        + "(idFactura, idProducto, Nombre, Cantidad, Precio) VALUES (?, ?, ?, ?, ?)");
+                        + "(idFact, idProducto, Nombre, Cantidad, Precio) VALUES (?, ?, ?, ?, ?)");
                 addFactFinal.setInt(1, idFactura);
                 addFactFinal.setInt(2, idproducto);
                 addFactFinal.setString(3, producto);
@@ -354,13 +360,13 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 if(end == false){
                     
                 JOptionPane.showMessageDialog(null, "La factura se ha generado correctamente");
+               
+                }
+              
+             
                 
-                }
-                limpiarTabla();
-                this.dispose();
-                }
             
-         }
+         }}
             catch (SQLException ex) {
              JOptionPane.showMessageDialog(this, ex.getMessage());
             }
@@ -370,7 +376,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             catch (NullPointerException np){
             JOptionPane.showMessageDialog(this, "Parece que no ha introducido ningun cliente");
             }
-    }
+    
      
     }//GEN-LAST:event_finalizarFacturaAlContadoJButtonActionPerformed
 
