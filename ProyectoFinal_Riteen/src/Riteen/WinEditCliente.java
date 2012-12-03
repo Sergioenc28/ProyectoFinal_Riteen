@@ -262,14 +262,15 @@ public class WinEditCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_clienteEdtTextKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        WinCliente wc = new WinCliente();
+        
+        WinCliente wc = new WinCliente(null, false);
         wc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTableClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableClientesMouseClicked
         if( jTableClientes.getSelectedRows().length > 0 ) { 
           
-           WinCliente wc = new WinCliente();
+           WinCliente wc = new WinCliente(null, false);
            wc.casoCliente = 2;
            wc.setVisible(true);
           

@@ -33,10 +33,10 @@ public class WinCarrito extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jButtonAgregar = new javax.swing.JButton();
+        jToggleButtonCancelarCantr = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField(new Integer(1));
+        cantidadText = new javax.swing.JFormattedTextField(new Integer(1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -45,19 +45,19 @@ public class WinCarrito extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Agregar Este Producto");
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgregar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButtonAgregar.setText("Agregar");
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAgregarActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jToggleButton1.setText("Cancelar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButtonCancelarCantr.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jToggleButtonCancelarCantr.setText("Cancelar");
+        jToggleButtonCancelarCantr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                jToggleButtonCancelarCantrActionPerformed(evt);
             }
         });
 
@@ -65,7 +65,8 @@ public class WinCarrito extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Cantidad:");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        cantidadText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        cantidadText.setCaretPosition(0);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,14 +77,14 @@ public class WinCarrito extends javax.swing.JDialog {
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonAgregar))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jToggleButton1)))
+                        .addComponent(jToggleButtonCancelarCantr)))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,11 +94,11 @@ public class WinCarrito extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jToggleButton1))
+                    .addComponent(jButtonAgregar)
+                    .addComponent(jToggleButtonCancelarCantr))
                 .addGap(27, 27, 27))
         );
 
@@ -105,15 +106,23 @@ public class WinCarrito extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
     
     private PreparedStatement add;
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);                           
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
+       if (cantidadText.getText().length() < 1){
+       jButtonAgregar.disable();
+       }
+        
         this.dispose();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+       
+        
+                               
+    }//GEN-LAST:event_jButtonAgregarActionPerformed
+
+    private void jToggleButtonCancelarCantrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonCancelarCantrActionPerformed
+        cantidadText.setText("0");
+        this.dispose();
+    }//GEN-LAST:event_jToggleButtonCancelarCantrActionPerformed
  int cantidad(){
-    int cantidad = Integer.parseInt(jFormattedTextField1.getText());
+    int cantidad = Integer.parseInt(cantidadText.getText());
     
     return cantidad;
 } 
@@ -160,10 +169,10 @@ public class WinCarrito extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    public javax.swing.JFormattedTextField cantidadText;
+    public javax.swing.JButton jButtonAgregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JToggleButton jToggleButton1;
+    public javax.swing.JToggleButton jToggleButtonCancelarCantr;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,8 +29,8 @@ public class WinAgregaProducto extends javax.swing.JDialog {
     /**
      * Creates new form WinAgregaProducto
      */
-    public WinAgregaProducto(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public WinAgregaProducto() {
+       
         initComponents();
         PanelAgregaProducto pap = new PanelAgregaProducto();
         this.add(pap, BorderLayout.CENTER);  
@@ -216,18 +216,19 @@ public class WinAgregaProducto extends javax.swing.JDialog {
      
           WinCarrito wc = new WinCarrito(null, rootPaneCheckingEnabled);
           wc.setVisible(true);
-       
+          
           try {
-               
-                int cantidad = wc.cantidad();
-                int subtotal = cantidad * precio;
+                
+                if (wc.cantidad() > 0){
+                
+                int subtotal = wc.cantidad() * precio;
                 
                 add = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO carrito "
                         + "(idProducto, producto, precio, cantidad, subtotal) VALUES (?, ?, ?, ?, ?)");
                 add.setInt(1, idProducto);
                 add.setString(2, producto);
                 add.setInt(3, precio);
-                add.setInt(4, cantidad);
+                add.setInt(4, wc.cantidad());
                 add.setInt(5, subtotal); 
                 int agregado =add.executeUpdate();
                 if (agregado == 1){
@@ -236,7 +237,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                 
                 }
               
-               
+                }
                 
             } 
       catch (SQLException ex) {
@@ -327,15 +328,10 @@ public class WinAgregaProducto extends javax.swing.JDialog {
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                WinAgregaProducto dialog = new WinAgregaProducto(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                WinAgregaProducto wa = new WinAgregaProducto();
+                wa.setVisible(true);
             }
         });
     }

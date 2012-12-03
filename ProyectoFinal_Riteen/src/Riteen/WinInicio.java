@@ -201,7 +201,7 @@ public class WinInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RegEmpleadoActionPerformed
 
     private void RegClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegClienteActionPerformed
-       WinCliente wc = new WinCliente();
+       WinCliente wc = new WinCliente(this, false);
        wc.casoCliente = 1;
        wc.setVisible(true);
     }//GEN-LAST:event_RegClienteActionPerformed

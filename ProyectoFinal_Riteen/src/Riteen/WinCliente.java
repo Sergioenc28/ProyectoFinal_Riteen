@@ -20,9 +20,9 @@ public class WinCliente extends javax.swing.JDialog {
     /**
      * Creates new form WinCliente
      */
-    public WinCliente() 
+    public WinCliente(java.awt.Frame parent, boolean modal) 
     {
-        
+        super(parent, modal);   
         initComponents();
         PanelCliente pc = new PanelCliente();
         this.add(pc, BorderLayout.CENTER);
@@ -304,7 +304,14 @@ public class WinCliente extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new WinCliente().setVisible(true);
+               WinCrearUsuario dialog = new WinCrearUsuario(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
