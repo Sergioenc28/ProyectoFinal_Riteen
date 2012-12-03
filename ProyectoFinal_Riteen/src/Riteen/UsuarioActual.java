@@ -18,7 +18,7 @@ public class UsuarioActual {
     String usuarioActivo;
 
     public String getUsuarioActivo() {
-        return usuarioActivo;
+        return usuarioActivo.toUpperCase();
     }
 
     public void setUsuarioActivo() {

@@ -74,6 +74,17 @@ public class PanelInicio extends javax.swing.JPanel {
         clientesButton.setForeground(new java.awt.Color(255, 255, 255));
         clientesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/group2.png"))); // NOI18N
         clientesButton.setText("CLIENTES");
+        clientesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        clientesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clientesButtonMouseExited(evt);
+            }
+        });
+        clientesButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                clientesButtonMouseMoved(evt);
+            }
+        });
         clientesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientesButtonActionPerformed(evt);
@@ -87,7 +98,17 @@ public class PanelInicio extends javax.swing.JPanel {
         empleadosButton.setForeground(new java.awt.Color(255, 255, 255));
         empleadosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
         empleadosButton.setText("EMPLEADOS");
-        empleadosButton.setAutoscrolls(true);
+        empleadosButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        empleadosButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                empleadosButtonMouseExited(evt);
+            }
+        });
+        empleadosButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                empleadosButtonMouseMoved(evt);
+            }
+        });
         empleadosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 empleadosButtonActionPerformed(evt);
@@ -101,6 +122,17 @@ public class PanelInicio extends javax.swing.JPanel {
         proveedoresButton.setForeground(new java.awt.Color(255, 255, 255));
         proveedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
         proveedoresButton.setText("PROVEEDORES");
+        proveedoresButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        proveedoresButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                proveedoresButtonMouseExited(evt);
+            }
+        });
+        proveedoresButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                proveedoresButtonMouseMoved(evt);
+            }
+        });
         proveedoresButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proveedoresButtonActionPerformed(evt);
@@ -114,6 +146,17 @@ public class PanelInicio extends javax.swing.JPanel {
         almacenButton.setForeground(new java.awt.Color(255, 255, 255));
         almacenButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacen.png"))); // NOI18N
         almacenButton.setText("ALMACEN");
+        almacenButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        almacenButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                almacenButtonMouseExited(evt);
+            }
+        });
+        almacenButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                almacenButtonMouseMoved(evt);
+            }
+        });
         almacenButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 almacenButtonActionPerformed(evt);
@@ -127,6 +170,17 @@ public class PanelInicio extends javax.swing.JPanel {
         facturasButton.setForeground(new java.awt.Color(255, 255, 255));
         facturasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/task_completed_256.png"))); // NOI18N
         facturasButton.setText("FACTURAS");
+        facturasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        facturasButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                facturasButtonMouseExited(evt);
+            }
+        });
+        facturasButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                facturasButtonMouseMoved(evt);
+            }
+        });
         facturasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 facturasButtonActionPerformed(evt);
@@ -140,6 +194,17 @@ public class PanelInicio extends javax.swing.JPanel {
         reparacionesButton.setForeground(new java.awt.Color(255, 255, 255));
         reparacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reparacion.png"))); // NOI18N
         reparacionesButton.setText("REPARACIONES");
+        reparacionesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        reparacionesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                reparacionesButtonMouseExited(evt);
+            }
+        });
+        reparacionesButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                reparacionesButtonMouseMoved(evt);
+            }
+        });
         reparacionesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reparacionesButtonActionPerformed(evt);
@@ -153,6 +218,17 @@ public class PanelInicio extends javax.swing.JPanel {
         ayudaButton.setForeground(new java.awt.Color(255, 255, 255));
         ayudaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/help.png"))); // NOI18N
         ayudaButton.setText("AYUDA");
+        ayudaButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ayudaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ayudaButtonMouseExited(evt);
+            }
+        });
+        ayudaButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                ayudaButtonMouseMoved(evt);
+            }
+        });
         ayudaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ayudaButtonActionPerformed(evt);
@@ -166,6 +242,17 @@ public class PanelInicio extends javax.swing.JPanel {
         cuentasButton.setForeground(new java.awt.Color(255, 255, 255));
         cuentasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
         cuentasButton.setText("CUENTAS");
+        cuentasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cuentasButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cuentasButtonMouseExited(evt);
+            }
+        });
+        cuentasButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                cuentasButtonMouseMoved(evt);
+            }
+        });
         cuentasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cuentasButtonActionPerformed(evt);
@@ -179,6 +266,17 @@ public class PanelInicio extends javax.swing.JPanel {
         pedidosButton.setForeground(new java.awt.Color(255, 255, 255));
         pedidosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
         pedidosButton.setText("PEDIDOS");
+        pedidosButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pedidosButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                pedidosButtonMouseExited(evt);
+            }
+        });
+        pedidosButton.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                pedidosButtonMouseMoved(evt);
+            }
+        });
         pedidosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pedidosButtonActionPerformed(evt);
@@ -278,7 +376,7 @@ public class PanelInicio extends javax.swing.JPanel {
                             .addComponent(empleadosButton)
                             .addComponent(facturasButton)
                             .addComponent(cuentasButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(proveedoresButton)
                             .addComponent(reparacionesButton)
@@ -336,7 +434,7 @@ public class PanelInicio extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(salirButton))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -405,6 +503,78 @@ public class PanelInicio extends javax.swing.JPanel {
         WinDetalleFacturaContado wdfc = new WinDetalleFacturaContado(wi, false);
         wdfc.setVisible(true);
     }//GEN-LAST:event_facturasButtonActionPerformed
+
+    private void clientesButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesButtonMouseMoved
+        clientesButton.setBorderPainted(true);
+    }//GEN-LAST:event_clientesButtonMouseMoved
+
+    private void clientesButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesButtonMouseExited
+        clientesButton.setBorderPainted(false);
+    }//GEN-LAST:event_clientesButtonMouseExited
+
+    private void empleadosButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empleadosButtonMouseMoved
+        empleadosButton.setBorderPainted(true);
+    }//GEN-LAST:event_empleadosButtonMouseMoved
+
+    private void empleadosButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empleadosButtonMouseExited
+        empleadosButton.setBorderPainted(false);
+    }//GEN-LAST:event_empleadosButtonMouseExited
+
+    private void proveedoresButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proveedoresButtonMouseExited
+        proveedoresButton.setBorderPainted(false);
+    }//GEN-LAST:event_proveedoresButtonMouseExited
+
+    private void proveedoresButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proveedoresButtonMouseMoved
+        proveedoresButton.setBorderPainted(true);
+    }//GEN-LAST:event_proveedoresButtonMouseMoved
+
+    private void almacenButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_almacenButtonMouseExited
+        almacenButton.setBorderPainted(false);
+    }//GEN-LAST:event_almacenButtonMouseExited
+
+    private void almacenButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_almacenButtonMouseMoved
+        almacenButton.setBorderPainted(true);
+    }//GEN-LAST:event_almacenButtonMouseMoved
+
+    private void reparacionesButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reparacionesButtonMouseExited
+        reparacionesButton.setBorderPainted(false);
+    }//GEN-LAST:event_reparacionesButtonMouseExited
+
+    private void reparacionesButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reparacionesButtonMouseMoved
+        reparacionesButton.setBorderPainted(true);
+    }//GEN-LAST:event_reparacionesButtonMouseMoved
+
+    private void facturasButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_facturasButtonMouseExited
+        facturasButton.setBorderPainted(false);
+    }//GEN-LAST:event_facturasButtonMouseExited
+
+    private void facturasButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_facturasButtonMouseMoved
+        reparacionesButton.setBorderPainted(true);
+    }//GEN-LAST:event_facturasButtonMouseMoved
+
+    private void pedidosButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedidosButtonMouseExited
+        pedidosButton.setBorderPainted(false);
+    }//GEN-LAST:event_pedidosButtonMouseExited
+
+    private void pedidosButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedidosButtonMouseMoved
+        pedidosButton.setBorderPainted(true);
+    }//GEN-LAST:event_pedidosButtonMouseMoved
+
+    private void cuentasButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cuentasButtonMouseExited
+        cuentasButton.setBorderPainted(false);
+    }//GEN-LAST:event_cuentasButtonMouseExited
+
+    private void cuentasButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cuentasButtonMouseMoved
+        cuentasButton.setBorderPainted(true);
+    }//GEN-LAST:event_cuentasButtonMouseMoved
+
+    private void ayudaButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ayudaButtonMouseExited
+        ayudaButton.setBorderPainted(false);
+    }//GEN-LAST:event_ayudaButtonMouseExited
+
+    private void ayudaButtonMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ayudaButtonMouseMoved
+        ayudaButton.setBorderPainted(true);
+    }//GEN-LAST:event_ayudaButtonMouseMoved
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CrearReciboButton;
