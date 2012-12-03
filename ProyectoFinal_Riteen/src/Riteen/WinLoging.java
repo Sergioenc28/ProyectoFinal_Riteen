@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -191,6 +192,12 @@ public class WinLoging extends javax.swing.JDialog {
     }//GEN-LAST:event_passwordTextActionPerformed
 //ResultSet usuario;
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
+        if(usuarioText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "No ha ingresado el nombre del usuario");
+            
+        }
+        
         entrar();
         everybodyIsTrue();
         onlyOneIsTrue();
@@ -198,42 +205,64 @@ public class WinLoging extends javax.swing.JDialog {
     
     ResultSet usuario;
     public String nombreDelUsuario = "";
-    
+    public String pass = "";
+    int hay = 0;
     void entrar(){
     Conexion conn = Conexion.getInstancia();
         conn.Conexion();
         
             try{
-                 usuario = Conexion.getInstancia().hacerConsulta("select userName from usuarios where userName = '" + usuarioText.getText() + "'and pass = '" + obtenerPassword(passwordText.getPassword()) + "'");
+                 usuario = Conexion.getInstancia().hacerConsulta("select userName,pass from usuarios");
+                 
+                 ArrayList<ControlDeLoggin> userAndPass = new ArrayList<>();   
+                 while(usuario.next())
+                 {
+                        nombreDelUsuario = usuario.getString(1).toString();
+                        pass = usuario.getString(2).toString();
+                        ControlDeLoggin cdl = new ControlDeLoggin(pass, nombreDelUsuario);
+                        userAndPass.add(cdl);
+                 }
                     
-                    
-                    while(usuario.next()){
-                        nombreDelUsuario = usuario.getString(1);
+                 for (ControlDeLoggin l : userAndPass) {
+                    if(usuarioText.getText().equalsIgnoreCase(l.getUser()))
+                    {
+                        hay=1;
+                        if(passwordText.getText().equalsIgnoreCase(l.getPass()))
+                        {
+                                JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
+
+                                everybodyIsTrue();
+                                onlyOneIsTrue();
+                                WinInicio  ventana =  new WinInicio();
+                                ventana.show();
+                                dispose();
+                        }
+                        else
+                        {
+                            intentos = intentos + 1;
+                            JOptionPane.showMessageDialog(null, "Contraseña incorecta");
+                            passwordText.selectAll();
+                            passwordText.requestFocus();
+                        }
                     }
-                    
-                    if ( nombreDelUsuario.length() > 0){
-                    
-                        paraElSet = nombreDelUsuario;
-                        
-                        setUsuarioActivo(null);
-                        
-                    JOptionPane.showMessageDialog(null, "Bienvenido  " + nombreDelUsuario.toUpperCase());
-                    
-                    everybodyIsTrue();
-                    
-                    onlyOneIsTrue();
-                    
-                    WinInicio  ventana =  new WinInicio();
-                    ventana.show();
-                    
-                    
-                    dispose();
-                   }
-                    
-                    else{
-                       JOptionPane.showMessageDialog(null,"El Usuario/Password estan mal escritos verifique los datos", "Error",JOptionPane.ERROR_MESSAGE);
+                }
+                 
+                if(hay == 0)
+                {
+                    intentos = intentos + 1;
+                    JOptionPane.showMessageDialog(null, "Este usuario no existe");
+                    usuarioText.selectAll();
+                    usuarioText.requestFocus();
+                }
+                
+                if(intentos >=3)
+                    {
+                        JOptionPane.showMessageDialog(null, "Usted exedió el nivel de errores de RITEEN");
+                        JOptionPane.showMessageDialog(null, "Hasta Luego"); 
+                        System.exit(EXIT_ON_CLOSE);
                     }
-            }catch(SQLException ex){
+            }
+            catch(SQLException ex){
                 System.out.print("Error"+ ex.getMessage());
             }
     }
