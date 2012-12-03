@@ -7,18 +7,28 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author Sergio and Clary
  */
-public class WinFacturaAlContado extends javax.swing.JDialog {
+public class WinFacturaAlContado extends javax.swing.JDialog implements VConexion{
+    private JasperReport JasperReport;
+    private String DRIVER;
 
     /**
      * Creates new form FacturaAlContado
@@ -321,11 +331,13 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             
                 
                 
-                PreparedStatement del;
-                del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
+               
+               /* 
+                *  PreparedStatement del;
+                * del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
                 del.executeUpdate();
                 del.close();
-                
+                */
                 
                 ResultSet buscarID;
                 buscarID = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT idFactura FROM factura_cotando");
@@ -338,24 +350,40 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
                 buscarID.close();
                 
                 addFactFinal = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO detalles_facturas "
-                        + "(idFact, idProducto, Nombre, Cantidad, Precio) VALUES (?, ?, ?, ?, ?)");
+                        + "(idFact, idProducto, Nombre, Cantidad, Precio, Subtotal) VALUES (?, ?, ?, ?, ?,?)");
                 addFactFinal.setInt(1, idFactura);
                 addFactFinal.setInt(2, idproducto);
                 addFactFinal.setString(3, producto);
                 addFactFinal.setInt(4, cantidad);
                 addFactFinal.setInt(5, precio);
+                addFactFinal.setInt(6, cantidad * precio);
                 addFactFinal.execute();
                 
-                
-               
-                
-              
-             
-                
-            
-         }
+                   }
         this.dispose();
+        try{
+            Connection CONEXION;
+           
+            CONEXION = DriverManager.getConnection(url,login,password);
+            
+            System.out.println("Conexion establecida");       
+       
+          
+           
+            JasperReport report = JasperCompileManager.compileReport("ReporteFinal.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,CONEXION);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Factura");
+            visor.setVisible(true);
+          
+
+        }catch(SQLException | JRException e){
+          
+           JOptionPane.showMessageDialog(this, e.getMessage());
+        }
         JOptionPane.showMessageDialog(null, "La factura se ha generado correctamente");
+        
+        
         }
             catch (SQLException ex) {
              JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -363,9 +391,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog {
             catch (NumberFormatException nf){
             JOptionPane.showMessageDialog(this, "Parece que faltan datos para poder generar la factura");
             }
-            catch (NullPointerException np){
-            JOptionPane.showMessageDialog(this, "Parece que no ha introducido ningun cliente");
-            }
+            
     
      
     }//GEN-LAST:event_finalizarFacturaAlContadoJButtonActionPerformed
