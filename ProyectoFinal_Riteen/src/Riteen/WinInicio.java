@@ -37,6 +37,7 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         salirSistema = new javax.swing.JMenuItem();
         agregarUsuarioJMenu = new javax.swing.JMenu();
+        agregaUsuario = new javax.swing.JMenuItem();
         jMenuRegistrar = new javax.swing.JMenu();
         RegEmpleado = new javax.swing.JMenuItem();
         RegCliente = new javax.swing.JMenuItem();
@@ -79,6 +80,15 @@ public class WinInicio extends javax.swing.JFrame {
                 agregarUsuarioJMenuMousePressed(evt);
             }
         });
+
+        agregaUsuario.setText("Agregar Usuario");
+        agregaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregaUsuarioActionPerformed(evt);
+            }
+        });
+        agregarUsuarioJMenu.add(agregaUsuario);
+
         jMenuArchivo.add(agregarUsuarioJMenu);
 
         jMenuBar1.add(jMenuArchivo);
@@ -235,29 +245,19 @@ public class WinInicio extends javax.swing.JFrame {
         wrdp.setVisible(true);   
     }//GEN-LAST:event_RegReparacionActionPerformed
 
-    private void salirSistemaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirSistemaMousePressed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        int opc = JOptionPane.showConfirmDialog(null, "Seguro que desea salir del sistema", "Salir", JOptionPane.YES_NO_OPTION);
-        
-        if(opc == JOptionPane.YES_OPTION){
-            System.exit(0);
-        }
-        
-    }//GEN-LAST:event_salirSistemaMousePressed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void agregarUsuarioJMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarUsuarioJMenuMousePressed
         // TODO add your handling code here:
-        
+
         //Nota: Con este ejemplo pondremos el Administrador a crear usuario y solo se creara si tiene los permisos...
-        
-        String usuarioActual="sergio";
-        
+
+        /*String usuarioActual="sergio";
+
         System.out.println(usuarioActual);
-        
+
         if(usuarioActual.equalsIgnoreCase("sergio"))
         {
             JOptionPane.showMessageDialog(null, "Podra crear usuario");
@@ -265,12 +265,27 @@ public class WinInicio extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(null, "Usted notiene permisos del Administrador para crear usuarios");
-        }
+        }*/
     }//GEN-LAST:event_agregarUsuarioJMenuMousePressed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void salirSistemaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirSistemaMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        int opc = JOptionPane.showConfirmDialog(null, "Seguro que desea salir del sistema", "Salir", JOptionPane.YES_NO_OPTION);
+
+        if(opc == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+
+    }//GEN-LAST:event_salirSistemaMousePressed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void agregaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaUsuarioActionPerformed
+        WinCrearUsuario wcu = new WinCrearUsuario(this, true);
+        wcu.setVisible(true);
+    }//GEN-LAST:event_agregaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,6 +332,7 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegProducto;
     private javax.swing.JMenuItem RegProveedor;
     private javax.swing.JMenuItem RegReparacion;
+    private javax.swing.JMenuItem agregaUsuario;
     private javax.swing.JMenu agregarUsuarioJMenu;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenuArchivo;
