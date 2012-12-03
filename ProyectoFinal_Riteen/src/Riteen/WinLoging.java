@@ -117,6 +117,9 @@ public class WinLoging extends javax.swing.JDialog{
         entrar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         entrar.setText("Entrar");
         entrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 entrarMousePressed(evt);
             }
@@ -335,10 +338,24 @@ public class WinLoging extends javax.swing.JDialog{
     }//GEN-LAST:event_entrarKeyPressed
 
     private void passwordTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordTextKeyTyped
-       int enter = evt.getKeyChar();
-       if (enter == KeyEvent.VK_ENTER){
-       entrar();
-       }
+        
+        if(usuarioText.getText().length()>0)
+        {
+            if(passwordText.getText().length() > 0)
+            {
+                int enter = evt.getKeyChar();
+                if (enter == KeyEvent.VK_ENTER)
+                {
+                    entrar();
+                }
+            }
+            else
+            {
+                passwordText.requestFocus();
+                entrar.setEnabled(false);
+            }
+            entrar.setEnabled(true);
+        }
     }//GEN-LAST:event_passwordTextKeyTyped
 
     private void usuarioTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioTextFocusLost
@@ -352,13 +369,16 @@ public class WinLoging extends javax.swing.JDialog{
             {
                 entrar.setEnabled(true);
             }
+            else
+            {
+                entrar.setEnabled(false);
+            }
         }
         else
         {
             JOptionPane.showMessageDialog(null, "Aun no ha digitado su Usuario");
             usuarioText.requestFocus();
             entrar.setEnabled(false);
-            
         }
     }//GEN-LAST:event_passwordTextFocusLost
 
@@ -367,26 +387,12 @@ public class WinLoging extends javax.swing.JDialog{
     }//GEN-LAST:event_entrarMouseMoved
 
     private void entrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMousePressed
-        if(usuarioText.getText().length()>0)
-        {
-            if(passwordText.getText().length()>0)
-            {
-                entrar.setEnabled(true);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Aun no ha digitado su Contraseña");
-                passwordText.requestFocus();
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Aun no ha digitado su Usuario");
-            usuarioText.requestFocus();
-            entrar.setEnabled(false);
-            
-        }
+        
     }//GEN-LAST:event_entrarMousePressed
+
+    private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
+        
+    }//GEN-LAST:event_entrarMouseClicked
 
     /**
      * @param args the command line arguments
