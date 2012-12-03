@@ -47,6 +47,7 @@ public class WinDetalleFacturaCredito extends javax.swing.JDialog {
         jTableDetalleFacturaCredito = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setModal(true);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));

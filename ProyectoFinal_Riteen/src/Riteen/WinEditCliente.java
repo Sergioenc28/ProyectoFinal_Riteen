@@ -50,6 +50,7 @@ public class WinEditCliente extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setTitle("Riteen - Editar Cliente");
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(730, 510));
         setResizable(false);
 

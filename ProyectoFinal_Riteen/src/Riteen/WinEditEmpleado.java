@@ -69,6 +69,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         jButton1.setText("jButton1");
 
         setTitle("Riteen - Empleados");
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(750, 501));
         setResizable(false);
 

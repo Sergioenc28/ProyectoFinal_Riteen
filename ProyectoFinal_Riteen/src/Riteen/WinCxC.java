@@ -83,6 +83,7 @@ public class WinCxC extends javax.swing.JDialog {
         cancelarProducto.setText("Cancelar");
 
         setTitle("Riteen - Cuentas por Cobrar");
+        setModal(true);
         setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));

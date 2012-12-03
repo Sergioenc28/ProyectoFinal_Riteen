@@ -44,6 +44,7 @@ public class GeneraNomina extends javax.swing.JDialog {
         cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setModal(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
@@ -115,8 +116,8 @@ public class GeneraNomina extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verEmpleados)
@@ -133,12 +134,12 @@ public class GeneraNomina extends javax.swing.JDialog {
 
     private void verEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verEmpleadosActionPerformed
         limpiarTabla();
-        buscarEmpleados();
     }//GEN-LAST:event_verEmpleadosActionPerformed
 
     private void generarNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarNominaActionPerformed
         limpiarTabla();
         buscarSueldo();
+        buscarIdEmpleado();                
         generarNomina();
     }//GEN-LAST:event_generarNominaActionPerformed
 
@@ -148,8 +149,8 @@ public class GeneraNomina extends javax.swing.JDialog {
     
      private ResultSet rs;
      private DefaultTableModel dtm;
-     private PreparedStatement read;         
-     private java.sql.PreparedStatement add;     
+     private PreparedStatement read; 
+     private java.sql.PreparedStatement add;
      
      void limpiarTabla(){
     
@@ -158,90 +159,90 @@ public class GeneraNomina extends javax.swing.JDialog {
         }
      }
      
-     void buscarEmpleados(){
-        try {                 
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, sueldo FROM empleados");
-            rs = (ResultSet) read.executeQuery();                       
-            dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
-            
-            while (rs.next()) {
-                Object [] fila = new Object[1];             
-           
-                for (int i=0;i<fila.length;i++) {
-                    JOptionPane.showMessageDialog(null, "toy aki");
-                    fila[i] = rs.getObject(i+1);
-                }
-             
-                dtm.addRow(fila);
-            
-                if(fila.length == 0){                         
-                    JOptionPane.showMessageDialog(null, "no se encontro nada");            
-                }           
-            }                                                                                       
-        } 
-                        
-        catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-    }
-     
      double sueldoBruto;
      private void buscarSueldo(){
      
      try{
           PreparedStatement total;
           ResultSet resul;
-                 total = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT Sueldo FROM empleados");                   
+                 total =  (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT Sueldo FROM empleados");
                  resul = (ResultSet) total.executeQuery();
-                    
-                    while (resul.next() == true){                        
-                        sueldoBruto = resul.getDouble(1);      
-                        generarNomina();
+                                  
+                    while (resul.next() == true){                
+                        sueldoBruto = resul.getDouble(1);
+                    }                    
+            }
+            
+            catch(SQLException ex){
+                System.out.print("Error"+ ex.getMessage());
+            }
+     }    
+     
+     int idEmpleado = 0;
+     private void buscarIdEmpleado(){     
+     try{
+          PreparedStatement buscarID;
+                buscarID =  (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado FROM empleados");
+                ResultSet poo;        
+                poo = (ResultSet) buscarID.executeQuery();
+                    while (poo.next()){
+                        idEmpleado = poo.getInt(1);
                     }
+                buscarID.close();
                     
-            }catch(SQLException ex){
+            }
+            
+            catch(SQLException ex){
                 System.out.print("Error"+ ex.getMessage());
             }     
-     } 
+     }       
      
-    void generarNomina(){             
+    void generarNomina(){
+        System.out.println("IDEmpleado: " +idEmpleado);
+        System.out.println("Sueldo Bruto: "+sueldoBruto);
         
         double sfs = sueldoBruto * 0.0304;
         double afp = sueldoBruto * 0.0287;
         double isr = 0;
         
-        sueldoBruto = sueldoBruto - (sfs + afp);
+        double sueldoBrutocalc = sueldoBruto - (sfs + afp);
                 
-        if (sueldoBruto < 33326.93){
+        if (sueldoBrutocalc < 33326.93){
             isr = 0;
         }
 							
-        if(sueldoBruto > 33326.92 && sueldoBruto < 49990.34){
-            isr = 49990.33 - sueldoBruto;
+        if(sueldoBrutocalc > 33326.92 && sueldoBrutocalc < 49990.34){
+            isr = 49990.33 - sueldoBrutocalc;
             isr = isr * 0.15;
         }							
     
-        if(sueldoBruto > 49990.33 && sueldoBruto < 69430.93){
-            isr = 69430.93 - sueldoBruto;
+        if(sueldoBrutocalc > 49990.33 && sueldoBrutocalc < 69430.93){
+            isr = 69430.93 - sueldoBrutocalc;
             isr = isr * 0.2;
             isr = isr + 2499.5;
         }
-							
-        if(sueldoBruto > 69430.92){
-            isr = sueldoBruto * 0.25;
+     							
+        if(sueldoBrutocalc > 69430.92){
+            isr = sueldoBrutocalc * 0.25;
             isr = isr + 6387.67;							
         }
         
         double totalDescuentos = isr + afp + sfs;    
-        double sueldoNeto = sueldoBruto - isr;           
+        double sueldoNeto;
+        sueldoNeto = sueldoBrutocalc - isr;           
         
-        try {                                              
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO nomina (AFP, SFS, ISR, Total_Deduc, Sueldo_Neto )VALUES (?, ?, ?, ?, ?)");
-            add.setDouble(1, afp);
-            add.setDouble(2, sfs);
-            add.setDouble(3, isr);
-            add.setDouble(4, totalDescuentos);
-            add.setDouble(5, sueldoNeto);
+        System.out.println("sueldoNeto: "+sueldoNeto);
+        
+        try {            
+            
+            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO nomina (idEmpleado, sueldoBruto, AFP, SFS, ISR, TotalDeduc, sueldoNeto )VALUES (?, ?, ?, ?, ?, ?, ?)");
+            add.setInt(1, idEmpleado);
+            add.setDouble(2, sueldoBruto);
+            add.setDouble(3, afp);
+            add.setDouble(4, sfs);
+            add.setDouble(5, isr);
+            add.setDouble(6, totalDescuentos);
+            add.setDouble(7, sueldoNeto);
             
             int exitoso = add.executeUpdate();
            
@@ -249,15 +250,15 @@ public class GeneraNomina extends javax.swing.JDialog {
                 add.close();
             }
             else {                            
-                JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");           
+                JOptionPane.showMessageDialog(null, "No se puede registrar el empleado");
             }
             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT AFP, SFS, ISR, Total_Deduc, Sueldo_Neto FROM nomina");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, sueldoBruto, AFP, SFS, ISR, TotalDeduc, sueldoNeto FROM nomina");
             rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
             
             while (rs.next()) {            
-                Object [] fila = new Object[5];
+                Object [] fila = new Object[7];
            
                 for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);

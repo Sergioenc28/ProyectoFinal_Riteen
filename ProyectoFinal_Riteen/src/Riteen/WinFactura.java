@@ -31,6 +31,7 @@ public class WinFactura extends JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Factura");
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(660, 480));
         setResizable(false);
 

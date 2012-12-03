@@ -51,6 +51,7 @@ public class WinEditCxP extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Cuentas por Pagar");
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(750, 510));
         setResizable(false);
 

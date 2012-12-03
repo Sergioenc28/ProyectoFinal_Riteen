@@ -94,6 +94,7 @@ public class WinProducto extends javax.swing.JDialog {
         popupMenu1.setLabel("popupMenu1");
 
         setTitle("Riteen - Agregar Productos");
+        setModal(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N

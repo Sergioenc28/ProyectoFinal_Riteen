@@ -48,6 +48,7 @@ public class WinCrearUsuario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Crear Usuario");
+        setModal(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N

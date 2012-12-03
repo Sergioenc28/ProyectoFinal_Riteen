@@ -53,6 +53,7 @@ public class WinCliente extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
 
         setTitle("Riteen - Registro de Clientes");
+        setModal(true);
         setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));

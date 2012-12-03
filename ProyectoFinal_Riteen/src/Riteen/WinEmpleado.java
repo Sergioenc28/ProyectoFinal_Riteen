@@ -49,6 +49,7 @@ public class WinEmpleado extends javax.swing.JDialog {
 
         setTitle("Reteen - Registro de Empleados");
         setBackground(new java.awt.Color(204, 204, 204));
+        setModal(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N

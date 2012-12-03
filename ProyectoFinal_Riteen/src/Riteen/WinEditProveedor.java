@@ -51,6 +51,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Proveedores");
+        setModal(true);
         setPreferredSize(new java.awt.Dimension(750, 550));
         setResizable(false);
 

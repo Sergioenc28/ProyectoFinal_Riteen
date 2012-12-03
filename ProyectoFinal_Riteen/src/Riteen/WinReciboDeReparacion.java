@@ -59,6 +59,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
 
         setTitle("Riteen - Recibo de Reparación");
+        setModal(true);
         setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));

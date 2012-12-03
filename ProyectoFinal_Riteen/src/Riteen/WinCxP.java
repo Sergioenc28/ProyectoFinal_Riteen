@@ -74,6 +74,7 @@ public class WinCxP extends javax.swing.JDialog {
         jScrollPane1.setViewportView(descripcionGastoText);
 
         setTitle("Riteen - Cuenta por Pagar");
+        setModal(true);
         setResizable(false);
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
