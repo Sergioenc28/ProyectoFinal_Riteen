@@ -6,11 +6,7 @@ package Riteen;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 /**
  *
