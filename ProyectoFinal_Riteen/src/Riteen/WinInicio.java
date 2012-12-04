@@ -45,8 +45,7 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
-        agregarUsuarioJMenu = new javax.swing.JMenu();
-        agregaUsuario = new javax.swing.JMenuItem();
+        crearUsuarioMenu = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         salirSistema = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -82,22 +81,13 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
 
         jMenuArchivo.setText("Archivo");
 
-        agregarUsuarioJMenu.setText("Agregar Usuario");
-        agregarUsuarioJMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                agregarUsuarioJMenuMousePressed(evt);
-            }
-        });
-
-        agregaUsuario.setText("Agregar Usuario");
-        agregaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        crearUsuarioMenu.setText("Crear Usuario");
+        crearUsuarioMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregaUsuarioActionPerformed(evt);
+                crearUsuarioMenuActionPerformed(evt);
             }
         });
-        agregarUsuarioJMenu.add(agregaUsuario);
-
-        jMenuArchivo.add(agregarUsuarioJMenu);
+        jMenuArchivo.add(crearUsuarioMenu);
 
         jMenuItem9.setText("Cerrar Sesión");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
@@ -365,25 +355,6 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
         wrdp.setVisible(true);   
     }//GEN-LAST:event_RegReparacionActionPerformed
 
-    private void agregarUsuarioJMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarUsuarioJMenuMousePressed
-        // TODO add your handling code here:
-
-        //Nota: Con este ejemplo pondremos el Administrador a crear usuario y solo se creara si tiene los permisos...
-
-        /*String usuarioActual="sergio";
-
-        System.out.println(usuarioActual);
-
-        if(usuarioActual.equalsIgnoreCase("sergio"))
-        {
-            JOptionPane.showMessageDialog(null, "Podra crear usuario");
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Usted notiene permisos del Administrador para crear usuarios");
-        }*/
-    }//GEN-LAST:event_agregarUsuarioJMenuMousePressed
-
     private void salirSistemaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirSistemaMousePressed
         // TODO add your handling code here:
         int opc = JOptionPane.showConfirmDialog(null, "Seguro que desea salir del sistema", "Salir", JOptionPane.YES_NO_OPTION);
@@ -393,15 +364,6 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
         }
 
     }//GEN-LAST:event_salirSistemaMousePressed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void agregaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaUsuarioActionPerformed
-        WinCrearUsuario wcu = new WinCrearUsuario(this, true);
-        wcu.setVisible(true);
-    }//GEN-LAST:event_agregaUsuarioActionPerformed
 
     private void admGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admGastosActionPerformed
         WinEditGasto weg = new WinEditGasto();
@@ -581,6 +543,19 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
         } 
     }//GEN-LAST:event_reciboReparacionReporteActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        
+         this.setVisible(false);
+        WinLoging wl = new WinLoging();
+        wl.setVisible(true);
+       
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void crearUsuarioMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearUsuarioMenuActionPerformed
+      WinCrearUsuario wcu = new WinCrearUsuario(this, true);
+        wcu.setVisible(true);
+    }//GEN-LAST:event_crearUsuarioMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -628,9 +603,8 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
     private javax.swing.JMenuItem RegReparacion;
     private javax.swing.JMenuItem admGastos;
     private javax.swing.JMenuItem adminNomina;
-    private javax.swing.JMenuItem agregaUsuario;
-    private javax.swing.JMenu agregarUsuarioJMenu;
     private javax.swing.JMenuItem clienteReporte;
+    private javax.swing.JMenuItem crearUsuarioMenu;
     private javax.swing.JMenuItem cxcReporte;
     private javax.swing.JMenuItem cxpReporte;
     private javax.swing.JMenuItem empleadoReporte;
