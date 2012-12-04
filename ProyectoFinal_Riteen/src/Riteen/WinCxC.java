@@ -379,7 +379,7 @@ public class WinCxC extends javax.swing.JDialog {
             
             if(casoCxC == 2){
                 add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE cuentasxcobrar SET Descripcion = '"+descripcionCxCText.getText()+"', Concepto = '"
-                      + conceptoCxCText.getText()+"', Cedula = '"+cedulaCxCText.getText()+"', Telefono = '"+telefonoCxCText.getText()+"', Deudor = '"+nombreDeudorCxCText1.getText()+"', Plazo = '"+plazoCxCText.getText()+"', total = '"+totalCxCText.getText()+"' WHERE idCliente =  "+ idCxC);                
+                      + conceptoCxCText.getText()+"', Cedula = '"+cedulaCxCText.getText()+"', Telefono = '"+telefonoCxCText.getText()+"', Deudor = '"+nombreDeudorCxCText1.getText()+"', Plazo = '"+plazoCxCText.getText()+"', total = '"+totalCxCText.getText()+"' WHERE idCuentaXCobrar =  "+ idCxC);
             }
             
             int exitoso = add.executeUpdate();

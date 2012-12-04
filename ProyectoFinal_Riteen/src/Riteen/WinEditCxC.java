@@ -282,11 +282,11 @@ public class WinEditCxC extends javax.swing.JDialog {
           
            wcxc.idCxC = (dtm.getValueAt(jTableCXC.getSelectedRow(), 0).toString() );
            wcxc.fechaCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 1).toString());
-           wcxc.cedulaCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 2).toString());
-           wcxc.telefonoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 3).toString());
-           wcxc.nombreDeudorCxCText1.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 4).toString());
-           wcxc.plazoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 5).toString());
-           wcxc.conceptoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 6).toString());
+           wcxc.cedulaCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 4).toString());
+           wcxc.telefonoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 5).toString());
+           wcxc.nombreDeudorCxCText1.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 6).toString());
+           wcxc.plazoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 7).toString());
+           wcxc.conceptoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 3).toString());
            wcxc.descripcionCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 2).toString());                                                       
            wcxc.totalCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 8).toString());
            wcxc.setVisible(true);
