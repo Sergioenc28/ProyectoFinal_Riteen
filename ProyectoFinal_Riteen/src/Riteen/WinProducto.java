@@ -42,7 +42,7 @@ public class WinProducto extends javax.swing.JDialog {
         conn.Conexion();
         
             try{
-                 proveedores = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT nombre FROM proveedores");
+                 proveedores = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT idProveedor FROM proveedores");
                     
                  while(proveedores.next()){
                  nombreDelProveedor = proveedores.getString(1).toString();

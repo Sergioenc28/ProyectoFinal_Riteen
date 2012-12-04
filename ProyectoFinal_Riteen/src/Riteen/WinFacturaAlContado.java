@@ -221,35 +221,37 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 .addComponent(cancelarFacturaAlContadoJButton)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(agregaProductoFacturaAlContadoButton)
-                            .addGap(35, 35, 35)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(clienteExisteFacturaAlContadoJCheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(clienteFacturaAlContadoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(clienteFacturaAlContadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nuevoClienteFacturaAlContadoJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tituloJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fechaActualJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(nuevoClienteFacturaAlContadoJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tituloJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fechaActualJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(5, 5, 5)
-                        .addComponent(totalFacturaAlContadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(5, 5, 5)
+                                .addComponent(totalFacturaAlContadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(agregaProductoFacturaAlContadoButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel1))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(clienteExisteFacturaAlContadoJCheckBox)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(clienteFacturaAlContadoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(clienteFacturaAlContadoText))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,10 +304,12 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 
                 add.setString(1, date.toUpperCase());
                 
+                //Verificar si sea ha ingresado un cliente el textField
                 if (clienteFacturaAlContadoText.getText().length() > 0){
                 add.setString(2,clienteFacturaAlContadoText.getText());
                 }
                 
+                //Si no hay me lo toma del comboBox
                 else{
                 add.setString(2,clienteFacturaAlContadoComboBox.getSelectedItem().toString());
                 }
@@ -314,8 +318,9 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 add.executeUpdate();
                 add.close();
                
-                int numeroDeFilas = tablaDeFacturaAlContado.getSelectedRows().length;
-        for (int i = 0; i < numeroDeFilas; i++) {
+            int numeroDeFilas = tablaDeFacturaAlContado.getSelectedRows().length;
+            
+            for (int i = 0; i < numeroDeFilas; i++) {
             
             
             int idproducto = ((Integer) tablaDeFacturaAlContado.getValueAt(i,0)).intValue();
@@ -323,7 +328,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             int precio = ((Integer) tablaDeFacturaAlContado.getValueAt(i ,2)).intValue();
             int cantidad = ((Integer) tablaDeFacturaAlContado.getValueAt(i,3)).intValue();
           
-        
+                //Buscar idFactura para escribirlo en la tabla detalles_factura
                 ResultSet buscarID;
                 buscarID = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT idFactura FROM factura_cotando");
 
@@ -346,7 +351,8 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 
                    }
         this.dispose();
-        try{
+            
+            //Conectar para poder generar el reporte
             Connection conexion;
            
             conexion = DriverManager.getConnection(url,login,password);
@@ -354,7 +360,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             System.out.println("Generando Factura");       
        
           
-           
+           //Mostrar el reporte
             JasperReport report = JasperCompileManager.compileReport("ReporteFinal.jrxml");
             JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
             JasperViewer visor = new JasperViewer(jasperprint,false);
@@ -362,13 +368,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             visor.setVisible(true);
           
 
-        }
-        catch(SQLException | JRException e){
-          
-           JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-        JOptionPane.showMessageDialog(null, "La factura se ha generado correctamente");
+      
+        
+                 JOptionPane.showMessageDialog(null, "La factura se ha generado correctamente");
                  
+                 //Eliminar la tabla carrito
                  PreparedStatement del;
                  del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
                  del.executeUpdate();
@@ -376,13 +380,14 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 
         
         
-        }
-            catch (SQLException ex) {
-             JOptionPane.showMessageDialog(this, ex.getMessage());
+        } 
+            catch (JRException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
             }
-            catch (NumberFormatException nf){
+            catch (NumberFormatException | NullPointerException np){
             JOptionPane.showMessageDialog(this, "Parece que faltan datos para poder generar la factura");
             }
+            
             
     
      
