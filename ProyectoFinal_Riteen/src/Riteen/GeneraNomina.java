@@ -8,6 +8,8 @@ import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -152,6 +154,9 @@ public class GeneraNomina extends javax.swing.JDialog {
      private DefaultTableModel dtm;
      private PreparedStatement read; 
      private java.sql.PreparedStatement add;
+     List<String> listaEmpleados = new ArrayList<String>();
+     List<Integer> listaIDEmpleados = new ArrayList<Integer>();
+     List<Double> listaSueldo = new ArrayList<Double>();
      
      void limpiarTabla(){
     
@@ -169,6 +174,7 @@ public class GeneraNomina extends javax.swing.JDialog {
                 poo = (ResultSet) buscarEmpleado.executeQuery();
                     while (poo.next()){
                         empleado = poo.getString(1);
+                        listaEmpleados.add(empleado);
                     }
                 buscarEmpleado.close();
                     
@@ -178,11 +184,10 @@ public class GeneraNomina extends javax.swing.JDialog {
                 System.out.print("Error"+ ex.getMessage());
             }     
      }
-     double sueldoBruto;
-     WinEmpleado we = new WinEmpleado();
      
+     double sueldoBruto;     
      private void buscarSueldo(){
-        int cantSuel = we.sueldoEmpleadoText.getText().length();
+        
         try{
           PreparedStatement total;
           ResultSet resul;
@@ -191,6 +196,7 @@ public class GeneraNomina extends javax.swing.JDialog {
                                   
                     while (resul.next() == true){                
                         sueldoBruto = resul.getDouble(1);
+                        listaSueldo.add(sueldoBruto);
                     }
                     total.close();
             }
@@ -209,6 +215,7 @@ public class GeneraNomina extends javax.swing.JDialog {
                 poo = (ResultSet) buscarID.executeQuery();
                     while (poo.next()){
                         idEmpleado = poo.getInt(1);
+                        listaIDEmpleados.add(idEmpleado);
                     }
                 buscarID.close();
                     
@@ -220,14 +227,13 @@ public class GeneraNomina extends javax.swing.JDialog {
      }       
      
     void generarNomina(){
-        System.out.println("IDEmpleado: " +idEmpleado);
-        System.out.println("Sueldo Bruto: "+sueldoBruto);
         
-        double sfs = sueldoBruto * 0.0304;
-        double afp = sueldoBruto * 0.0287;
+        for(int j  = 0; j < listaIDEmpleados.size(); j++){
+        double sfs = listaSueldo.get(j) * 0.0304;
+        double afp = listaSueldo.get(j) * 0.0287;
         double isr = 0;
         
-        double sueldoBrutocalc = sueldoBruto - (sfs + afp);
+        double sueldoBrutocalc = listaSueldo.get(j) - (sfs + afp);
                 
         if (sueldoBrutocalc < 33326.93){
             isr = 0;
@@ -253,14 +259,12 @@ public class GeneraNomina extends javax.swing.JDialog {
         double sueldoNeto;
         sueldoNeto = sueldoBrutocalc - isr;           
         
-        System.out.println("sueldoNeto: "+sueldoNeto);
         
         try {            
-            
             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO nomina (idEmpleado, empleado, sueldoBruto, AFP, SFS, ISR, TotalDeduc, sueldoNeto )VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            add.setInt(1, idEmpleado);
-            add.setString(2, empleado.toUpperCase());
-            add.setDouble(3, sueldoBruto);
+            add.setInt(1, listaIDEmpleados.get(j));
+            add.setString(2, listaEmpleados.get(j));
+            add.setDouble(3, listaSueldo.get(j));
             add.setDouble(4, afp);
             add.setDouble(5, sfs);
             add.setDouble(6, isr);
@@ -297,6 +301,7 @@ public class GeneraNomina extends javax.swing.JDialog {
         
         catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
         }
     }
      

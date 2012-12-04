@@ -179,7 +179,7 @@
           <Color blue="99" green="99" red="99" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Detalle de Factura al Contado"/>
+        <Property name="text" type="java.lang.String" value="Facturas"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
