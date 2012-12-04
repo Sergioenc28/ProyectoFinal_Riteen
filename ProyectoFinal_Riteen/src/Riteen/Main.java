@@ -10,7 +10,7 @@ package Riteen;
  *
  * @author Harim Tejada
  */
-public class Main {
+public class Main implements Runnable{
 
     /**
      * @param args the command line arguments
@@ -20,5 +20,16 @@ public class Main {
        WinLoging wl = new WinLoging();
        wl.setVisible(true);
        
+       
+       RelojRiteen reloj = new RelojRiteen();
+       System.out.println("El reloj esta listopara iniciar");
+       reloj.run();
+       
+       
+    }
+
+    @Override
+    public void run() {
+        
     }
 }

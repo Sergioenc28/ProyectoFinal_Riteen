@@ -25,7 +25,9 @@ public class PanelInicio extends javax.swing.JPanel {
         UsuarioActual us = new UsuarioActual();
         us.setUsuarioActivo();
         usuarioActualJLabel.setText(us.getUsuarioActivo());
-        
+        Fecha f = new Fecha();
+        f.setFechaActualDelSistema(null);
+        fecha.setText(f.getFechaActualDelSistema());
     }
     
     
@@ -67,12 +69,14 @@ public class PanelInicio extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         salirButton = new javax.swing.JButton();
         usuarioActualJLabel = new javax.swing.JLabel();
+        fecha = new javax.swing.JLabel();
+        relojInicio = new javax.swing.JLabel();
 
         clientesButton.setOpaque(false);
         clientesButton.setContentAreaFilled(false);
         clientesButton.setBorderPainted(false);
         clientesButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        clientesButton.setForeground(new java.awt.Color(51, 51, 51));
+        clientesButton.setForeground(new java.awt.Color(102, 102, 102));
         clientesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/group2.png"))); // NOI18N
         clientesButton.setText("CLIENTES");
         clientesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -97,7 +101,7 @@ public class PanelInicio extends javax.swing.JPanel {
         empleadosButton.setContentAreaFilled(false);
         empleadosButton.setBorderPainted(false);
         empleadosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        empleadosButton.setForeground(new java.awt.Color(51, 51, 51));
+        empleadosButton.setForeground(new java.awt.Color(102, 102, 102));
         empleadosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
         empleadosButton.setText("EMPLEADOS");
         empleadosButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -122,7 +126,7 @@ public class PanelInicio extends javax.swing.JPanel {
         proveedoresButton.setContentAreaFilled(false);
         proveedoresButton.setBorderPainted(false);
         proveedoresButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        proveedoresButton.setForeground(new java.awt.Color(51, 51, 51));
+        proveedoresButton.setForeground(new java.awt.Color(102, 102, 102));
         proveedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
         proveedoresButton.setText("PROVEEDORES");
         proveedoresButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -147,7 +151,7 @@ public class PanelInicio extends javax.swing.JPanel {
         almacenButton.setContentAreaFilled(false);
         almacenButton.setBorderPainted(false);
         almacenButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        almacenButton.setForeground(new java.awt.Color(51, 51, 51));
+        almacenButton.setForeground(new java.awt.Color(102, 102, 102));
         almacenButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacen.png"))); // NOI18N
         almacenButton.setText("ALMACEN");
         almacenButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -172,7 +176,7 @@ public class PanelInicio extends javax.swing.JPanel {
         facturasButton.setContentAreaFilled(false);
         facturasButton.setBorderPainted(false);
         facturasButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        facturasButton.setForeground(new java.awt.Color(51, 51, 51));
+        facturasButton.setForeground(new java.awt.Color(102, 102, 102));
         facturasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/task_completed_256.png"))); // NOI18N
         facturasButton.setText("FACTURAS");
         facturasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -197,7 +201,7 @@ public class PanelInicio extends javax.swing.JPanel {
         reparacionesButton.setContentAreaFilled(false);
         reparacionesButton.setBorderPainted(false);
         reparacionesButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        reparacionesButton.setForeground(new java.awt.Color(51, 51, 51));
+        reparacionesButton.setForeground(new java.awt.Color(102, 102, 102));
         reparacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reparacion.png"))); // NOI18N
         reparacionesButton.setText("REPARACIONES");
         reparacionesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -222,7 +226,7 @@ public class PanelInicio extends javax.swing.JPanel {
         ayudaButton.setContentAreaFilled(false);
         ayudaButton.setBorderPainted(false);
         ayudaButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        ayudaButton.setForeground(new java.awt.Color(51, 51, 51));
+        ayudaButton.setForeground(new java.awt.Color(102, 102, 102));
         ayudaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/help.png"))); // NOI18N
         ayudaButton.setText("AYUDA");
         ayudaButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -247,7 +251,7 @@ public class PanelInicio extends javax.swing.JPanel {
         cuentasButton.setContentAreaFilled(false);
         cuentasButton.setBorderPainted(false);
         cuentasButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        cuentasButton.setForeground(new java.awt.Color(51, 51, 51));
+        cuentasButton.setForeground(new java.awt.Color(102, 102, 102));
         cuentasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
         cuentasButton.setText("CUENTAS");
         cuentasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -272,7 +276,7 @@ public class PanelInicio extends javax.swing.JPanel {
         pedidosButton.setContentAreaFilled(false);
         pedidosButton.setBorderPainted(false);
         pedidosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        pedidosButton.setForeground(new java.awt.Color(51, 51, 51));
+        pedidosButton.setForeground(new java.awt.Color(102, 102, 102));
         pedidosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
         pedidosButton.setText("PEDIDOS");
         pedidosButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -411,6 +415,14 @@ public class PanelInicio extends javax.swing.JPanel {
         usuarioActualJLabel.setForeground(new java.awt.Color(255, 255, 255));
         usuarioActualJLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
+        fecha.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        fecha.setForeground(new java.awt.Color(255, 255, 255));
+        fecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        relojInicio.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        relojInicio.setForeground(new java.awt.Color(255, 255, 255));
+        relojInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -434,21 +446,23 @@ public class PanelInicio extends javax.swing.JPanel {
                                     .addComponent(facturasButton)
                                     .addComponent(cuentasButton))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CrearReciboButton)
-                                    .addComponent(crearFacturaButton))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(CrearReciboButton, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(crearFacturaButton, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(75, 75, 75)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(proveedoresButton)
                             .addComponent(reparacionesButton)
                             .addComponent(ayudaButton)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(116, 116, 116)
-                                .addComponent(notificacionesButton))))
+                                .addComponent(notificacionesButton))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(relojInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(proveedoresButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
@@ -457,6 +471,8 @@ public class PanelInicio extends javax.swing.JPanel {
                         .addGap(77, 77, 77)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(salirButton)))
                 .addGap(19, 19, 19))
         );
@@ -468,25 +484,29 @@ public class PanelInicio extends javax.swing.JPanel {
                         .addGap(35, 35, 35)
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(crearFacturaButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CrearReciboButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(notificacionesButton)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(crearFacturaButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CrearReciboButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(notificacionesButton)
+                                .addGap(21, 21, 21)
+                                .addComponent(relojInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(clientesButton)
-                            .addComponent(proveedoresButton))
+                        .addComponent(proveedoresButton)
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(reparacionesButton)
                             .addComponent(almacenButton)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(empleadosButton)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(empleadosButton)
+                            .addComponent(clientesButton))
                         .addGap(69, 69, 69)
                         .addComponent(facturasButton)
                         .addGap(67, 67, 67)
@@ -501,7 +521,8 @@ public class PanelInicio extends javax.swing.JPanel {
                         .addComponent(salirButton))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(usuarioActualJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -708,12 +729,14 @@ public class PanelInicio extends javax.swing.JPanel {
     private javax.swing.JToggleButton cuentasButton;
     private javax.swing.JToggleButton empleadosButton;
     private javax.swing.JToggleButton facturasButton;
+    private javax.swing.JLabel fecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton notificacionesButton;
     private javax.swing.JToggleButton pedidosButton;
     private javax.swing.JToggleButton proveedoresButton;
+    public javax.swing.JLabel relojInicio;
     private javax.swing.JToggleButton reparacionesButton;
     private javax.swing.JButton salirButton;
     public javax.swing.JLabel usuarioActualJLabel;
