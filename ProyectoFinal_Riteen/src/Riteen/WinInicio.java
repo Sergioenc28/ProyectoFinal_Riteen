@@ -207,7 +207,7 @@ public class WinInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RegClienteActionPerformed
 
     private void RegGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegGastoActionPerformed
-       WinGastos wg = new WinGastos();
+       WinGasto wg = new WinGasto();
        wg.setVisible(true);
     }//GEN-LAST:event_RegGastoActionPerformed
 

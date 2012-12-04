@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author Dioni Ripoll
  */
-public class WinGastos extends javax.swing.JDialog {
+public class WinGasto extends javax.swing.JDialog {
 
     /**
      * Creates new form WinGastos
      */
-    public WinGastos() {
+    public WinGasto() {
         initComponents();
         PanelGastos pg = new PanelGastos();
         this.add(pg, BorderLayout.CENTER);
@@ -114,7 +114,7 @@ public class WinGastos extends javax.swing.JDialog {
         });
 
         fechaGastosText.setEditable(false);
-        fechaGastosText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/m/yy"))));
+        fechaGastosText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
@@ -286,20 +286,20 @@ private PreparedStatement add;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WinGastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinGasto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WinGastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinGasto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WinGastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinGasto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WinGastos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(WinGasto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WinGastos().setVisible(true);
+                new WinGasto().setVisible(true);
             }
         });
     }
