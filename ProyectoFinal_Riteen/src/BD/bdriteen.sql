@@ -1,1 +1,1 @@
-UPDATE usuarios SET activo = 1
+SELECT userName,pass FROM usuarios WHERE userName = 'sergio' AND pass = 'a'

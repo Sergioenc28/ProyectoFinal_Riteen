@@ -21,6 +21,7 @@ public class WinCarrito extends javax.swing.JDialog {
         PanelReciboDeReparacion prdr = new PanelReciboDeReparacion();
         this.add(prdr, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+        jButtonAgregar.setEnabled(false);
     }
 
     /**
@@ -47,6 +48,11 @@ public class WinCarrito extends javax.swing.JDialog {
 
         jButtonAgregar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButtonAgregar.setText("Agregar");
+        jButtonAgregar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jButtonAgregarMouseMoved(evt);
+            }
+        });
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAgregarActionPerformed(evt);
@@ -65,8 +71,12 @@ public class WinCarrito extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Cantidad:");
 
-        cantidadText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        cantidadText.setCaretPosition(0);
+        cantidadText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        cantidadText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cantidadTextFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,11 +90,11 @@ public class WinCarrito extends javax.swing.JDialog {
                     .addComponent(jButtonAgregar))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jToggleButtonCancelarCantr)))
+                        .addComponent(jToggleButtonCancelarCantr))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,20 +117,35 @@ public class WinCarrito extends javax.swing.JDialog {
     
     private PreparedStatement add;
     private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
-       if (cantidadText.getText().length() < 1){
-       jButtonAgregar.disable();
-       }
-        
-        this.dispose();
-       
-        
-                               
+        this.dispose();                       
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
     private void jToggleButtonCancelarCantrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonCancelarCantrActionPerformed
         cantidadText.setText("0");
         this.dispose();
     }//GEN-LAST:event_jToggleButtonCancelarCantrActionPerformed
+
+    private void jButtonAgregarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAgregarMouseMoved
+        if(cantidadText.getText().length() > 0)
+        {
+            jButtonAgregar.setEnabled(true);
+        }
+        else
+        {
+            jButtonAgregar.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButtonAgregarMouseMoved
+
+    private void cantidadTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cantidadTextFocusLost
+        if(cantidadText.getText().length() > 0)
+        {
+            jButtonAgregar.setEnabled(true);
+        }
+        else
+        {
+            jButtonAgregar.setEnabled(false);
+        }
+    }//GEN-LAST:event_cantidadTextFocusLost
  int cantidad(){
     int cantidad = Integer.parseInt(cantidadText.getText());
     
@@ -169,7 +194,7 @@ public class WinCarrito extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JFormattedTextField cantidadText;
+    private javax.swing.JFormattedTextField cantidadText;
     public javax.swing.JButton jButtonAgregar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
