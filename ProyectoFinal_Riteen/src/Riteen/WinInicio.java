@@ -38,6 +38,9 @@ public class WinInicio extends javax.swing.JFrame {
         salirSistema = new javax.swing.JMenuItem();
         agregarUsuarioJMenu = new javax.swing.JMenu();
         agregaUsuario = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        admGastos = new javax.swing.JMenuItem();
+        adminNomina = new javax.swing.JMenuItem();
         jMenuRegistrar = new javax.swing.JMenu();
         RegEmpleado = new javax.swing.JMenuItem();
         RegCliente = new javax.swing.JMenuItem();
@@ -92,6 +95,26 @@ public class WinInicio extends javax.swing.JFrame {
         jMenuArchivo.add(agregarUsuarioJMenu);
 
         jMenuBar1.add(jMenuArchivo);
+
+        jMenu1.setText("Administrar");
+
+        admGastos.setText("Gastos");
+        admGastos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admGastosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(admGastos);
+
+        adminNomina.setText("Nomina");
+        adminNomina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminNominaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(adminNomina);
+
+        jMenuBar1.add(jMenu1);
 
         jMenuRegistrar.setText("Registrar");
 
@@ -287,6 +310,16 @@ public class WinInicio extends javax.swing.JFrame {
         wcu.setVisible(true);
     }//GEN-LAST:event_agregaUsuarioActionPerformed
 
+    private void admGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admGastosActionPerformed
+        WinEditGasto weg = new WinEditGasto();
+        weg.setVisible(true);
+    }//GEN-LAST:event_admGastosActionPerformed
+
+    private void adminNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminNominaActionPerformed
+        GeneraNomina gn = new GeneraNomina(this, true);
+        gn.setVisible(true);
+    }//GEN-LAST:event_adminNominaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,8 +365,11 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegProducto;
     private javax.swing.JMenuItem RegProveedor;
     private javax.swing.JMenuItem RegReparacion;
+    private javax.swing.JMenuItem admGastos;
+    private javax.swing.JMenuItem adminNomina;
     private javax.swing.JMenuItem agregaUsuario;
     private javax.swing.JMenu agregarUsuarioJMenu;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;

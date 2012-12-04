@@ -334,12 +334,13 @@ public class WinProducto extends javax.swing.JDialog {
             int precio = Integer.parseInt(precioVentaProductoText.getText());
             int existencia = Integer.parseInt(existenciaActualDelProductoText.getText());
             int existenciaMinima = Integer.parseInt(existenciaMinimaDelProductoText.getText());
+            int idProveedor = Integer.parseInt( proveedorProductoComboBox.getSelectedItem().toString());
             if(casoProducto == 1)
             {             
                 add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO almacen (Nombre, Descripcion, idProveedor, Costo, PrecioDeVenta, Existencia, ExistenciaMinima) VALUES (?, ?, ?, ?, ?, ?, ?)");
                 add.setString(1, productoText.getText().toUpperCase());
                 add.setString(2, descripcionProductoTextArea.getText().toUpperCase());
-                add.setInt(3, 1);
+                add.setInt(3,idProveedor);
                 add.setInt(4, costo);
                 add.setInt(5, precio);
                 add.setInt(6, existencia);
