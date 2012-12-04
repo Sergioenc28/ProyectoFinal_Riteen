@@ -220,7 +220,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
 
     private void jTableEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmpleadosMouseClicked
       if( jTableEmpleados.getSelectedRows().length > 0 ) { 
-          
+          this.dispose();
            WinEmpleado wp = new WinEmpleado();
            wp.casoEmpleado = 2;           
           
@@ -231,7 +231,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
            wp.cedulaEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 4).toString());
            wp.sueldoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 5).toString());
            wp.cargoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 7).toString());
-            this.dispose();
+           
            wp.setVisible(true);
           
          }

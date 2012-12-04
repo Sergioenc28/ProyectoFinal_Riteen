@@ -356,7 +356,12 @@ public class WinEmpleado extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
        
-       this.dispose();       
+       this.dispose(); 
+       if (casoEmpleado == 2){
+       WinEditEmpleado we = new WinEditEmpleado();
+       we.setVisible(true);
+       this.dispose();
+       }
         }
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
 
