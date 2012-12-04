@@ -331,7 +331,7 @@ public class WinEmpleado extends javax.swing.JDialog {
                 add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE empleados SET Nombre = '"+
                     nombreEmpleadoText.getText()+"',Telefono = '"+telefonoEmpleadoText.getText()+
                     "',Direccion = '"+ direccionEmpleadoText.getText()+"', Cedula = '"+ cedulaEmpleadoText.getText()+
-                    "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +", Cargo = '"+ cargoEmpleadoText.getText() +"' WHERE idEmpleado="+id);
+                    "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +"', Cargo = '"+ cargoEmpleadoText.getText() +"' WHERE idEmpleado="+id);
             }
             
             int exitoso = add.executeUpdate();
@@ -365,9 +365,15 @@ public class WinEmpleado extends javax.swing.JDialog {
     }//GEN-LAST:event_horarioEmpleadoJComboBoxMousePressed
 
     private void cancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEmpleadoActionPerformed
-        if(evt.getSource() == cancelarEmpleado){
+        if(this.casoEmpleado == 1){
             this.dispose();
-        }               
+        }
+        
+        if(this.casoEmpleado == 2){
+            this.dispose();
+            WinEditEmpleado wee = new WinEditEmpleado();
+            wee.setVisible(true);
+        }        
     }//GEN-LAST:event_cancelarEmpleadoActionPerformed
 
     private void cargoEmpleadoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoEmpleadoTextActionPerformed

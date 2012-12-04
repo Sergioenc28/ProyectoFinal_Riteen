@@ -229,7 +229,9 @@ public class WinEditEmpleado extends javax.swing.JDialog {
            wp.direccionEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 3).toString());
            wp.cedulaEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 4).toString());
            wp.sueldoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 5).toString());
+            this.dispose();
            wp.setVisible(true);
+          
          }
     }//GEN-LAST:event_jTableEmpleadosMouseClicked
      
@@ -248,7 +250,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      void buscarEmpleados(){
      try {      
            
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, telefono, direccion, cedula, sueldo, horario, cargo FROM empleados WHERE nombre LIKE '%"+ empleadoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, telefono, direccion, cedula, sueldo, horario FROM empleados WHERE nombre LIKE '%"+ empleadoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -257,7 +259,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[8]; 
+            Object [] fila = new Object[7]; 
             
            
             for (int i=0;i<fila.length;i++) {
