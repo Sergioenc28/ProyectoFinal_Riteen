@@ -46,6 +46,8 @@ public class WinEmpleado extends javax.swing.JDialog {
         cedulaEmpleadoText = new javax.swing.JFormattedTextField();
         sueldoEmpleadoText = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel00 = new javax.swing.JLabel();
+        cargoEmpleadoText = new javax.swing.JTextField();
 
         setTitle("Reteen - Registro de Empleados");
         setBackground(new java.awt.Color(204, 204, 204));
@@ -149,6 +151,19 @@ public class WinEmpleado extends javax.swing.JDialog {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
 
+        jLabel00.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel00.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel00.setText("Cargo");
+
+        cargoEmpleadoText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        cargoEmpleadoText.setMinimumSize(new java.awt.Dimension(3, 20));
+        cargoEmpleadoText.setPreferredSize(new java.awt.Dimension(4, 20));
+        cargoEmpleadoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargoEmpleadoTextActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,14 +178,17 @@ public class WinEmpleado extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel6))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel00)
+                                .addComponent(jLabel6)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(sueldoEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(87, 87, 87)
                                 .addComponent(horarioEmpleadoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(direccionEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(direccionEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cargoEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -222,15 +240,19 @@ public class WinEmpleado extends javax.swing.JDialog {
                     .addComponent(jLabel7)
                     .addComponent(horarioEmpleadoJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sueldoEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel00)
+                    .addComponent(cargoEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(direccionEmpleadoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarEmpleado)
                     .addComponent(cancelarEmpleado))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -294,7 +316,7 @@ public class WinEmpleado extends javax.swing.JDialog {
             String comboBoxHorarioEmpleado = (String) horarioEmpleadoJComboBox.getSelectedItem();
             
             if (casoEmpleado == 1 ){
-                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario) VALUES (?, ?, ?, ?, ?, ?)");
+                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO empleados (Nombre, Telefono, Direccion, Cedula, Sueldo, Horario, Cargo) VALUES (?, ?, ?, ?, ?, ?, ?)");
             
                 add.setString(1, nombreEmpleadoText.getText().toUpperCase());
                 add.setString(2, telefonoEmpleadoText.getText().toUpperCase());
@@ -302,13 +324,14 @@ public class WinEmpleado extends javax.swing.JDialog {
                 add.setString(4, cedulaEmpleadoText.getText().toUpperCase());
                 add.setDouble(5, sueldo);
                 add.setString(6, comboBoxHorarioEmpleado);
+                add.setString(7, cargoEmpleadoText.getText().toUpperCase());
             }
             
             if (casoEmpleado == 2){
                 add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE empleados SET Nombre = '"+
                     nombreEmpleadoText.getText()+"',Telefono = '"+telefonoEmpleadoText.getText()+
                     "',Direccion = '"+ direccionEmpleadoText.getText()+"', Cedula = '"+ cedulaEmpleadoText.getText()+
-                    "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +"' WHERE idEmpleado="+id);
+                    "',Sueldo = "+sueldo+",Horario = '"+ comboBoxHorarioEmpleado +", Cargo = '"+ cargoEmpleadoText.getText() +"' WHERE idEmpleado="+id);
             }
             
             int exitoso = add.executeUpdate();
@@ -320,6 +343,7 @@ public class WinEmpleado extends javax.swing.JDialog {
                 cedulaEmpleadoText.setText("");
                 telefonoEmpleadoText.setText("");
                 sueldoEmpleadoText.setText("");
+                cargoEmpleadoText.setText("");
                 add.close();
             }
             
@@ -345,6 +369,10 @@ public class WinEmpleado extends javax.swing.JDialog {
             this.dispose();
         }               
     }//GEN-LAST:event_cancelarEmpleadoActionPerformed
+
+    private void cargoEmpleadoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoEmpleadoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cargoEmpleadoTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,10 +413,12 @@ public class WinEmpleado extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarEmpleado;
+    public javax.swing.JTextField cargoEmpleadoText;
     public javax.swing.JFormattedTextField cedulaEmpleadoText;
     public javax.swing.JTextField direccionEmpleadoText;
     public javax.swing.JButton guardarEmpleado;
     public javax.swing.JComboBox horarioEmpleadoJComboBox;
+    private javax.swing.JLabel jLabel00;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
