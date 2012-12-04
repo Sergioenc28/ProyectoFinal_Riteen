@@ -171,9 +171,9 @@ public class GeneraNomina extends javax.swing.JDialog {
      private DefaultTableModel dtm;
      private PreparedStatement read; 
      private java.sql.PreparedStatement add;
-     List<String> listaEmpleados = new ArrayList<String>();
-     List<Integer> listaIDEmpleados = new ArrayList<Integer>();
-     List<Double> listaSueldo = new ArrayList<Double>();
+     List<String> listaEmpleados = new ArrayList<>();
+     List<Integer> listaIDEmpleados = new ArrayList<>();
+     List<Double> listaSueldo = new ArrayList<>();
      
      void limpiarTabla(){    
         while(jTableGeneraNomina.getRowCount()>0){
