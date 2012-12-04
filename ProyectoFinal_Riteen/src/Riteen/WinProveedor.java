@@ -175,6 +175,35 @@ public class WinProveedor extends javax.swing.JDialog{
     String idProveedor;
     
     private void guardarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProveedorActionPerformed
+        
+        int prueba = 1;
+        if(proveedorText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del Proveedor");
+            proveedorText.requestFocus();
+            prueba = 0;
+        }
+        else if(telefonoProveedorText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Teléfono");
+            telefonoProveedorText.requestFocus();
+            prueba = 0;
+        }
+        else if(emailProveedorText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el e-mail");
+            emailProveedorText.requestFocus();
+            prueba = 0;
+        }
+        else if(direccionProveedorText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese la dirección");
+            direccionProveedorText.requestFocus();
+            prueba = 0;
+        }        
+        
+        if(prueba == 1)
+        {
         try {
            
             if (casoProveedor == 1){
@@ -212,6 +241,7 @@ public class WinProveedor extends javax.swing.JDialog{
         }
         
         this.dispose();
+        }
     }//GEN-LAST:event_guardarProveedorActionPerformed
 
     /**

@@ -328,7 +328,43 @@ public class WinProducto extends javax.swing.JDialog {
      
      private PreparedStatement add;
     private void guardarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoActionPerformed
-      try {
+      
+        int prueba = 1;
+        if(productoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del Producto");
+            productoText.requestFocus();
+            prueba = 0;
+        }
+        else if(costoProductoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Costo");
+            costoProductoText.requestFocus();
+            prueba = 0;
+        }
+        else if(precioVentaProductoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Precio de Venta");
+            precioVentaProductoText.requestFocus();
+            prueba = 0;
+        }
+        else if(existenciaActualDelProductoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese la Existencia en Almacén");
+            existenciaActualDelProductoText.requestFocus();
+            prueba = 0;
+        }
+        
+        else if(existenciaMinimaDelProductoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese la Existencia Mínima");
+            existenciaMinimaDelProductoText.requestFocus();
+            prueba = 0;
+        }
+        
+        if(prueba == 1)
+        {
+        try {
             
             int costo = Integer.parseInt(costoProductoText.getText());
             int precio = Integer.parseInt(precioVentaProductoText.getText());
@@ -378,7 +414,7 @@ public class WinProducto extends javax.swing.JDialog {
        }
        
        this.dispose(); 
-      
+       }
     }//GEN-LAST:event_guardarProductoActionPerformed
 
     private void proveedorProductoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorProductoComboBoxActionPerformed

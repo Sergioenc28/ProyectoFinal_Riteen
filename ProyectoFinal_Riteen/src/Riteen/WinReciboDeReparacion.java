@@ -255,7 +255,48 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
      String idReciboReparacion;
      private PreparedStatement add;
     private void guardarReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarReparacionActionPerformed
-           
+        int prueba = 1;
+        if(articuloReparacionText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Artículo");
+            articuloReparacionText.requestFocus();
+            prueba = 0;
+        }
+        else if(marcaReparacionText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese la Marca del Artículo");
+            marcaReparacionText.requestFocus();
+            prueba = 0;
+        }
+        else if(modeloReparacionText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Modelo del Artículo");
+            modeloReparacionText.requestFocus();
+            prueba = 0;
+        }
+        else if(clienteReparacionText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Cliente");
+            clienteReparacionText.requestFocus();
+            prueba = 0;
+        }
+        
+        else if(telefonoReparacionText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Telefono");
+            telefonoReparacionText.requestFocus();
+            prueba = 0;
+        }
+        
+        else if(plazoTextfield.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Plazo");
+            plazoTextfield.requestFocus();
+            prueba = 0;
+        }
+        
+        if(prueba == 1)
+        {
             try {
            
             if(casoReciboReparacion == 1)
@@ -301,6 +342,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         }
             
         this.dispose();
+        }
     }//GEN-LAST:event_guardarReparacionActionPerformed
 
     /**

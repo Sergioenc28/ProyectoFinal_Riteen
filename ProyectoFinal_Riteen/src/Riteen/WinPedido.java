@@ -181,7 +181,28 @@ public class WinPedido extends javax.swing.JDialog {
     String idPedido;
     private PreparedStatement add;
     private void agregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarPedidoActionPerformed
-      
+        int prueba = 1;
+        if(productoPedidoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del Producto");
+            productoPedidoText.requestFocus();
+            prueba = 0;
+        }
+        else if(proveedorPedidoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Proveedor");
+            proveedorPedidoText.requestFocus();
+            prueba = 0;
+        }
+        else if(CantidadPedidoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese la Cantidad");
+            CantidadPedidoText.requestFocus();
+            prueba = 0;
+        }
+        
+        if(prueba == 1)
+        {
         int cantidad = Integer.parseInt(CantidadPedidoText.getText());
         try {
            
@@ -224,6 +245,7 @@ public class WinPedido extends javax.swing.JDialog {
            
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
+        }
     }//GEN-LAST:event_agregarPedidoActionPerformed
 
     private void CantidadPedidoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadPedidoTextActionPerformed

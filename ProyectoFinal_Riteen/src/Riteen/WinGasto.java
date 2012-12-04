@@ -226,31 +226,27 @@ private PreparedStatement add;
            
          int prueba = 1;
          
-         /*if(acreedorCxPText.getText().length()==0)
+         if(responsableGastosText.getText().length()==0)
          {
-             JOptionPane.showMessageDialog(null, "Ingrese el nombre del Acreedor");
-             acreedorCxPText.requestFocus();
+             JOptionPane.showMessageDialog(null, "Ingrese el Responsable");
+             responsableGastosText.requestFocus();
              prueba = 0;
          }
-         else if(conceptoCxPText.getText().length()==0)
+         
+         else if(conceptoGastoText.getText().length()==0)
          {
-             JOptionPane.showMessageDialog(null, "Ingrese el concepto de esta cuenta");
-             conceptoCxPText.requestFocus();
+             JOptionPane.showMessageDialog(null, "Ingrese el Concepto del Gasto");
+             conceptoGastoText.requestFocus();
              prueba = 0;
          }
-         else if(plazoCxPText.getText().length()==0)
+         
+         else if(totalGastotext.getText().length()==0)
          {
              JOptionPane.showMessageDialog(null, "Ingrese el plazo");
-             plazoCxPText.requestFocus();
+             totalGastotext.requestFocus();
              prueba = 0;
          }
-         else if(totalCxPText.getText().length()==0)
-         {
-             JOptionPane.showMessageDialog(null, "Ingrese el total de esta cuenta");
-             totalCxPText.requestFocus();
-             prueba = 0;
-         }*/
-
+         
          if(prueba == 1)
          {
 
