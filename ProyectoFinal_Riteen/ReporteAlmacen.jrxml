@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteAlmacen" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     almacen.`idProducto` AS almacen_idProducto,
+     almacen.`Nombre` AS almacen_Nombre,
+     almacen.`idProveedor` AS almacen_idProveedor,
+     almacen.`Costo` AS almacen_Costo,
+     almacen.`PrecioDeVenta` AS almacen_PrecioDeVenta,
+     almacen.`Existencia` AS almacen_Existencia
+FROM
+     `almacen` almacen]]>
+	</queryString>
+	<field name="almacen_idProducto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="almacen_Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="almacen_idProveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="almacen_Costo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="almacen_PrecioDeVenta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="almacen_Existencia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="136" y="64" width="291" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Century Gothic" size="22" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Productos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="171" y="6" width="266" height="58"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\Harim Tejada\\Desktop\\valeriotv.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="555" height="22"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="12" y="2" width="52" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IDPROD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="91" y="2" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="2" width="83" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[IDPROVEEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="2" width="49" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COSTO RD$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="2" width="108" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO VENTA RD$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="507" y="2" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXIST]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="514" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{almacen_Existencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="0" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{almacen_idProducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="0" width="128" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{almacen_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="0" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{almacen_idProveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="0" width="62" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{almacen_Costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="0" width="49" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{almacen_PrecioDeVenta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

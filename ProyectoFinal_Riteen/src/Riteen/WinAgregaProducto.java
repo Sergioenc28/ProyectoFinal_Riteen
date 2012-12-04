@@ -7,6 +7,7 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -87,6 +88,11 @@ public class WinAgregaProducto extends javax.swing.JDialog {
         jLabel2.setText("Agregar Productos");
 
         jButton1.setText("Finalizar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -205,7 +211,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
     
     private PreparedStatement add;
     private void jTableAgregarProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAgregarProductosMouseClicked
-      
+       
       if (jTableAgregarProductos.getSelectedRows().length > 0 ){
       
       int idProducto = Integer.parseInt(dtm.getValueAt(jTableAgregarProductos.getSelectedRow(), 0).toString()); 
@@ -214,7 +220,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
      
           WinCarrito wc = new WinCarrito(null, rootPaneCheckingEnabled);
           wc.setVisible(true);
-          
+          WinFacturaAlContado wa = new WinFacturaAlContado(null, rootPaneCheckingEnabled);
           try {
                 
                 if (wc.cantidad() > 0){
@@ -229,11 +235,25 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                 add.setInt(4, wc.cantidad());
                 add.setInt(5, subtotal); 
                 int agregado =add.executeUpdate();
-                if (agregado == 1){
+                if (agregado >= 1){
+               
+               String sql = "UPDATE almacen SET existencia = existencia-"+ wc.cantidad()+" WHERE idProducto="+ idProducto;
+               PreparedStatement  actualizarCantidad;
+               actualizarCantidad = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement(sql);
+                int a = actualizarCantidad.executeUpdate();  
+                if (a == 1){
+                JOptionPane.showMessageDialog(this, "se ha descontado el producto del almancen");
                 
-                JOptionPane.showMessageDialog(this, "El producto " + producto +" se ha agregado a la factura");
+                actualizarCantidad.close();
+                }
+                
+                    
+                    add.close();
+                 
                 
                 }
+                
+                
               
                 }
                 
@@ -248,7 +268,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
       
        }
     }//GEN-LAST:event_jTableAgregarProductosMouseClicked
-
+   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
         WinInicio wi = new WinInicio();        
@@ -262,13 +282,18 @@ public class WinAgregaProducto extends javax.swing.JDialog {
             WinFacturaAlContado wfc = new WinFacturaAlContado(null, rootPaneCheckingEnabled);
             wfc.setVisible(true);
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+                 
+                 // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MousePressed
     
     private PreparedStatement read;
     private ResultSet rs;
     private DefaultTableModel dtm;
     void buscarProductos(){
      try {                             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, Nombre, Descripcion, PrecioDeVenta,ExistenciaMinima FROM almacen WHERE nombre LIKE '%"
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idProducto, Nombre, Descripcion, PrecioDeVenta,Existencia FROM almacen WHERE nombre LIKE '%"
                     + buscar.getText() +"%'");
           
             rs = (ResultSet) read.executeQuery();

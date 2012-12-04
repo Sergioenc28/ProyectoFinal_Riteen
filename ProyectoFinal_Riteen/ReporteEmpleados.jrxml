@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteEmpleados" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     empleados.`idEmpleado` AS empleados_idEmpleado,
+     empleados.`Nombre` AS empleados_Nombre,
+     empleados.`Telefono` AS empleados_Telefono,
+     empleados.`Direccion` AS empleados_Direccion,
+     empleados.`Cedula` AS empleados_Cedula,
+     empleados.`Sueldo` AS empleados_Sueldo,
+     empleados.`Horario` AS empleados_Horario
+FROM
+     `empleados` empleados]]>
+	</queryString>
+	<field name="empleados_idEmpleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="empleados_Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="empleados_Telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="empleados_Direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="empleados_Cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="empleados_Sueldo" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="empleados_Horario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<image>
+				<reportElement x="182" y="0" width="266" height="58"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\Harim Tejada\\Desktop\\valeriotv.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="138" y="58" width="291" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Century Gothic" size="22" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de Empleados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="555" height="21"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="71" y="1" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="487" y="1" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUELDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="1" width="72" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="1" width="34" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="1" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="1" width="73" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HORARIO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="7" y="0" width="64" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{empleados_idEmpleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empleados_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="0" width="74" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empleados_Telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="0" width="81" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empleados_Cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{empleados_Horario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$F{empleados_Sueldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

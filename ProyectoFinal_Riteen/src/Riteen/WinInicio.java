@@ -5,13 +5,24 @@
 package Riteen;
 
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author Harim Tejada
  */
-public class WinInicio extends javax.swing.JFrame {
+public class WinInicio extends javax.swing.JFrame implements VConexion{
     /**
      * Creates new form WinInicio
      */
@@ -205,33 +216,83 @@ public class WinInicio extends javax.swing.JFrame {
         jMenu2.setText("Reportes");
 
         clienteReporte.setText("Clientes");
+        clienteReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(clienteReporte);
 
         cxcReporte.setText("Cuentas por Cobrar");
+        cxcReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cxcReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(cxcReporte);
 
         cxpReporte.setText("Cuentas por Pagar");
+        cxpReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cxpReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(cxpReporte);
 
-        empleadoReporte.setText("Empleado");
+        empleadoReporte.setText("Empleados");
+        empleadoReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empleadoReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(empleadoReporte);
 
-        facturaReporte.setText("Factura");
+        facturaReporte.setText("Facturas");
+        facturaReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facturaReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(facturaReporte);
 
         gastoReporte.setText("Gastos");
+        gastoReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gastoReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(gastoReporte);
 
         pedidoReporte.setText("Pedidos");
+        pedidoReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pedidoReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(pedidoReporte);
 
         productoReporte.setText("Productos");
+        productoReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productoReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(productoReporte);
 
-        proveedorReporte.setText("Proveedor");
+        proveedorReporte.setText("Proveedores");
+        proveedorReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedorReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(proveedorReporte);
 
-        reciboReparacionReporte.setText("Recibo Reparación");
+        reciboReparacionReporte.setText("Reparaciones");
+        reciboReparacionReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reciboReparacionReporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(reciboReparacionReporte);
 
         jMenuBar1.add(jMenu2);
@@ -351,6 +412,174 @@ public class WinInicio extends javax.swing.JFrame {
         GeneraNomina gn = new GeneraNomina(this, true);
         gn.setVisible(true);
     }//GEN-LAST:event_adminNominaActionPerformed
+
+    private void proveedorReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorReporteActionPerformed
+       Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReporteProveedores.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Proveedores");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
+    }//GEN-LAST:event_proveedorReporteActionPerformed
+
+    private void clienteReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteReporteActionPerformed
+       Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReporteClientes.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Clientes");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+            
+    }//GEN-LAST:event_clienteReporteActionPerformed
+
+    private void cxcReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxcReporteActionPerformed
+       Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReporteCuentasPorCobrar.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Cuentas por Cobrar");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_cxcReporteActionPerformed
+
+    private void cxpReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxpReporteActionPerformed
+       Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReporteCuentasPorPagar.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Cuentas por Pagar");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    
+    }//GEN-LAST:event_cxpReporteActionPerformed
+
+    private void empleadoReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadoReporteActionPerformed
+     Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReporteEmpleados.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Empleados");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }   
+    }//GEN-LAST:event_empleadoReporteActionPerformed
+
+    private void facturaReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturaReporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_facturaReporteActionPerformed
+
+    private void gastoReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastoReporteActionPerformed
+       Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReporteGastos.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Gastos");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
+    }//GEN-LAST:event_gastoReporteActionPerformed
+
+    private void pedidoReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidoReporteActionPerformed
+       Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReportePedidos.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Pedidos");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
+    }//GEN-LAST:event_pedidoReporteActionPerformed
+
+    private void productoReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoReporteActionPerformed
+        Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("ReporteAlmacen.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Productos");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
+    }//GEN-LAST:event_productoReporteActionPerformed
+
+    private void reciboReparacionReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboReparacionReporteActionPerformed
+     Connection conexion;
+       WinAgregaProducto wa = new WinAgregaProducto();
+           
+           //Mostrar el reporte
+            JasperReport report;
+        try {
+             conexion = DriverManager.getConnection(url,login,password);
+            report = JasperCompileManager.compileReport("RerporteReparaciones.jrxml");
+            JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+            JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Reporte de Reparaciones");
+            visor.setVisible(true);
+        } catch (SQLException | JRException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        } 
+    }//GEN-LAST:event_reciboReparacionReporteActionPerformed
 
     /**
      * @param args the command line arguments

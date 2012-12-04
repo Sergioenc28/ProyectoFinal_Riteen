@@ -61,7 +61,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        finalizarFacturaAlContadoJButton = new javax.swing.JButton();
+        finalizarFacturaJButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         totalFacturaAlContadoText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -79,7 +79,6 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Riteen - Factura al Contado");
-        setPreferredSize(new java.awt.Dimension(680, 500));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -90,11 +89,11 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             }
         });
 
-        finalizarFacturaAlContadoJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        finalizarFacturaAlContadoJButton.setText("Facturar");
-        finalizarFacturaAlContadoJButton.addActionListener(new java.awt.event.ActionListener() {
+        finalizarFacturaJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        finalizarFacturaJButton.setText("Facturar");
+        finalizarFacturaJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalizarFacturaAlContadoJButtonActionPerformed(evt);
+                finalizarFacturaJButtonActionPerformed(evt);
             }
         });
 
@@ -216,7 +215,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(242, 242, 242)
-                .addComponent(finalizarFacturaAlContadoJButton)
+                .addComponent(finalizarFacturaJButton)
                 .addGap(28, 28, 28)
                 .addComponent(cancelarFacturaAlContadoJButton)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -281,7 +280,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                     .addComponent(jLabel10))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(finalizarFacturaAlContadoJButton)
+                    .addComponent(finalizarFacturaJButton)
                     .addComponent(cancelarFacturaAlContadoJButton))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -289,10 +288,12 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void finalizarFacturaAlContadoJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarFacturaAlContadoJButtonActionPerformed
-          
+    private void finalizarFacturaJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarFacturaJButtonActionPerformed
+            
         PreparedStatement add;
         PreparedStatement addFactFinal;
+        
+      
         
         try {
                 int total = Integer.parseInt(totalFacturaAlContadoText.getText());
@@ -327,7 +328,8 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             String producto =  ((String) tablaDeFacturaAlContado.getValueAt(i,1)).toString();
             int precio = ((Integer) tablaDeFacturaAlContado.getValueAt(i ,2)).intValue();
             int cantidad = ((Integer) tablaDeFacturaAlContado.getValueAt(i,3)).intValue();
-          
+           
+                
                 //Buscar idFactura para escribirlo en la tabla detalles_factura
                 ResultSet buscarID;
                 buscarID = (ResultSet) Conexion.getInstancia().hacerConsulta("SELECT idFactura FROM factura_cotando");
@@ -338,6 +340,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                          
                     }
                 buscarID.close();
+            
                 
                 addFactFinal = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO detalles_facturas "
                         + "(idFact, idProducto, Nombre, Cantidad, Precio, Subtotal) VALUES (?, ?, ?, ?, ?,?)");
@@ -347,9 +350,21 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 addFactFinal.setInt(4, cantidad);
                 addFactFinal.setInt(5, precio);
                 addFactFinal.setInt(6, cantidad * precio);
-                addFactFinal.execute();
+                addFactFinal.executeUpdate();
                 
-                   }
+                 addFactFinal.close();
+                 add.close();
+                 PreparedStatement  actualizarCantidad;
+                 
+                
+                 String sql = "UPDATE almacen SET existencia = existencia-"+ cantidad+" WHERE idProducto="+ idproducto;
+                 actualizarCantidad = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement(sql);
+                 actualizarCantidad.executeUpdate();  
+                 actualizarCantidad.close();
+                 JOptionPane.showMessageDialog(this, "se ha descontado el producto del almancen");
+                
+            }
+           
         this.dispose();
             
             //Conectar para poder generar el reporte
@@ -359,27 +374,23 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             
             System.out.println("Generando Factura");       
        
-          
+            WinAgregaProducto wa = new WinAgregaProducto();
+           
            //Mostrar el reporte
             JasperReport report = JasperCompileManager.compileReport("ReporteFinal.jrxml");
             JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
             JasperViewer visor = new JasperViewer(jasperprint,false);
             visor.setTitle("Riteen - Factura");
             visor.setVisible(true);
-          
-
       
         
                  JOptionPane.showMessageDialog(null, "La factura se ha generado correctamente");
                  
-                 //Eliminar la tabla carrito
+                 //Vaciar la tabla carrito
                  PreparedStatement del;
                  del = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DElETE FROM carrito");
                  del.executeUpdate();
-                 del.close();
-                
-        
-        
+                 del.close();    
         } 
             catch (JRException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -389,9 +400,9 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
             }
             
             
-    
+         
      
-    }//GEN-LAST:event_finalizarFacturaAlContadoJButtonActionPerformed
+    }//GEN-LAST:event_finalizarFacturaJButtonActionPerformed
 
     private void totalFacturaAlContadoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalFacturaAlContadoTextActionPerformed
         // TODO add your handling code here:
@@ -610,13 +621,13 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregaProductoFacturaAlContadoButton;
-    private javax.swing.JButton cancelarFacturaAlContadoJButton;
+    public javax.swing.JButton agregaProductoFacturaAlContadoButton;
+    public javax.swing.JButton cancelarFacturaAlContadoJButton;
     private javax.swing.JCheckBox clienteExisteFacturaAlContadoJCheckBox;
     private javax.swing.JComboBox clienteFacturaAlContadoComboBox;
     private javax.swing.JTextField clienteFacturaAlContadoText;
     public javax.swing.JLabel fechaActualJLabel;
-    private javax.swing.JButton finalizarFacturaAlContadoJButton;
+    public javax.swing.JButton finalizarFacturaJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCuentasPorPagar" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     cuentas_por_pagar.`idCuentaXPagar` AS cuentas_por_pagar_idCuentaXPagar,
+     cuentas_por_pagar.`Fecha` AS cuentas_por_pagar_Fecha,
+     cuentas_por_pagar.`Descripcion` AS cuentas_por_pagar_Descripcion,
+     cuentas_por_pagar.`Concepto` AS cuentas_por_pagar_Concepto,
+     cuentas_por_pagar.`Acreedor` AS cuentas_por_pagar_Acreedor,
+     cuentas_por_pagar.`Plazo` AS cuentas_por_pagar_Plazo,
+     cuentas_por_pagar.`Total` AS cuentas_por_pagar_Total
+FROM
+     `cuentas_por_pagar` cuentas_por_pagar]]>
+	</queryString>
+	<field name="cuentas_por_pagar_idCuentaXPagar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentas_por_pagar_Fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentas_por_pagar_Descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentas_por_pagar_Concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentas_por_pagar_Acreedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentas_por_pagar_Plazo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentas_por_pagar_Total" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="99" splitType="Stretch">
+			<image>
+				<reportElement x="173" y="0" width="266" height="58"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\Harim Tejada\\Desktop\\valeriotv.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="155" y="59" width="291" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Century Gothic" size="22" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Cuentas Por Pagar]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="12" y="0" width="527" height="21"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="173" y="3" width="100" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONCEPTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="3" width="107" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACREEDOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="2" width="34" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="89" y="3" width="63" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="2" width="91" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLAZO(DIAS)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="2" width="71" height="23"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL RD$]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="27" y="0" width="48" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{cuentas_por_pagar_idCuentaXPagar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="0" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{cuentas_por_pagar_Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="173" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentas_por_pagar_Concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentas_por_pagar_Total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentas_por_pagar_Acreedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="0" width="49" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentas_por_pagar_Plazo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
