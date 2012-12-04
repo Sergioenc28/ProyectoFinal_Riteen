@@ -72,7 +72,7 @@ public class PanelInicio extends javax.swing.JPanel {
         clientesButton.setContentAreaFilled(false);
         clientesButton.setBorderPainted(false);
         clientesButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        clientesButton.setForeground(new java.awt.Color(102, 102, 102));
+        clientesButton.setForeground(new java.awt.Color(51, 51, 51));
         clientesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/group2.png"))); // NOI18N
         clientesButton.setText("CLIENTES");
         clientesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -97,7 +97,7 @@ public class PanelInicio extends javax.swing.JPanel {
         empleadosButton.setContentAreaFilled(false);
         empleadosButton.setBorderPainted(false);
         empleadosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        empleadosButton.setForeground(new java.awt.Color(102, 102, 102));
+        empleadosButton.setForeground(new java.awt.Color(51, 51, 51));
         empleadosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_accounts_256.png"))); // NOI18N
         empleadosButton.setText("EMPLEADOS");
         empleadosButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -122,7 +122,7 @@ public class PanelInicio extends javax.swing.JPanel {
         proveedoresButton.setContentAreaFilled(false);
         proveedoresButton.setBorderPainted(false);
         proveedoresButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        proveedoresButton.setForeground(new java.awt.Color(102, 102, 102));
+        proveedoresButton.setForeground(new java.awt.Color(51, 51, 51));
         proveedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
         proveedoresButton.setText("PROVEEDORES");
         proveedoresButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -147,7 +147,7 @@ public class PanelInicio extends javax.swing.JPanel {
         almacenButton.setContentAreaFilled(false);
         almacenButton.setBorderPainted(false);
         almacenButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        almacenButton.setForeground(new java.awt.Color(102, 102, 102));
+        almacenButton.setForeground(new java.awt.Color(51, 51, 51));
         almacenButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacen.png"))); // NOI18N
         almacenButton.setText("ALMACEN");
         almacenButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -172,7 +172,7 @@ public class PanelInicio extends javax.swing.JPanel {
         facturasButton.setContentAreaFilled(false);
         facturasButton.setBorderPainted(false);
         facturasButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        facturasButton.setForeground(new java.awt.Color(102, 102, 102));
+        facturasButton.setForeground(new java.awt.Color(51, 51, 51));
         facturasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/task_completed_256.png"))); // NOI18N
         facturasButton.setText("FACTURAS");
         facturasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -197,7 +197,7 @@ public class PanelInicio extends javax.swing.JPanel {
         reparacionesButton.setContentAreaFilled(false);
         reparacionesButton.setBorderPainted(false);
         reparacionesButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        reparacionesButton.setForeground(new java.awt.Color(102, 102, 102));
+        reparacionesButton.setForeground(new java.awt.Color(51, 51, 51));
         reparacionesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reparacion.png"))); // NOI18N
         reparacionesButton.setText("REPARACIONES");
         reparacionesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -222,7 +222,7 @@ public class PanelInicio extends javax.swing.JPanel {
         ayudaButton.setContentAreaFilled(false);
         ayudaButton.setBorderPainted(false);
         ayudaButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        ayudaButton.setForeground(new java.awt.Color(102, 102, 102));
+        ayudaButton.setForeground(new java.awt.Color(51, 51, 51));
         ayudaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/help.png"))); // NOI18N
         ayudaButton.setText("AYUDA");
         ayudaButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -247,7 +247,7 @@ public class PanelInicio extends javax.swing.JPanel {
         cuentasButton.setContentAreaFilled(false);
         cuentasButton.setBorderPainted(false);
         cuentasButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        cuentasButton.setForeground(new java.awt.Color(102, 102, 102));
+        cuentasButton.setForeground(new java.awt.Color(51, 51, 51));
         cuentasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
         cuentasButton.setText("CUENTAS");
         cuentasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -272,7 +272,7 @@ public class PanelInicio extends javax.swing.JPanel {
         pedidosButton.setContentAreaFilled(false);
         pedidosButton.setBorderPainted(false);
         pedidosButton.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        pedidosButton.setForeground(new java.awt.Color(102, 102, 102));
+        pedidosButton.setForeground(new java.awt.Color(51, 51, 51));
         pedidosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoping_basket.png"))); // NOI18N
         pedidosButton.setText("PEDIDOS");
         pedidosButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

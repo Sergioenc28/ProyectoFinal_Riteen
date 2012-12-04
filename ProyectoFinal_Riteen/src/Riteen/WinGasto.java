@@ -224,44 +224,71 @@ private PreparedStatement add;
 
         try {
            
-           
-            
-            int total = Integer.parseInt(totalGastotext.getText());
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO gastos (Fecha, Responsable, Concepto, Total , Descripcion) VALUES (?, ?, ?, ?, ?)");
-            
-            add.setString(1, fechaGastosText.getText().toUpperCase());
-            add.setString(2, responsableGastosText.getText().toUpperCase());
-            add.setString(3, conceptoGastoText.getText().toUpperCase());
-            add.setString(4, totalGastotext.getText().toUpperCase());
-            add.setString(5, descripcionGastoText.getText().toUpperCase());
-            
-            
-            int exitoso = add.executeUpdate();
-           
-            if (exitoso > 0){
-            JOptionPane.showMessageDialog(null, "Registro Exitoso");
-            conceptoGastoText.setText("");
-            descripcionGastoText.setText("");
-            fechaGastosText.setText("");
-            totalGastotext.setText("");
-            
-            add.close();
-            }
-            else {
-            
-            JOptionPane.showMessageDialog(null, "No se puede registrar esta cuenta");
-           
-            }
-            
-           
-        } 
+         int prueba = 1;
          
-       catch(NumberFormatException | SQLException e){
-       
-            JOptionPane.showMessageDialog(null, e.getMessage());
-       }
-        
-        this.dispose();
+         /*if(acreedorCxPText.getText().length()==0)
+         {
+             JOptionPane.showMessageDialog(null, "Ingrese el nombre del Acreedor");
+             acreedorCxPText.requestFocus();
+             prueba = 0;
+         }
+         else if(conceptoCxPText.getText().length()==0)
+         {
+             JOptionPane.showMessageDialog(null, "Ingrese el concepto de esta cuenta");
+             conceptoCxPText.requestFocus();
+             prueba = 0;
+         }
+         else if(plazoCxPText.getText().length()==0)
+         {
+             JOptionPane.showMessageDialog(null, "Ingrese el plazo");
+             plazoCxPText.requestFocus();
+             prueba = 0;
+         }
+         else if(totalCxPText.getText().length()==0)
+         {
+             JOptionPane.showMessageDialog(null, "Ingrese el total de esta cuenta");
+             totalCxPText.requestFocus();
+             prueba = 0;
+         }*/
+
+         if(prueba == 1)
+         {
+
+             int total = Integer.parseInt(totalGastotext.getText());
+             add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO gastos (Fecha, Responsable, Concepto, Total , Descripcion) VALUES (?, ?, ?, ?, ?)");
+
+             add.setString(1, fechaGastosText.getText().toUpperCase());
+             add.setString(2, responsableGastosText.getText().toUpperCase());
+             add.setString(3, conceptoGastoText.getText().toUpperCase());
+             add.setString(4, totalGastotext.getText().toUpperCase());
+             add.setString(5, descripcionGastoText.getText().toUpperCase());
+
+
+             int exitoso = add.executeUpdate();
+
+            if (exitoso > 0){
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                conceptoGastoText.setText("");
+                descripcionGastoText.setText("");
+                fechaGastosText.setText("");
+                totalGastotext.setText("");
+
+                add.close();
+             }
+             
+             else {
+                JOptionPane.showMessageDialog(null, "No se puede registrar esta cuenta");
+             }
+
+            }  
+         } 
+
+        catch(NumberFormatException | SQLException e){
+
+             JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+         this.dispose();
     }//GEN-LAST:event_registrarGastoActionPerformed
 
     private void cancelarGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarGastoActionPerformed

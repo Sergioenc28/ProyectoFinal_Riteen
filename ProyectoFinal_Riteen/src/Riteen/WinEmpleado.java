@@ -257,7 +257,37 @@ public class WinEmpleado extends javax.swing.JDialog {
     int casoEmpleado = 0;    
     private PreparedStatement add;    
     private void guardarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEmpleadoActionPerformed
-     
+        int prueba = 1;
+        if(nombreEmpleadoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del Empleado");
+            nombreEmpleadoText.requestFocus();
+            prueba = 0;
+        }
+        
+        else if(telefonoEmpleadoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Teléfono");
+            telefonoEmpleadoText.requestFocus();
+            prueba = 0;
+        }
+        
+        else if(cedulaEmpleadoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese la Cédula");
+            cedulaEmpleadoText.requestFocus();
+            prueba = 0;
+        }
+        
+        else if(sueldoEmpleadoText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el Sueldo");
+            sueldoEmpleadoText.requestFocus();
+            prueba = 0;
+        }
+        
+        if(prueba == 1)
+        {
         try {
            
             sueldo= Double.parseDouble(sueldoEmpleadoText.getText());
@@ -303,7 +333,7 @@ public class WinEmpleado extends javax.swing.JDialog {
        }
        
        this.dispose();       
-       
+        }
     }//GEN-LAST:event_guardarEmpleadoActionPerformed
 
     private void horarioEmpleadoJComboBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horarioEmpleadoJComboBoxMousePressed
