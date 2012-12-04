@@ -34,24 +34,34 @@ public class WinInicio extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        salirSistema = new javax.swing.JMenuItem();
         agregarUsuarioJMenu = new javax.swing.JMenu();
         agregaUsuario = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        salirSistema = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         admGastos = new javax.swing.JMenuItem();
         adminNomina = new javax.swing.JMenuItem();
         jMenuRegistrar = new javax.swing.JMenu();
         RegEmpleado = new javax.swing.JMenuItem();
         RegCliente = new javax.swing.JMenuItem();
-        RegProveedor = new javax.swing.JMenuItem();
-        RegReparacion = new javax.swing.JMenuItem();
+        jMenuItemCuentaXCobrar = new javax.swing.JMenuItem();
+        RegDeuda = new javax.swing.JMenuItem();
         RegGasto = new javax.swing.JMenuItem();
         RegPedido = new javax.swing.JMenuItem();
         RegProducto = new javax.swing.JMenuItem();
-        RegDeuda = new javax.swing.JMenuItem();
-        jMenuItemCuentaXCobrar = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        RegProveedor = new javax.swing.JMenuItem();
+        RegReparacion = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        clienteReporte = new javax.swing.JMenuItem();
+        cxcReporte = new javax.swing.JMenuItem();
+        cxpReporte = new javax.swing.JMenuItem();
+        empleadoReporte = new javax.swing.JMenuItem();
+        facturaReporte = new javax.swing.JMenuItem();
+        gastoReporte = new javax.swing.JMenuItem();
+        pedidoReporte = new javax.swing.JMenuItem();
+        productoReporte = new javax.swing.JMenuItem();
+        proveedorReporte = new javax.swing.JMenuItem();
+        reciboReparacionReporte = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -60,22 +70,6 @@ public class WinInicio extends javax.swing.JFrame {
         setResizable(false);
 
         jMenuArchivo.setText("Archivo");
-
-        jMenuItem9.setText("Cerrar Sesión");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenuArchivo.add(jMenuItem9);
-
-        salirSistema.setText("Salir del Sistema");
-        salirSistema.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                salirSistemaMousePressed(evt);
-            }
-        });
-        jMenuArchivo.add(salirSistema);
 
         agregarUsuarioJMenu.setText("Agregar Usuario");
         agregarUsuarioJMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,6 +87,22 @@ public class WinInicio extends javax.swing.JFrame {
         agregarUsuarioJMenu.add(agregaUsuario);
 
         jMenuArchivo.add(agregarUsuarioJMenu);
+
+        jMenuItem9.setText("Cerrar Sesión");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenuArchivo.add(jMenuItem9);
+
+        salirSistema.setText("Salir del Sistema");
+        salirSistema.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                salirSistemaMousePressed(evt);
+            }
+        });
+        jMenuArchivo.add(salirSistema);
 
         jMenuBar1.add(jMenuArchivo);
 
@@ -134,21 +144,21 @@ public class WinInicio extends javax.swing.JFrame {
         });
         jMenuRegistrar.add(RegCliente);
 
-        RegProveedor.setText("Proveedor");
-        RegProveedor.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemCuentaXCobrar.setText("Cuenta por Cobrar");
+        jMenuItemCuentaXCobrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegProveedorActionPerformed(evt);
+                jMenuItemCuentaXCobrarActionPerformed(evt);
             }
         });
-        jMenuRegistrar.add(RegProveedor);
+        jMenuRegistrar.add(jMenuItemCuentaXCobrar);
 
-        RegReparacion.setText("Reparación");
-        RegReparacion.addActionListener(new java.awt.event.ActionListener() {
+        RegDeuda.setText("Cuenta por Pagar");
+        RegDeuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegReparacionActionPerformed(evt);
+                RegDeudaActionPerformed(evt);
             }
         });
-        jMenuRegistrar.add(RegReparacion);
+        jMenuRegistrar.add(RegDeuda);
 
         RegGasto.setText("Gasto");
         RegGasto.addActionListener(new java.awt.event.ActionListener() {
@@ -174,31 +184,57 @@ public class WinInicio extends javax.swing.JFrame {
         });
         jMenuRegistrar.add(RegProducto);
 
-        RegDeuda.setText("Deuda");
-        RegDeuda.addActionListener(new java.awt.event.ActionListener() {
+        RegProveedor.setText("Proveedor");
+        RegProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegDeudaActionPerformed(evt);
+                RegProveedorActionPerformed(evt);
             }
         });
-        jMenuRegistrar.add(RegDeuda);
+        jMenuRegistrar.add(RegProveedor);
 
-        jMenuItemCuentaXCobrar.setText("Cuenta por Cobrar");
-        jMenuItemCuentaXCobrar.addActionListener(new java.awt.event.ActionListener() {
+        RegReparacion.setText("Reparación");
+        RegReparacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCuentaXCobrarActionPerformed(evt);
+                RegReparacionActionPerformed(evt);
             }
         });
-        jMenuRegistrar.add(jMenuItemCuentaXCobrar);
-
-        jMenuItem1.setText("Producto");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenuRegistrar.add(jMenuItem1);
+        jMenuRegistrar.add(RegReparacion);
 
         jMenuBar1.add(jMenuRegistrar);
+
+        jMenu2.setText("Reportes");
+
+        clienteReporte.setText("Clientes");
+        jMenu2.add(clienteReporte);
+
+        cxcReporte.setText("Cuentas por Cobrar");
+        jMenu2.add(cxcReporte);
+
+        cxpReporte.setText("Cuentas por Pagar");
+        jMenu2.add(cxpReporte);
+
+        empleadoReporte.setText("Empleado");
+        jMenu2.add(empleadoReporte);
+
+        facturaReporte.setText("Factura");
+        jMenu2.add(facturaReporte);
+
+        gastoReporte.setText("Gastos");
+        jMenu2.add(gastoReporte);
+
+        pedidoReporte.setText("Pedidos");
+        jMenu2.add(pedidoReporte);
+
+        productoReporte.setText("Productos");
+        jMenu2.add(productoReporte);
+
+        proveedorReporte.setText("Proveedor");
+        jMenu2.add(proveedorReporte);
+
+        reciboReparacionReporte.setText("Recibo Reparación");
+        jMenu2.add(reciboReparacionReporte);
+
+        jMenuBar1.add(jMenu2);
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -267,10 +303,6 @@ public class WinInicio extends javax.swing.JFrame {
         wrdp.casoReciboReparacion = 1;
         wrdp.setVisible(true);   
     }//GEN-LAST:event_RegReparacionActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void agregarUsuarioJMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarUsuarioJMenuMousePressed
         // TODO add your handling code here:
@@ -369,14 +401,24 @@ public class WinInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem adminNomina;
     private javax.swing.JMenuItem agregaUsuario;
     private javax.swing.JMenu agregarUsuarioJMenu;
+    private javax.swing.JMenuItem clienteReporte;
+    private javax.swing.JMenuItem cxcReporte;
+    private javax.swing.JMenuItem cxpReporte;
+    private javax.swing.JMenuItem empleadoReporte;
+    private javax.swing.JMenuItem facturaReporte;
+    private javax.swing.JMenuItem gastoReporte;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemCuentaXCobrar;
     private javax.swing.JMenu jMenuRegistrar;
+    private javax.swing.JMenuItem pedidoReporte;
+    private javax.swing.JMenuItem productoReporte;
+    private javax.swing.JMenuItem proveedorReporte;
+    private javax.swing.JMenuItem reciboReparacionReporte;
     private javax.swing.JMenuItem salirSistema;
     // End of variables declaration//GEN-END:variables
 }

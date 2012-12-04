@@ -212,7 +212,7 @@ public class WinEditGasto extends javax.swing.JDialog {
      try {      
            
          
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idGastos, fecha, responsable, concepto, total FROM gastos WHERE responsable LIKE '%"+ gastoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idGasto, fecha, responsable, concepto, total FROM gastos WHERE responsable LIKE '%"+ gastoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            

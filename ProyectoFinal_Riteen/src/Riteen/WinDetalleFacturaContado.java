@@ -218,12 +218,12 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
      void buscarFacturasAlContado(){
      try {      
                        
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idFactura, Fecha, Cliente, Total  FROM factura_cotando WHERE NombreCliente LIKE '%"+ detalleFacturaText.getText() +"%'");           
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idFactura, Fecha, Cliente, Total  FROM factura_cotando WHERE Cliente LIKE '%"+ detalleFacturaText.getText() +"%'");
             rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.JTableDetalleFactura.getModel();
             
             while (rs.next()) {            
-                Object [] fila = new Object[5]; 
+                Object [] fila = new Object[4]; 
                         
                 for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);
