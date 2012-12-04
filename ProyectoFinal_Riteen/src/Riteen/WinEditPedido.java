@@ -46,11 +46,9 @@ public class WinEditPedido extends javax.swing.JDialog {
         verPedidosEdtBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTablePedidos = new javax.swing.JTable();
-        guardarEdtPedidosBoton = new javax.swing.JButton();
-        cancelarEdtPedidoBoton = new javax.swing.JButton();
         jToggleButtonAgregarPedido = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Pedidos");
         setModal(true);
         setPreferredSize(new java.awt.Dimension(750, 510));
@@ -111,20 +109,6 @@ public class WinEditPedido extends javax.swing.JDialog {
         });
         jScrollPane3.setViewportView(jTablePedidos);
 
-        guardarEdtPedidosBoton.setText("Guardar");
-        guardarEdtPedidosBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarEdtPedidosBotonActionPerformed(evt);
-            }
-        });
-
-        cancelarEdtPedidoBoton.setText("Cancelar");
-        cancelarEdtPedidoBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarEdtPedidoBotonActionPerformed(evt);
-            }
-        });
-
         jToggleButtonAgregarPedido.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jToggleButtonAgregarPedido.setText("Agregar Pedido");
         jToggleButtonAgregarPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +131,7 @@ public class WinEditPedido extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(verPedidosEdtBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jToggleButtonAgregarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jToggleButtonAgregarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(pedidoEdtText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buscarPedidosBoton))
@@ -158,13 +142,7 @@ public class WinEditPedido extends javax.swing.JDialog {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(guardarEdtPedidosBoton)
-                                .addGap(27, 27, 27)
-                                .addComponent(cancelarEdtPedidoBoton)
-                                .addGap(182, 182, 182)))))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -185,11 +163,7 @@ public class WinEditPedido extends javax.swing.JDialog {
                     .addComponent(jToggleButtonAgregarPedido))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarEdtPedidosBoton)
-                    .addComponent(cancelarEdtPedidoBoton))
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -198,14 +172,6 @@ public class WinEditPedido extends javax.swing.JDialog {
     private void pedidoEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidoEdtTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pedidoEdtTextActionPerformed
-
-    private void cancelarEdtPedidoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtPedidoBotonActionPerformed
-         this.dispose();      
-    }//GEN-LAST:event_cancelarEdtPedidoBotonActionPerformed
-
-    private void guardarEdtPedidosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEdtPedidosBotonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_guardarEdtPedidosBotonActionPerformed
 
     private void verPedidosEdtBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPedidosEdtBotonActionPerformed
         limpiarTabla();
@@ -317,8 +283,6 @@ public class WinEditPedido extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarPedidosBoton;
-    private javax.swing.JButton cancelarEdtPedidoBoton;
-    private javax.swing.JButton guardarEdtPedidosBoton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

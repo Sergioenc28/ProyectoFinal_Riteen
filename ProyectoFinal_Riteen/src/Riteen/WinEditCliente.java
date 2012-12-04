@@ -43,12 +43,11 @@ public class WinEditCliente extends javax.swing.JDialog {
         clienteEdtText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableClientes = new javax.swing.JTable();
-        guardarEditCliente = new javax.swing.JButton();
-        cancelarEdtCliente = new javax.swing.JButton();
         buscarClientesButton = new javax.swing.JButton();
         verClientesBoton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Editar Cliente");
         setModal(true);
         setPreferredSize(new java.awt.Dimension(730, 510));
@@ -95,17 +94,6 @@ public class WinEditCliente extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTableClientes);
         jTableClientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-
-        guardarEditCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarEditCliente.setText("Guardar");
-
-        cancelarEdtCliente.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarEdtCliente.setText("Cancelar");
-        cancelarEdtCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarEdtClienteActionPerformed(evt);
-            }
-        });
 
         buscarClientesButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         buscarClientesButton.setText("Buscar");
@@ -161,12 +149,6 @@ public class WinEditCliente extends javax.swing.JDialog {
                                 .addComponent(buscarClientesButton)))
                         .addGap(0, 56, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(guardarEditCliente)
-                .addGap(29, 29, 29)
-                .addComponent(cancelarEdtCliente)
-                .addGap(234, 234, 234))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,11 +168,7 @@ public class WinEditCliente extends javax.swing.JDialog {
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarEditCliente)
-                    .addComponent(cancelarEdtCliente))
-                .addGap(37, 37, 37))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -199,10 +177,6 @@ public class WinEditCliente extends javax.swing.JDialog {
     private void clienteEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteEdtTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_clienteEdtTextActionPerformed
-
-    private void cancelarEdtClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtClienteActionPerformed
-       this.dispose();        
-    }//GEN-LAST:event_cancelarEdtClienteActionPerformed
     private PreparedStatement read;
     private ResultSet rs;
     private DefaultTableModel dtm;
@@ -321,9 +295,7 @@ public class WinEditCliente extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarClientesButton;
-    private javax.swing.JButton cancelarEdtCliente;
     private javax.swing.JTextField clienteEdtText;
-    private javax.swing.JButton guardarEditCliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

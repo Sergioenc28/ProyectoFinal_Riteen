@@ -49,8 +49,6 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         verEmpleadosBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableEmpleados = new javax.swing.JTable();
-        guardarEdtEmpleadoBoton = new javax.swing.JButton();
-        cancelarEdtEmpleadoBoton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -68,7 +66,9 @@ public class WinEditEmpleado extends javax.swing.JDialog {
 
         jButton1.setText("jButton1");
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Riteen - Empleados");
+        setAlwaysOnTop(true);
         setModal(true);
         setPreferredSize(new java.awt.Dimension(750, 501));
         setResizable(false);
@@ -127,17 +127,6 @@ public class WinEditEmpleado extends javax.swing.JDialog {
         });
         jScrollPane3.setViewportView(jTableEmpleados);
 
-        guardarEdtEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarEdtEmpleadoBoton.setText("Guardar");
-
-        cancelarEdtEmpleadoBoton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarEdtEmpleadoBoton.setText("Cancelar");
-        cancelarEdtEmpleadoBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarEdtEmpleadoBotonActionPerformed(evt);
-            }
-        });
-
         jButton2.setText("Agregar Empleado");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,12 +160,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(empleadoEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(buscarEmpleadoBoton))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(guardarEdtEmpleadoBoton)
-                        .addGap(29, 29, 29)
-                        .addComponent(cancelarEdtEmpleadoBoton)))
+                                        .addComponent(buscarEmpleadoBoton)))))))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -198,11 +182,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
                     .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarEdtEmpleadoBoton)
-                    .addComponent(cancelarEdtEmpleadoBoton))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,10 +191,6 @@ public class WinEditEmpleado extends javax.swing.JDialog {
     private void empleadoEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadoEdtTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_empleadoEdtTextActionPerformed
-
-    private void cancelarEdtEmpleadoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarEdtEmpleadoBotonActionPerformed
-           this.dispose();    
-    }//GEN-LAST:event_cancelarEdtEmpleadoBotonActionPerformed
 
     private void buscarEmpleadoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarEmpleadoBotonActionPerformed
        limpiarTabla();
@@ -339,9 +315,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarEmpleadoBoton;
-    private javax.swing.JButton cancelarEdtEmpleadoBoton;
     private javax.swing.JTextField empleadoEdtText;
-    private javax.swing.JButton guardarEdtEmpleadoBoton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

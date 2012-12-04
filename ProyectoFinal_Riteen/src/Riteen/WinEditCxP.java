@@ -45,8 +45,6 @@ public class WinEditCxP extends javax.swing.JDialog {
         verCxPBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableCuentasPorCobrar = new javax.swing.JTable();
-        guardarCxPEdt = new javax.swing.JButton();
-        cancelarCxPEdt = new javax.swing.JButton();
         nuevaCxP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -104,17 +102,6 @@ public class WinEditCxP extends javax.swing.JDialog {
         });
         jScrollPane3.setViewportView(jTableCuentasPorCobrar);
 
-        guardarCxPEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarCxPEdt.setText("Guardar");
-
-        cancelarCxPEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarCxPEdt.setText("Cancelar");
-        cancelarCxPEdt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarCxPEdtActionPerformed(evt);
-            }
-        });
-
         nuevaCxP.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         nuevaCxP.setText("Nueva CxP");
         nuevaCxP.addActionListener(new java.awt.event.ActionListener() {
@@ -150,12 +137,6 @@ public class WinEditCxP extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(buscarCxPBoton)))))
                 .addGap(54, 54, 54))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(guardarCxPEdt)
-                .addGap(84, 84, 84)
-                .addComponent(cancelarCxPEdt)
-                .addGap(252, 252, 252))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,19 +157,11 @@ public class WinEditCxP extends javax.swing.JDialog {
                     .addComponent(nuevaCxP))
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarCxPEdt)
-                    .addComponent(cancelarCxPEdt))
-                .addGap(19, 19, 19))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cancelarCxPEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxPEdtActionPerformed
-         this.dispose();
-    }//GEN-LAST:event_cancelarCxPEdtActionPerformed
 
     private void verCxPBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verCxPBotonActionPerformed
         limpiarTabla();
@@ -301,9 +274,7 @@ public class WinEditCxP extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarCxPBoton;
-    private javax.swing.JButton cancelarCxPEdt;
     private javax.swing.JTextField cxpEdtText;
-    private javax.swing.JButton guardarCxPEdt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;

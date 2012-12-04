@@ -37,7 +37,6 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        guardarReciboReparacionEdt = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableReciboReparacion = new javax.swing.JTable();
         verBoton = new javax.swing.JButton();
@@ -46,7 +45,6 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        cancelarReciboReparacionEdt = new javax.swing.JButton();
         nuevoRecibo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -54,9 +52,6 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         setModal(true);
         setPreferredSize(new java.awt.Dimension(750, 510));
         setResizable(false);
-
-        guardarReciboReparacionEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarReciboReparacionEdt.setText("Guardar");
 
         jTableReciboReparacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,14 +117,6 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
         jLabel1.setText("Recibo de Reparación");
         jLabel1.setToolTipText("");
 
-        cancelarReciboReparacionEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarReciboReparacionEdt.setText("Cancelar");
-        cancelarReciboReparacionEdt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarReciboReparacionEdtActionPerformed(evt);
-            }
-        });
-
         nuevoRecibo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         nuevoRecibo.setText("Crear Nuevo Recibo");
         nuevoRecibo.addActionListener(new java.awt.event.ActionListener() {
@@ -148,12 +135,6 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(72, 72, 72))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(guardarReciboReparacionEdt)
-                .addGap(104, 104, 104)
-                .addComponent(cancelarReciboReparacionEdt)
-                .addGap(224, 224, 224))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -181,7 +162,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(reciboReparacionEdtText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,11 +173,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
                     .addComponent(nuevoRecibo))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarReciboReparacionEdt)
-                    .addComponent(cancelarReciboReparacionEdt))
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -205,10 +182,6 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
     private void reciboReparacionEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboReparacionEdtTextActionPerformed
         
     }//GEN-LAST:event_reciboReparacionEdtTextActionPerformed
-
-    private void cancelarReciboReparacionEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarReciboReparacionEdtActionPerformed
-            this.dispose();        
-    }//GEN-LAST:event_cancelarReciboReparacionEdtActionPerformed
 
     private void nuevoReciboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoReciboActionPerformed
         WinReciboDeReparacion wrdr = new WinReciboDeReparacion();
@@ -326,8 +299,6 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarReciboReparacionBoton;
-    private javax.swing.JButton cancelarReciboReparacionEdt;
-    private javax.swing.JButton guardarReciboReparacionEdt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;

@@ -44,8 +44,6 @@ public class WinEditProveedor extends javax.swing.JDialog {
         verBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableProveedores = new javax.swing.JTable();
-        guardarProveedorEdt = new javax.swing.JButton();
-        cancelarProveedorEdt = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jToggleButtonCrearProveedor = new javax.swing.JToggleButton();
 
@@ -107,17 +105,6 @@ public class WinEditProveedor extends javax.swing.JDialog {
         });
         jScrollPane3.setViewportView(jTableProveedores);
 
-        guardarProveedorEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarProveedorEdt.setText("Guardar");
-
-        cancelarProveedorEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarProveedorEdt.setText("Cancelar");
-        cancelarProveedorEdt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarProveedorEdtActionPerformed(evt);
-            }
-        });
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/proveedores.png"))); // NOI18N
 
         jToggleButtonCrearProveedor.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -132,12 +119,6 @@ public class WinEditProveedor extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(guardarProveedorEdt)
-                .addGap(66, 66, 66)
-                .addComponent(cancelarProveedorEdt)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,11 +159,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
                     .addComponent(verBoton))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarProveedorEdt)
-                    .addComponent(cancelarProveedorEdt))
-                .addGap(20, 20, 20))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -191,10 +168,6 @@ public class WinEditProveedor extends javax.swing.JDialog {
     private void proveedorEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedorEdtTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_proveedorEdtTextActionPerformed
-
-    private void cancelarProveedorEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarProveedorEdtActionPerformed
-        this.dispose();        
-    }//GEN-LAST:event_cancelarProveedorEdtActionPerformed
 
     private void jToggleButtonCrearProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonCrearProveedorActionPerformed
       WinProveedor wp = new WinProveedor();
@@ -319,8 +292,6 @@ public class WinEditProveedor extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarProveedorBoton;
-    private javax.swing.JButton cancelarProveedorEdt;
-    private javax.swing.JButton guardarProveedorEdt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;

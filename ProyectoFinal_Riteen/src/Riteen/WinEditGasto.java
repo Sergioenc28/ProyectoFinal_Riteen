@@ -44,8 +44,6 @@ public class WinEditGasto extends javax.swing.JDialog {
         verGastoBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableGastos = new javax.swing.JTable();
-        guardarGastoEdt = new javax.swing.JButton();
-        cancelarGastoEdt = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -110,17 +108,6 @@ public class WinEditGasto extends javax.swing.JDialog {
         jScrollPane3.setViewportView(jTableGastos);
         jTableGastos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-        guardarGastoEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarGastoEdt.setText("Guardar");
-
-        cancelarGastoEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarGastoEdt.setText("Cancelar");
-        cancelarGastoEdt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarGastoEdtActionPerformed(evt);
-            }
-        });
-
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setText("Agregar Gastos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,26 +121,19 @@ public class WinEditGasto extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(gastoEdtText)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buscarGastoBoton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(verGastoBoton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(guardarGastoEdt)
+                        .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(cancelarGastoEdt)))
+                        .addComponent(gastoEdtText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buscarGastoBoton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(verGastoBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addGap(0, 64, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -173,11 +153,7 @@ public class WinEditGasto extends javax.swing.JDialog {
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarGastoEdt)
-                    .addComponent(cancelarGastoEdt))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -194,10 +170,6 @@ public class WinEditGasto extends javax.swing.JDialog {
         
         }
     }
-    private void cancelarGastoEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarGastoEdtActionPerformed
-      this.dispose();
-    }//GEN-LAST:event_cancelarGastoEdtActionPerformed
-
     private void buscarGastoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarGastoBotonActionPerformed
        limpiarTabla();
        buscarGastos();
@@ -296,9 +268,7 @@ public class WinEditGasto extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarGastoBoton;
-    private javax.swing.JButton cancelarGastoEdt;
     private javax.swing.JTextField gastoEdtText;
-    private javax.swing.JButton guardarGastoEdt;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

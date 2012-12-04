@@ -88,9 +88,7 @@ public class WinEditCxC extends javax.swing.JDialog {
         verCxCBoton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableCXC = new javax.swing.JTable();
-        guardarCxCEdt = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        cancelarCxCEdt = new javax.swing.JButton();
         crearCxC = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -158,18 +156,7 @@ public class WinEditCxC extends javax.swing.JDialog {
         });
         jScrollPane3.setViewportView(jTableCXC);
 
-        guardarCxCEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        guardarCxCEdt.setText("Guardar");
-
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
-
-        cancelarCxCEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cancelarCxCEdt.setText("Cancelar");
-        cancelarCxCEdt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarCxCEdtActionPerformed(evt);
-            }
-        });
 
         crearCxC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         crearCxC.setText("Nueva CxC");
@@ -183,12 +170,6 @@ public class WinEditCxC extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addComponent(guardarCxCEdt)
-                .addGap(18, 18, 18)
-                .addComponent(cancelarCxCEdt)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -234,11 +215,7 @@ public class WinEditCxC extends javax.swing.JDialog {
                     .addComponent(crearCxC))
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarCxCEdt)
-                    .addComponent(cancelarCxCEdt))
-                .addGap(20, 20, 20))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,10 +224,6 @@ public class WinEditCxC extends javax.swing.JDialog {
     private void cxcEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxcEdtTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cxcEdtTextActionPerformed
-
-    private void cancelarCxCEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxCEdtActionPerformed
-       this.dispose();                  
-    }//GEN-LAST:event_cancelarCxCEdtActionPerformed
 
     private void buscarCxCBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCxCBotonActionPerformed
         limpiarTabla();
@@ -331,10 +304,8 @@ public class WinEditCxC extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarCxCBoton;
-    private javax.swing.JButton cancelarCxCEdt;
     private javax.swing.JButton crearCxC;
     private javax.swing.JTextField cxcEdtText;
-    private javax.swing.JButton guardarCxCEdt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
