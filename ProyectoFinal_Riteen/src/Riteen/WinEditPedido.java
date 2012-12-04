@@ -24,6 +24,7 @@ public class WinEditPedido extends javax.swing.JDialog {
      */
     public WinEditPedido() {
         initComponents();
+        verPedidosEdtBotonActionPerformed(null);
         PanelWinPedido pwp = new PanelWinPedido();
         this.add(pwp, BorderLayout.CENTER);  
         this.setLocationRelativeTo(null);

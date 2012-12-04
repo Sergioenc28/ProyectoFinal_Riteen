@@ -23,6 +23,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      */
     public WinEditEmpleado() {
         initComponents();
+        verEmpleadosBotonActionPerformed(null);
         PanelWinEmpleado pwe = new PanelWinEmpleado();
         this.add(pwe, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
@@ -117,7 +118,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Nombre", "Telefono", "Dirección", "Cédula", "Sueldo", "Horario"
+                "ID", "Nombre", "Telefono", "Dirección", "Cédula", "Sueldo", "Horario", "Cargo"
             }
         ));
         jTableEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,6 +230,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
            wp.direccionEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 3).toString());
            wp.cedulaEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 4).toString());
            wp.sueldoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 5).toString());
+           wp.cargoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 7).toString());
             this.dispose();
            wp.setVisible(true);
           
@@ -250,7 +252,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      void buscarEmpleados(){
      try {      
            
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, telefono, direccion, cedula, sueldo, horario FROM empleados WHERE nombre LIKE '%"+ empleadoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, telefono, direccion, cedula, sueldo, horario, cargo FROM empleados WHERE nombre LIKE '%"+ empleadoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -259,7 +261,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[7]; 
+            Object [] fila = new Object[8]; 
             
            
             for (int i=0;i<fila.length;i++) {

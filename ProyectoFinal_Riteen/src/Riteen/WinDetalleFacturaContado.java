@@ -24,6 +24,7 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
     public WinDetalleFacturaContado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        verFacturasActionPerformed(null);
         PanelWinCxC pwcc = new PanelWinCxC();
         this.add(pwcc, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);

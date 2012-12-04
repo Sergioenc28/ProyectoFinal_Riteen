@@ -40,7 +40,7 @@ public class Conexion implements VConexion{
          
         if (conn != null) {
           
-           System.out.println("Conectado a la base de datos: " + bd);
+          System.out.println("Conectado!");
          
             }
         }

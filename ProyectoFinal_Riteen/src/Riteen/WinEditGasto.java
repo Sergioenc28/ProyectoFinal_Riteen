@@ -23,6 +23,7 @@ public class WinEditGasto extends javax.swing.JDialog {
      */
     public WinEditGasto() {
         initComponents();
+        verGastoBotonActionPerformed(null);
         PanelWinPedido pwp = new PanelWinPedido();
         this.add(pwp, BorderLayout.CENTER); 
         this.setLocationRelativeTo(null);

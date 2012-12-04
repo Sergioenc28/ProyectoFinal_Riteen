@@ -23,6 +23,7 @@ public class WinEditCliente extends javax.swing.JDialog {
      */
     public WinEditCliente() {
         initComponents();
+        verClientesBotonActionPerformed(null);
         PanelCliente pc = new PanelCliente();
         this.add(pc, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
