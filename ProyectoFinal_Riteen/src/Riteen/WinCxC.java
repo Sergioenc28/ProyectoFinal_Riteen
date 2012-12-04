@@ -324,6 +324,49 @@ public class WinCxC extends javax.swing.JDialog {
 
     private PreparedStatement add;
     private void registrarCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCxCActionPerformed
+    int confirm = 1;
+        if(nombreDeudorCxCText1.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del Deudor");
+            nombreDeudorCxCText1.requestFocus();
+            confirm = 0;
+        }
+        else if(cedulaCxCText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese la cédula del deudor");
+            cedulaCxCText.requestFocus();
+            confirm = 0;
+        }
+        else if(telefonoCxCText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el teléfono del deudor");
+            telefonoCxCText.requestFocus();
+            confirm = 0;
+        }
+        else if(totalCxCText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el total de esta cuenta");
+            totalCxCText.requestFocus();
+            confirm = 0;
+        }
+        
+        else if(plazoCxCText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Digite el plazo");
+            plazoCxCText.requestFocus();
+            confirm = 0;
+        }
+        
+        else if(conceptoCxCText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el total de esta cuenta");
+            conceptoCxCText.requestFocus();
+            confirm = 0;
+        }
+        
+        if(confirm == 1)
+        {
+        
         try {
            
            
@@ -369,6 +412,7 @@ public class WinCxC extends javax.swing.JDialog {
        }
         
        this.dispose();
+        }
     }//GEN-LAST:event_registrarCxCActionPerformed
 
     private void fechaCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCxCTextActionPerformed

@@ -45,9 +45,9 @@ public class GeneraNomina extends javax.swing.JDialog {
         jTableGeneraNomina = new javax.swing.JTable();
         generarNomina = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Riteen - Genera Nomina");
         setModal(true);
         setResizable(false);
 
@@ -90,13 +90,6 @@ public class GeneraNomina extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("borrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,9 +103,7 @@ public class GeneraNomina extends javax.swing.JDialog {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(116, 426, Short.MAX_VALUE)
                 .addComponent(generarNomina)
                 .addGap(119, 119, 119))
         );
@@ -122,9 +113,7 @@ public class GeneraNomina extends javax.swing.JDialog {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(generarNomina)
-                    .addComponent(jButton1))
+                .addComponent(generarNomina)
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -136,36 +125,29 @@ public class GeneraNomina extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void generarNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarNominaActionPerformed
+        PreparedStatement borrar;
+        
+        try {
+            borrar =  (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DELETE FROM nomina");
+            borrar.executeUpdate();                      
+            borrar.close();        
+          }
+        
+        catch (SQLException ex) {
+            Logger.getLogger(GeneraNomina.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         limpiarTabla();
         buscarEmpleado();
         buscarSueldo();
         buscarIdEmpleado();                
         generarNomina();
-        
-       
-        
+                       
     }//GEN-LAST:event_generarNominaActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PreparedStatement borrar;
-        try {
-            borrar =  (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("DELETE FROM nomina");
-            int bo = borrar.executeUpdate();
-            System.out.println(bo);
-          if (bo == 4){
-              borrar.execute();
-              System.out.println("tabla vacia");
-              borrar.close();        
-          }
-        } catch (SQLException ex) {
-            Logger.getLogger(GeneraNomina.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_jButton1ActionPerformed
     
      private ResultSet rs;
      private DefaultTableModel dtm;
@@ -243,7 +225,7 @@ public class GeneraNomina extends javax.swing.JDialog {
      }       
      
     void generarNomina(){
-        
+                
         for(int j  = 0; j < listaIDEmpleados.size(); j++){
         double sfs = listaSueldo.get(j) * 0.0304;
         double afp = listaSueldo.get(j) * 0.0287;
@@ -295,10 +277,7 @@ public class GeneraNomina extends javax.swing.JDialog {
             else {                            
                 JOptionPane.showMessageDialog(null, "No se puede generar la nomina");
             }
-            
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, empleado, sueldoBruto, AFP, SFS, ISR, TotalDeduc, sueldoNeto FROM nomina");
-            rs = (ResultSet) read.executeQuery();                       
-            dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();                        
+                                    
         }
         
         catch (SQLException ex) {
@@ -306,7 +285,11 @@ public class GeneraNomina extends javax.swing.JDialog {
         }
         }
         
-        try{
+        try {
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, empleado, sueldoBruto, AFP, SFS, ISR, TotalDeduc, sueldoNeto FROM nomina");
+            rs = (ResultSet) read.executeQuery();                       
+            dtm = (DefaultTableModel) this.jTableGeneraNomina.getModel();
+            
             while (rs.next()) {            
                 Object [] fila = new Object[8];
            
@@ -320,10 +303,15 @@ public class GeneraNomina extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(null, "no se encontro nada");
                 }
             }
-        }
-        catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+            
+            listaEmpleados.removeAll(listaEmpleados);
+            listaIDEmpleados.removeAll(listaIDEmpleados);
+            listaSueldo.removeAll(listaSueldo);
+        } 
+        
+        catch (SQLException ex) {
+            Logger.getLogger(GeneraNomina.class.getName()).log(Level.SEVERE, null, ex);
+        }                
     }
      
     /**
@@ -371,7 +359,6 @@ public class GeneraNomina extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
     private javax.swing.JButton generarNomina;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableGeneraNomina;
