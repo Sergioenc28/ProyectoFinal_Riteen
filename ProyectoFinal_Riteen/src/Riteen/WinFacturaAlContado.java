@@ -354,14 +354,7 @@ public class WinFacturaAlContado extends javax.swing.JDialog implements VConexio
                 
                  addFactFinal.close();
                  add.close();
-                 PreparedStatement  actualizarCantidad;
-                 
                 
-                 String sql = "UPDATE almacen SET existencia = existencia-"+ cantidad+" WHERE idProducto="+ idproducto;
-                 actualizarCantidad = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement(sql);
-                 actualizarCantidad.executeUpdate();  
-                 actualizarCantidad.close();
-                 JOptionPane.showMessageDialog(this, "se ha descontado el producto del almancen");
                 
             }
            

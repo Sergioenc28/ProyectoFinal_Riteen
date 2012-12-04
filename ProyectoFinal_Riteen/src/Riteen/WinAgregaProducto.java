@@ -242,7 +242,7 @@ public class WinAgregaProducto extends javax.swing.JDialog {
                actualizarCantidad = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement(sql);
                 int a = actualizarCantidad.executeUpdate();  
                 if (a == 1){
-                JOptionPane.showMessageDialog(this, "se ha descontado el producto del almancen");
+               
                 
                 actualizarCantidad.close();
                 }
