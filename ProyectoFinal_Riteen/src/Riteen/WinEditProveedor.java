@@ -228,15 +228,14 @@ public class WinEditProveedor extends javax.swing.JDialog {
         if( jTableProveedores.getSelectedRows().length > 0 ) { 
           
            WinProveedor wp = new WinProveedor();
-           wp.casoProveedor = 2;
-           wp.setVisible(true);
+           wp.casoProveedor = 2;           
           
            wp.idProveedor = (dtm.getValueAt(jTableProveedores.getSelectedRow(), 0).toString() );
            wp.proveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 1).toString());
            wp.telefonoProveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 2).toString());
            wp.direccionProveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 3).toString());
            wp.emailProveedorText.setText(dtm.getValueAt(jTableProveedores.getSelectedRow(), 4).toString());
-             
+           wp.setVisible(true);
          }
     }//GEN-LAST:event_jTableProveedoresMouseClicked
     

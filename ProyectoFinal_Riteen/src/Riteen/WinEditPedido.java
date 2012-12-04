@@ -233,14 +233,13 @@ public class WinEditPedido extends javax.swing.JDialog {
          if( jTablePedidos.getSelectedRows().length > 0 ) { 
           
            WinPedido wp = new WinPedido();
-           wp.casoPedido = 2;
-           wp.setVisible(true);
+           wp.casoPedido = 2;           
           
            wp.idPedido = (dtm.getValueAt(jTablePedidos.getSelectedRow(), 0).toString() );
            wp.productoPedidoText.setText(dtm.getValueAt(jTablePedidos.getSelectedRow(), 1).toString());
            wp.proveedorPedidoText.setText(dtm.getValueAt(jTablePedidos.getSelectedRow(), 2).toString());
            wp.CantidadPedidoText.setText(dtm.getValueAt(jTablePedidos.getSelectedRow(), 3).toString());
-             
+           wp.setVisible(true);
          }
         
     }//GEN-LAST:event_jTablePedidosMouseClicked

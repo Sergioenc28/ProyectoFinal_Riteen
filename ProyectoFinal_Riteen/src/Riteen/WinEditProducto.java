@@ -236,8 +236,7 @@ public class WinEditProducto extends javax.swing.JDialog {
         if( jTableProductos.getSelectedRows().length > 0 ) { 
           
            WinProducto wp = new WinProducto();
-           wp.casoProducto = 2;
-           wp.setVisible(true);
+           wp.casoProducto = 2;           
           
            wp.idProducto = (dtm.getValueAt(jTableProductos.getSelectedRow(), 0).toString() );
            wp.productoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 1).toString());
@@ -245,7 +244,7 @@ public class WinEditProducto extends javax.swing.JDialog {
            wp.existenciaMinimaDelProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 4).toString());
            wp.costoProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 5).toString());
            wp.precioVentaProductoText.setText(dtm.getValueAt(jTableProductos.getSelectedRow(), 6).toString());
-          
+           wp.setVisible(true);
         
          }
     }//GEN-LAST:event_jTableProductosMouseClicked

@@ -244,8 +244,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
       if( jTableEmpleados.getSelectedRows().length > 0 ) { 
           
            WinEmpleado wp = new WinEmpleado();
-           wp.casoEmpleado = 2;
-           wp.setVisible(true);
+           wp.casoEmpleado = 2;           
           
            wp.id = (dtm.getValueAt(jTableEmpleados.getSelectedRow(), 0).toString() );
            wp.nombreEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 1).toString());
@@ -253,7 +252,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
            wp.direccionEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 3).toString());
            wp.cedulaEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 4).toString());
            wp.sueldoEmpleadoText.setText(dtm.getValueAt(jTableEmpleados.getSelectedRow(), 5).toString());
-           
+           wp.setVisible(true);
          }
     }//GEN-LAST:event_jTableEmpleadosMouseClicked
      

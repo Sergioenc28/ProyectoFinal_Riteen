@@ -157,11 +157,6 @@ public class WinCxC extends javax.swing.JDialog {
         });
 
         conceptoCxCText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        conceptoCxCText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conceptoCxCTextActionPerformed(evt);
-            }
-        });
 
         plazoCxCText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
 
@@ -310,10 +305,6 @@ public class WinCxC extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_telefonoClienteText1ActionPerformed
 
-    private void conceptoCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conceptoCxCTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conceptoCxCTextActionPerformed
-
     private void totalCxCTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCxCTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalCxCTextActionPerformed
@@ -322,6 +313,8 @@ public class WinCxC extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreDeudorCxCText1ActionPerformed
 
+    int casoCxC = 0;
+    String idCxC;
     private PreparedStatement add;
     private void registrarCxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCxCActionPerformed
     int confirm = 1;
@@ -369,19 +362,25 @@ public class WinCxC extends javax.swing.JDialog {
         
         try {
            
-           
-            int plazo = Integer.parseInt(plazoCxCText.getText());
-            int total = Integer.parseInt(totalCxCText.getText());
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentasxcobrar (Fecha, Descripcion, Concepto, Cedula, Telefono, Deudor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            if(casoCxC == 1){
+                int plazo = Integer.parseInt(plazoCxCText.getText());
+                int total = Integer.parseInt(totalCxCText.getText());
+                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentasxcobrar (Fecha, Descripcion, Concepto, Cedula, Telefono, Deudor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             
-            add.setString(1, fechaCxCText.getText().toUpperCase());
-            add.setString(2, descripcionCxCText.getText().toUpperCase());
-            add.setString(3, conceptoCxCText.getText().toUpperCase());
-            add.setString(4, cedulaCxCText.getText().toUpperCase());
-            add.setString(5, telefonoCxCText.getText().toUpperCase());
-            add.setString(6, nombreDeudorCxCText1.getText().toUpperCase());
-            add.setInt(7, plazo);
-            add.setInt(8, total);
+                add.setString(1, fechaCxCText.getText().toUpperCase());
+                add.setString(2, descripcionCxCText.getText().toUpperCase());
+                add.setString(3, conceptoCxCText.getText().toUpperCase());
+                add.setString(4, cedulaCxCText.getText().toUpperCase());
+                add.setString(5, telefonoCxCText.getText().toUpperCase());
+                add.setString(6, nombreDeudorCxCText1.getText().toUpperCase());
+                add.setInt(7, plazo);
+                add.setInt(8, total);
+            }
+            
+            if(casoCxC == 2){
+                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE cuentasxcobrar SET Descripcion = '"+descripcionCxCText.getText()+"', Concepto = '"
+                      + conceptoCxCText.getText()+"', Cedula = '"+cedulaCxCText.getText()+"', Telefono = '"+telefonoCxCText.getText()+"', Deudor = '"+nombreDeudorCxCText1.getText()+"', Plazo = '"+plazoCxCText.getText()+"', total = '"+totalCxCText.getText()+"' WHERE idCliente =  "+ idCxC);                
+            }
             
             int exitoso = add.executeUpdate();
            
@@ -454,6 +453,7 @@ public class WinCxC extends javax.swing.JDialog {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new WinCxC().setVisible(true);
             }
@@ -462,10 +462,10 @@ public class WinCxC extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarCxC;
     private javax.swing.JButton cancelarProducto;
-    private javax.swing.JFormattedTextField cedulaCxCText;
-    private javax.swing.JTextField conceptoCxCText;
-    private javax.swing.JTextArea descripcionCxCText;
-    private javax.swing.JFormattedTextField fechaCxCText;
+    public javax.swing.JFormattedTextField cedulaCxCText;
+    public javax.swing.JTextField conceptoCxCText;
+    public javax.swing.JTextArea descripcionCxCText;
+    public javax.swing.JFormattedTextField fechaCxCText;
     private javax.swing.JButton guardarProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -480,11 +480,11 @@ public class WinCxC extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nombreDeudorCxCText1;
-    private javax.swing.JTextField plazoCxCText;
+    public javax.swing.JTextField nombreDeudorCxCText1;
+    public javax.swing.JTextField plazoCxCText;
     private javax.swing.JButton registrarCxC;
     private javax.swing.JFormattedTextField telefonoClienteText1;
-    private javax.swing.JFormattedTextField telefonoCxCText;
-    private javax.swing.JTextField totalCxCText;
+    public javax.swing.JFormattedTextField telefonoCxCText;
+    public javax.swing.JTextField totalCxCText;
     // End of variables declaration//GEN-END:variables
 }

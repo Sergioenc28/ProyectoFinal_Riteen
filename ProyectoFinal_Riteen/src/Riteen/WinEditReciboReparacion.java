@@ -238,8 +238,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
       if( jTableReciboReparacion.getSelectedRows().length > 0 ) { 
           
            WinReciboDeReparacion wrr = new WinReciboDeReparacion();
-           wrr.casoReciboReparacion = 2;
-           wrr.setVisible(true);
+           wrr.casoReciboReparacion = 2;           
           
            wrr.idReciboReparacion = (dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 0).toString() );
            wrr.fechaReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 1).toString());
@@ -249,7 +248,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
            wrr.clienteReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 5).toString());
            wrr.telefonoReparacionText.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 6).toString());
            wrr.plazoTextfield.setText(dtm.getValueAt(jTableReciboReparacion.getSelectedRow(), 7).toString());
-        
+           wrr.setVisible(true);
          }   
     }//GEN-LAST:event_jTableReciboReparacionMouseClicked
 

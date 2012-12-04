@@ -34,7 +34,7 @@ public class WinEditCxC extends javax.swing.JDialog {
     void buscarCuentas(){
     try {      
            
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idCuentaXCobrar, fecha, deudor, concepto, plazo, total FROM cuentasxcobrar WHERE deudor LIKE '%"+ cxcEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idCuentaXCobrar, fecha, Descripcion, concepto, Cedula, Telefono, Deudor, plazo, total FROM cuentasxcobrar WHERE deudor LIKE '%"+ cxcEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -43,7 +43,7 @@ public class WinEditCxC extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[6];
+            Object [] fila = new Object[9];
             
             
             for (int i=0;i<fila.length;i++) {
@@ -140,15 +140,20 @@ public class WinEditCxC extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Fecha", "Deudor", "Concepto", "Plazo", "Total"
+                "ID", "Fecha", "Descripción", "Concepto", "Cédula", "Telefono", "Deudor", "Plazo", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true
+                false, true, true, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTableCXC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCXCMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(jTableCXC);
@@ -268,6 +273,25 @@ public class WinEditCxC extends javax.swing.JDialog {
         WinCxC wxc = new WinCxC();
         wxc.setVisible(true);
     }//GEN-LAST:event_crearCxCActionPerformed
+
+    private void jTableCXCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCXCMouseClicked
+        if( jTableCXC.getSelectedRows().length > 0 ) { 
+          
+           WinCxC wcxc = new WinCxC();
+           wcxc.casoCxC = 2;    
+          
+           wcxc.idCxC = (dtm.getValueAt(jTableCXC.getSelectedRow(), 0).toString() );
+           wcxc.fechaCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 1).toString());
+           wcxc.cedulaCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 2).toString());
+           wcxc.telefonoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 3).toString());
+           wcxc.nombreDeudorCxCText1.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 4).toString());
+           wcxc.plazoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 5).toString());
+           wcxc.conceptoCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 6).toString());
+           wcxc.descripcionCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 2).toString());                                                       
+           wcxc.totalCxCText.setText(dtm.getValueAt(jTableCXC.getSelectedRow(), 8).toString());
+           wcxc.setVisible(true);
+         }
+    }//GEN-LAST:event_jTableCXCMouseClicked
 
     /**
      * @param args the command line arguments
