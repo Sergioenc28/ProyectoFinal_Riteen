@@ -336,6 +336,14 @@ public class WinProducto extends javax.swing.JDialog {
             productoText.requestFocus();
             prueba = 0;
         }
+        
+        int venta = Integer.parseInt(precioVentaProductoText.getText());
+        int costoCompra = Integer.parseInt(costoProductoText.getText()); 
+        if(venta < costoCompra){
+            JOptionPane.showMessageDialog(null, "Digito un Precio de Venta Menor al Costo del Producto");
+            precioVentaProductoText.requestFocus();
+            prueba = 0;
+        }
         else if(costoProductoText.getText().length()==0)
         {
             JOptionPane.showMessageDialog(null, "Ingrese el Costo");
