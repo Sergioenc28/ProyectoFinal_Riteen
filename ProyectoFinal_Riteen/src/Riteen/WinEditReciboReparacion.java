@@ -212,6 +212,7 @@ public class WinEditReciboReparacion extends javax.swing.JDialog {
 
     private void nuevoReciboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoReciboActionPerformed
         WinReciboDeReparacion wrdr = new WinReciboDeReparacion();
+        wrdr.casoReciboReparacion = 1;
         wrdr.setVisible(true);
     }//GEN-LAST:event_nuevoReciboActionPerformed
 

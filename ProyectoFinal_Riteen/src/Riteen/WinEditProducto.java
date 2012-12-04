@@ -229,6 +229,7 @@ public class WinEditProducto extends javax.swing.JDialog {
 
     private void agregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoActionPerformed
         WinProducto wp = new WinProducto();
+        wp.casoProducto = 1;
         wp.setVisible(true);
     }//GEN-LAST:event_agregarProductoActionPerformed
 

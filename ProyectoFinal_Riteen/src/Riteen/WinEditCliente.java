@@ -265,6 +265,7 @@ public class WinEditCliente extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         WinCliente wc = new WinCliente(null, false);
+        wc.casoCliente = 1;
         wc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

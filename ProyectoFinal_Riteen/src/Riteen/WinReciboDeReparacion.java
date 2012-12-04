@@ -318,9 +318,9 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
                 + ", TelefonoCliente = '"+telefonoReparacionText.getText()+"' , Plazo = '"+plazoTextfield.getText()+"'" + " WHERE idRecibo =  "+ idReciboReparacion); 
             }                                                           
             
-            int exitoso = add.executeUpdate();
+                boolean exitoso = add.execute();
             
-            if (exitoso == 1){
+            if (exitoso == false){
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
             fechaReparacionText.setText("");
             articuloReparacionText.setText("");
@@ -340,7 +340,7 @@ public class WinReciboDeReparacion extends javax.swing.JDialog {
         catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-            
+        
         this.dispose();
         }
     }//GEN-LAST:event_guardarReparacionActionPerformed

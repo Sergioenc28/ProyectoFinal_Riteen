@@ -51,6 +51,7 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
         verFacturas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Riteen - Detalle de Facturas");
         setResizable(false);
 
         JTableDetalleFactura.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -144,8 +145,9 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(nuevaFactura)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,17 +156,16 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(comboBoxDetalleFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(detalleFacturaText)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(buscarDetalleFactura))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(43, 43, 43)
+                                .addComponent(buscarDetalleFactura))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
+                        .addGap(236, 236, 236)
                         .addComponent(finalizarDetalleFactura)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,9 +185,9 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
                     .addComponent(verFacturas))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(finalizarDetalleFactura)
-                .addGap(20, 20, 20))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -197,11 +198,7 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
     }//GEN-LAST:event_comboBoxDetalleFacturaActionPerformed
 
     private void finalizarDetalleFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarDetalleFacturaActionPerformed
-        int opc = JOptionPane.showConfirmDialog(this, "Desea cancelar los cambios realizados", "Salir", JOptionPane.YES_NO_OPTION);
-       
-        if(opc == JOptionPane.YES_OPTION){
-            this.dispose();
-        }
+        this.dispose();        
     }//GEN-LAST:event_finalizarDetalleFacturaActionPerformed
 
     private PreparedStatement read;

@@ -198,6 +198,7 @@ public class WinEditProveedor extends javax.swing.JDialog {
 
     private void jToggleButtonCrearProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonCrearProveedorActionPerformed
       WinProveedor wp = new WinProveedor();
+      wp.casoProveedor = 1;
       wp.setVisible(true);
     }//GEN-LAST:event_jToggleButtonCrearProveedorActionPerformed
 

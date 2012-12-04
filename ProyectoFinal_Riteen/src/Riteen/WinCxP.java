@@ -135,11 +135,6 @@ public class WinCxP extends javax.swing.JDialog {
         jScrollPane2.setViewportView(descripcionCxPText);
 
         totalCxPText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        totalCxPText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalCxPTextActionPerformed(evt);
-            }
-        });
 
         registrarCxP.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         registrarCxP.setText("Registrar");
@@ -158,25 +153,10 @@ public class WinCxP extends javax.swing.JDialog {
         });
 
         acreedorCxPText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        acreedorCxPText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acreedorCxPTextActionPerformed(evt);
-            }
-        });
 
         conceptoCxPText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        conceptoCxPText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conceptoCxPTextActionPerformed(evt);
-            }
-        });
 
         plazoCxPText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        plazoCxPText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plazoCxPTextActionPerformed(evt);
-            }
-        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/money.png"))); // NOI18N
 
@@ -275,26 +255,12 @@ public class WinCxP extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void totalCxPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCxPTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_totalCxPTextActionPerformed
-
     private void fechaCxPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCxPTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaCxPTextActionPerformed
 
-    private void conceptoCxPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conceptoCxPTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conceptoCxPTextActionPerformed
-
-    private void acreedorCxPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acreedorCxPTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_acreedorCxPTextActionPerformed
-
-    private void plazoCxPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plazoCxPTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_plazoCxPTextActionPerformed
-
+    int casoCxP = 0;
+    String idCxP;
     private PreparedStatement add;
     private void registrarCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCxPActionPerformed
         int prueba = 1;
@@ -324,46 +290,46 @@ public class WinCxP extends javax.swing.JDialog {
         }
         
         if(prueba == 1)
-        {
+        {                
         
-        
-        
-        try {
-           
-           
-            int plazo = Integer.parseInt(plazoCxPText.getText());
-            int total = Integer.parseInt(totalCxPText.getText());
-            add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentas_por_pagar (Fecha, Descripcion, Concepto, Acreedor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?)");
+        try {  
+            if(casoCxP == 1){
+                int plazo = Integer.parseInt(plazoCxPText.getText());
+                int total = Integer.parseInt(totalCxPText.getText());
+                add = Conexion.getInstancia().getConexion().prepareStatement("INSERT INTO cuentas_por_pagar (Fecha, Descripcion, Concepto, Acreedor, Plazo, Total) VALUES (?, ?, ?, ?, ?, ?)");
             
-            add.setString(1, fechaCxPText.getText().toUpperCase());
-            add.setString(2, descripcionCxPText.getText().toUpperCase());
-            add.setString(3, conceptoCxPText.getText().toUpperCase());
-            add.setString(4, acreedorCxPText.getText().toUpperCase());
-            add.setInt(5, plazo);
-            add.setInt(6, total);
+                add.setString(1, fechaCxPText.getText().toUpperCase());
+                add.setString(2, descripcionCxPText.getText().toUpperCase());
+                add.setString(3, conceptoCxPText.getText().toUpperCase());
+                add.setString(4, acreedorCxPText.getText().toUpperCase());
+                add.setInt(5, plazo);
+                add.setInt(6, total);
+            }
+            
+            if (casoCxP == 2) {
+                add = Conexion.getInstancia().getConexion().prepareStatement("UPDATE cuentas_por_pagar SET Fecha = '"+fechaCxPText.getText()+"', Descripcion = '"
+                     + descripcionCxPText.getText()+"', Concepto = '"+conceptoCxPText.getText()+"', Acreedor= '"+acreedorCxPText.getText()+"', "
+                     + "Plazo = '"+plazoCxPText.getText()+"', total = '"+totalCxPText.getText()+"' WHERE idCuentaXPagar =  "+ idCxP);
+            }
             
             int exitoso = add.executeUpdate();
            
             if (exitoso > 0){
-            JOptionPane.showMessageDialog(null, "Registro Exitoso");
-            fechaCxPText.setText("");
-            descripcionCxPText.setText("");
-            conceptoCxPText.setText("");
-            totalCxPText.setText("");
-            plazoCxPText.setText("");
-            add.close();
-            }
-            else {
-            
-            JOptionPane.showMessageDialog(null, "No se puede registrar esta cuenta");
-           
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                fechaCxPText.setText("");
+                descripcionCxPText.setText("");
+                conceptoCxPText.setText("");
+                totalCxPText.setText("");
+                plazoCxPText.setText("");
+                add.close();
             }
             
-           
+            else {            
+                JOptionPane.showMessageDialog(null, "No se puede registrar esta cuenta");                
+            }                       
         } 
          
-       catch(NumberFormatException | SQLException e){
-       
+       catch(NumberFormatException | SQLException e){       
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
         
@@ -419,15 +385,15 @@ public class WinCxP extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField acreedorCxPText;
+    public javax.swing.JTextField acreedorCxPText;
     private javax.swing.JButton cancelarCxP;
     private javax.swing.JFormattedTextField cedulaCxCText2;
-    private javax.swing.JTextField conceptoCxPText;
-    private javax.swing.JTextArea descripcionCxPText;
+    public javax.swing.JTextField conceptoCxPText;
+    public javax.swing.JTextArea descripcionCxPText;
     private javax.swing.JTextArea descripcionGastoText;
     private javax.swing.JFormattedTextField fechaCxCText1;
     private javax.swing.JFormattedTextField fechaCxCText2;
-    private javax.swing.JFormattedTextField fechaCxPText;
+    public javax.swing.JFormattedTextField fechaCxPText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -439,8 +405,8 @@ public class WinCxP extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField plazoCxPText;
+    public javax.swing.JTextField plazoCxPText;
     private javax.swing.JButton registrarCxP;
-    private javax.swing.JTextField totalCxPText;
+    public javax.swing.JTextField totalCxPText;
     // End of variables declaration//GEN-END:variables
 }

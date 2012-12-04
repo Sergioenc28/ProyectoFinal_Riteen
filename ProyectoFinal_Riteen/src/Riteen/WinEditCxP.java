@@ -67,11 +67,6 @@ public class WinEditCxP extends javax.swing.JDialog {
         jLabel3.setText("Buscar Acreedor:");
 
         cxpEdtText.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
-        cxpEdtText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxpEdtTextActionPerformed(evt);
-            }
-        });
         cxpEdtText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cxpEdtTextKeyTyped(evt);
@@ -99,9 +94,14 @@ public class WinEditCxP extends javax.swing.JDialog {
 
             },
             new String [] {
-                "ID", "Fecha", "Acreedor", "Concepto", "Plazo", "Total"
+                "ID", "Fecha", "Descripción", "Concepto", "Acreedor", "Plazo", "Total"
             }
         ));
+        jTableCuentasPorCobrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCuentasPorCobrarMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTableCuentasPorCobrar);
 
         guardarCxPEdt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -186,10 +186,6 @@ public class WinEditCxP extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cxpEdtTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxpEdtTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cxpEdtTextActionPerformed
-
     private void cancelarCxPEdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxPEdtActionPerformed
          this.dispose();
     }//GEN-LAST:event_cancelarCxPEdtActionPerformed
@@ -206,14 +202,32 @@ public class WinEditCxP extends javax.swing.JDialog {
     private void cxpEdtTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cxpEdtTextKeyTyped
         int enter = evt.getKeyChar();
         if (enter == KeyEvent.VK_ENTER){
-        verCxPBotonActionPerformed(null);
+            verCxPBotonActionPerformed(null);
         }
     }//GEN-LAST:event_cxpEdtTextKeyTyped
 
     private void nuevaCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaCxPActionPerformed
         WinCxP wcp = new WinCxP();
+        wcp.casoCxP = 1;
         wcp.setVisible(true);
     }//GEN-LAST:event_nuevaCxPActionPerformed
+
+    private void jTableCuentasPorCobrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCuentasPorCobrarMouseClicked
+        if( jTableCuentasPorCobrar.getSelectedRows().length > 0 ) { 
+          
+           WinCxP wcxp = new WinCxP();
+           wcxp.casoCxP = 2;    
+          
+           wcxp.idCxP = (dtm.getValueAt(jTableCuentasPorCobrar.getSelectedRow(), 0).toString() );
+           wcxp.fechaCxPText.setText(dtm.getValueAt(jTableCuentasPorCobrar.getSelectedRow(), 1).toString());
+           wcxp.descripcionCxPText.setText(dtm.getValueAt(jTableCuentasPorCobrar.getSelectedRow(), 2).toString());
+           wcxp.conceptoCxPText.setText(dtm.getValueAt(jTableCuentasPorCobrar.getSelectedRow(), 3).toString());
+           wcxp.acreedorCxPText.setText(dtm.getValueAt(jTableCuentasPorCobrar.getSelectedRow(), 4).toString());
+           wcxp.plazoCxPText.setText(dtm.getValueAt(jTableCuentasPorCobrar.getSelectedRow(), 5).toString());
+           wcxp.totalCxPText.setText(dtm.getValueAt(jTableCuentasPorCobrar.getSelectedRow(), 6).toString());           
+           wcxp.setVisible(true);
+         }
+    }//GEN-LAST:event_jTableCuentasPorCobrarMouseClicked
 
      private PreparedStatement read;
      private ResultSet rs;
@@ -222,39 +236,29 @@ public class WinEditCxP extends javax.swing.JDialog {
      void limpiarTabla(){
     
         while(jTableCuentasPorCobrar.getRowCount()>0){
-        ((DefaultTableModel)jTableCuentasPorCobrar.getModel()).removeRow(0);
-        
+            ((DefaultTableModel)jTableCuentasPorCobrar.getModel()).removeRow(0);        
         }
     }
+     
      void buscarCuentas(){
-     try {      
-           
-             
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idCuentaXPagar, fecha, acreedor, concepto, plazo, total FROM cuentas_por_pagar WHERE acreedor LIKE '%"+ cxpEdtText.getText() +"%'");
-           
-            rs = (ResultSet) read.executeQuery();
-           
-            
+     try {                              
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idCuentaXPagar, fecha, Descripcion, concepto, acreedor, plazo, total FROM cuentas_por_pagar WHERE acreedor LIKE '%"+ cxpEdtText.getText() +"%'");           
+            rs = (ResultSet) read.executeQuery();                       
             dtm = (DefaultTableModel) this.jTableCuentasPorCobrar.getModel();
             
-            while (rs.next()) {
-            
-            Object [] fila = new Object[6]; 
-            
+            while (rs.next()) {            
+                Object [] fila = new Object[7];
            
-            for (int i=0;i<fila.length;i++) {
+                for (int i=0;i<fila.length;i++) {
                     fila[i] = rs.getObject(i+1);
                 } 
-
             
-            dtm.addRow(fila);
-            if(fila.length == 0){
+                dtm.addRow(fila);
             
-             
-                JOptionPane.showMessageDialog(null, "no se encontro nada");
-            
-            }           
-}       
+                if(fila.length == 0){                         
+                    JOptionPane.showMessageDialog(null, "no se encontro nada");            
+                }           
+            }       
             
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex.getMessage());
