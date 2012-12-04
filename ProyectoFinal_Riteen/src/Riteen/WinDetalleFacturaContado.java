@@ -8,15 +8,25 @@ import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
  * @author Dioni Ripoll
  */
-public class WinDetalleFacturaContado extends javax.swing.JDialog {
+public class WinDetalleFacturaContado extends javax.swing.JDialog implements VConexion{
 
     /**
      * Creates new form WinDetalleFactura
@@ -195,7 +205,31 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboBoxDetalleFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDetalleFacturaActionPerformed
-        // TODO add your handling code here:
+      Connection conexion = null;
+           
+            
+      if (comboBoxDetalleFactura.getSelectedItem().toString().equalsIgnoreCase("Hoy")){
+      JasperReport report = null;
+            try {
+              try {
+                  conexion = DriverManager.getConnection(url,login,password);
+              } catch (SQLException ex) {
+                  Logger.getLogger(WinDetalleFacturaContado.class.getName()).log(Level.SEVERE, null, ex);
+              }
+                report = JasperCompileManager.compileReport("ReporteVentasDiarias.jrxml");
+                 JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+                 JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Facturas del Dia");
+            visor.setVisible(true);
+                
+            } catch (JRException ex) {
+                Logger.getLogger(WinDetalleFacturaContado.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+            
+      
+      
+      }
     }//GEN-LAST:event_comboBoxDetalleFacturaActionPerformed
 
     private void finalizarDetalleFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarDetalleFacturaActionPerformed

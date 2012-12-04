@@ -75,41 +75,33 @@
 		</band>
 	</title>
 	<columnHeader>
-		<band height="142" splitType="Stretch">
+		<band height="48" splitType="Stretch">
 			<subreport>
 				<reportElement x="13" y="0" width="200" height="30"/>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "ReporteFinal_DETALLES.jasper"]]></subreportExpression>
 			</subreport>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="42" splitType="Stretch">
 			<textField>
-				<reportElement x="461" y="122" width="104" height="20"/>
+				<reportElement x="441" y="19" width="104" height="20"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{Total}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="374" y="122" width="77" height="20"/>
+				<reportElement x="354" y="19" width="77" height="20"/>
 				<textElement>
 					<font size="12" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[TOTAL RD$:]]></text>
 			</staticText>
 			<line>
-				<reportElement x="33" y="103" width="506" height="1"/>
+				<reportElement x="13" y="0" width="506" height="1"/>
 			</line>
 		</band>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="42" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>
