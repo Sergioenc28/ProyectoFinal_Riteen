@@ -1,1 +1,0 @@
-SELECT userName,pass FROM usuarios WHERE userName = 'sergio' AND pass = 'a'

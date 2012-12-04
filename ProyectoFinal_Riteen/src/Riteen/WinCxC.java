@@ -23,6 +23,9 @@ public class WinCxC extends javax.swing.JDialog {
         PanelWinCxC pc = new PanelWinCxC();
         this.add(pc, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+        Fecha f = new Fecha();
+        f.setFechaActualDelSistema(null);
+        fechaCxCText.setText(f.getFechaActualDelSistema());
     }
 
     /**
@@ -41,7 +44,6 @@ public class WinCxC extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         fechaCxCText = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
-        fechaActualParaTodo = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -93,7 +95,10 @@ public class WinCxC extends javax.swing.JDialog {
         jLabel1.setText("Cuentas por Cobrar");
         jLabel1.setToolTipText("");
 
-        fechaCxCText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/M/yy"))));
+        fechaCxCText.setEditable(false);
+        fechaCxCText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        fechaCxCText.setEnabled(false);
+        fechaCxCText.setFocusable(false);
         fechaCxCText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechaCxCTextActionPerformed(evt);
@@ -103,17 +108,6 @@ public class WinCxC extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha:");
-
-        fechaActualParaTodo.setOpaque(false);
-        fechaActualParaTodo.setContentAreaFilled(false);
-        fechaActualParaTodo.setBorderPainted(false);
-        fechaActualParaTodo.setForeground(new java.awt.Color(255, 255, 255));
-        fechaActualParaTodo.setText("Hoy");
-        fechaActualParaTodo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaActualParaTodoActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,8 +229,7 @@ public class WinCxC extends javax.swing.JDialog {
                                                 .addComponent(jLabel2)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(fechaCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(fechaActualParaTodo)))
+                                                .addGap(51, 51, 51)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
@@ -282,12 +275,11 @@ public class WinCxC extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fechaCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaActualParaTodo)
                     .addComponent(jLabel7)
                     .addComponent(cedulaCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(telefonoCxCText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(nombreDeudorCxCText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,10 +305,6 @@ public class WinCxC extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
     private void telefonoClienteText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoClienteText1ActionPerformed
         // TODO add your handling code here:
@@ -433,7 +421,6 @@ public class WinCxC extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField cedulaCxCText;
     private javax.swing.JTextField conceptoCxCText;
     private javax.swing.JTextArea descripcionCxCText;
-    private javax.swing.JCheckBox fechaActualParaTodo;
     private javax.swing.JFormattedTextField fechaCxCText;
     private javax.swing.JButton guardarProducto;
     private javax.swing.JLabel jLabel1;

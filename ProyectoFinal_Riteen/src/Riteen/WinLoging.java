@@ -245,7 +245,7 @@ public class WinLoging extends javax.swing.JDialog{
                         hay=1;
                         if(passwordText.getText().equalsIgnoreCase(l.getPass()))
                         {
-                                JOptionPane.showMessageDialog(null, "Bienvenido  " + l.getUser());
+                                JOptionPane.showMessageDialog(null, "Bienvenido  " + l.getUser().toUpperCase());
 
                                 everybodyIsTrue();
                                 onlyOneIsTrue();

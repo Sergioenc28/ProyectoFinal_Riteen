@@ -23,6 +23,11 @@ public class WinCxP extends javax.swing.JDialog {
         PanelWinCxP pc = new PanelWinCxP();
         this.add(pc, BorderLayout.CENTER);
         this.setLocationRelativeTo(null);
+        Fecha f = new Fecha();
+        f.setFechaActualDelSistema(null);
+        fechaCxPText.setText(f.getFechaActualDelSistema());
+        acreedorCxPText.requestFocus();
+        
     }
 
     /**
@@ -48,7 +53,6 @@ public class WinCxP extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         fechaCxPText = new javax.swing.JFormattedTextField();
-        fechaActualParaTodo = new javax.swing.JCheckBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         descripcionCxPText = new javax.swing.JTextArea();
         totalCxPText = new javax.swing.JTextField();
@@ -113,20 +117,16 @@ public class WinCxP extends javax.swing.JDialog {
         jLabel10.setText("Total:");
 
         fechaCxPText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/M/yy"))));
+        fechaCxPText.setEnabled(false);
+        fechaCxPText.setFocusable(false);
         fechaCxPText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechaCxPTextActionPerformed(evt);
             }
         });
-
-        fechaActualParaTodo.setOpaque(false);
-        fechaActualParaTodo.setContentAreaFilled(false);
-        fechaActualParaTodo.setBorderPainted(false);
-        fechaActualParaTodo.setForeground(new java.awt.Color(255, 255, 255));
-        fechaActualParaTodo.setText("Hoy");
-        fechaActualParaTodo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaActualParaTodoActionPerformed(evt);
+        fechaCxPText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fechaCxPTextFocusLost(evt);
             }
         });
 
@@ -185,51 +185,53 @@ public class WinCxP extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(registrarCxP)
-                .addGap(45, 45, 45)
-                .addComponent(cancelarCxP)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(conceptoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(plazoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(totalCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(conceptoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(plazoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel9))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(fechaCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(fechaActualParaTodo)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(acreedorCxPText))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(37, 37, 37)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(53, 53, 53))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(fechaCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(57, 57, 57)
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(acreedorCxPText, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(totalCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(registrarCxP)
+                .addGap(18, 18, 18)
+                .addComponent(cancelarCxP)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,42 +245,35 @@ public class WinCxP extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(fechaCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaActualParaTodo)
                     .addComponent(jLabel7)
                     .addComponent(acreedorCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(conceptoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(jLabel9)
-                        .addComponent(plazoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(conceptoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(plazoCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel5))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(totalCxPText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(20, 20, 20)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registrarCxP)
                     .addComponent(cancelarCxP))
-                .addContainerGap())
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void fechaActualParaTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaActualParaTodoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaActualParaTodoActionPerformed
 
     private void totalCxPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCxPTextActionPerformed
         // TODO add your handling code here:
@@ -302,6 +297,37 @@ public class WinCxP extends javax.swing.JDialog {
 
     private PreparedStatement add;
     private void registrarCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarCxPActionPerformed
+        int prueba = 1;
+        if(acreedorCxPText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el nombre del Acreedor");
+            acreedorCxPText.requestFocus();
+            prueba = 0;
+        }
+        else if(conceptoCxPText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el concepto de esta cuenta");
+            conceptoCxPText.requestFocus();
+            prueba = 0;
+        }
+        else if(plazoCxPText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el plazo");
+            plazoCxPText.requestFocus();
+            prueba = 0;
+        }
+        else if(totalCxPText.getText().length()==0)
+        {
+            JOptionPane.showMessageDialog(null, "Ingrese el total de esta cuenta");
+            totalCxPText.requestFocus();
+            prueba = 0;
+        }
+        
+        if(prueba == 1)
+        {
+        
+        
+        
         try {
            
            
@@ -341,7 +367,10 @@ public class WinCxP extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, e.getMessage());
        }
         
-       this.dispose();
+        this.dispose();
+       }
+        
+       
     }//GEN-LAST:event_registrarCxPActionPerformed
 
     private void cancelarCxPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCxPActionPerformed
@@ -349,6 +378,10 @@ public class WinCxP extends javax.swing.JDialog {
                 this.dispose();
             }
     }//GEN-LAST:event_cancelarCxPActionPerformed
+
+    private void fechaCxPTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fechaCxPTextFocusLost
+        
+    }//GEN-LAST:event_fechaCxPTextFocusLost
 
     /**
      * @param args the command line arguments
@@ -392,7 +425,6 @@ public class WinCxP extends javax.swing.JDialog {
     private javax.swing.JTextField conceptoCxPText;
     private javax.swing.JTextArea descripcionCxPText;
     private javax.swing.JTextArea descripcionGastoText;
-    private javax.swing.JCheckBox fechaActualParaTodo;
     private javax.swing.JFormattedTextField fechaCxCText1;
     private javax.swing.JFormattedTextField fechaCxCText2;
     private javax.swing.JFormattedTextField fechaCxPText;
