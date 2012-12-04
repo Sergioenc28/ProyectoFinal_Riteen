@@ -248,7 +248,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
      void buscarEmpleados(){
      try {      
            
-            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, telefono, direccion, cedula, sueldo, horario FROM empleados WHERE nombre LIKE '%"+ empleadoEdtText.getText() +"%'");
+            read = (PreparedStatement) Conexion.getInstancia().getConexion().prepareStatement("SELECT idEmpleado, nombre, telefono, direccion, cedula, sueldo, horario, cargo FROM empleados WHERE nombre LIKE '%"+ empleadoEdtText.getText() +"%'");
            
             rs = (ResultSet) read.executeQuery();
            
@@ -257,7 +257,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
             
             while (rs.next()) {
             
-            Object [] fila = new Object[7]; 
+            Object [] fila = new Object[8]; 
             
            
             for (int i=0;i<fila.length;i++) {
@@ -266,12 +266,7 @@ public class WinEditEmpleado extends javax.swing.JDialog {
 
              
             dtm.addRow(fila);
-            if(fila.length == 0){
-            
-             
-                JOptionPane.showMessageDialog(null, "no se encontro nada");
-            
-            }           
+                     
 }       
             
         } catch (SQLException ex) {

@@ -8,6 +8,9 @@ import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,12 +25,18 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author Harim Tejada
  */
-public class WinInicio extends javax.swing.JFrame implements VConexion{
+public class WinInicio extends javax.swing.JFrame implements VConexion, Runnable{
     /**
      * Creates new form WinInicio
      */
+    
+    String hora,minutos,segundos,ampm;
+    Calendar calendario;    
+    Thread h1;
     public WinInicio() {
         initComponents();
+        h1 = new Thread(this);
+        h1.start();
         PanelInicio pn = new  PanelInicio();
         this.add(pn, BorderLayout.CENTER);
         
@@ -43,6 +52,7 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        horaDelReloj = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
         crearUsuarioMenu = new javax.swing.JMenuItem();
@@ -78,6 +88,10 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
         setTitle("Riteen - Inicio");
         setPreferredSize(new java.awt.Dimension(846, 610));
         setResizable(false);
+
+        horaDelReloj.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        horaDelReloj.setForeground(new java.awt.Color(255, 255, 255));
+        horaDelReloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jMenuArchivo.setText("Archivo");
 
@@ -294,11 +308,15 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(horaDelReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 314, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(horaDelReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 258, Short.MAX_VALUE))
         );
 
         pack();
@@ -610,6 +628,7 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
     private javax.swing.JMenuItem empleadoReporte;
     private javax.swing.JMenuItem facturaReporte;
     private javax.swing.JMenuItem gastoReporte;
+    private javax.swing.JLabel horaDelReloj;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -624,4 +643,40 @@ public class WinInicio extends javax.swing.JFrame implements VConexion{
     private javax.swing.JMenuItem reciboReparacionReporte;
     private javax.swing.JMenuItem salirSistema;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        Thread ct = Thread.currentThread();
+        while(ct == h1) 
+        {   
+              calcula();
+              horaDelReloj.setText(hora + ":" + minutos + ":" + segundos);
+              try {
+               Thread.sleep(1000);
+              }
+              catch(InterruptedException e) {}
+        }
+    }
+    
+    public void calcula () 
+    {        
+        Calendar calendario = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+
+
+        calendario.setTime(fechaHoraActual);
+        ampm = calendario.get(Calendar.AM_PM)==Calendar.AM?"AM":"PM";
+
+        if(ampm.equals("PM"))
+        {
+            int h = calendario.get(Calendar.HOUR_OF_DAY)-12;
+            hora = h>9?""+h:"0"+h;
+        }
+        else
+        {
+            hora = calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);            
+        }
+        minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND); 
+    }
 }
