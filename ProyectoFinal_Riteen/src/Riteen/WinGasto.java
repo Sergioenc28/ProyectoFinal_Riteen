@@ -18,6 +18,7 @@ public class WinGasto extends javax.swing.JDialog {
     /**
      * Creates new form WinGastos
      */
+    //Prueben Gasto
     public WinGasto() {
         initComponents();
         PanelGastos pg = new PanelGastos();
