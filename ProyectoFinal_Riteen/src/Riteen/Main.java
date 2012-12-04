@@ -4,9 +4,7 @@
  */
 package Riteen;
 
-import java.awt.Color;
-import java.sql.Connection;
-import javax.swing.JOptionPane;
+
 
 /**
  *
