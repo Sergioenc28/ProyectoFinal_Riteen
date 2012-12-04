@@ -224,12 +224,7 @@ public class WinDetalleFacturaContado extends javax.swing.JDialog implements VCo
                 
             } catch (JRException ex) {
                 Logger.getLogger(WinDetalleFacturaContado.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           
-            
-      
-      
-      }
+            } }
     }//GEN-LAST:event_comboBoxDetalleFacturaActionPerformed
 
     private void finalizarDetalleFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarDetalleFacturaActionPerformed

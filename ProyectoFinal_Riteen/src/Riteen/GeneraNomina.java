@@ -7,6 +7,8 @@ package Riteen;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +16,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author Dioni Ripoll
  */
-public class GeneraNomina extends javax.swing.JDialog {
+public class GeneraNomina extends javax.swing.JDialog implements VConexion{
 
     /**
      * Creates new form GeneraNomina
@@ -125,6 +133,13 @@ public class GeneraNomina extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void generarNominaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarNominaActionPerformed
+        
+        
+        
+        
+        
+        
+        
         PreparedStatement borrar;
         
         try {
@@ -142,9 +157,32 @@ public class GeneraNomina extends javax.swing.JDialog {
         buscarSueldo();
         buscarIdEmpleado();                
         generarNomina();
-                       
+        generarReporte();
+        
+                 
     }//GEN-LAST:event_generarNominaActionPerformed
 
+    
+    void generarReporte(){
+    Connection conexion = null;
+     JasperReport report = null;
+    try {
+              try {
+                  conexion = DriverManager.getConnection(url,login,password);
+              } catch (SQLException ex) {
+                  Logger.getLogger(WinDetalleFacturaContado.class.getName()).log(Level.SEVERE, null, ex);
+              }
+                report = JasperCompileManager.compileReport("ReporteNomina.jrxml");
+                 JasperPrint jasperprint = JasperFillManager.fillReport(report,null,conexion);
+                 JasperViewer visor = new JasperViewer(jasperprint,false);
+            visor.setTitle("Riteen - Facturas del Dia");
+            visor.setVisible(true);
+                
+            } catch (JRException ex) {
+                Logger.getLogger(WinDetalleFacturaContado.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    
+    }
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelarActionPerformed

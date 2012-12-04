@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteNomina" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     nomina.`idEmpleado` AS nomina_idEmpleado,
+     nomina.`Empleado` AS nomina_Empleado,
+     nomina.`sueldoBruto` AS nomina_sueldoBruto,
+     nomina.`AFP` AS nomina_AFP,
+     nomina.`SFS` AS nomina_SFS,
+     nomina.`ISR` AS nomina_ISR,
+     nomina.`TotalDeduc` AS nomina_TotalDeduc,
+     nomina.`sueldoNeto` AS nomina_sueldoNeto
+FROM
+     `nomina` nomina]]>
+	</queryString>
+	<field name="nomina_idEmpleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomina_Empleado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomina_sueldoBruto" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomina_AFP" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomina_SFS" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomina_ISR" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomina_TotalDeduc" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomina_sueldoNeto" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<image>
+				<reportElement x="178" y="0" width="266" height="58"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\Harim Tejada\\Desktop\\valeriotv.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="231" y="58" width="291" height="38"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Century Gothic" size="22" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[NOMINA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="555" height="23"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="3" width="79" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPLEADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="3" width="60" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[S. BRUTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="3" width="41" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SFS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="3" width="39" height="20"/>
+				<textElement/>
+				<text><![CDATA[AFP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="3" width="41" height="20"/>
+				<textElement/>
+				<text><![CDATA[ISR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="3" width="35" height="20"/>
+				<textElement/>
+				<text><![CDATA[DESC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="3" width="62" height="20"/>
+				<textElement/>
+				<text><![CDATA[S. NETO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="0" width="113" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nomina_Empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="0" width="72" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{nomina_sueldoBruto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="0" width="79" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{nomina_AFP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="75" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{nomina_SFS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="357" y="0" width="53" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{nomina_ISR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="0" width="35" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{nomina_TotalDeduc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{nomina_sueldoNeto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
