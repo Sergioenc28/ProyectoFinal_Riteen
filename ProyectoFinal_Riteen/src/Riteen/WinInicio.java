@@ -4,10 +4,13 @@
  */
 package Riteen;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -53,6 +56,7 @@ public class WinInicio extends javax.swing.JFrame implements VConexion, Runnable
     private void initComponents() {
 
         horaDelReloj = new javax.swing.JLabel();
+        notifications = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
         crearUsuarioMenu = new javax.swing.JMenuItem();
@@ -92,6 +96,9 @@ public class WinInicio extends javax.swing.JFrame implements VConexion, Runnable
         horaDelReloj.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         horaDelReloj.setForeground(new java.awt.Color(255, 255, 255));
         horaDelReloj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        notifications.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        notifications.setForeground(new java.awt.Color(255, 0, 0));
 
         jMenuArchivo.setText("Archivo");
 
@@ -311,13 +318,19 @@ public class WinInicio extends javax.swing.JFrame implements VConexion, Runnable
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(horaDelReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(notifications, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(horaDelReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 258, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(notifications, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -638,6 +651,7 @@ public class WinInicio extends javax.swing.JFrame implements VConexion, Runnable
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemCuentaXCobrar;
     private javax.swing.JMenu jMenuRegistrar;
+    private javax.swing.JLabel notifications;
     private javax.swing.JMenuItem pedidoReporte;
     private javax.swing.JMenuItem productoReporte;
     private javax.swing.JMenuItem proveedorReporte;
@@ -679,5 +693,30 @@ public class WinInicio extends javax.swing.JFrame implements VConexion, Runnable
         }
         minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND); 
+    }
+    public void notificaciones()
+    {
+        ResultSet read;
+        ArrayList<Notificaciones> listaParaPedido = new ArrayList<>();
+        String paIdProducto,nombreDelProducto,idProveedor;
+        int cant;
+        try {
+            read = (ResultSet) Conexion.getInstancia().getConexion().prepareStatement("SELECT * FROM `almacen` WHERE `ExistenciaMinima` = `Existencia`");
+            
+            
+            while(read.next())
+            {
+                paIdProducto = read.getString(1).toString();
+                nombreDelProducto = read.getString(2).toString();
+                idProveedor = read.getString(4).toString();
+                cant = Integer.parseInt(read.getString(8).toString())*3;
+                Notificaciones nt = new Notificaciones(paIdProducto, nombreDelProducto, idProveedor, cant);
+                listaParaPedido.add(nt);
+            }
+                
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(WinInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
